@@ -16,8 +16,9 @@ import subprocess
 import time
 
 from .airborne_profile import iter_profile_observations
+from .candidate_support import evidence_support
 from .diagnostic_features import build_feature_frames
-from .hypotheses import default_model, evaluate_hypotheses, pressure_supply_model
+from .hypotheses import MODEL_VERSIONS, V4_MODEL_ID, default_model, evaluate_hypotheses, model_for_version, uses_propulsion_profile
 
 
 def analyze_diagnosis(records, *, temporal: bool = True, model: dict | None = None) -> dict:
@@ -31,11 +32,14 @@ def analyze_diagnosis(records, *, temporal: bool = True, model: dict | None = No
     if type(temporal) is not bool:
         raise ValueError("temporal must be Boolean")
     active_model = default_model() if model is None else copy.deepcopy(model)
-    extracted = build_feature_frames(records)
+    propulsion = uses_propulsion_profile(active_model)
+    generated = active_model["model_id"] == V4_MODEL_ID
+    extracted = build_feature_frames(records, propulsion=propulsion, generated=generated)
     frames = extracted["frames"]
     if not frames:
         raise ValueError("At least one public observation is required")
     timeline = []
+    incidents = {}
     diagnosis = None
     for frame in frames:
         diagnosis = evaluate_hypotheses(frame, temporal=temporal, model=active_model)
@@ -46,9 +50,20 @@ def analyze_diagnosis(records, *, temporal: bool = True, model: dict | None = No
             "plausible_candidate_ids": list(diagnosis["plausible_candidate_ids"]),
             "current_impact": copy.deepcopy(frame["current_impact"]),
         })
+        if generated:
+            timeline[-1]["minimal_candidate_ids"] = list(diagnosis["minimal_candidate_ids"])
+            incident_id = frame["scope"]["incident_id"]
+            if incident_id is not None:
+                incidents[incident_id] = {
+                    "scope": copy.deepcopy(frame["scope"]),
+                    "minimal_candidate_ids": list(diagnosis["minimal_candidate_ids"]),
+                    "additional_compatible_ids": list(diagnosis["additional_compatible_ids"]),
+                    "observed_onsets": {name: copy.deepcopy(fact["onset_interval"]) for name, fact in frame["facts"].items()
+                                        if fact["onset_interval"] is not None},
+                }
     last = frames[-1]
     observations = extracted["observation_report"]
-    return {
+    report = {
         "schema_version": 1, "report_type": "aerotrace_causal_diagnosis",
         "method": "dependency_compatibility_with_temporal_constraints" if temporal else "dependency_compatibility",
         "sample_count": observations["sample_count"],
@@ -74,6 +89,18 @@ def analyze_diagnosis(records, *, temporal: bool = True, model: dict | None = No
             "The first offline path uses repeated prefix analysis; computation and memory suitability for a live display require separate measurement.",
         ],
     }
+    if propulsion:
+        report["limitations"][0] = (
+            f"{len(active_model['candidates'])} configurations represent {len(active_model['roots'])} selected mechanism classes."
+        )
+        report["limitations"][6] = "Temporal checks use declared observation-order and Yellow supply-settling assumptions."
+        report["candidate_evidence_support"] = {
+            candidate["id"]: evidence_support(candidate) for candidate in diagnosis["candidates"]
+        }
+    if generated:
+        report["limitations"][2] = "An observed set of effects can be compatible with multiple root sets and initiating histories."
+        report["incidents"] = list(incidents.values())
+    return report
 
 
 def _write_json(path: Path, value) -> None:
@@ -113,6 +140,21 @@ def _markdown(report: dict) -> str:
              "", "Compatible model candidates: " + (", ".join(diagnosis["candidate_ids"]) or "none"),
              "Plausible candidates awaiting evidence: " + (", ".join(name for name in diagnosis["plausible_candidate_ids"] if name not in diagnosis["candidate_ids"]) or "none"),
              "", "A surviving model configuration does not establish a unique physical cause or probability."]
+    if "incidents" in report:
+        labels = {candidate["id"]: candidate["label"] for candidate in diagnosis["candidates"]}
+        facts = report["model"]["facts"]
+        lines.extend(["", "**Observed incident sequence.**"])
+        for incident in report["incidents"]:
+            scope = incident["scope"]
+            minimal = ", ".join(labels[name] for name in incident["minimal_candidate_ids"]) or "Unresolved"
+            status = "closed" if scope["closed"] else "active"
+            lines.append(f"- {scope['incident_id']} ({status}). Minimal fit {minimal}. "
+                         f"Additional compatible sets {len(incident['additional_compatible_ids'])}.")
+            for name, onset in incident["observed_onsets"].items():
+                lower = onset["lower_sim_time_s"]
+                start = f"{lower:.2f}" if lower is not None else "unknown"
+                lines.append(f"  - {facts[name]['label']} observed onset bracket {start} to "
+                             f"{onset['upper_sim_time_s']:.2f} simulator seconds.")
     lines.extend(["", "**What could reduce uncertainty.**"])
     discriminators = diagnosis.get("missing_evidence", [])
     lines.extend("- " + _describe(item) for item in discriminators)
@@ -130,6 +172,9 @@ def _markdown(report: dict) -> str:
     for candidate in diagnosis["candidates"]:
         lines.extend(["", f"**Hypothesis: {candidate.get('label', candidate['id'])}** (`{candidate['id']}`).",
                       f"Status: `{candidate['status']}`."])
+        score = report.get("candidate_evidence_support", {}).get(candidate["id"])
+        if score and score["percent"] is not None:
+            lines.append(f"Evidence support **{score['percent']}%** ({score['supported_checks']} of {score['total_checks']} checks).")
         for title, key in (("Supporting evidence", "supporting_evidence"),
                            ("Contradicting evidence", "contradicting_evidence"),
                            ("Predicted consequences", "predicted_consequences"),
@@ -153,7 +198,7 @@ def _markdown(report: dict) -> str:
 def _sources() -> dict[str, bytes]:
     root = Path(__file__).resolve().parents[1]
     names = ["__init__", "diagnosis", "diagnostic_features", "hypotheses", "airborne_evidence",
-             "airborne_profile", "evidence", "observations", "flightgear"]
+             "airborne_profile", "evidence", "observations", "flightgear", "propulsion_features", "candidate_support"]
     return {f"aircraft_debugger/{name}.py": (root / "aircraft_debugger" / f"{name}.py").read_bytes() for name in names}
 
 
@@ -162,7 +207,7 @@ def main() -> None:
     parser.add_argument("--observations", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path, help="New directory; existing output is refused")
     parser.add_argument("--mode", choices=("temporal", "atemporal"), default="temporal")
-    parser.add_argument("--model", choices=("v1", "v2"), default="v1", help="Explicit bounded catalogue; v2 adds pressure-supply loss")
+    parser.add_argument("--model", choices=MODEL_VERSIONS, default="v1", help="Versions 3 and 4 use the propulsion observation profile")
     args = parser.parse_args()
     if args.output.exists():
         parser.error("--output must name a new directory")
@@ -172,7 +217,7 @@ def main() -> None:
         executed = _sources()
         rows = list(iter_profile_observations(args.observations))
         started = time.perf_counter()
-        report = analyze_diagnosis(rows, temporal=args.mode == "temporal", model=pressure_supply_model() if args.model == "v2" else None)
+        report = analyze_diagnosis(rows, temporal=args.mode == "temporal", model=model_for_version(args.model))
         duration = time.perf_counter() - started
         if args.observations.read_bytes() != original or _sources() != executed:
             raise ValueError("Observation input or executed source changed during replay")

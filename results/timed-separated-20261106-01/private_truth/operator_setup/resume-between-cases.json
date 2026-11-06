@@ -1,0 +1,219 @@
+{
+  "before": {
+    "readings": {
+      "aircraft": {
+        "path": "/sim/aircraft",
+        "value": "A320-200-CFM",
+        "valid": true,
+        "error": null,
+        "sim_time_s": 281.325,
+        "received_monotonic_s": 528267.1081562,
+        "reachable": true,
+        "unit": ""
+      },
+      "paused": {
+        "path": "/sim/freeze/master",
+        "value": true,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 281.325,
+        "received_monotonic_s": 528267.0914517,
+        "reachable": true,
+        "unit": ""
+      },
+      "clock_frozen": {
+        "path": "/sim/freeze/clock",
+        "value": true,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 281.325,
+        "received_monotonic_s": 528267.1025929,
+        "reachable": true,
+        "unit": ""
+      },
+      "startup_in_progress": {
+        "path": "/systems/acconfig/autoconfig-running",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 281.325,
+        "received_monotonic_s": 528267.0964893,
+        "reachable": true,
+        "unit": ""
+      },
+      "startup_mismatch_reason": {
+        "path": "/systems/acconfig/mismatch-reason",
+        "value": "XX",
+        "valid": true,
+        "error": null,
+        "sim_time_s": 281.325,
+        "received_monotonic_s": 528267.1187452,
+        "reachable": true,
+        "unit": ""
+      },
+      "engine_1_running": {
+        "path": "/engines/engine[0]/running",
+        "value": true,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 281.325,
+        "received_monotonic_s": 528267.1186182,
+        "reachable": true,
+        "unit": ""
+      },
+      "engine_2_running": {
+        "path": "/engines/engine[1]/running",
+        "value": true,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 281.325,
+        "received_monotonic_s": 528267.1384094,
+        "reachable": true,
+        "unit": ""
+      },
+      "generator_2_fault": {
+        "path": "/systems/failures/electrical/gen-2",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 281.325,
+        "received_monotonic_s": 528267.1382776,
+        "reachable": true,
+        "unit": ""
+      },
+      "blue_leak_fault": {
+        "path": "/systems/failures/hydraulic/blue-leak",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 281.325,
+        "received_monotonic_s": 528267.1385153,
+        "reachable": true,
+        "unit": ""
+      },
+      "blue_pump_fault": {
+        "path": "/systems/failures/hydraulic/blue-elec",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 281.325,
+        "received_monotonic_s": 528267.1447534,
+        "reachable": true,
+        "unit": ""
+      }
+    },
+    "connected": true,
+    "complete": true,
+    "received_monotonic_s": 528267.1451642
+  },
+  "script": "setprop(\"/sim/freeze/clock\",0);setprop(\"/sim/freeze/master\",0);",
+  "status": 200,
+  "response": "ok.",
+  "after": {
+    "readings": {
+      "aircraft": {
+        "path": "/sim/aircraft",
+        "value": "A320-200-CFM",
+        "valid": true,
+        "error": null,
+        "sim_time_s": 281.35,
+        "received_monotonic_s": 528267.1903368,
+        "reachable": true,
+        "unit": ""
+      },
+      "paused": {
+        "path": "/sim/freeze/master",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 281.341667,
+        "received_monotonic_s": 528267.1832679,
+        "reachable": true,
+        "unit": ""
+      },
+      "clock_frozen": {
+        "path": "/sim/freeze/clock",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 281.358333,
+        "received_monotonic_s": 528267.2014984,
+        "reachable": true,
+        "unit": ""
+      },
+      "startup_in_progress": {
+        "path": "/systems/acconfig/autoconfig-running",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 281.366667,
+        "received_monotonic_s": 528267.2153603,
+        "reachable": true,
+        "unit": ""
+      },
+      "startup_mismatch_reason": {
+        "path": "/systems/acconfig/mismatch-reason",
+        "value": "XX",
+        "valid": true,
+        "error": null,
+        "sim_time_s": 281.383333,
+        "received_monotonic_s": 528267.2252918,
+        "reachable": true,
+        "unit": ""
+      },
+      "engine_1_running": {
+        "path": "/engines/engine[0]/running",
+        "value": true,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 281.391667,
+        "received_monotonic_s": 528267.2328772,
+        "reachable": true,
+        "unit": ""
+      },
+      "engine_2_running": {
+        "path": "/engines/engine[1]/running",
+        "value": true,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 281.4,
+        "received_monotonic_s": 528267.2401798,
+        "reachable": true,
+        "unit": ""
+      },
+      "generator_2_fault": {
+        "path": "/systems/failures/electrical/gen-2",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 281.408333,
+        "received_monotonic_s": 528267.249714,
+        "reachable": true,
+        "unit": ""
+      },
+      "blue_leak_fault": {
+        "path": "/systems/failures/hydraulic/blue-leak",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 281.416667,
+        "received_monotonic_s": 528267.2649496,
+        "reachable": true,
+        "unit": ""
+      },
+      "blue_pump_fault": {
+        "path": "/systems/failures/hydraulic/blue-elec",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 281.433333,
+        "received_monotonic_s": 528267.2741554,
+        "reachable": true,
+        "unit": ""
+      }
+    },
+    "connected": true,
+    "complete": true,
+    "received_monotonic_s": 528267.2744583
+  }
+}

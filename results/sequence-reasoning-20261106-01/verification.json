@@ -1,0 +1,337 @@
+{
+  "schema_version": 1,
+  "model_id": "aerotrace-generated-mechanism-sets-v4",
+  "software_exercise": {
+    "source": "tests/test_sequence_reasoning.py",
+    "source_sha256": "f923103e2fb90c4f34714c499ed20906120a40fde9c4de31748343501a14fca0",
+    "scope": "Independent synthetic threshold steps and declared fixture delays. Counts describe model behavior on fixtures.",
+    "histories_by_mechanism_count": {
+      "0": 1,
+      "1": 5,
+      "2": 30,
+      "3": 130,
+      "4": 375,
+      "5": 541
+    },
+    "expected_histories_retained_including_reference": 1082,
+    "one_compatible_history_including_reference": 67,
+    "multiple_compatible_histories": 1015
+  },
+  "native_replays": [
+    {
+      "case": "isolated_generator",
+      "public_recording": "results/airborne-contrast-20261028-01/observations.jsonl",
+      "sha256": "37e040ef0c5c5ec37550345aedb2cf407289d977b3c5b6fa855966324ba7fd1a",
+      "schema": 2,
+      "observations": 34,
+      "history_counts_including_reference": {
+        "compatible": 0,
+        "unconfirmed": 24,
+        "excluded_by_dependency": 1058,
+        "excluded_by_timing": 0
+      },
+      "minimal_possible_mechanism_sets": [
+        "generator_2_source_path_fault",
+        "engine_2_power_loss"
+      ],
+      "response_bounds_sim_s": {}
+    },
+    {
+      "case": "isolated_blue_inventory_loss",
+      "public_recording": "results/airborne-contrast-20261029-01/observations.jsonl",
+      "sha256": "3be5cd709dd54bb8a32d7bb9c39a2e9a274ab81c63a670e8fa1ee52ff5ec5873",
+      "schema": 2,
+      "observations": 81,
+      "history_counts_including_reference": {
+        "compatible": 0,
+        "unconfirmed": 20,
+        "excluded_by_dependency": 1062,
+        "excluded_by_timing": 0
+      },
+      "minimal_possible_mechanism_sets": [
+        "blue_fluid_loss_mechanism"
+      ],
+      "response_bounds_sim_s": {}
+    },
+    {
+      "case": "isolated_blue_pump",
+      "public_recording": "results/pressure-v2-native-20261103-01/pump-only/observations.jsonl",
+      "sha256": "e1aa056dd973a03b42d71626d3c907d27f12ae0a43d77281c96f2ff29dcb658c",
+      "schema": 2,
+      "observations": 53,
+      "history_counts_including_reference": {
+        "compatible": 0,
+        "unconfirmed": 4,
+        "excluded_by_dependency": 1078,
+        "excluded_by_timing": 0
+      },
+      "minimal_possible_mechanism_sets": [
+        "blue_pressure_supply_loss"
+      ],
+      "response_bounds_sim_s": {}
+    },
+    {
+      "case": "isolated_engine_2",
+      "public_recording": "results/engine-drive-20261106-01/engine-auto/observations.jsonl",
+      "sha256": "51972c0f8523641e43ddc5a4bbf196d2560b61c5ea27e3113f9e16dc6b8d929b",
+      "schema": 3,
+      "observations": 59,
+      "history_counts_including_reference": {
+        "compatible": 20,
+        "unconfirmed": 0,
+        "excluded_by_dependency": 1062,
+        "excluded_by_timing": 0
+      },
+      "minimal_possible_mechanism_sets": [
+        "engine_2_power_loss"
+      ],
+      "response_bounds_sim_s": {}
+    },
+    {
+      "case": "isolated_yellow_pump",
+      "public_recording": "results/yellow-edp-isolated-20261106-01/run/observations.jsonl",
+      "sha256": "60c46477f57024b5e8556b3b97b04d0f0a0fed405ac5da47bd0a495f9f734f3e",
+      "schema": 3,
+      "observations": 60,
+      "history_counts_including_reference": {
+        "compatible": 1,
+        "unconfirmed": 0,
+        "excluded_by_dependency": 1081,
+        "excluded_by_timing": 0
+      },
+      "minimal_possible_mechanism_sets": [
+        "yellow_engine_driven_pump_supply_loss"
+      ],
+      "response_bounds_sim_s": {}
+    },
+    {
+      "case": "independent_generator_and_yellow_pump",
+      "public_recording": "results/engine-drive-20261106-01/pair-auto/observations.jsonl",
+      "sha256": "a8ea5ee29d22d2de60502467dbd607b6d5635e7246b67f1d78e22bda0d5d57ca",
+      "schema": 3,
+      "observations": 60,
+      "history_counts_including_reference": {
+        "compatible": 3,
+        "unconfirmed": 0,
+        "excluded_by_dependency": 1079,
+        "excluded_by_timing": 0
+      },
+      "minimal_possible_mechanism_sets": [
+        "generator_2_source_path_fault+yellow_engine_driven_pump_supply_loss"
+      ],
+      "response_bounds_sim_s": {}
+    },
+    {
+      "case": "near_synchronous_generator_and_blue_pump",
+      "public_recording": "results/pressure-pair-20261106-01/pair/observations.jsonl",
+      "sha256": "1992ff7aca57a2a7c53c422eedaf87bb5a74a4b63d0f3301c96243f6b1f9c0cc",
+      "schema": 2,
+      "observations": 53,
+      "history_counts_including_reference": {
+        "compatible": 0,
+        "unconfirmed": 120,
+        "excluded_by_dependency": 962,
+        "excluded_by_timing": 0
+      },
+      "minimal_possible_mechanism_sets": [
+        "generator_2_source_path_fault+blue_pressure_supply_loss",
+        "blue_pressure_supply_loss+engine_2_power_loss"
+      ],
+      "response_bounds_sim_s": {
+        "generator_2_source_path_fault": {
+          "generator_source_anomaly": [
+            0,
+            3
+          ]
+        },
+        "blue_pressure_supply_loss": {
+          "blue_pressure_loss": [
+            0,
+            10
+          ]
+        }
+      },
+      "possible_orders_for_generator_and_blue_pump_set": [
+        [
+          [
+            "generator_2_source_path_fault"
+          ],
+          [
+            "blue_pressure_supply_loss"
+          ]
+        ],
+        [
+          [
+            "blue_pressure_supply_loss"
+          ],
+          [
+            "generator_2_source_path_fault"
+          ]
+        ],
+        [
+          [
+            "generator_2_source_path_fault",
+            "blue_pressure_supply_loss"
+          ]
+        ]
+      ]
+    },
+    {
+      "case": "staggered_generator_and_blue_pump",
+      "public_recording": "results/timed-pair-20261106-01/observations.jsonl",
+      "sha256": "c6f5ab4292d293dab2e4d83367eeb6099fa68addaf79231a56bc2e0b0f1c65c9",
+      "schema": 2,
+      "observations": 76,
+      "history_counts_including_reference": {
+        "compatible": 0,
+        "unconfirmed": 62,
+        "excluded_by_dependency": 962,
+        "excluded_by_timing": 58
+      },
+      "minimal_possible_mechanism_sets": [
+        "generator_2_source_path_fault+blue_pressure_supply_loss",
+        "blue_pressure_supply_loss+engine_2_power_loss"
+      ],
+      "response_bounds_sim_s": {
+        "generator_2_source_path_fault": {
+          "generator_source_anomaly": [
+            0,
+            3
+          ]
+        },
+        "blue_pressure_supply_loss": {
+          "blue_pressure_loss": [
+            0,
+            10
+          ]
+        }
+      },
+      "possible_orders_for_generator_and_blue_pump_set": [
+        [
+          [
+            "generator_2_source_path_fault"
+          ],
+          [
+            "blue_pressure_supply_loss"
+          ]
+        ]
+      ]
+    },
+    {
+      "case": "staggered_wider_pressure_delay",
+      "public_recording": "results/timed-pair-20261106-01/observations.jsonl",
+      "sha256": "c6f5ab4292d293dab2e4d83367eeb6099fa68addaf79231a56bc2e0b0f1c65c9",
+      "schema": 2,
+      "observations": 76,
+      "history_counts_including_reference": {
+        "compatible": 0,
+        "unconfirmed": 120,
+        "excluded_by_dependency": 962,
+        "excluded_by_timing": 0
+      },
+      "minimal_possible_mechanism_sets": [
+        "generator_2_source_path_fault+blue_pressure_supply_loss",
+        "blue_pressure_supply_loss+engine_2_power_loss"
+      ],
+      "response_bounds_sim_s": {
+        "generator_2_source_path_fault": {
+          "generator_source_anomaly": [
+            0,
+            3
+          ]
+        },
+        "blue_pressure_supply_loss": {
+          "blue_pressure_loss": [
+            0,
+            30
+          ]
+        }
+      },
+      "possible_orders_for_generator_and_blue_pump_set": [
+        [
+          [
+            "generator_2_source_path_fault"
+          ],
+          [
+            "blue_pressure_supply_loss"
+          ]
+        ],
+        [
+          [
+            "blue_pressure_supply_loss"
+          ],
+          [
+            "generator_2_source_path_fault"
+          ]
+        ],
+        [
+          [
+            "generator_2_source_path_fault",
+            "blue_pressure_supply_loss"
+          ]
+        ]
+      ]
+    },
+    {
+      "case": "generator_and_blue_pump_with_recovery_gap",
+      "public_recording": "results/timed-separated-20261106-01/observations.jsonl",
+      "sha256": "9510a39184df94990c0ce494f09b56156bddbbce11c33e15822e65db7d780d2a",
+      "schema": 2,
+      "observations": 73,
+      "history_counts_including_reference": {
+        "compatible": 0,
+        "unconfirmed": 62,
+        "excluded_by_dependency": 962,
+        "excluded_by_timing": 58
+      },
+      "minimal_possible_mechanism_sets": [
+        "generator_2_source_path_fault+blue_pressure_supply_loss",
+        "blue_pressure_supply_loss+engine_2_power_loss"
+      ],
+      "response_bounds_sim_s": {
+        "generator_2_source_path_fault": {
+          "generator_source_anomaly": [
+            0,
+            3
+          ]
+        },
+        "blue_pressure_supply_loss": {
+          "blue_pressure_loss": [
+            0,
+            10
+          ]
+        }
+      },
+      "possible_orders_for_generator_and_blue_pump_set": [
+        [
+          [
+            "generator_2_source_path_fault"
+          ],
+          [
+            "blue_pressure_supply_loss"
+          ]
+        ]
+      ]
+    }
+  ],
+  "native_replay_scope": "Archived airborne FlightGear observations. The wider-bound sensitivity check reuses the staggered recording.",
+  "pair_response_bounds_source": {
+    "path": "configs/sequence-pair-response-bounds.json",
+    "sha256": "bdc970d64ca3dda0fb17dd6b49a3f2d3c5fa38e65f0c9f21eb925af9f5af3638"
+  },
+  "executed_source_sha256": {
+    "aircraft_debugger/__init__.py": "f83c273be208a311215072e20eef5b00103f6ad25715679ea36d285dd1459ac2",
+    "aircraft_debugger/diagnosis.py": "60560bbc937e40fa031c06d587a4ca66a19a79f7a581d5fcad97bf49c306da97",
+    "aircraft_debugger/diagnostic_features.py": "aa7feb0dfa0662371a7c04f180353e16516d20f0be1024636b479a544eee904e",
+    "aircraft_debugger/hypotheses.py": "a208aa3fb117a3fedfacaf9cd5e259c9305ae8f5ec7ec2f127210713b74d8f7c",
+    "aircraft_debugger/airborne_evidence.py": "fa7c985c040d72a10f1315e0fb26c05c456c284ee7cfb2476c8e387d1e9d31d8",
+    "aircraft_debugger/airborne_profile.py": "648d46a74845462e8f92566dabed6d88c87c90f5fff6837b522fb3ca07105019",
+    "aircraft_debugger/evidence.py": "cd0c6ad86b66ccb15a3d1c3b446ea9208f0ea3b419d12ecb23beb91db542f519",
+    "aircraft_debugger/observations.py": "56d3acd38311403f340ad2ae8a733ebb00135ca290484d3ad95ef07e5689011c",
+    "aircraft_debugger/flightgear.py": "4e60e793ad30fdc5fa8d2b8d9d9157b16c1ab20fa99014df0252216325bdd443",
+    "aircraft_debugger/propulsion_features.py": "21699c050c509487a112fd54ab7888970eed584a9c33ebda10867f8666aa3738",
+    "aircraft_debugger/candidate_support.py": "a16dae541f25ba1c1151dbf99e29341d6dcf2110c5eef666ad51d5490d814840",
+    "aircraft_debugger/sequence_reasoning.py": "ab02858fcde3a0c20592e89e94a69866ae72d46286ac0b5598fda1f8a023fb66",
+    "aircraft_debugger/onset_orders.py": "82959811c563a0378e2ef48a43a1eca992eafc88435278b92b496e88ba76b13b"
+  }
+}

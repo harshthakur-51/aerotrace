@@ -1,0 +1,221 @@
+{
+  "profile": "observed-generator-pressure-chronology-v1",
+  "samples": 76,
+  "response_bounds_sim_s": {
+    "generator_source_anomaly": [
+      0,
+      3
+    ],
+    "blue_pressure_loss": [
+      0,
+      10
+    ]
+  },
+  "maximum_joint_reading_skew_sim_s": 0.25,
+  "physical_cause_probability": null,
+  "incidents": [
+    {
+      "id": "I0001",
+      "scope": {
+        "incident_id": "I0001",
+        "epoch": 0,
+        "start_sample_index": 17,
+        "end_sample_index": 70,
+        "closed": true,
+        "kind": "last_observed_incident",
+        "reference_sample_index": 16
+      },
+      "joint_windows": [
+        {
+          "state": "both_nominal",
+          "first_sample": 16,
+          "last_sample": 16,
+          "first_sim_s": 223.45,
+          "last_sim_s": 223.45
+        },
+        {
+          "state": "unknown",
+          "first_sample": 17,
+          "last_sample": 17,
+          "first_sim_s": 223.95,
+          "last_sim_s": 223.95
+        },
+        {
+          "state": "generator_only",
+          "first_sample": 18,
+          "last_sample": 37,
+          "first_sim_s": 224.966667,
+          "last_sim_s": 243.558333
+        },
+        {
+          "state": "both_degraded",
+          "first_sample": 38,
+          "last_sample": 49,
+          "first_sim_s": 244.566667,
+          "last_sim_s": 255.583333
+        },
+        {
+          "state": "pressure_only",
+          "first_sample": 50,
+          "last_sample": 68,
+          "first_sim_s": 255.991667,
+          "last_sim_s": 273.391667
+        },
+        {
+          "state": "both_nominal",
+          "first_sample": 69,
+          "last_sample": 70,
+          "first_sim_s": 274.408333,
+          "last_sim_s": 275.4
+        }
+      ],
+      "shared_trigger": {
+        "status": "contradicted",
+        "onsets": {
+          "generator_source_anomaly": {
+            "lower_sim_time_s": 223.516667,
+            "upper_sim_time_s": 224.025,
+            "lower_sample_index": 16,
+            "upper_sample_index": 17,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "blue_pressure_loss": {
+            "lower_sim_time_s": 243.65,
+            "upper_sim_time_s": 244.658333,
+            "lower_sample_index": 37,
+            "upper_sample_index": 38,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          }
+        },
+        "order": "generator_before_pressure",
+        "trigger_intervals_sim_s": {
+          "generator_source_anomaly": [
+            220.516667,
+            224.025
+          ],
+          "blue_pressure_loss": [
+            233.65,
+            244.658333
+          ]
+        },
+        "common_trigger_interval_sim_s": null
+      },
+      "candidates": [
+        {
+          "id": "selected_reference",
+          "label": "No selected mechanism currently required",
+          "status": "contradicted",
+          "evidence_support": {
+            "percent": null,
+            "supported_checks": 2,
+            "total_checks": 4,
+            "unconfirmed_checks": 0,
+            "contradicted_checks": 2
+          }
+        },
+        {
+          "id": "generator_2_source_path_fault",
+          "label": "Generator 2 source-path fault",
+          "status": "contradicted",
+          "evidence_support": {
+            "percent": null,
+            "supported_checks": 2,
+            "total_checks": 3,
+            "unconfirmed_checks": 0,
+            "contradicted_checks": 1
+          }
+        },
+        {
+          "id": "blue_inventory_loss",
+          "label": "Blue fluid-inventory-loss analogue",
+          "status": "contradicted",
+          "evidence_support": {
+            "percent": null,
+            "supported_checks": 1,
+            "total_checks": 3,
+            "unconfirmed_checks": 0,
+            "contradicted_checks": 2
+          }
+        },
+        {
+          "id": "independent_pair",
+          "label": "Independent source-path and blue inventory-loss mechanisms",
+          "status": "contradicted",
+          "evidence_support": {
+            "percent": null,
+            "supported_checks": 1,
+            "total_checks": 2,
+            "unconfirmed_checks": 0,
+            "contradicted_checks": 1
+          }
+        },
+        {
+          "id": "grouped_joint_event",
+          "label": "One grouped event affecting both selected mechanisms",
+          "status": "contradicted",
+          "evidence_support": {
+            "percent": null,
+            "supported_checks": 1,
+            "total_checks": 2,
+            "unconfirmed_checks": 0,
+            "contradicted_checks": 1
+          }
+        },
+        {
+          "id": "blue_pressure_supply_loss",
+          "label": "Blue pressure-supply-path loss",
+          "status": "contradicted",
+          "evidence_support": {
+            "percent": null,
+            "supported_checks": 3,
+            "total_checks": 4,
+            "unconfirmed_checks": 0,
+            "contradicted_checks": 1
+          }
+        },
+        {
+          "id": "independent_pressure_pair",
+          "label": "Independent source-path and blue pressure-supply losses",
+          "status": "compatible",
+          "evidence_support": {
+            "percent": 100,
+            "supported_checks": 3,
+            "total_checks": 3,
+            "unconfirmed_checks": 0,
+            "contradicted_checks": 0
+          }
+        },
+        {
+          "id": "grouped_pressure_joint_event",
+          "label": "One shared trigger within the declared response bounds",
+          "status": "contradicted_under_response_bounds",
+          "evidence_support": {
+            "percent": null,
+            "supported_checks": 3,
+            "total_checks": 4,
+            "unconfirmed_checks": 0,
+            "contradicted_checks": 1
+          }
+        }
+      ],
+      "v2_compatible_ids": [
+        "independent_pressure_pair",
+        "grouped_pressure_joint_event"
+      ]
+    }
+  ],
+  "observation_sha256": "c6f5ab4292d293dab2e4d83367eeb6099fa68addaf79231a56bc2e0b0f1c65c9",
+  "source_sha256": {
+    "aircraft_debugger/__init__.py": "8b3988af59cc46fdbb7c4e8bccfa65a2aaf90e4882d3ba8c70c344e15f63d68a",
+    "aircraft_debugger/diagnosis.py": "db21021c7d1c6cb26a353305cbb1e8186e5662335a33db4b991eaa3367c3cb94",
+    "aircraft_debugger/diagnostic_features.py": "0ac4b165ec2e1f21682653a5e99d0e19bd533afc43ed14ea57a2638457990fca",
+    "aircraft_debugger/hypotheses.py": "be9b55cb2f2e9c6ea6ac123782e0cb95611c463feb6c01a6584fe786563c036f",
+    "aircraft_debugger/airborne_evidence.py": "690b73569789b8c2ef72532c3b58def8b604adad2c68c10bceb8e964ee2463f2",
+    "aircraft_debugger/airborne_profile.py": "fefe20b9ce275ccfd581749452ade96c522192216ebc189fd3801d083befc565",
+    "aircraft_debugger/evidence.py": "cd0c6ad86b66ccb15a3d1c3b446ea9208f0ea3b419d12ecb23beb91db542f519",
+    "aircraft_debugger/observations.py": "56d3acd38311403f340ad2ae8a733ebb00135ca290484d3ad95ef07e5689011c",
+    "aircraft_debugger/flightgear.py": "4e60e793ad30fdc5fa8d2b8d9d9157b16c1ab20fa99014df0252216325bdd443",
+    "aircraft_debugger/temporal_analysis.py": "ebb7eff86a7019c097405a4d26e2a6d1eb24bd875de283f62e051469835da242",
+    "aircraft_debugger/candidate_support.py": "a16dae541f25ba1c1151dbf99e29341d6dcf2110c5eef666ad51d5490d814840"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "generator_2_source_path_fault": {
+    "generator_source_anomaly": [0, 3]
+  },
+  "blue_pressure_supply_loss": {
+    "blue_pressure_loss": [0, 10]
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "model_id": "aerotrace-generated-mechanism-sets-v4",
+  "source_sha256": {
+    "aircraft_debugger/__init__.py": "8b3988af59cc46fdbb7c4e8bccfa65a2aaf90e4882d3ba8c70c344e15f63d68a",
+    "aircraft_debugger/diagnosis.py": "60560bbc937e40fa031c06d587a4ca66a19a79f7a581d5fcad97bf49c306da97",
+    "aircraft_debugger/diagnostic_features.py": "57c110388dc6c8207b83530b52fe9a3997780e91cc6d808591ad12e303e2a108",
+    "aircraft_debugger/hypotheses.py": "a208aa3fb117a3fedfacaf9cd5e259c9305ae8f5ec7ec2f127210713b74d8f7c",
+    "aircraft_debugger/airborne_evidence.py": "fa7c985c040d72a10f1315e0fb26c05c456c284ee7cfb2476c8e387d1e9d31d8",
+    "aircraft_debugger/airborne_profile.py": "648d46a74845462e8f92566dabed6d88c87c90f5fff6837b522fb3ca07105019",
+    "aircraft_debugger/evidence.py": "cd0c6ad86b66ccb15a3d1c3b446ea9208f0ea3b419d12ecb23beb91db542f519",
+    "aircraft_debugger/observations.py": "56d3acd38311403f340ad2ae8a733ebb00135ca290484d3ad95ef07e5689011c",
+    "aircraft_debugger/flightgear.py": "4e60e793ad30fdc5fa8d2b8d9d9157b16c1ab20fa99014df0252216325bdd443",
+    "aircraft_debugger/propulsion_features.py": "21699c050c509487a112fd54ab7888970eed584a9c33ebda10867f8666aa3738",
+    "aircraft_debugger/candidate_support.py": "a16dae541f25ba1c1151dbf99e29341d6dcf2110c5eef666ad51d5490d814840"
+  },
+  "observation_sha256": "60c46477f57024b5e8556b3b97b04d0f0a0fed405ac5da47bd0a495f9f734f3e",
+  "sample_count": 60,
+  "model_configurations": 32,
+  "minimal_candidates": [
+    "yellow_engine_driven_pump_supply_loss"
+  ],
+  "additional_compatible": [],
+  "support": {
+    "yellow_engine_driven_pump_supply_loss": {
+      "percent": 100,
+      "supported_checks": 8,
+      "total_checks": 8,
+      "unconfirmed_checks": 0,
+      "contradicted_checks": 0
+    }
+  },
+  "incidents": [
+    {
+      "scope": {
+        "incident_id": "I0001",
+        "epoch": 0,
+        "start_sample_index": 18,
+        "end_sample_index": 49,
+        "closed": true,
+        "kind": "last_observed_incident",
+        "reference_sample_index": 17
+      },
+      "minimal_candidate_ids": [
+        "yellow_engine_driven_pump_supply_loss"
+      ],
+      "additional_compatible_ids": [],
+      "observed_onsets": {
+        "yellow_edp_output_loss": {
+          "lower_sim_time_s": 202.475,
+          "upper_sim_time_s": 203.225,
+          "lower_sample_index": 17,
+          "upper_sample_index": 18,
+          "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+        }
+      }
+    }
+  ]
+}

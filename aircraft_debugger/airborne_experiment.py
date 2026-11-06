@@ -1,6 +1,6 @@
 """One controlled airborne native-model experiment, with private interventions.
 
-This command can change two allowlisted failure flags. The operator must stop
+This command can change allowlisted failure flags. The operator must stop
 competing collectors/controllers and notify the spectator before injection. No
 approval prompt is added here. Fresh admission is required even after an earlier
 qualified flight. These experiments do not establish real-aircraft fidelity or
@@ -22,10 +22,15 @@ import time
 import threading
 from typing import Callable
 
-from .airborne_admission import AirborneAdmission, QualificationSettings, READINESS_CHANNELS
-from .airborne_profile import AIRBORNE_CHANNELS, PROFILE_ID, airborne_observation_record, write_airborne_observation
+from .airborne_admission import (
+    AirborneAdmission, QualificationSettings, PROPULSION_FAULTS, READINESS_CHANNELS, _EXPECTED_READINESS,
+)
+from .airborne_profile import (
+    AIRBORNE_CHANNELS, PROFILE_ID, PROPULSION_PROFILE_ID, airborne_observation_record, write_airborne_observation,
+)
 from .airborne_record import load_settings
 from .flightgear import FlightGearClient
+from .hypotheses import MODEL_VERSIONS, model_for_version, uses_propulsion_profile
 from .sim_panel import FAULT_PATHS, PanelState, ObservationPanelState, make_server
 
 
@@ -39,6 +44,11 @@ CASES = {
     "source_and_pressure_supply_pair": ("generator_2", "blue_pump"),
 }
 _READINESS_FAULTS = {"generator_2": "generator_2_fault", "blue_leak": "blue_leak_fault", "blue_pump": "blue_pump_fault"}
+PROPULSION_CASES = {
+    "engine_2_cutoff": ("engine_2_cutoff",),
+    "isolated_yellow_edp": ("yellow_edp",),
+    "independent_generator_2_and_yellow_edp": ("generator_2", "yellow_edp"),
+}
 
 
 def _save(path: Path, value: dict) -> None:
@@ -56,8 +66,9 @@ def _archive_sources(output: Path) -> dict:
         "aircraft_debugger/airborne_record.py", "aircraft_debugger/airborne_profile.py",
         "aircraft_debugger/airborne_admission.py", "aircraft_debugger/observations.py",
         "aircraft_debugger/flightgear.py", "aircraft_debugger/sim_panel.py",
+        "aircraft_debugger/candidate_support.py", "aircraft_debugger/assets/sim-panel.html",
         "aircraft_debugger/diagnostic_session.py", "aircraft_debugger/diagnostic_features.py",
-        "aircraft_debugger/hypotheses.py", "aircraft_debugger/airborne_evidence.py",
+        "aircraft_debugger/hypotheses.py", "aircraft_debugger/airborne_evidence.py", "aircraft_debugger/propulsion_features.py",
         "aircraft_debugger/evidence.py",
         "configs/flightgear-assets.json", "configs/flightgear-a320.fgfsrc",
     )
@@ -84,13 +95,67 @@ def _archive_sources(output: Path) -> dict:
             "runtime_pins_are_expected_configuration_not_live_build_verification": True}
 
 
-def _clear_initial_flags(snapshot) -> None:
-    for fault, name in _READINESS_FAULTS.items():
-        reading = snapshot.readings.get(name)
-        if (reading is None or reading.path != FAULT_PATHS[fault]
+def _clear_initial_flags(snapshot, fault_paths) -> None:
+    for fault, path in fault_paths.items():
+        reading = snapshot.readings.get(f"{fault}_fault")
+        if (reading is None or reading.path != path
                 or reading.valid is not True or reading.reachable is not True
                 or reading.error is not None or reading.value is not False):
             raise RuntimeError(f"Native {fault} flag is not confirmed clear; no flags were changed")
+
+
+def validate_schedule(schedule: object) -> list[dict]:
+    """Validate ordered private phases of supported native flag configurations."""
+    if not isinstance(schedule, list) or not 1 <= len(schedule) <= 8:
+        raise ValueError("A timed schedule requires one to eight phases")
+    supported = {frozenset(faults) for faults in CASES.values()}
+    phases = []
+    for phase in schedule:
+        if not isinstance(phase, dict) or set(phase) != {"faults", "duration_sim_s"}:
+            raise ValueError("A phase requires faults and duration_sim_s")
+        faults, duration = phase["faults"], phase["duration_sim_s"]
+        if (not isinstance(faults, list) or any(not isinstance(fault, str) for fault in faults)
+                or len(faults) != len(set(faults)) or frozenset(faults) not in supported):
+            raise ValueError("A phase must use one supported set of distinct native faults")
+        if type(duration) not in (int, float) or not 0.1 <= duration <= 60:
+            raise ValueError("Phase duration must be between 0.1 and 60 simulator seconds")
+        phases.append({"faults": list(faults), "duration_sim_s": float(duration)})
+    if not phases[0]["faults"] or sum(phase["duration_sim_s"] for phase in phases) > 120:
+        raise ValueError("A schedule must start with an intervention and span at most 120 simulator seconds")
+    return phases
+
+
+def _transition_expiry(reader, record, pending, settings, monotonic):
+    """Fresh continuation clearance after a fully observed phase."""
+    readings = record["readings"]
+    values = {name: reading["value"] for name, reading in readings.items()}
+    if (not record["complete"] or values["aircraft"] != "A320-200-CFM" or values["paused"]
+            or values["main_gear_1_wow"] or values["main_gear_2_wow"]
+            or values["height_agl"] < settings.minimum_height_agl_ft
+            or abs(values["altitude"] - settings.altitude_target_ft) > settings.altitude_tolerance_ft
+            or abs(values["airspeed"] - settings.airspeed_target_kt) > settings.airspeed_tolerance_kt
+            or abs(values["bank"]) > settings.maximum_abs_bank_deg
+            or abs(values["vertical_speed"]) > settings.maximum_abs_vertical_speed_fps):
+        raise RuntimeError("Timed transition requires a fresh, stable airborne observation")
+    readiness = reader.poll(READINESS_CHANNELS)
+    expected = {**_EXPECTED_READINESS, **{name: fault in pending for fault, name in _READINESS_FAULTS.items()}}
+    if not readiness.complete or readiness.readings.keys() != expected.keys():
+        raise RuntimeError("Timed transition readiness incomplete")
+    receipts = [reading["received_monotonic_s"] for reading in readings.values()]
+    times = [reading["sim_time_s"] for reading in readings.values()]
+    for name, reading in readiness.readings.items():
+        if (not reading.valid or not reading.reachable or reading.error is not None
+                or reading.path != READINESS_CHANNELS[name].path
+                or type(reading.value) is not type(expected[name]) or reading.value != expected[name]
+                or reading.sim_time_s is None):
+            raise RuntimeError("Timed transition readiness or owned flags differ from the schedule")
+        receipts.append(reading.received_monotonic_s)
+        times.append(reading.sim_time_s)
+    now = monotonic()
+    expiry = min(receipts) + settings.maximum_reading_age_s
+    if now > expiry or max(receipts) > now or max(times) - min(times) > settings.maximum_timestamp_skew_s:
+        raise RuntimeError("Timed transition readings are stale or span different simulator times")
+    return expiry, readiness
 
 
 def run_experiment(
@@ -102,6 +167,8 @@ def run_experiment(
     monotonic: Callable[[], float] = time.monotonic,
     sleep: Callable[[float], None] = time.sleep,
     on_observation: Callable[[dict], None] | None = None,
+    schedule: list[dict] | None = None,
+    ptu_selected: bool | None = None,
 ) -> dict:
     """Collect one case; injected dependencies permit tests without simulator IO.
 
@@ -111,8 +178,14 @@ def run_experiment(
     The caller must ensure exclusive simulator ownership: no distributed lock
     can prevent a separate cockpit/operator changing the same native flag.
     """
-    if not isinstance(case, str) or case not in CASES:
+    if not isinstance(case, str) or case not in (CASES | PROPULSION_CASES):
         raise ValueError("Unknown airborne experiment case")
+    propulsion = case in PROPULSION_CASES
+    if propulsion and (type(ptu_selected) is not bool or schedule is not None):
+        raise ValueError("Propulsion trials require an explicit PTU setting and one fixed intervention")
+    if not propulsion and ptu_selected is not None:
+        raise ValueError("The PTU study setting applies only to propulsion trials")
+    timed_phases = validate_schedule(schedule) if schedule is not None else None
     if on_observation is not None and not callable(on_observation):
         raise ValueError("on_observation must be callable or None")
     settings = settings if settings is not None else QualificationSettings()
@@ -132,17 +205,21 @@ def run_experiment(
     if output.exists():
         raise FileExistsError(f"Refusing existing experiment folder: {output}")
     reader = client if client is not None else FlightGearClient(port=port, timeout_s=1.0, max_workers=4)
+    gate = AirborneAdmission(settings, ptu_selected=ptu_selected)
+    channels = gate.channels
+    fault_paths = {**FAULT_PATHS, **PROPULSION_FAULTS} if propulsion else FAULT_PATHS
     # A pre-existing fault is never adopted, cleared, or overwritten by this run.
-    _clear_initial_flags(reader.poll(READINESS_CHANNELS))
+    _clear_initial_flags(reader.poll(gate.readiness_channels), fault_paths)
     output.mkdir(parents=True, exist_ok=False)
     private = output / "private_truth"
     private.mkdir()
-    faults = CASES[case]
-    controller = operator if operator is not None else PanelState(reader)
+    faults = (tuple(dict.fromkeys(fault for phase in timed_phases for fault in phase["faults"]))
+              if timed_phases else (CASES | PROPULSION_CASES)[case])
+    controller = operator if operator is not None else PanelState(reader, fault_paths=fault_paths)
     pending: set[str] = set()
     summary = {
         "kind": "controlled native-model experiment; private truth, not diagnostic input",
-        "created_utc": datetime.now(timezone.utc).isoformat(), "case": case,
+        "created_utc": datetime.now(timezone.utc).isoformat(), "case": "timed_schedule" if timed_phases else case,
         "requested_faults": list(faults), "physical_regional_damage_simulated": False,
         "status": "preparing", "completed": False, "artifacts_complete": False,
         "collection_completed": False, "samples": 0, "phases": [],
@@ -158,6 +235,12 @@ def run_experiment(
                    "Exclusive collector/control ownership is an operational prerequisite, not an interprocess guarantee",
                    "No probabilistic diagnosis or causal identification is computed"],
     }
+    if timed_phases:
+        summary["timed_schedule"] = timed_phases
+        summary["active_duration_target_sim_s"] = None
+    if propulsion:
+        summary["reference_ptu_selected"] = ptu_selected
+        summary["limits"].append("Cutoff exercises simulated engine power loss. Releasing the cutoff input does not establish relight or restoration of engine power.")
     summary_path = private / "summary.json"
     _save(summary_path, summary)
     provenance = _archive_sources(output)
@@ -166,7 +249,6 @@ def run_experiment(
     observation_path = output / "observations.jsonl"
     qualification_path = private / "qualification.jsonl"
     action_path = private / "actions.jsonl"
-    gate = AirborneAdmission(settings)
     previous_sim: dict[str, float] = {}
     previous_receipt: dict[str, float] = {}
     channel_last_advance: dict[str, float] = {}
@@ -226,12 +308,12 @@ def run_experiment(
             readback = None
             if not enabled:
                 try:
-                    reading = reader.read_property(FAULT_PATHS[fault], "bool")
+                    reading = reader.read_property(fault_paths[fault], "bool")
                     readback = asdict(reading)
                     # A false flag on a replacement aircraft cannot establish
                     # cleanup of the aircraft whose enable this run attempted.
                     # PanelState's verified 200 also requires pinned identity.
-                    if (status == 200 and reading.path == FAULT_PATHS[fault] and reading.valid is True
+                    if (status == 200 and reading.path == fault_paths[fault] and reading.valid is True
                             and reading.reachable is True and reading.error is None and reading.value is False):
                         pending.discard(fault)
                 except BaseException as exc:
@@ -249,8 +331,8 @@ def run_experiment(
         def sample() -> dict:
             nonlocal last_record
             poll_started = monotonic()
-            snapshot = reader.poll(AIRBORNE_CHANNELS)
-            record = airborne_observation_record(snapshot, summary["samples"], poll_started)
+            snapshot = reader.poll(channels)
+            record = airborne_observation_record(snapshot, summary["samples"], poll_started, propulsion=propulsion)
             write_airborne_observation(observations, record)
             summary["samples"] += 1
             last_record = record
@@ -263,7 +345,7 @@ def run_experiment(
         def qualified_sample(phase: str) -> tuple[dict, float]:
             record = sample()
             readiness_started = monotonic()
-            readiness = reader.poll(READINESS_CHANNELS)
+            readiness = reader.poll(gate.readiness_channels)
             evaluated = monotonic()
             outcome = gate.update(record, readiness, evaluated)
             summary["last_gate"] = outcome
@@ -326,7 +408,7 @@ def run_experiment(
                     timestamps = [item["sim_time_s"] for item in readings.values() if item["valid"] and item["sim_time_s"] is not None]
                     fresh = (record["complete"]
                         and record["received_monotonic_s"] - record["poll_started_monotonic_s"] <= settings.maximum_poll_span_s
-                        and len(timestamps) == len(AIRBORNE_CHANNELS)
+                        and len(timestamps) == len(channels)
                         and max(timestamps) - min(timestamps) <= settings.maximum_timestamp_skew_s
                         and all(
                         item["sim_time_s"] is not None and 0 <= monotonic() - item["received_monotonic_s"] <= settings.maximum_reading_age_s
@@ -353,9 +435,9 @@ def run_experiment(
                         phase["last_sim_time_s"] = now_sim
                         phase["elapsed_sim_s"] = now_sim - first_sim
                         phase["minimum_required_channel_elapsed_sim_s"] = min(
-                            (previous_sim[name] - first_channel_sim[name] for name in AIRBORNE_CHANNELS),
+                            (previous_sim[name] - first_channel_sim[name] for name in channels),
                             default=0.0,
-                        ) if first_channel_sim.keys() == AIRBORNE_CHANNELS.keys() else 0.0
+                        ) if first_channel_sim.keys() == channels.keys() else 0.0
                         if monotonic() > deadline:
                             raise RuntimeError("Post-intervention local deadline exceeded; partial observations retained")
                         if (count >= 2 and now_sim - first_sim >= duration_s and fresh
@@ -401,12 +483,26 @@ def run_experiment(
                 previous_receipt.update({name: item["received_monotonic_s"] for name, item in record["readings"].items()})
                 previous_observed_sim = record["readings"]["sim_time"]["value"]
                 post_deadline = monotonic() + maximum_postfault_local_s
-                print(f"CONTROLLED EXPERIMENT: {case}; spectator notification must precede native fault injection.", flush=True)
-                for fault in faults:
-                    command(fault, True, expires_at)
+                print(f"CONTROLLED EXPERIMENT: {summary['case']}; spectator notification must precede native fault injection.", flush=True)
                 summary["status"] = "active"
-                record_phase("active", active_s)
+                phases = timed_phases or [{"faults": faults, "duration_sim_s": active_s}]
+                for index, phase in enumerate(phases):
+                    for fault in reversed(faults):
+                        if fault in pending and fault not in phase["faults"]:
+                            command(fault, False)
+                    enabling = [fault for fault in phase["faults"] if fault not in pending]
+                    if index and enabling:
+                        expires_at, readiness = _transition_expiry(reader, last_record, pending, settings, monotonic)
+                        journal({"stage": "timed_transition_clearance", "phase": index + 1,
+                                 "sample_index": last_record["sample_index"], "expires_monotonic_s": expires_at,
+                                 "readiness": readiness.to_dict()})
+                    for fault in enabling:
+                        command(fault, True, expires_at)
+                    phase_name = f"timed_phase_{index + 1}" if timed_phases else "active"
+                    record_phase(phase_name, phase["duration_sim_s"])
                 for fault in reversed(faults):
+                    if fault not in pending:
+                        continue
                     command(fault, False)
                 summary["status"] = "recovery"
                 record_phase("recovery", recovery_s)
@@ -432,11 +528,11 @@ def run_experiment(
     # false if a manifest/summary write fails after successful native cleanup.
     try:
         manifest = {
-            "manifest_schema_version": 1, "observation_schema_version": 2,
-            "observation_profile": PROFILE_ID, "observations": "observations.jsonl",
+            "manifest_schema_version": 1, "observation_schema_version": 3 if propulsion else 2,
+            "observation_profile": PROPULSION_PROFILE_ID if propulsion else PROFILE_ID, "observations": "observations.jsonl",
             "sha256": _hash(observation_path), "samples": summary["samples"],
             "polls_are_atomic": False, "partial_collection": not summary["collection_completed"],
-            "channels": {name: asdict(spec) for name, spec in AIRBORNE_CHANNELS.items()},
+            "channels": {name: asdict(spec) for name, spec in channels.items()},
             "qualification_checks": "private_truth/qualification.jsonl",
             "qualification_checks_sha256": _hash(qualification_path),
             "operator_actions": "private_truth/actions.jsonl", "operator_actions_sha256": _hash(action_path),
@@ -467,8 +563,11 @@ def run_experiment(
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", required=True, type=Path)
-    parser.add_argument("--case", choices=tuple(CASES), default="isolated_generator_2")
+    recipe = parser.add_mutually_exclusive_group()
+    recipe.add_argument("--case", choices=tuple(CASES | PROPULSION_CASES), default="isolated_generator_2")
+    recipe.add_argument("--schedule", type=Path, help="JSON array of timed native phases")
     parser.add_argument("--config", type=Path)
+    parser.add_argument("--ptu", choices=("auto", "off"), help="Required observed PTU switch setting for propulsion trials")
     parser.add_argument("--active-seconds", type=float, default=8.0)
     parser.add_argument("--recovery-seconds", type=float, default=5.0)
     parser.add_argument("--interval-seconds", type=float, default=1.0)
@@ -476,14 +575,18 @@ def main() -> None:
     parser.add_argument("--maximum-postfault-local-seconds", type=float, default=60.0)
     parser.add_argument("--port", type=int, default=8088)
     parser.add_argument("--live-panel-port", type=int, help="Read-only inspector using the recorder's exact public stream")
-    parser.add_argument("--diagnostic-model", choices=("v1", "v2"), default="v1",
-                        help="Independent public model selection; never inferred from the private intervention case")
+    parser.add_argument("--diagnostic-model", choices=MODEL_VERSIONS, default="v1",
+                        help="Public catalogue selection. Versions 3 and 4 require the extended propulsion profile")
     args = parser.parse_args()
+    schedule = validate_schedule(json.loads(args.schedule.read_text(encoding="utf-8"))) if args.schedule else None
     panel = server = thread = None
     if args.live_panel_port is not None:
-        from .hypotheses import pressure_supply_model
+        propulsion = args.case in PROPULSION_CASES
+        model = model_for_version(args.diagnostic_model)
+        if propulsion != uses_propulsion_profile(model):
+            parser.error("Use diagnostic model v3 or v4 with the propulsion observation profile")
         panel = ObservationPanelState(interval_s=args.interval_seconds,
-                                      model=pressure_supply_model() if args.diagnostic_model == "v2" else None)
+                                      model=model)
         server = make_server(panel, args.live_panel_port)
         thread = threading.Thread(target=server.serve_forever, daemon=True)
         thread.start()
@@ -493,7 +596,8 @@ def main() -> None:
             active_s=args.active_seconds, recovery_s=args.recovery_seconds,
             interval_s=args.interval_seconds, max_wait_s=args.max_wait_seconds,
             maximum_postfault_local_s=args.maximum_postfault_local_seconds, port=args.port,
-            on_observation=panel.accept if panel is not None else None)
+            on_observation=panel.accept if panel is not None else None, schedule=schedule,
+            ptu_selected=None if args.ptu is None else args.ptu == "auto")
         if panel is not None:
             _save(args.output / "live-inspector-final.json", panel.get_state())
     finally:

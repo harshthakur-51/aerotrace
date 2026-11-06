@@ -1,0 +1,31 @@
+{
+  "scope": "Runtime readback on the completed transfer-off flight and local source verification",
+  "flightgear_version": {
+    "path": "/sim/version/flightgear",
+    "value": "2024.1.7",
+    "valid": true,
+    "error": null,
+    "sim_time_s": 304.65,
+    "received_monotonic_s": 566064.760967,
+    "reachable": true,
+    "unit": ""
+  },
+  "aircraft": {
+    "path": "/sim/aircraft",
+    "value": "A320-200-CFM",
+    "valid": true,
+    "error": null,
+    "sim_time_s": 304.65,
+    "received_monotonic_s": 566064.7834375,
+    "reachable": true,
+    "unit": ""
+  },
+  "pinned_catalog_revision": 20376,
+  "model_source_sha256": {
+    "Systems/a320-ignition.xml": "665bfbd9ec565184571d0ad17a6a099df83207e6454b1b95e2dda7b846c36419",
+    "Systems/libraries.xml": "9771ff9503ba7c30ccc5074c0308f1f68e7aab23671d9cc73877eab437f59edf",
+    "Systems/a320-electrical.xml": "84562f72cfed5bfb07e27042d740ec14e3b99a66cef4dbc165be4ec4c00f8d58",
+    "Systems/a320-hydraulic.xml": "28159f2e9dd7cc1736d6e8e19c33c366b7762a6febb354012fdb966d99418e47",
+    "Systems/a320-cfm56-5b4-engine-fadec.xml": "aa81da88211c719f89447a55b3fa5c0b04e272e2bde5a4e6114f7808df9e48d7"
+  }
+}

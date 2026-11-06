@@ -1,0 +1,5 @@
+[
+  {"faults": ["generator_2"], "duration_sim_s": 8},
+  {"faults": [], "duration_sim_s": 8},
+  {"faults": ["blue_pump"], "duration_sim_s": 24}
+]

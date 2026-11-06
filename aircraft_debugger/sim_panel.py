@@ -29,7 +29,9 @@ import time
 from typing import Callable
 from urllib.parse import quote
 
+from .airborne_profile import PROPULSION_CHANNELS, PROPULSION_PROFILE_ID, write_airborne_observation
 from .flightgear import FlightGearClient
+from .hypotheses import MODEL_VERSIONS, model_for_version, uses_propulsion_profile
 from .observations import CHANNELS, write_observation
 from .diagnostic_session import DiagnosisSession, SessionLimitReached
 
@@ -43,13 +45,13 @@ FAULT_PATHS = {
 SUPPORTED_AIRCRAFT = frozenset({"A320-200-CFM", "A320-200-IAE", "A320neo-CFM", "A320neo-PW"})
 
 
-def validate_command(payload: object) -> tuple[str, bool]:
+def validate_command(payload: object, *, fault_paths=FAULT_PATHS) -> tuple[str, bool]:
     """Reject arbitrary paths, extra fields and truthy non-boolean inputs."""
     if not isinstance(payload, dict) or set(payload) != {"fault", "enabled"}:
         raise ValueError("Expected exactly fault and enabled fields")
     fault, enabled = payload["fault"], payload["enabled"]
-    if not isinstance(fault, str) or fault not in FAULT_PATHS:
-        raise ValueError("Unknown fault; supported native flags are generator_2, blue_leak and blue_pump")
+    if not isinstance(fault, str) or fault not in fault_paths:
+        raise ValueError("Unknown fault; supported native flags are " + ", ".join(fault_paths))
     if type(enabled) is not bool:
         raise ValueError("enabled must be a JSON boolean")
     return fault, enabled
@@ -57,12 +59,15 @@ def validate_command(payload: object) -> tuple[str, bool]:
 
 class PanelState:
     def __init__(self, client: FlightGearClient, interval_s: float = 0.5, *, diagnosis_limit: int = 1200, temporal: bool = True,
-                 recording: Path | None = None, model=None):
+                 recording: Path | None = None, model=None, fault_paths=None):
         self.client = client
         self.interval_s = interval_s
         self.token = secrets.token_urlsafe(32)
         self._lock = threading.Lock()
         self._command_lock = threading.Lock()
+        self._fault_paths = dict(FAULT_PATHS if fault_paths is None else fault_paths)
+        self._propulsion = model is not None and uses_propulsion_profile(model)
+        self._channels = PROPULSION_CHANNELS if self._propulsion else CHANNELS
         self._stop = threading.Event()
         self._thread: threading.Thread | None = None
         self._snapshot: dict | None = None
@@ -87,7 +92,8 @@ class PanelState:
         if self._recording_stream is None:
             return
         try:
-            write_observation(self._recording_stream, record)
+            writer = write_airborne_observation if self._propulsion else write_observation
+            writer(self._recording_stream, record)
             with self._lock:
                 self._recording["samples_written"] += 1
         except (OSError, ValueError) as exc:
@@ -104,6 +110,8 @@ class PanelState:
     def _analyze_snapshot(self, snapshot: dict, started: float) -> dict:
         record = {**snapshot, "schema_version": 1, "sample_index": self._sample_index,
                   "poll_started_monotonic_s": started}
+        if self._propulsion:
+            record.update(schema_version=3, observation_profile=PROPULSION_PROFILE_ID)
         self._sample_index += 1
         self._record_public(record)
         diagnosis_started = time.monotonic()
@@ -124,7 +132,7 @@ class PanelState:
     def poll_once(self) -> None:
         started = time.monotonic()
         try:
-            snapshot = self.client.poll(CHANNELS).to_dict()
+            snapshot = self.client.poll(self._channels).to_dict()
             reading = snapshot["readings"]["sim_time"]
             current_time = reading["value"] if reading["valid"] else None
             diagnosis = self._analyze_snapshot(snapshot, started)
@@ -146,7 +154,7 @@ class PanelState:
                 "readings": {name: {"path": spec.path, "value": None,
                     "valid": False, "error": "connection_error", "sim_time_s": None,
                     "received_monotonic_s": received, "reachable": False, "unit": spec.unit}
-                    for name, spec in CHANNELS.items()}}
+                    for name, spec in self._channels.items()}}
             self._analyze_snapshot(invalid, started)
             with self._lock:
                 self._snapshot = None
@@ -203,10 +211,10 @@ class PanelState:
 
     def command(self, payload: object, *, before_write_check: Callable[[], None] | None = None,
                 required_aircraft: str | None = None) -> tuple[int, dict]:
-        fault, enabled = validate_command(payload)
+        fault, enabled = validate_command(payload, fault_paths=self._fault_paths)
         if required_aircraft is not None and required_aircraft not in SUPPORTED_AIRCRAFT:
             raise ValueError("required_aircraft must name a supported native aircraft")
-        path = FAULT_PATHS[fault]
+        path = self._fault_paths[fault]
         with self._command_lock:
             # Check the live aircraft, not a potentially stale page or caller field.
             aircraft = self.client.read_property("/sim/aircraft", "string")
@@ -325,7 +333,17 @@ def make_server(panel: PanelState, port: int = 8765) -> ThreadingHTTPServer:
             if self.path == "/":
                 return self._send(200, page, "text/html; charset=utf-8")
             if self.path == "/api/state":
-                return self._json(200, panel.get_state())
+                from .candidate_support import evidence_support
+
+                state = panel.get_state()
+                diagnosis = state.get("diagnosis", {})
+                result = diagnosis.get("result")
+                if result:
+                    diagnosis["evidence_support"] = {
+                        candidate["id"]: evidence_support(candidate)
+                        for candidate in result["candidates"]
+                    }
+                return self._json(200, state)
             self._json(404, {"error": "Not found"})
 
         def do_POST(self):
@@ -391,10 +409,9 @@ def main() -> None:
     parser.add_argument("--mode", choices=("temporal", "atemporal"), default="temporal", help="Causal replay constraint mode")
     parser.add_argument("--diagnosis-limit", type=int, default=1200, help="Live public poll limit (1-1200); inference stops explicitly at the limit")
     parser.add_argument("--recording", type=Path, help="New public JSONL file for live polls; existing files are refused")
-    parser.add_argument("--model", choices=("v1", "v2"), default="v1")
+    parser.add_argument("--model", choices=MODEL_VERSIONS, default="v1")
     args = parser.parse_args()
-    from .hypotheses import pressure_supply_model
-    active_model = pressure_supply_model() if args.model == "v2" else None
+    active_model = model_for_version(args.model)
     if args.replay and args.recording:
         parser.error("--recording is for live mode; recorded replay is read-only")
     if args.replay:

@@ -36,6 +36,7 @@ from .observations import (
 
 
 PROFILE_ID = "a320-stable-airborne-v1"
+PROPULSION_PROFILE_ID = "a320-propulsion-airborne-v1"
 _BASE_CHANNELS = dict(CHANNELS)
 _CONTEXT_CHANNELS = {
     "main_gear_1_wow": PropertySpec("/gear/gear[1]/wow", kind="bool"),
@@ -48,14 +49,26 @@ _CONTEXT_CHANNELS = {
     "autothrust": PropertySpec("/it-autoflight/output/athr", kind="bool"),
 }
 AIRBORNE_CHANNELS = {**_BASE_CHANNELS, **_CONTEXT_CHANNELS}
+PROPULSION_CHANNELS = {
+    **AIRBORNE_CHANNELS,
+    "engine_2_n2": PropertySpec("/engines/engine[1]/n2-actual", unit="%"),
+    "engine_2_fuel_flow": PropertySpec("/engines/engine[1]/ff-actual", unit="lb/h"),
+    "yellow_edp_pressure": PropertySpec("/systems/hydraulic/sources/yellow-edp/output-psi", unit="psi"),
+    "yellow_electric_pressure": PropertySpec("/systems/hydraulic/sources/yellow-elec/output-psi", unit="psi"),
+    "yellow_transfer_pressure": PropertySpec("/systems/hydraulic/sources/ptu/green-yellow", unit="psi"),
+    "yellow_pressure": PropertySpec("/systems/hydraulic/yellow-psi", unit="psi"),
+    "yellow_quantity": PropertySpec("/systems/hydraulic/yellow-qty", unit="raw model quantity"),
+    "ptu_selected": PropertySpec("/controls/hydraulic/switches/ptu", kind="bool"),
+}
 _AIRBORNE_SPECS = dict(AIRBORNE_CHANNELS)
+_PROPULSION_SPECS = dict(PROPULSION_CHANNELS)
 _AIRBORNE_FIELDS = _RECORD_FIELDS | {"observation_profile"}
 
 
-def _validate_context_reading(name: str, reading: object, started: int | float, received: int | float) -> None:
+def _validate_context_reading(name: str, spec: PropertySpec, reading: object,
+                              started: int | float, received: int | float) -> None:
     """Use the frozen primitive rules with this context's exact path and kind."""
     label = f"readings.{name}"
-    spec = _CONTEXT_CHANNELS[name]
     reading = _fields(reading, _READING_FIELDS, label)
     if reading["path"] != spec.path:
         raise ObservationFormatError(f"{label}.path must equal {spec.path!r}")
@@ -98,17 +111,26 @@ def validate_airborne_observation(record: object) -> dict:
     representation matches schema 1; stability, physical ranges and freshness
     are not certified by this structural validator. The input is not mutated.
     """
+    return _validate_profile(record, 2, PROFILE_ID, _AIRBORNE_SPECS)
+
+
+def validate_propulsion_observation(record: object) -> dict:
+    """Validate the explicit extended airborne profile, including every extra reading."""
+    return _validate_profile(record, 3, PROPULSION_PROFILE_ID, _PROPULSION_SPECS)
+
+
+def _validate_profile(record, version, profile_id, specs):
     record = _fields(record, _AIRBORNE_FIELDS, "airborne observation")
-    if type(record["schema_version"]) is not int or record["schema_version"] != 2:
-        raise ObservationFormatError("schema_version must be integer 2")
-    if record["observation_profile"] != PROFILE_ID:
-        raise ObservationFormatError(f"observation_profile must equal {PROFILE_ID!r}")
+    if type(record["schema_version"]) is not int or record["schema_version"] != version:
+        raise ObservationFormatError(f"schema_version must be integer {version}")
+    if record["observation_profile"] != profile_id:
+        raise ObservationFormatError(f"observation_profile must equal {profile_id!r}")
     connected = _boolean(record["connected"], "connected")
     complete = _boolean(record["complete"], "complete")
     readings = record["readings"]
     if not isinstance(readings, dict):
         raise ObservationFormatError("readings must be an object")
-    unknown = readings.keys() - _AIRBORNE_SPECS.keys()
+    unknown = readings.keys() - specs.keys()
     if unknown:
         raise ObservationFormatError(f"readings contains unknown channels {sorted(unknown, key=repr)!r}")
 
@@ -126,31 +148,36 @@ def validate_airborne_observation(record: object) -> dict:
     )
     validate_observation(legacy)
     for name, reading in readings.items():
-        if name in _CONTEXT_CHANNELS:
-            _validate_context_reading(name, reading, record["poll_started_monotonic_s"], record["received_monotonic_s"])
+        if name not in _BASE_CHANNELS:
+            _validate_context_reading(name, specs[name], reading,
+                                      record["poll_started_monotonic_s"], record["received_monotonic_s"])
     if connected != any(reading["reachable"] for reading in readings.values()):
         raise ObservationFormatError("connected must match whether any selected reading is reachable")
-    expected_complete = readings.keys() == _AIRBORNE_SPECS.keys() and all(
+    expected_complete = readings.keys() == specs.keys() and all(
         reading["valid"] for reading in readings.values()
     )
     if complete != expected_complete:
-        raise ObservationFormatError("complete must be true exactly when all 20 airborne channels are present and valid")
+        raise ObservationFormatError(f"complete must be true exactly when all {len(specs)} airborne channels are present and valid")
     return record
 
 
 def airborne_observation_record(
-    snapshot: TelemetrySnapshot, sample_index: int, poll_started_monotonic_s: float
+    snapshot: TelemetrySnapshot, sample_index: int, poll_started_monotonic_s: float, *, propulsion: bool = False
 ) -> dict:
     """Build the versioned record, retaining all context and transport timestamps."""
     record = snapshot.to_dict()
-    record.update(schema_version=2, observation_profile=PROFILE_ID,
+    record.update(schema_version=3 if propulsion else 2,
+                  observation_profile=PROPULSION_PROFILE_ID if propulsion else PROFILE_ID,
                   sample_index=sample_index, poll_started_monotonic_s=poll_started_monotonic_s)
-    return validate_airborne_observation(record)
+    validator = validate_propulsion_observation if propulsion else validate_airborne_observation
+    return validator(record)
 
 
 def write_airborne_observation(stream: TextIO, record: dict) -> None:
-    """Validate one schema-2 record before writing/flushing a bounded JSON line."""
-    validate_airborne_observation(record)
+    """Validate one airborne record before writing a bounded JSON line."""
+    propulsion = isinstance(record, dict) and record.get("schema_version") == 3
+    validator = validate_propulsion_observation if propulsion else validate_airborne_observation
+    validator(record)
     encoded = json.dumps(record, allow_nan=False, ensure_ascii=True, separators=(",", ":"))
     if len(encoded) > _MAX_LINE_BYTES:
         raise ObservationFormatError("observation exceeds the maximum JSON line length")
@@ -161,8 +188,8 @@ def write_airborne_observation(stream: TextIO, record: dict) -> None:
 def iter_profile_observations(path: Path) -> Iterator[dict]:
     """Read one explicit, homogeneous schema/profile file, retaining original data.
 
-    Schema 1 uses the unchanged legacy validator. Schema 2 uses the airborne
-    validator. Neither schema/profile mixing nor backwards local receipt times
+    The legacy and both airborne profiles use their own validators. Neither
+    schema/profile mixing nor backwards local receipt times
     are allowed. Simulator-time pauses/resets remain observations for consumers.
     No files besides the explicitly supplied input are opened.
     """
@@ -184,15 +211,18 @@ def iter_profile_observations(path: Path) -> Iterator[dict]:
                     raise ObservationFormatError("observation exceeds the maximum JSON line length")
                 raw = json.loads(line.decode("utf-8"), object_pairs_hook=_unique_object, parse_constant=_reject_constant)
                 if not isinstance(raw, dict) or type(raw.get("schema_version")) is not int:
-                    raise ObservationFormatError("schema_version must be integer 1 or 2")
+                    raise ObservationFormatError("schema_version must be integer 1, 2 or 3")
                 if raw["schema_version"] == 1:
                     record = validate_observation(raw)
                     current_profile = (1, None)
                 elif raw["schema_version"] == 2:
                     record = validate_airborne_observation(raw)
                     current_profile = (2, PROFILE_ID)
+                elif raw["schema_version"] == 3:
+                    record = validate_propulsion_observation(raw)
+                    current_profile = (3, PROPULSION_PROFILE_ID)
                 else:
-                    raise ObservationFormatError("unsupported schema_version; expected 1 or 2")
+                    raise ObservationFormatError("unsupported schema_version; expected 1, 2 or 3")
                 if profile_key is not None and current_profile != profile_key:
                     raise ObservationFormatError("mixed schema versions/profiles are not allowed in one file")
                 profile_key = current_profile

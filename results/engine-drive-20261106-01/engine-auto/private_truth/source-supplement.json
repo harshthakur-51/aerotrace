@@ -1,0 +1,6 @@
+{
+  "relative_source": "executed-source/aircraft_debugger/propulsion_features.py",
+  "sha256": "acba857fd22fc8559ad909984e20bfd2dca17dff7babc6f964cef76ec41a7f77",
+  "capture": "Reconstructed from recorded source edits after collection",
+  "scope": "Completes the archive imports for the earlier engine-auto controller. The capture-time manifest and public observations retain their original bytes. Diagnosis used a later, separately hashed implementation."
+}

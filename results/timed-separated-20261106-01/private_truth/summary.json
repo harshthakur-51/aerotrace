@@ -1,0 +1,141 @@
+{
+  "kind": "controlled native-model experiment; private truth, not diagnostic input",
+  "created_utc": "2026-11-06T00:52:26.956441+00:00",
+  "case": "timed_schedule",
+  "requested_faults": [
+    "generator_2",
+    "blue_pump"
+  ],
+  "physical_regional_damage_simulated": false,
+  "status": "completed",
+  "completed": true,
+  "artifacts_complete": true,
+  "collection_completed": true,
+  "samples": 73,
+  "phases": [
+    {
+      "name": "timed_phase_1",
+      "first_sample_index": 18,
+      "started_monotonic_s": 528285.1780435,
+      "duration_target_sim_s": 8.0,
+      "completed": true,
+      "first_sim_time_s": 299.383333,
+      "last_sim_time_s": 308.375,
+      "elapsed_sim_s": 8.991667000000007,
+      "minimum_required_channel_elapsed_sim_s": 8.91666600000002,
+      "end_sample_index_exclusive": 28,
+      "ended_monotonic_s": 528294.413838
+    },
+    {
+      "name": "timed_phase_2",
+      "first_sample_index": 28,
+      "started_monotonic_s": 528294.5643272,
+      "duration_target_sim_s": 8.0,
+      "completed": true,
+      "first_sim_time_s": 308.75,
+      "last_sim_time_s": 316.775,
+      "elapsed_sim_s": 8.024999999999977,
+      "minimum_required_channel_elapsed_sim_s": 8.016666999999984,
+      "end_sample_index_exclusive": 37,
+      "ended_monotonic_s": 528302.8470836
+    },
+    {
+      "name": "timed_phase_3",
+      "first_sample_index": 37,
+      "started_monotonic_s": 528303.1036413,
+      "duration_target_sim_s": 24.0,
+      "completed": true,
+      "first_sim_time_s": 317.308333,
+      "last_sim_time_s": 341.316667,
+      "elapsed_sim_s": 24.00833399999999,
+      "minimum_required_channel_elapsed_sim_s": 24.00833399999999,
+      "end_sample_index_exclusive": 62,
+      "ended_monotonic_s": 528327.3899503
+    },
+    {
+      "name": "recovery",
+      "first_sample_index": 62,
+      "started_monotonic_s": 528327.5867663,
+      "duration_target_sim_s": 10.0,
+      "completed": true,
+      "first_sim_time_s": 341.775,
+      "last_sim_time_s": 351.783333,
+      "elapsed_sim_s": 10.00833300000005,
+      "minimum_required_channel_elapsed_sim_s": 10.0,
+      "end_sample_index_exclusive": 73,
+      "ended_monotonic_s": 528337.8724878
+    }
+  ],
+  "cleanup_errors": [],
+  "failure": null,
+  "last_gate": {
+    "profile_id": "a320-stable-airborne-v1",
+    "purpose": "experiment_baseline_eligibility_only",
+    "qualified": true,
+    "eligible_current_sample": true,
+    "reasons": [],
+    "window_elapsed_sim_s": 16.974999999999966,
+    "window_start": {
+      "sample_index": 0,
+      "sim_time_s": 281.908333,
+      "received_monotonic_s": 528267.9695423
+    },
+    "window_end": {
+      "sample_index": 17,
+      "sim_time_s": 298.925,
+      "received_monotonic_s": 528284.9512451
+    }
+  },
+  "settings": {
+    "altitude_target_ft": 6000,
+    "altitude_tolerance_ft": 200.0,
+    "airspeed_target_kt": 230,
+    "airspeed_tolerance_kt": 10.0,
+    "minimum_height_agl_ft": 3000.0,
+    "maximum_abs_bank_deg": 5.0,
+    "maximum_abs_vertical_speed_fps": 5.0,
+    "qualification_duration_sim_s": 15.0,
+    "maximum_sim_gap_s": 3.0,
+    "maximum_local_gap_s": 3.0,
+    "maximum_reading_age_s": 2.0,
+    "maximum_poll_span_s": 2.0,
+    "maximum_timestamp_skew_s": 2.0,
+    "minimum_reference_voltage_v": 100.0,
+    "minimum_blue_quantity_raw": 7.9,
+    "minimum_blue_pressure_psi": 2500.0
+  },
+  "active_duration_target_sim_s": null,
+  "recovery_duration_target_sim_s": 10.0,
+  "interval_target_local_s": 1.0,
+  "qualification_maximum_local_s": 120.0,
+  "postfault_maximum_local_s": 120.0,
+  "limits": [
+    "One declared operating condition; no whole-aircraft or real-aircraft validation",
+    "Autopilot or backup supplies may mask motion or bus consequences",
+    "Clearing a blue leak may refill native quantity; it is not physical repair",
+    "Shared and independent paired recipes request identical supported component flags",
+    "Exclusive collector/control ownership is an operational prerequisite, not an interprocess guarantee",
+    "No probabilistic diagnosis or causal identification is computed"
+  ],
+  "timed_schedule": [
+    {
+      "faults": [
+        "generator_2"
+      ],
+      "duration_sim_s": 8.0
+    },
+    {
+      "faults": [],
+      "duration_sim_s": 8.0
+    },
+    {
+      "faults": [
+        "blue_pump"
+      ],
+      "duration_sim_s": 24.0
+    }
+  ],
+  "baseline_end_sample_index_exclusive": 18,
+  "pending_faults_unverified_clear": [],
+  "elapsed_local_s": 70.15360740001779
+}

@@ -1,0 +1,2690 @@
+{
+  "protocol_sha256": "e0f1a4657f5f749eac13e35eea930cc8c41c4904d79abb090cf51d97a61fe1fa",
+  "model_id": "aerotrace-engine-drive-compatibility-v3",
+  "runs": {
+    "pair-auto": {
+      "observation_sha256": "a8ea5ee29d22d2de60502467dbd607b6d5635e7246b67f1d78e22bda0d5d57ca",
+      "polls": 60,
+      "expected_candidate": "independent_generator_yellow_pump_loss",
+      "ptu_selected": true,
+      "matched_candidate": true,
+      "streaming_replay_agreement": true,
+      "native_inspector_replay_agreement": null,
+      "full": {
+        "status": "single_compatible_candidate",
+        "compatible": [
+          "independent_generator_yellow_pump_loss"
+        ],
+        "plausible": [
+          "independent_generator_yellow_pump_loss"
+        ],
+        "support": {
+          "independent_generator_yellow_pump_loss": {
+            "percent": 100,
+            "supported_checks": 7,
+            "total_checks": 7,
+            "unconfirmed_checks": 0,
+            "contradicted_checks": 0
+          }
+        },
+        "yellow_supply": {
+          "status": "consistent",
+          "reason": "Settled Yellow line pressure agrees with the measured supply condition supported by alternate supply.",
+          "evidence": [
+            {
+              "channel": "yellow_edp_pressure",
+              "sample_index": 28,
+              "sim_time_s": 213.9,
+              "value": 0.0,
+              "unit": "psi"
+            },
+            {
+              "channel": "yellow_electric_pressure",
+              "sample_index": 28,
+              "sim_time_s": 213.908333,
+              "value": 0.0,
+              "unit": "psi"
+            },
+            {
+              "channel": "yellow_transfer_pressure",
+              "sample_index": 28,
+              "sim_time_s": 213.925,
+              "value": 2700.0,
+              "unit": "psi"
+            },
+            {
+              "channel": "yellow_quantity",
+              "sample_index": 28,
+              "sim_time_s": 213.95,
+              "value": 15.0,
+              "unit": "raw model quantity"
+            },
+            {
+              "channel": "yellow_pressure",
+              "sample_index": 28,
+              "sim_time_s": 213.933333,
+              "value": 2700.0,
+              "unit": "psi"
+            }
+          ]
+        },
+        "onset_intervals": {
+          "generator_source_anomaly": {
+            "lower_sim_time_s": 202.875,
+            "upper_sim_time_s": 203.7,
+            "lower_sample_index": 17,
+            "upper_sample_index": 18,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "blue_inventory_loss": null,
+          "bus_supply_loss": null,
+          "blue_pressure_loss": null,
+          "engine_2_fuel_flow_loss": null,
+          "engine_2_core_speed_loss": null,
+          "yellow_edp_output_loss": {
+            "lower_sim_time_s": 203.083333,
+            "upper_sim_time_s": 203.941667,
+            "lower_sample_index": 17,
+            "upper_sample_index": 18,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "yellow_line_pressure_loss": null
+        },
+        "current_impact": [],
+        "incident_impact": [
+          {
+            "fact_id": "generator_source_anomaly",
+            "system": "electrical",
+            "observation": "Generator-2 source-output degradation was observed in this incident.",
+            "remaining_capability": "Bus observations are separate; source loss does not establish total downstream supply loss.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "sample_index": 19,
+                "sim_time_s": 204.683333,
+                "channel": "generator_2_voltage",
+                "value": 0.0,
+                "unit": "V",
+                "observed_status": "source_unavailable",
+                "evidence_id": "E0001",
+                "legacy_event_id": "E0001",
+                "onset_sample_index": 18,
+                "confirmation_sample_index": 19
+              },
+              {
+                "sample_index": 47,
+                "sim_time_s": 232.708333,
+                "channel": "generator_2_voltage",
+                "value": 0.0,
+                "unit": "V",
+                "observed_status": "source_unavailable",
+                "evidence_id": "E0001"
+              }
+            ]
+          },
+          {
+            "fact_id": "yellow_edp_output_loss",
+            "system": "hydraulic",
+            "observation": "Yellow engine-driven pump output fell below the study threshold.",
+            "remaining_capability": "The electric pump or transfer from Green can sustain Yellow line pressure.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 18,
+                "sim_time_s": 203.941667,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 47,
+                "sim_time_s": 232.883333,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          }
+        ]
+      },
+      "without_drive_measurements": {
+        "status": "insufficient_observations",
+        "compatible": [],
+        "plausible": [
+          "engine_2_power_loss",
+          "independent_generator_yellow_pump_loss"
+        ],
+        "support": {
+          "engine_2_power_loss": {
+            "percent": 71,
+            "supported_checks": 5,
+            "total_checks": 7,
+            "unconfirmed_checks": 2,
+            "contradicted_checks": 0
+          },
+          "independent_generator_yellow_pump_loss": {
+            "percent": 71,
+            "supported_checks": 5,
+            "total_checks": 7,
+            "unconfirmed_checks": 2,
+            "contradicted_checks": 0
+          }
+        },
+        "yellow_supply": {
+          "status": "consistent",
+          "reason": "Settled Yellow line pressure agrees with the measured supply condition supported by alternate supply.",
+          "evidence": [
+            {
+              "channel": "yellow_edp_pressure",
+              "sample_index": 28,
+              "sim_time_s": 213.9,
+              "value": 0.0,
+              "unit": "psi"
+            },
+            {
+              "channel": "yellow_electric_pressure",
+              "sample_index": 28,
+              "sim_time_s": 213.908333,
+              "value": 0.0,
+              "unit": "psi"
+            },
+            {
+              "channel": "yellow_transfer_pressure",
+              "sample_index": 28,
+              "sim_time_s": 213.925,
+              "value": 2700.0,
+              "unit": "psi"
+            },
+            {
+              "channel": "yellow_quantity",
+              "sample_index": 28,
+              "sim_time_s": 213.95,
+              "value": 15.0,
+              "unit": "raw model quantity"
+            },
+            {
+              "channel": "yellow_pressure",
+              "sample_index": 28,
+              "sim_time_s": 213.933333,
+              "value": 2700.0,
+              "unit": "psi"
+            }
+          ]
+        },
+        "onset_intervals": {
+          "generator_source_anomaly": {
+            "lower_sim_time_s": 202.875,
+            "upper_sim_time_s": 203.7,
+            "lower_sample_index": 17,
+            "upper_sample_index": 18,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "blue_inventory_loss": null,
+          "bus_supply_loss": null,
+          "blue_pressure_loss": null,
+          "engine_2_fuel_flow_loss": null,
+          "engine_2_core_speed_loss": null,
+          "yellow_edp_output_loss": {
+            "lower_sim_time_s": 203.083333,
+            "upper_sim_time_s": 203.941667,
+            "lower_sample_index": 17,
+            "upper_sample_index": 18,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "yellow_line_pressure_loss": null
+        },
+        "current_impact": [],
+        "incident_impact": [
+          {
+            "fact_id": "generator_source_anomaly",
+            "system": "electrical",
+            "observation": "Generator-2 source-output degradation was observed in this incident.",
+            "remaining_capability": "Bus observations are separate; source loss does not establish total downstream supply loss.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "sample_index": 19,
+                "sim_time_s": 204.683333,
+                "channel": "generator_2_voltage",
+                "value": 0.0,
+                "unit": "V",
+                "observed_status": "source_unavailable",
+                "evidence_id": "E0001",
+                "legacy_event_id": "E0001",
+                "onset_sample_index": 18,
+                "confirmation_sample_index": 19
+              },
+              {
+                "sample_index": 47,
+                "sim_time_s": 232.708333,
+                "channel": "generator_2_voltage",
+                "value": 0.0,
+                "unit": "V",
+                "observed_status": "source_unavailable",
+                "evidence_id": "E0001"
+              }
+            ]
+          },
+          {
+            "fact_id": "yellow_edp_output_loss",
+            "system": "hydraulic",
+            "observation": "Yellow engine-driven pump output fell below the study threshold.",
+            "remaining_capability": "The electric pump or transfer from Green can sustain Yellow line pressure.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 18,
+                "sim_time_s": 203.941667,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 47,
+                "sim_time_s": 232.883333,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          }
+        ]
+      },
+      "without_backup_measurements": {
+        "status": "single_compatible_candidate",
+        "compatible": [
+          "independent_generator_yellow_pump_loss"
+        ],
+        "plausible": [
+          "independent_generator_yellow_pump_loss"
+        ],
+        "support": {
+          "independent_generator_yellow_pump_loss": {
+            "percent": 86,
+            "supported_checks": 6,
+            "total_checks": 7,
+            "unconfirmed_checks": 1,
+            "contradicted_checks": 0
+          }
+        },
+        "yellow_supply": {
+          "status": "unknown",
+          "reason": "The observed pressure and inventory readings did not establish a settled Yellow supply condition.",
+          "evidence": []
+        },
+        "onset_intervals": {
+          "generator_source_anomaly": {
+            "lower_sim_time_s": 202.875,
+            "upper_sim_time_s": 203.7,
+            "lower_sample_index": 17,
+            "upper_sample_index": 18,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "blue_inventory_loss": null,
+          "bus_supply_loss": null,
+          "blue_pressure_loss": null,
+          "engine_2_fuel_flow_loss": null,
+          "engine_2_core_speed_loss": null,
+          "yellow_edp_output_loss": {
+            "lower_sim_time_s": 203.083333,
+            "upper_sim_time_s": 203.941667,
+            "lower_sample_index": 17,
+            "upper_sample_index": 18,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "yellow_line_pressure_loss": null
+        },
+        "current_impact": [],
+        "incident_impact": [
+          {
+            "fact_id": "generator_source_anomaly",
+            "system": "electrical",
+            "observation": "Generator-2 source-output degradation was observed in this incident.",
+            "remaining_capability": "Bus observations are separate; source loss does not establish total downstream supply loss.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "sample_index": 19,
+                "sim_time_s": 204.683333,
+                "channel": "generator_2_voltage",
+                "value": 0.0,
+                "unit": "V",
+                "observed_status": "source_unavailable",
+                "evidence_id": "E0001",
+                "legacy_event_id": "E0001",
+                "onset_sample_index": 18,
+                "confirmation_sample_index": 19
+              },
+              {
+                "sample_index": 47,
+                "sim_time_s": 232.708333,
+                "channel": "generator_2_voltage",
+                "value": 0.0,
+                "unit": "V",
+                "observed_status": "source_unavailable",
+                "evidence_id": "E0001"
+              }
+            ]
+          },
+          {
+            "fact_id": "yellow_edp_output_loss",
+            "system": "hydraulic",
+            "observation": "Yellow engine-driven pump output fell below the study threshold.",
+            "remaining_capability": "The electric pump or transfer from Green can sustain Yellow line pressure.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 18,
+                "sim_time_s": 203.941667,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 47,
+                "sim_time_s": 232.883333,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          }
+        ]
+      },
+      "end_of_intervention": {
+        "samples": [
+          42,
+          47
+        ],
+        "measurements": {
+          "engine_2_n2": {
+            "median": 77.589986,
+            "minimum": 77.562265,
+            "maximum": 77.608643,
+            "unit": "%"
+          },
+          "engine_2_fuel_flow": {
+            "median": 3555.0664134999997,
+            "minimum": 3546.020693,
+            "maximum": 3560.303593,
+            "unit": "lb/h"
+          },
+          "generator_2_voltage": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "unit": "V"
+          },
+          "ac_bus_2": {
+            "median": 115.0009025,
+            "minimum": 115.000901,
+            "maximum": 115.000904,
+            "unit": "V"
+          },
+          "yellow_edp_pressure": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "unit": "psi"
+          },
+          "yellow_electric_pressure": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "unit": "psi"
+          },
+          "yellow_transfer_pressure": {
+            "median": 2700.0,
+            "minimum": 2700.0,
+            "maximum": 2700.0,
+            "unit": "psi"
+          },
+          "yellow_pressure": {
+            "median": 2700.0,
+            "minimum": 2700.0,
+            "maximum": 2700.0,
+            "unit": "psi"
+          },
+          "yellow_quantity": {
+            "median": 15.0,
+            "minimum": 15.0,
+            "maximum": 15.0,
+            "unit": "raw model quantity"
+          },
+          "blue_pressure": {
+            "median": 3000.0,
+            "minimum": 3000.0,
+            "maximum": 3000.0,
+            "unit": "psi"
+          }
+        }
+      }
+    },
+    "engine-auto": {
+      "observation_sha256": "51972c0f8523641e43ddc5a4bbf196d2560b61c5ea27e3113f9e16dc6b8d929b",
+      "polls": 59,
+      "expected_candidate": "engine_2_power_loss",
+      "ptu_selected": true,
+      "matched_candidate": true,
+      "streaming_replay_agreement": true,
+      "native_inspector_replay_agreement": null,
+      "full": {
+        "status": "single_compatible_candidate",
+        "compatible": [
+          "engine_2_power_loss"
+        ],
+        "plausible": [
+          "engine_2_power_loss"
+        ],
+        "support": {
+          "engine_2_power_loss": {
+            "percent": 100,
+            "supported_checks": 7,
+            "total_checks": 7,
+            "unconfirmed_checks": 0,
+            "contradicted_checks": 0
+          }
+        },
+        "yellow_supply": {
+          "status": "consistent",
+          "reason": "Settled Yellow line pressure agrees with the measured supply condition supported by alternate supply.",
+          "evidence": [
+            {
+              "channel": "yellow_edp_pressure",
+              "sample_index": 34,
+              "sim_time_s": 280.283333,
+              "value": 0.0,
+              "unit": "psi"
+            },
+            {
+              "channel": "yellow_electric_pressure",
+              "sample_index": 34,
+              "sim_time_s": 280.3,
+              "value": 0.0,
+              "unit": "psi"
+            },
+            {
+              "channel": "yellow_transfer_pressure",
+              "sample_index": 34,
+              "sim_time_s": 280.308333,
+              "value": 2700.0,
+              "unit": "psi"
+            },
+            {
+              "channel": "yellow_quantity",
+              "sample_index": 34,
+              "sim_time_s": 280.333333,
+              "value": 15.0,
+              "unit": "raw model quantity"
+            },
+            {
+              "channel": "yellow_pressure",
+              "sample_index": 34,
+              "sim_time_s": 280.325,
+              "value": 2700.0,
+              "unit": "psi"
+            }
+          ]
+        },
+        "onset_intervals": {
+          "generator_source_anomaly": {
+            "lower_sim_time_s": 268.091667,
+            "upper_sim_time_s": 269.1,
+            "lower_sample_index": 22,
+            "upper_sample_index": 23,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "blue_inventory_loss": null,
+          "bus_supply_loss": null,
+          "blue_pressure_loss": null,
+          "engine_2_fuel_flow_loss": {
+            "lower_sim_time_s": 265.283333,
+            "upper_sim_time_s": 266.258333,
+            "lower_sample_index": 19,
+            "upper_sample_index": 20,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "engine_2_core_speed_loss": {
+            "lower_sim_time_s": 267.266667,
+            "upper_sim_time_s": 268.241667,
+            "lower_sample_index": 21,
+            "upper_sample_index": 22,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "yellow_edp_output_loss": {
+            "lower_sim_time_s": 269.291667,
+            "upper_sim_time_s": 270.283333,
+            "lower_sample_index": 23,
+            "upper_sample_index": 24,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "yellow_line_pressure_loss": null
+        },
+        "current_impact": [
+          {
+            "system": "electrical",
+            "observation": "Generator 2 source output unavailable; one observed source is lost.",
+            "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+          },
+          {
+            "fact_id": "engine_2_fuel_flow_loss",
+            "system": "propulsion",
+            "observation": "Engine 2 fuel flow fell below the study threshold.",
+            "remaining_capability": "The measured flow supports a power-loss pattern alongside core speed. Thrust is unmeasured.",
+            "evidence": [
+              {
+                "channel": "engine_2_fuel_flow",
+                "sample_index": 58,
+                "sim_time_s": 303.808333,
+                "value": 0.0,
+                "unit": "lb/h",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          },
+          {
+            "fact_id": "engine_2_core_speed_loss",
+            "system": "propulsion",
+            "observation": "Engine 2 core speed fell below the study threshold.",
+            "remaining_capability": "Core speed is evidence of degraded engine drive. The initiating fault remains a hypothesis.",
+            "evidence": [
+              {
+                "channel": "engine_2_n2",
+                "sample_index": 58,
+                "sim_time_s": 303.783333,
+                "value": 11.923658,
+                "unit": "%",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          },
+          {
+            "fact_id": "yellow_edp_output_loss",
+            "system": "hydraulic",
+            "observation": "Yellow engine-driven pump output fell below the study threshold.",
+            "remaining_capability": "The electric pump or transfer from Green can sustain Yellow line pressure.",
+            "evidence": [
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 58,
+                "sim_time_s": 303.808333,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          }
+        ],
+        "incident_impact": [
+          {
+            "fact_id": "generator_source_anomaly",
+            "system": "electrical",
+            "observation": "Generator-2 source-output degradation was observed in this incident.",
+            "remaining_capability": "Bus observations are separate; source loss does not establish total downstream supply loss.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "sample_index": 24,
+                "sim_time_s": 270.108333,
+                "channel": "generator_2_voltage",
+                "value": 0.0,
+                "unit": "V",
+                "observed_status": "source_unavailable",
+                "evidence_id": "E0001",
+                "legacy_event_id": "E0001",
+                "onset_sample_index": 23,
+                "confirmation_sample_index": 24
+              },
+              {
+                "sample_index": 58,
+                "sim_time_s": 303.633333,
+                "channel": "generator_2_voltage",
+                "value": 0.0,
+                "unit": "V",
+                "observed_status": "source_unavailable",
+                "evidence_id": "E0001"
+              }
+            ]
+          },
+          {
+            "fact_id": "engine_2_fuel_flow_loss",
+            "system": "propulsion",
+            "observation": "Engine 2 fuel flow fell below the study threshold.",
+            "remaining_capability": "The measured flow supports a power-loss pattern alongside core speed. Thrust is unmeasured.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "engine_2_fuel_flow",
+                "sample_index": 20,
+                "sim_time_s": 266.258333,
+                "value": 6.71873,
+                "unit": "lb/h",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "engine_2_fuel_flow",
+                "sample_index": 58,
+                "sim_time_s": 303.808333,
+                "value": 0.0,
+                "unit": "lb/h",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          },
+          {
+            "fact_id": "engine_2_core_speed_loss",
+            "system": "propulsion",
+            "observation": "Engine 2 core speed fell below the study threshold.",
+            "remaining_capability": "Core speed is evidence of degraded engine drive. The initiating fault remains a hypothesis.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "engine_2_n2",
+                "sample_index": 22,
+                "sim_time_s": 268.241667,
+                "value": 51.845545,
+                "unit": "%",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "engine_2_n2",
+                "sample_index": 58,
+                "sim_time_s": 303.783333,
+                "value": 11.923658,
+                "unit": "%",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          },
+          {
+            "fact_id": "yellow_edp_output_loss",
+            "system": "hydraulic",
+            "observation": "Yellow engine-driven pump output fell below the study threshold.",
+            "remaining_capability": "The electric pump or transfer from Green can sustain Yellow line pressure.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 24,
+                "sim_time_s": 270.283333,
+                "value": 1111.329228,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 58,
+                "sim_time_s": 303.808333,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          }
+        ]
+      },
+      "without_drive_measurements": {
+        "status": "insufficient_observations",
+        "compatible": [],
+        "plausible": [
+          "engine_2_power_loss",
+          "independent_generator_yellow_pump_loss"
+        ],
+        "support": {
+          "engine_2_power_loss": {
+            "percent": 71,
+            "supported_checks": 5,
+            "total_checks": 7,
+            "unconfirmed_checks": 2,
+            "contradicted_checks": 0
+          },
+          "independent_generator_yellow_pump_loss": {
+            "percent": 71,
+            "supported_checks": 5,
+            "total_checks": 7,
+            "unconfirmed_checks": 2,
+            "contradicted_checks": 0
+          }
+        },
+        "yellow_supply": {
+          "status": "consistent",
+          "reason": "Settled Yellow line pressure agrees with the measured supply condition supported by alternate supply.",
+          "evidence": [
+            {
+              "channel": "yellow_edp_pressure",
+              "sample_index": 34,
+              "sim_time_s": 280.283333,
+              "value": 0.0,
+              "unit": "psi"
+            },
+            {
+              "channel": "yellow_electric_pressure",
+              "sample_index": 34,
+              "sim_time_s": 280.3,
+              "value": 0.0,
+              "unit": "psi"
+            },
+            {
+              "channel": "yellow_transfer_pressure",
+              "sample_index": 34,
+              "sim_time_s": 280.308333,
+              "value": 2700.0,
+              "unit": "psi"
+            },
+            {
+              "channel": "yellow_quantity",
+              "sample_index": 34,
+              "sim_time_s": 280.333333,
+              "value": 15.0,
+              "unit": "raw model quantity"
+            },
+            {
+              "channel": "yellow_pressure",
+              "sample_index": 34,
+              "sim_time_s": 280.325,
+              "value": 2700.0,
+              "unit": "psi"
+            }
+          ]
+        },
+        "onset_intervals": {
+          "generator_source_anomaly": {
+            "lower_sim_time_s": 268.091667,
+            "upper_sim_time_s": 269.1,
+            "lower_sample_index": 22,
+            "upper_sample_index": 23,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "blue_inventory_loss": null,
+          "bus_supply_loss": null,
+          "blue_pressure_loss": null,
+          "engine_2_fuel_flow_loss": null,
+          "engine_2_core_speed_loss": null,
+          "yellow_edp_output_loss": {
+            "lower_sim_time_s": 269.291667,
+            "upper_sim_time_s": 270.283333,
+            "lower_sample_index": 23,
+            "upper_sample_index": 24,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "yellow_line_pressure_loss": null
+        },
+        "current_impact": [
+          {
+            "system": "electrical",
+            "observation": "Generator 2 source output unavailable; one observed source is lost.",
+            "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+          },
+          {
+            "fact_id": "yellow_edp_output_loss",
+            "system": "hydraulic",
+            "observation": "Yellow engine-driven pump output fell below the study threshold.",
+            "remaining_capability": "The electric pump or transfer from Green can sustain Yellow line pressure.",
+            "evidence": [
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 58,
+                "sim_time_s": 303.808333,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          }
+        ],
+        "incident_impact": [
+          {
+            "fact_id": "generator_source_anomaly",
+            "system": "electrical",
+            "observation": "Generator-2 source-output degradation was observed in this incident.",
+            "remaining_capability": "Bus observations are separate; source loss does not establish total downstream supply loss.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "sample_index": 24,
+                "sim_time_s": 270.108333,
+                "channel": "generator_2_voltage",
+                "value": 0.0,
+                "unit": "V",
+                "observed_status": "source_unavailable",
+                "evidence_id": "E0001",
+                "legacy_event_id": "E0001",
+                "onset_sample_index": 23,
+                "confirmation_sample_index": 24
+              },
+              {
+                "sample_index": 58,
+                "sim_time_s": 303.633333,
+                "channel": "generator_2_voltage",
+                "value": 0.0,
+                "unit": "V",
+                "observed_status": "source_unavailable",
+                "evidence_id": "E0001"
+              }
+            ]
+          },
+          {
+            "fact_id": "yellow_edp_output_loss",
+            "system": "hydraulic",
+            "observation": "Yellow engine-driven pump output fell below the study threshold.",
+            "remaining_capability": "The electric pump or transfer from Green can sustain Yellow line pressure.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 24,
+                "sim_time_s": 270.283333,
+                "value": 1111.329228,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 58,
+                "sim_time_s": 303.808333,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          }
+        ]
+      },
+      "without_backup_measurements": {
+        "status": "single_compatible_candidate",
+        "compatible": [
+          "engine_2_power_loss"
+        ],
+        "plausible": [
+          "engine_2_power_loss"
+        ],
+        "support": {
+          "engine_2_power_loss": {
+            "percent": 86,
+            "supported_checks": 6,
+            "total_checks": 7,
+            "unconfirmed_checks": 1,
+            "contradicted_checks": 0
+          }
+        },
+        "yellow_supply": {
+          "status": "unknown",
+          "reason": "The observed pressure and inventory readings did not establish a settled Yellow supply condition.",
+          "evidence": []
+        },
+        "onset_intervals": {
+          "generator_source_anomaly": {
+            "lower_sim_time_s": 268.091667,
+            "upper_sim_time_s": 269.1,
+            "lower_sample_index": 22,
+            "upper_sample_index": 23,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "blue_inventory_loss": null,
+          "bus_supply_loss": null,
+          "blue_pressure_loss": null,
+          "engine_2_fuel_flow_loss": {
+            "lower_sim_time_s": 265.283333,
+            "upper_sim_time_s": 266.258333,
+            "lower_sample_index": 19,
+            "upper_sample_index": 20,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "engine_2_core_speed_loss": {
+            "lower_sim_time_s": 267.266667,
+            "upper_sim_time_s": 268.241667,
+            "lower_sample_index": 21,
+            "upper_sample_index": 22,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "yellow_edp_output_loss": {
+            "lower_sim_time_s": 269.291667,
+            "upper_sim_time_s": 270.283333,
+            "lower_sample_index": 23,
+            "upper_sample_index": 24,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "yellow_line_pressure_loss": null
+        },
+        "current_impact": [
+          {
+            "system": "electrical",
+            "observation": "Generator 2 source output unavailable; one observed source is lost.",
+            "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+          },
+          {
+            "fact_id": "engine_2_fuel_flow_loss",
+            "system": "propulsion",
+            "observation": "Engine 2 fuel flow fell below the study threshold.",
+            "remaining_capability": "The measured flow supports a power-loss pattern alongside core speed. Thrust is unmeasured.",
+            "evidence": [
+              {
+                "channel": "engine_2_fuel_flow",
+                "sample_index": 58,
+                "sim_time_s": 303.808333,
+                "value": 0.0,
+                "unit": "lb/h",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          },
+          {
+            "fact_id": "engine_2_core_speed_loss",
+            "system": "propulsion",
+            "observation": "Engine 2 core speed fell below the study threshold.",
+            "remaining_capability": "Core speed is evidence of degraded engine drive. The initiating fault remains a hypothesis.",
+            "evidence": [
+              {
+                "channel": "engine_2_n2",
+                "sample_index": 58,
+                "sim_time_s": 303.783333,
+                "value": 11.923658,
+                "unit": "%",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          },
+          {
+            "fact_id": "yellow_edp_output_loss",
+            "system": "hydraulic",
+            "observation": "Yellow engine-driven pump output fell below the study threshold.",
+            "remaining_capability": "The electric pump or transfer from Green can sustain Yellow line pressure.",
+            "evidence": [
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 58,
+                "sim_time_s": 303.808333,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          }
+        ],
+        "incident_impact": [
+          {
+            "fact_id": "generator_source_anomaly",
+            "system": "electrical",
+            "observation": "Generator-2 source-output degradation was observed in this incident.",
+            "remaining_capability": "Bus observations are separate; source loss does not establish total downstream supply loss.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "sample_index": 24,
+                "sim_time_s": 270.108333,
+                "channel": "generator_2_voltage",
+                "value": 0.0,
+                "unit": "V",
+                "observed_status": "source_unavailable",
+                "evidence_id": "E0001",
+                "legacy_event_id": "E0001",
+                "onset_sample_index": 23,
+                "confirmation_sample_index": 24
+              },
+              {
+                "sample_index": 58,
+                "sim_time_s": 303.633333,
+                "channel": "generator_2_voltage",
+                "value": 0.0,
+                "unit": "V",
+                "observed_status": "source_unavailable",
+                "evidence_id": "E0001"
+              }
+            ]
+          },
+          {
+            "fact_id": "engine_2_fuel_flow_loss",
+            "system": "propulsion",
+            "observation": "Engine 2 fuel flow fell below the study threshold.",
+            "remaining_capability": "The measured flow supports a power-loss pattern alongside core speed. Thrust is unmeasured.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "engine_2_fuel_flow",
+                "sample_index": 20,
+                "sim_time_s": 266.258333,
+                "value": 6.71873,
+                "unit": "lb/h",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "engine_2_fuel_flow",
+                "sample_index": 58,
+                "sim_time_s": 303.808333,
+                "value": 0.0,
+                "unit": "lb/h",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          },
+          {
+            "fact_id": "engine_2_core_speed_loss",
+            "system": "propulsion",
+            "observation": "Engine 2 core speed fell below the study threshold.",
+            "remaining_capability": "Core speed is evidence of degraded engine drive. The initiating fault remains a hypothesis.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "engine_2_n2",
+                "sample_index": 22,
+                "sim_time_s": 268.241667,
+                "value": 51.845545,
+                "unit": "%",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "engine_2_n2",
+                "sample_index": 58,
+                "sim_time_s": 303.783333,
+                "value": 11.923658,
+                "unit": "%",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          },
+          {
+            "fact_id": "yellow_edp_output_loss",
+            "system": "hydraulic",
+            "observation": "Yellow engine-driven pump output fell below the study threshold.",
+            "remaining_capability": "The electric pump or transfer from Green can sustain Yellow line pressure.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 24,
+                "sim_time_s": 270.283333,
+                "value": 1111.329228,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 58,
+                "sim_time_s": 303.808333,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          }
+        ]
+      },
+      "end_of_intervention": {
+        "samples": [
+          41,
+          46
+        ],
+        "measurements": {
+          "engine_2_n2": {
+            "median": 11.9328865,
+            "minimum": 11.918507,
+            "maximum": 11.938876,
+            "unit": "%"
+          },
+          "engine_2_fuel_flow": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "unit": "lb/h"
+          },
+          "generator_2_voltage": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "unit": "V"
+          },
+          "ac_bus_2": {
+            "median": 115.055328,
+            "minimum": 115.055328,
+            "maximum": 115.055328,
+            "unit": "V"
+          },
+          "yellow_edp_pressure": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "unit": "psi"
+          },
+          "yellow_electric_pressure": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "unit": "psi"
+          },
+          "yellow_transfer_pressure": {
+            "median": 2700.0,
+            "minimum": 2700.0,
+            "maximum": 2700.0,
+            "unit": "psi"
+          },
+          "yellow_pressure": {
+            "median": 2700.0,
+            "minimum": 2700.0,
+            "maximum": 2700.0,
+            "unit": "psi"
+          },
+          "yellow_quantity": {
+            "median": 15.0,
+            "minimum": 15.0,
+            "maximum": 15.0,
+            "unit": "raw model quantity"
+          },
+          "blue_pressure": {
+            "median": 3000.0,
+            "minimum": 3000.0,
+            "maximum": 3000.0,
+            "unit": "psi"
+          }
+        }
+      }
+    },
+    "pair-off": {
+      "observation_sha256": "4cd63bfad53dcb058089c72f4fb6cac9a501871edc7355a12557885502f842dc",
+      "polls": 59,
+      "expected_candidate": "independent_generator_yellow_pump_loss",
+      "ptu_selected": false,
+      "matched_candidate": true,
+      "streaming_replay_agreement": true,
+      "native_inspector_replay_agreement": true,
+      "full": {
+        "status": "single_compatible_candidate",
+        "compatible": [
+          "independent_generator_yellow_pump_loss"
+        ],
+        "plausible": [
+          "independent_generator_yellow_pump_loss"
+        ],
+        "support": {
+          "independent_generator_yellow_pump_loss": {
+            "percent": 100,
+            "supported_checks": 7,
+            "total_checks": 7,
+            "unconfirmed_checks": 0,
+            "contradicted_checks": 0
+          }
+        },
+        "yellow_supply": {
+          "status": "consistent",
+          "reason": "Settled Yellow line pressure agrees with the measured supply condition without measured backup.",
+          "evidence": [
+            {
+              "channel": "yellow_edp_pressure",
+              "sample_index": 25,
+              "sim_time_s": 210.466667,
+              "value": 0.0,
+              "unit": "psi"
+            },
+            {
+              "channel": "yellow_electric_pressure",
+              "sample_index": 25,
+              "sim_time_s": 210.475,
+              "value": 0.0,
+              "unit": "psi"
+            },
+            {
+              "channel": "yellow_transfer_pressure",
+              "sample_index": 25,
+              "sim_time_s": 210.483333,
+              "value": 0.0,
+              "unit": "psi"
+            },
+            {
+              "channel": "yellow_quantity",
+              "sample_index": 25,
+              "sim_time_s": 210.508333,
+              "value": 15.0,
+              "unit": "raw model quantity"
+            },
+            {
+              "channel": "yellow_pressure",
+              "sample_index": 25,
+              "sim_time_s": 210.5,
+              "value": 1890.0,
+              "unit": "psi"
+            }
+          ]
+        },
+        "onset_intervals": {
+          "generator_source_anomaly": {
+            "lower_sim_time_s": 202.475,
+            "upper_sim_time_s": 203.283333,
+            "lower_sample_index": 17,
+            "upper_sample_index": 18,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "blue_inventory_loss": null,
+          "bus_supply_loss": null,
+          "blue_pressure_loss": null,
+          "engine_2_fuel_flow_loss": null,
+          "engine_2_core_speed_loss": null,
+          "yellow_edp_output_loss": {
+            "lower_sim_time_s": 202.658333,
+            "upper_sim_time_s": 203.458333,
+            "lower_sample_index": 17,
+            "upper_sample_index": 18,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "yellow_line_pressure_loss": {
+            "lower_sim_time_s": 209.5,
+            "upper_sim_time_s": 210.5,
+            "lower_sample_index": 24,
+            "upper_sample_index": 25,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          }
+        },
+        "current_impact": [],
+        "incident_impact": [
+          {
+            "fact_id": "generator_source_anomaly",
+            "system": "electrical",
+            "observation": "Generator-2 source-output degradation was observed in this incident.",
+            "remaining_capability": "Bus observations are separate; source loss does not establish total downstream supply loss.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "sample_index": 19,
+                "sim_time_s": 204.258333,
+                "channel": "generator_2_voltage",
+                "value": 0.0,
+                "unit": "V",
+                "observed_status": "source_unavailable",
+                "evidence_id": "E0001",
+                "legacy_event_id": "E0001",
+                "onset_sample_index": 18,
+                "confirmation_sample_index": 19
+              },
+              {
+                "sample_index": 46,
+                "sim_time_s": 231.283333,
+                "channel": "generator_2_voltage",
+                "value": 0.0,
+                "unit": "V",
+                "observed_status": "source_unavailable",
+                "evidence_id": "E0001"
+              }
+            ]
+          },
+          {
+            "fact_id": "yellow_edp_output_loss",
+            "system": "hydraulic",
+            "observation": "Yellow engine-driven pump output fell below the study threshold.",
+            "remaining_capability": "The electric pump or transfer from Green can sustain Yellow line pressure.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 18,
+                "sim_time_s": 203.458333,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 46,
+                "sim_time_s": 231.466667,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          },
+          {
+            "fact_id": "yellow_line_pressure_loss",
+            "system": "hydraulic",
+            "observation": "Yellow line pressure fell below the study threshold.",
+            "remaining_capability": "The pressure reading alone leaves actuator and aircraft capability unresolved.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "yellow_pressure",
+                "sample_index": 25,
+                "sim_time_s": 210.5,
+                "value": 1890.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "yellow_pressure",
+                "sample_index": 50,
+                "sim_time_s": 235.216667,
+                "value": 1800.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          }
+        ]
+      },
+      "without_drive_measurements": {
+        "status": "insufficient_observations",
+        "compatible": [],
+        "plausible": [
+          "engine_2_power_loss",
+          "independent_generator_yellow_pump_loss"
+        ],
+        "support": {
+          "engine_2_power_loss": {
+            "percent": 71,
+            "supported_checks": 5,
+            "total_checks": 7,
+            "unconfirmed_checks": 2,
+            "contradicted_checks": 0
+          },
+          "independent_generator_yellow_pump_loss": {
+            "percent": 71,
+            "supported_checks": 5,
+            "total_checks": 7,
+            "unconfirmed_checks": 2,
+            "contradicted_checks": 0
+          }
+        },
+        "yellow_supply": {
+          "status": "consistent",
+          "reason": "Settled Yellow line pressure agrees with the measured supply condition without measured backup.",
+          "evidence": [
+            {
+              "channel": "yellow_edp_pressure",
+              "sample_index": 25,
+              "sim_time_s": 210.466667,
+              "value": 0.0,
+              "unit": "psi"
+            },
+            {
+              "channel": "yellow_electric_pressure",
+              "sample_index": 25,
+              "sim_time_s": 210.475,
+              "value": 0.0,
+              "unit": "psi"
+            },
+            {
+              "channel": "yellow_transfer_pressure",
+              "sample_index": 25,
+              "sim_time_s": 210.483333,
+              "value": 0.0,
+              "unit": "psi"
+            },
+            {
+              "channel": "yellow_quantity",
+              "sample_index": 25,
+              "sim_time_s": 210.508333,
+              "value": 15.0,
+              "unit": "raw model quantity"
+            },
+            {
+              "channel": "yellow_pressure",
+              "sample_index": 25,
+              "sim_time_s": 210.5,
+              "value": 1890.0,
+              "unit": "psi"
+            }
+          ]
+        },
+        "onset_intervals": {
+          "generator_source_anomaly": {
+            "lower_sim_time_s": 202.475,
+            "upper_sim_time_s": 203.283333,
+            "lower_sample_index": 17,
+            "upper_sample_index": 18,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "blue_inventory_loss": null,
+          "bus_supply_loss": null,
+          "blue_pressure_loss": null,
+          "engine_2_fuel_flow_loss": null,
+          "engine_2_core_speed_loss": null,
+          "yellow_edp_output_loss": {
+            "lower_sim_time_s": 202.658333,
+            "upper_sim_time_s": 203.458333,
+            "lower_sample_index": 17,
+            "upper_sample_index": 18,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "yellow_line_pressure_loss": {
+            "lower_sim_time_s": 209.5,
+            "upper_sim_time_s": 210.5,
+            "lower_sample_index": 24,
+            "upper_sample_index": 25,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          }
+        },
+        "current_impact": [],
+        "incident_impact": [
+          {
+            "fact_id": "generator_source_anomaly",
+            "system": "electrical",
+            "observation": "Generator-2 source-output degradation was observed in this incident.",
+            "remaining_capability": "Bus observations are separate; source loss does not establish total downstream supply loss.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "sample_index": 19,
+                "sim_time_s": 204.258333,
+                "channel": "generator_2_voltage",
+                "value": 0.0,
+                "unit": "V",
+                "observed_status": "source_unavailable",
+                "evidence_id": "E0001",
+                "legacy_event_id": "E0001",
+                "onset_sample_index": 18,
+                "confirmation_sample_index": 19
+              },
+              {
+                "sample_index": 46,
+                "sim_time_s": 231.283333,
+                "channel": "generator_2_voltage",
+                "value": 0.0,
+                "unit": "V",
+                "observed_status": "source_unavailable",
+                "evidence_id": "E0001"
+              }
+            ]
+          },
+          {
+            "fact_id": "yellow_edp_output_loss",
+            "system": "hydraulic",
+            "observation": "Yellow engine-driven pump output fell below the study threshold.",
+            "remaining_capability": "The electric pump or transfer from Green can sustain Yellow line pressure.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 18,
+                "sim_time_s": 203.458333,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 46,
+                "sim_time_s": 231.466667,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          },
+          {
+            "fact_id": "yellow_line_pressure_loss",
+            "system": "hydraulic",
+            "observation": "Yellow line pressure fell below the study threshold.",
+            "remaining_capability": "The pressure reading alone leaves actuator and aircraft capability unresolved.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "yellow_pressure",
+                "sample_index": 25,
+                "sim_time_s": 210.5,
+                "value": 1890.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "yellow_pressure",
+                "sample_index": 50,
+                "sim_time_s": 235.216667,
+                "value": 1800.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          }
+        ]
+      },
+      "without_backup_measurements": {
+        "status": "single_compatible_candidate",
+        "compatible": [
+          "independent_generator_yellow_pump_loss"
+        ],
+        "plausible": [
+          "independent_generator_yellow_pump_loss"
+        ],
+        "support": {
+          "independent_generator_yellow_pump_loss": {
+            "percent": 86,
+            "supported_checks": 6,
+            "total_checks": 7,
+            "unconfirmed_checks": 1,
+            "contradicted_checks": 0
+          }
+        },
+        "yellow_supply": {
+          "status": "unknown",
+          "reason": "The observed pressure and inventory readings did not establish a settled Yellow supply condition.",
+          "evidence": []
+        },
+        "onset_intervals": {
+          "generator_source_anomaly": {
+            "lower_sim_time_s": 202.475,
+            "upper_sim_time_s": 203.283333,
+            "lower_sample_index": 17,
+            "upper_sample_index": 18,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "blue_inventory_loss": null,
+          "bus_supply_loss": null,
+          "blue_pressure_loss": null,
+          "engine_2_fuel_flow_loss": null,
+          "engine_2_core_speed_loss": null,
+          "yellow_edp_output_loss": {
+            "lower_sim_time_s": 202.658333,
+            "upper_sim_time_s": 203.458333,
+            "lower_sample_index": 17,
+            "upper_sample_index": 18,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "yellow_line_pressure_loss": {
+            "lower_sim_time_s": 209.5,
+            "upper_sim_time_s": 210.5,
+            "lower_sample_index": 24,
+            "upper_sample_index": 25,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          }
+        },
+        "current_impact": [],
+        "incident_impact": [
+          {
+            "fact_id": "generator_source_anomaly",
+            "system": "electrical",
+            "observation": "Generator-2 source-output degradation was observed in this incident.",
+            "remaining_capability": "Bus observations are separate; source loss does not establish total downstream supply loss.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "sample_index": 19,
+                "sim_time_s": 204.258333,
+                "channel": "generator_2_voltage",
+                "value": 0.0,
+                "unit": "V",
+                "observed_status": "source_unavailable",
+                "evidence_id": "E0001",
+                "legacy_event_id": "E0001",
+                "onset_sample_index": 18,
+                "confirmation_sample_index": 19
+              },
+              {
+                "sample_index": 46,
+                "sim_time_s": 231.283333,
+                "channel": "generator_2_voltage",
+                "value": 0.0,
+                "unit": "V",
+                "observed_status": "source_unavailable",
+                "evidence_id": "E0001"
+              }
+            ]
+          },
+          {
+            "fact_id": "yellow_edp_output_loss",
+            "system": "hydraulic",
+            "observation": "Yellow engine-driven pump output fell below the study threshold.",
+            "remaining_capability": "The electric pump or transfer from Green can sustain Yellow line pressure.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 18,
+                "sim_time_s": 203.458333,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 46,
+                "sim_time_s": 231.466667,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          },
+          {
+            "fact_id": "yellow_line_pressure_loss",
+            "system": "hydraulic",
+            "observation": "Yellow line pressure fell below the study threshold.",
+            "remaining_capability": "The pressure reading alone leaves actuator and aircraft capability unresolved.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "yellow_pressure",
+                "sample_index": 25,
+                "sim_time_s": 210.5,
+                "value": 1890.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "yellow_pressure",
+                "sample_index": 50,
+                "sim_time_s": 235.216667,
+                "value": 1800.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          }
+        ]
+      },
+      "end_of_intervention": {
+        "samples": [
+          41,
+          46
+        ],
+        "measurements": {
+          "engine_2_n2": {
+            "median": 77.5848605,
+            "minimum": 77.561331,
+            "maximum": 77.604151,
+            "unit": "%"
+          },
+          "engine_2_fuel_flow": {
+            "median": 3552.7650395,
+            "minimum": 3545.600202,
+            "maximum": 3559.052545,
+            "unit": "lb/h"
+          },
+          "generator_2_voltage": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "unit": "V"
+          },
+          "ac_bus_2": {
+            "median": 115.0009025,
+            "minimum": 115.000901,
+            "maximum": 115.000904,
+            "unit": "V"
+          },
+          "yellow_edp_pressure": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "unit": "psi"
+          },
+          "yellow_electric_pressure": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "unit": "psi"
+          },
+          "yellow_transfer_pressure": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "unit": "psi"
+          },
+          "yellow_pressure": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "unit": "psi"
+          },
+          "yellow_quantity": {
+            "median": 15.0,
+            "minimum": 15.0,
+            "maximum": 15.0,
+            "unit": "raw model quantity"
+          },
+          "blue_pressure": {
+            "median": 3000.0,
+            "minimum": 3000.0,
+            "maximum": 3000.0,
+            "unit": "psi"
+          }
+        }
+      }
+    },
+    "engine-off": {
+      "observation_sha256": "12381e2b62543d25a4e52123c2cda056bb0bc957a638d02be5a34a272816bd57",
+      "polls": 60,
+      "expected_candidate": "engine_2_power_loss",
+      "ptu_selected": false,
+      "matched_candidate": true,
+      "streaming_replay_agreement": true,
+      "native_inspector_replay_agreement": true,
+      "full": {
+        "status": "single_compatible_candidate",
+        "compatible": [
+          "engine_2_power_loss"
+        ],
+        "plausible": [
+          "engine_2_power_loss"
+        ],
+        "support": {
+          "engine_2_power_loss": {
+            "percent": 100,
+            "supported_checks": 7,
+            "total_checks": 7,
+            "unconfirmed_checks": 0,
+            "contradicted_checks": 0
+          }
+        },
+        "yellow_supply": {
+          "status": "consistent",
+          "reason": "Settled Yellow line pressure agrees with the measured supply condition without measured backup.",
+          "evidence": [
+            {
+              "channel": "yellow_edp_pressure",
+              "sample_index": 31,
+              "sim_time_s": 276.083333,
+              "value": 0.0,
+              "unit": "psi"
+            },
+            {
+              "channel": "yellow_electric_pressure",
+              "sample_index": 31,
+              "sim_time_s": 276.1,
+              "value": 0.0,
+              "unit": "psi"
+            },
+            {
+              "channel": "yellow_transfer_pressure",
+              "sample_index": 31,
+              "sim_time_s": 276.108333,
+              "value": 0.0,
+              "unit": "psi"
+            },
+            {
+              "channel": "yellow_quantity",
+              "sample_index": 31,
+              "sim_time_s": 276.125,
+              "value": 15.0,
+              "unit": "raw model quantity"
+            },
+            {
+              "channel": "yellow_pressure",
+              "sample_index": 31,
+              "sim_time_s": 276.116667,
+              "value": 1840.0,
+              "unit": "psi"
+            }
+          ]
+        },
+        "onset_intervals": {
+          "generator_source_anomaly": {
+            "lower_sim_time_s": 266.866667,
+            "upper_sim_time_s": 267.875,
+            "lower_sample_index": 22,
+            "upper_sample_index": 23,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "blue_inventory_loss": null,
+          "bus_supply_loss": null,
+          "blue_pressure_loss": null,
+          "engine_2_fuel_flow_loss": {
+            "lower_sim_time_s": 264.016667,
+            "upper_sim_time_s": 265.033333,
+            "lower_sample_index": 19,
+            "upper_sample_index": 20,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "engine_2_core_speed_loss": {
+            "lower_sim_time_s": 266.05,
+            "upper_sim_time_s": 267.033333,
+            "lower_sample_index": 21,
+            "upper_sample_index": 22,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "yellow_edp_output_loss": {
+            "lower_sim_time_s": 268.05,
+            "upper_sim_time_s": 269.066667,
+            "lower_sample_index": 23,
+            "upper_sample_index": 24,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "yellow_line_pressure_loss": {
+            "lower_sim_time_s": 274.058333,
+            "upper_sim_time_s": 275.108333,
+            "lower_sample_index": 29,
+            "upper_sample_index": 30,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          }
+        },
+        "current_impact": [
+          {
+            "system": "electrical",
+            "observation": "Generator 2 source output unavailable; one observed source is lost.",
+            "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+          },
+          {
+            "fact_id": "engine_2_fuel_flow_loss",
+            "system": "propulsion",
+            "observation": "Engine 2 fuel flow fell below the study threshold.",
+            "remaining_capability": "The measured flow supports a power-loss pattern alongside core speed. Thrust is unmeasured.",
+            "evidence": [
+              {
+                "channel": "engine_2_fuel_flow",
+                "sample_index": 59,
+                "sim_time_s": 303.566667,
+                "value": 0.0,
+                "unit": "lb/h",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          },
+          {
+            "fact_id": "engine_2_core_speed_loss",
+            "system": "propulsion",
+            "observation": "Engine 2 core speed fell below the study threshold.",
+            "remaining_capability": "Core speed is evidence of degraded engine drive. The initiating fault remains a hypothesis.",
+            "evidence": [
+              {
+                "channel": "engine_2_n2",
+                "sample_index": 59,
+                "sim_time_s": 303.55,
+                "value": 11.922206,
+                "unit": "%",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          },
+          {
+            "fact_id": "yellow_edp_output_loss",
+            "system": "hydraulic",
+            "observation": "Yellow engine-driven pump output fell below the study threshold.",
+            "remaining_capability": "The electric pump or transfer from Green can sustain Yellow line pressure.",
+            "evidence": [
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 59,
+                "sim_time_s": 303.583333,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          },
+          {
+            "fact_id": "yellow_line_pressure_loss",
+            "system": "hydraulic",
+            "observation": "Yellow line pressure fell below the study threshold.",
+            "remaining_capability": "The pressure reading alone leaves actuator and aircraft capability unresolved.",
+            "evidence": [
+              {
+                "channel": "yellow_pressure",
+                "sample_index": 59,
+                "sim_time_s": 303.608333,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          }
+        ],
+        "incident_impact": [
+          {
+            "fact_id": "generator_source_anomaly",
+            "system": "electrical",
+            "observation": "Generator-2 source-output degradation was observed in this incident.",
+            "remaining_capability": "Bus observations are separate; source loss does not establish total downstream supply loss.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "sample_index": 24,
+                "sim_time_s": 268.875,
+                "channel": "generator_2_voltage",
+                "value": 0.0,
+                "unit": "V",
+                "observed_status": "source_unavailable",
+                "evidence_id": "E0001",
+                "legacy_event_id": "E0001",
+                "onset_sample_index": 23,
+                "confirmation_sample_index": 24
+              },
+              {
+                "sample_index": 59,
+                "sim_time_s": 303.375,
+                "channel": "generator_2_voltage",
+                "value": 0.0,
+                "unit": "V",
+                "observed_status": "source_unavailable",
+                "evidence_id": "E0001"
+              }
+            ]
+          },
+          {
+            "fact_id": "engine_2_fuel_flow_loss",
+            "system": "propulsion",
+            "observation": "Engine 2 fuel flow fell below the study threshold.",
+            "remaining_capability": "The measured flow supports a power-loss pattern alongside core speed. Thrust is unmeasured.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "engine_2_fuel_flow",
+                "sample_index": 20,
+                "sim_time_s": 265.033333,
+                "value": 6.701935,
+                "unit": "lb/h",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "engine_2_fuel_flow",
+                "sample_index": 59,
+                "sim_time_s": 303.566667,
+                "value": 0.0,
+                "unit": "lb/h",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          },
+          {
+            "fact_id": "engine_2_core_speed_loss",
+            "system": "propulsion",
+            "observation": "Engine 2 core speed fell below the study threshold.",
+            "remaining_capability": "Core speed is evidence of degraded engine drive. The initiating fault remains a hypothesis.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "engine_2_n2",
+                "sample_index": 22,
+                "sim_time_s": 267.033333,
+                "value": 51.832922,
+                "unit": "%",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "engine_2_n2",
+                "sample_index": 59,
+                "sim_time_s": 303.55,
+                "value": 11.922206,
+                "unit": "%",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          },
+          {
+            "fact_id": "yellow_edp_output_loss",
+            "system": "hydraulic",
+            "observation": "Yellow engine-driven pump output fell below the study threshold.",
+            "remaining_capability": "The electric pump or transfer from Green can sustain Yellow line pressure.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 24,
+                "sim_time_s": 269.066667,
+                "value": 1237.754313,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 59,
+                "sim_time_s": 303.583333,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          },
+          {
+            "fact_id": "yellow_line_pressure_loss",
+            "system": "hydraulic",
+            "observation": "Yellow line pressure fell below the study threshold.",
+            "remaining_capability": "The pressure reading alone leaves actuator and aircraft capability unresolved.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "yellow_pressure",
+                "sample_index": 30,
+                "sim_time_s": 275.108333,
+                "value": 1990.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "yellow_pressure",
+                "sample_index": 59,
+                "sim_time_s": 303.608333,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          }
+        ]
+      },
+      "without_drive_measurements": {
+        "status": "insufficient_observations",
+        "compatible": [],
+        "plausible": [
+          "engine_2_power_loss",
+          "independent_generator_yellow_pump_loss"
+        ],
+        "support": {
+          "engine_2_power_loss": {
+            "percent": 71,
+            "supported_checks": 5,
+            "total_checks": 7,
+            "unconfirmed_checks": 2,
+            "contradicted_checks": 0
+          },
+          "independent_generator_yellow_pump_loss": {
+            "percent": 71,
+            "supported_checks": 5,
+            "total_checks": 7,
+            "unconfirmed_checks": 2,
+            "contradicted_checks": 0
+          }
+        },
+        "yellow_supply": {
+          "status": "consistent",
+          "reason": "Settled Yellow line pressure agrees with the measured supply condition without measured backup.",
+          "evidence": [
+            {
+              "channel": "yellow_edp_pressure",
+              "sample_index": 31,
+              "sim_time_s": 276.083333,
+              "value": 0.0,
+              "unit": "psi"
+            },
+            {
+              "channel": "yellow_electric_pressure",
+              "sample_index": 31,
+              "sim_time_s": 276.1,
+              "value": 0.0,
+              "unit": "psi"
+            },
+            {
+              "channel": "yellow_transfer_pressure",
+              "sample_index": 31,
+              "sim_time_s": 276.108333,
+              "value": 0.0,
+              "unit": "psi"
+            },
+            {
+              "channel": "yellow_quantity",
+              "sample_index": 31,
+              "sim_time_s": 276.125,
+              "value": 15.0,
+              "unit": "raw model quantity"
+            },
+            {
+              "channel": "yellow_pressure",
+              "sample_index": 31,
+              "sim_time_s": 276.116667,
+              "value": 1840.0,
+              "unit": "psi"
+            }
+          ]
+        },
+        "onset_intervals": {
+          "generator_source_anomaly": {
+            "lower_sim_time_s": 266.866667,
+            "upper_sim_time_s": 267.875,
+            "lower_sample_index": 22,
+            "upper_sample_index": 23,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "blue_inventory_loss": null,
+          "bus_supply_loss": null,
+          "blue_pressure_loss": null,
+          "engine_2_fuel_flow_loss": null,
+          "engine_2_core_speed_loss": null,
+          "yellow_edp_output_loss": {
+            "lower_sim_time_s": 268.05,
+            "upper_sim_time_s": 269.066667,
+            "lower_sample_index": 23,
+            "upper_sample_index": 24,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "yellow_line_pressure_loss": {
+            "lower_sim_time_s": 274.058333,
+            "upper_sim_time_s": 275.108333,
+            "lower_sample_index": 29,
+            "upper_sample_index": 30,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          }
+        },
+        "current_impact": [
+          {
+            "system": "electrical",
+            "observation": "Generator 2 source output unavailable; one observed source is lost.",
+            "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+          },
+          {
+            "fact_id": "yellow_edp_output_loss",
+            "system": "hydraulic",
+            "observation": "Yellow engine-driven pump output fell below the study threshold.",
+            "remaining_capability": "The electric pump or transfer from Green can sustain Yellow line pressure.",
+            "evidence": [
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 59,
+                "sim_time_s": 303.583333,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          },
+          {
+            "fact_id": "yellow_line_pressure_loss",
+            "system": "hydraulic",
+            "observation": "Yellow line pressure fell below the study threshold.",
+            "remaining_capability": "The pressure reading alone leaves actuator and aircraft capability unresolved.",
+            "evidence": [
+              {
+                "channel": "yellow_pressure",
+                "sample_index": 59,
+                "sim_time_s": 303.608333,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          }
+        ],
+        "incident_impact": [
+          {
+            "fact_id": "generator_source_anomaly",
+            "system": "electrical",
+            "observation": "Generator-2 source-output degradation was observed in this incident.",
+            "remaining_capability": "Bus observations are separate; source loss does not establish total downstream supply loss.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "sample_index": 24,
+                "sim_time_s": 268.875,
+                "channel": "generator_2_voltage",
+                "value": 0.0,
+                "unit": "V",
+                "observed_status": "source_unavailable",
+                "evidence_id": "E0001",
+                "legacy_event_id": "E0001",
+                "onset_sample_index": 23,
+                "confirmation_sample_index": 24
+              },
+              {
+                "sample_index": 59,
+                "sim_time_s": 303.375,
+                "channel": "generator_2_voltage",
+                "value": 0.0,
+                "unit": "V",
+                "observed_status": "source_unavailable",
+                "evidence_id": "E0001"
+              }
+            ]
+          },
+          {
+            "fact_id": "yellow_edp_output_loss",
+            "system": "hydraulic",
+            "observation": "Yellow engine-driven pump output fell below the study threshold.",
+            "remaining_capability": "The electric pump or transfer from Green can sustain Yellow line pressure.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 24,
+                "sim_time_s": 269.066667,
+                "value": 1237.754313,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 59,
+                "sim_time_s": 303.583333,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          },
+          {
+            "fact_id": "yellow_line_pressure_loss",
+            "system": "hydraulic",
+            "observation": "Yellow line pressure fell below the study threshold.",
+            "remaining_capability": "The pressure reading alone leaves actuator and aircraft capability unresolved.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "yellow_pressure",
+                "sample_index": 30,
+                "sim_time_s": 275.108333,
+                "value": 1990.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "yellow_pressure",
+                "sample_index": 59,
+                "sim_time_s": 303.608333,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          }
+        ]
+      },
+      "without_backup_measurements": {
+        "status": "single_compatible_candidate",
+        "compatible": [
+          "engine_2_power_loss"
+        ],
+        "plausible": [
+          "engine_2_power_loss"
+        ],
+        "support": {
+          "engine_2_power_loss": {
+            "percent": 86,
+            "supported_checks": 6,
+            "total_checks": 7,
+            "unconfirmed_checks": 1,
+            "contradicted_checks": 0
+          }
+        },
+        "yellow_supply": {
+          "status": "unknown",
+          "reason": "The observed pressure and inventory readings did not establish a settled Yellow supply condition.",
+          "evidence": []
+        },
+        "onset_intervals": {
+          "generator_source_anomaly": {
+            "lower_sim_time_s": 266.866667,
+            "upper_sim_time_s": 267.875,
+            "lower_sample_index": 22,
+            "upper_sample_index": 23,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "blue_inventory_loss": null,
+          "bus_supply_loss": null,
+          "blue_pressure_loss": null,
+          "engine_2_fuel_flow_loss": {
+            "lower_sim_time_s": 264.016667,
+            "upper_sim_time_s": 265.033333,
+            "lower_sample_index": 19,
+            "upper_sample_index": 20,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "engine_2_core_speed_loss": {
+            "lower_sim_time_s": 266.05,
+            "upper_sim_time_s": 267.033333,
+            "lower_sample_index": 21,
+            "upper_sample_index": 22,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "yellow_edp_output_loss": {
+            "lower_sim_time_s": 268.05,
+            "upper_sim_time_s": 269.066667,
+            "lower_sample_index": 23,
+            "upper_sample_index": 24,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          },
+          "yellow_line_pressure_loss": {
+            "lower_sim_time_s": 274.058333,
+            "upper_sim_time_s": 275.108333,
+            "lower_sample_index": 29,
+            "upper_sample_index": 30,
+            "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+          }
+        },
+        "current_impact": [
+          {
+            "system": "electrical",
+            "observation": "Generator 2 source output unavailable; one observed source is lost.",
+            "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+          },
+          {
+            "fact_id": "engine_2_fuel_flow_loss",
+            "system": "propulsion",
+            "observation": "Engine 2 fuel flow fell below the study threshold.",
+            "remaining_capability": "The measured flow supports a power-loss pattern alongside core speed. Thrust is unmeasured.",
+            "evidence": [
+              {
+                "channel": "engine_2_fuel_flow",
+                "sample_index": 59,
+                "sim_time_s": 303.566667,
+                "value": 0.0,
+                "unit": "lb/h",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          },
+          {
+            "fact_id": "engine_2_core_speed_loss",
+            "system": "propulsion",
+            "observation": "Engine 2 core speed fell below the study threshold.",
+            "remaining_capability": "Core speed is evidence of degraded engine drive. The initiating fault remains a hypothesis.",
+            "evidence": [
+              {
+                "channel": "engine_2_n2",
+                "sample_index": 59,
+                "sim_time_s": 303.55,
+                "value": 11.922206,
+                "unit": "%",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          },
+          {
+            "fact_id": "yellow_edp_output_loss",
+            "system": "hydraulic",
+            "observation": "Yellow engine-driven pump output fell below the study threshold.",
+            "remaining_capability": "The electric pump or transfer from Green can sustain Yellow line pressure.",
+            "evidence": [
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 59,
+                "sim_time_s": 303.583333,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          },
+          {
+            "fact_id": "yellow_line_pressure_loss",
+            "system": "hydraulic",
+            "observation": "Yellow line pressure fell below the study threshold.",
+            "remaining_capability": "The pressure reading alone leaves actuator and aircraft capability unresolved.",
+            "evidence": [
+              {
+                "channel": "yellow_pressure",
+                "sample_index": 59,
+                "sim_time_s": 303.608333,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          }
+        ],
+        "incident_impact": [
+          {
+            "fact_id": "generator_source_anomaly",
+            "system": "electrical",
+            "observation": "Generator-2 source-output degradation was observed in this incident.",
+            "remaining_capability": "Bus observations are separate; source loss does not establish total downstream supply loss.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "sample_index": 24,
+                "sim_time_s": 268.875,
+                "channel": "generator_2_voltage",
+                "value": 0.0,
+                "unit": "V",
+                "observed_status": "source_unavailable",
+                "evidence_id": "E0001",
+                "legacy_event_id": "E0001",
+                "onset_sample_index": 23,
+                "confirmation_sample_index": 24
+              },
+              {
+                "sample_index": 59,
+                "sim_time_s": 303.375,
+                "channel": "generator_2_voltage",
+                "value": 0.0,
+                "unit": "V",
+                "observed_status": "source_unavailable",
+                "evidence_id": "E0001"
+              }
+            ]
+          },
+          {
+            "fact_id": "engine_2_fuel_flow_loss",
+            "system": "propulsion",
+            "observation": "Engine 2 fuel flow fell below the study threshold.",
+            "remaining_capability": "The measured flow supports a power-loss pattern alongside core speed. Thrust is unmeasured.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "engine_2_fuel_flow",
+                "sample_index": 20,
+                "sim_time_s": 265.033333,
+                "value": 6.701935,
+                "unit": "lb/h",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "engine_2_fuel_flow",
+                "sample_index": 59,
+                "sim_time_s": 303.566667,
+                "value": 0.0,
+                "unit": "lb/h",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          },
+          {
+            "fact_id": "engine_2_core_speed_loss",
+            "system": "propulsion",
+            "observation": "Engine 2 core speed fell below the study threshold.",
+            "remaining_capability": "Core speed is evidence of degraded engine drive. The initiating fault remains a hypothesis.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "engine_2_n2",
+                "sample_index": 22,
+                "sim_time_s": 267.033333,
+                "value": 51.832922,
+                "unit": "%",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "engine_2_n2",
+                "sample_index": 59,
+                "sim_time_s": 303.55,
+                "value": 11.922206,
+                "unit": "%",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          },
+          {
+            "fact_id": "yellow_edp_output_loss",
+            "system": "hydraulic",
+            "observation": "Yellow engine-driven pump output fell below the study threshold.",
+            "remaining_capability": "The electric pump or transfer from Green can sustain Yellow line pressure.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 24,
+                "sim_time_s": 269.066667,
+                "value": 1237.754313,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "yellow_edp_pressure",
+                "sample_index": 59,
+                "sim_time_s": 303.583333,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          },
+          {
+            "fact_id": "yellow_line_pressure_loss",
+            "system": "hydraulic",
+            "observation": "Yellow line pressure fell below the study threshold.",
+            "remaining_capability": "The pressure reading alone leaves actuator and aircraft capability unresolved.",
+            "scope": "incident_or_selected_window_history",
+            "evidence": [
+              {
+                "channel": "yellow_pressure",
+                "sample_index": 30,
+                "sim_time_s": 275.108333,
+                "value": 1990.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              },
+              {
+                "channel": "yellow_pressure",
+                "sample_index": 59,
+                "sim_time_s": 303.608333,
+                "value": 0.0,
+                "unit": "psi",
+                "observed_status": "observed",
+                "evidence_id": null
+              }
+            ]
+          }
+        ]
+      },
+      "end_of_intervention": {
+        "samples": [
+          42,
+          47
+        ],
+        "measurements": {
+          "engine_2_n2": {
+            "median": 11.936197499999999,
+            "minimum": 11.925779,
+            "maximum": 11.939183,
+            "unit": "%"
+          },
+          "engine_2_fuel_flow": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "unit": "lb/h"
+          },
+          "generator_2_voltage": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "unit": "V"
+          },
+          "ac_bus_2": {
+            "median": 115.05538999999999,
+            "minimum": 115.055387,
+            "maximum": 115.055393,
+            "unit": "V"
+          },
+          "yellow_edp_pressure": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "unit": "psi"
+          },
+          "yellow_electric_pressure": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "unit": "psi"
+          },
+          "yellow_transfer_pressure": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 0.0,
+            "unit": "psi"
+          },
+          "yellow_pressure": {
+            "median": 0.0,
+            "minimum": 0.0,
+            "maximum": 190.0,
+            "unit": "psi"
+          },
+          "yellow_quantity": {
+            "median": 15.0,
+            "minimum": 15.0,
+            "maximum": 15.0,
+            "unit": "raw model quantity"
+          },
+          "blue_pressure": {
+            "median": 3000.0,
+            "minimum": 3000.0,
+            "maximum": 3000.0,
+            "unit": "psi"
+          }
+        }
+      }
+    }
+  },
+  "matched_runs": 4,
+  "streaming_replay_matches": 4,
+  "source_sha256": {
+    "aircraft_debugger/__init__.py": "8b3988af59cc46fdbb7c4e8bccfa65a2aaf90e4882d3ba8c70c344e15f63d68a",
+    "aircraft_debugger/diagnosis.py": "60351768ea22023e1f02217cdfe3803ec800500ed28ac14955d063274885d622",
+    "aircraft_debugger/diagnostic_features.py": "35ea8ca17209b5b1b22d3e7983fc3aa5bb5bc31bf3ad1ef424e572a40ed3a608",
+    "aircraft_debugger/hypotheses.py": "8a891d9a4a7a4786ef362543db975a4b392a0645700fc2d073f55b96b33c508e",
+    "aircraft_debugger/airborne_evidence.py": "fa7c985c040d72a10f1315e0fb26c05c456c284ee7cfb2476c8e387d1e9d31d8",
+    "aircraft_debugger/airborne_profile.py": "648d46a74845462e8f92566dabed6d88c87c90f5fff6837b522fb3ca07105019",
+    "aircraft_debugger/evidence.py": "cd0c6ad86b66ccb15a3d1c3b446ea9208f0ea3b419d12ecb23beb91db542f519",
+    "aircraft_debugger/observations.py": "56d3acd38311403f340ad2ae8a733ebb00135ca290484d3ad95ef07e5689011c",
+    "aircraft_debugger/flightgear.py": "4e60e793ad30fdc5fa8d2b8d9d9157b16c1ab20fa99014df0252216325bdd443",
+    "aircraft_debugger/propulsion_features.py": "5116976f5a87415df20ae4f9b37c52e3a0b931beabfc2d1b439b1389bcaa6baf",
+    "aircraft_debugger/candidate_support.py": "a16dae541f25ba1c1151dbf99e29341d6dcf2110c5eef666ad51d5490d814840",
+    "aircraft_debugger/propulsion_study.py": "80b62d336875e8096751034129be3dba85e26af1cc77780a85b7863a579c947b",
+    "aircraft_debugger/diagnostic_session.py": "2d3004f2912503590daa717511f45bf2ed667b85ad84e4881bd40668cd45c8df"
+  }
+}

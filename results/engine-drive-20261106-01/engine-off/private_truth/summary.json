@@ -1,0 +1,98 @@
+{
+  "kind": "controlled native-model experiment; private truth, not diagnostic input",
+  "created_utc": "2026-11-06T11:15:31.773347+00:00",
+  "case": "engine_2_cutoff",
+  "requested_faults": [
+    "engine_2_cutoff"
+  ],
+  "physical_regional_damage_simulated": false,
+  "status": "completed",
+  "completed": true,
+  "artifacts_complete": true,
+  "collection_completed": true,
+  "samples": 60,
+  "phases": [
+    {
+      "name": "active",
+      "first_sample_index": 18,
+      "started_monotonic_s": 565670.1270587,
+      "duration_target_sim_s": 28.0,
+      "completed": true,
+      "first_sim_time_s": 262.816667,
+      "last_sim_time_s": 291.808333,
+      "elapsed_sim_s": 28.99166600000001,
+      "minimum_required_channel_elapsed_sim_s": 28.916667000000018,
+      "end_sample_index_exclusive": 48,
+      "ended_monotonic_s": 565699.4559634
+    },
+    {
+      "name": "recovery",
+      "first_sample_index": 48,
+      "started_monotonic_s": 565699.6140269,
+      "duration_target_sim_s": 10.0,
+      "completed": true,
+      "first_sim_time_s": 292.308333,
+      "last_sim_time_s": 303.3,
+      "elapsed_sim_s": 10.991667000000007,
+      "minimum_required_channel_elapsed_sim_s": 10.983333000000016,
+      "end_sample_index_exclusive": 60,
+      "ended_monotonic_s": 565711.0101463
+    }
+  ],
+  "cleanup_errors": [],
+  "failure": null,
+  "last_gate": {
+    "profile_id": "a320-propulsion-airborne-v1",
+    "purpose": "experiment_baseline_eligibility_only",
+    "qualified": true,
+    "eligible_current_sample": true,
+    "reasons": [],
+    "window_elapsed_sim_s": 16.849999999999966,
+    "window_start": {
+      "sample_index": 0,
+      "sim_time_s": 245.266667,
+      "received_monotonic_s": 565653.0076773
+    },
+    "window_end": {
+      "sample_index": 17,
+      "sim_time_s": 262.216667,
+      "received_monotonic_s": 565669.875742
+    }
+  },
+  "settings": {
+    "altitude_target_ft": 6000,
+    "altitude_tolerance_ft": 200.0,
+    "airspeed_target_kt": 230,
+    "airspeed_tolerance_kt": 10.0,
+    "minimum_height_agl_ft": 3000.0,
+    "maximum_abs_bank_deg": 5.0,
+    "maximum_abs_vertical_speed_fps": 5.0,
+    "qualification_duration_sim_s": 15.0,
+    "maximum_sim_gap_s": 3.0,
+    "maximum_local_gap_s": 3.0,
+    "maximum_reading_age_s": 2.0,
+    "maximum_poll_span_s": 2.0,
+    "maximum_timestamp_skew_s": 2.0,
+    "minimum_reference_voltage_v": 100.0,
+    "minimum_blue_quantity_raw": 7.9,
+    "minimum_blue_pressure_psi": 2500.0
+  },
+  "active_duration_target_sim_s": 28.0,
+  "recovery_duration_target_sim_s": 10.0,
+  "interval_target_local_s": 1.0,
+  "qualification_maximum_local_s": 75.0,
+  "postfault_maximum_local_s": 90.0,
+  "limits": [
+    "One declared operating condition; no whole-aircraft or real-aircraft validation",
+    "Autopilot or backup supplies may mask motion or bus consequences",
+    "Clearing a blue leak may refill native quantity; it is not physical repair",
+    "Shared and independent paired recipes request identical supported component flags",
+    "Exclusive collector/control ownership is an operational prerequisite, not an interprocess guarantee",
+    "No probabilistic diagnosis or causal identification is computed",
+    "Cutoff exercises simulated engine power loss. Releasing the cutoff input does not establish relight or restoration of engine power."
+  ],
+  "reference_ptu_selected": false,
+  "baseline_end_sample_index_exclusive": 18,
+  "pending_faults_unverified_clear": [],
+  "elapsed_local_s": 58.49367400002666
+}

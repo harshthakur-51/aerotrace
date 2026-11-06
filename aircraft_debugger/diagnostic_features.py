@@ -16,9 +16,12 @@ from collections.abc import Iterable
 import copy
 
 from .airborne_evidence import analyze_airborne_observations
-from .airborne_profile import validate_airborne_observation
+from .airborne_profile import validate_airborne_observation, validate_propulsion_observation
 from .evidence import THRESHOLDS, analyze_observations
 from .observations import ObservationFormatError, validate_observation
+from .propulsion_features import (
+    PROPULSION_FACTS, PROPULSION_IMPACTS, add_propulsion_evidence, retained_drive_relations, yellow_supply_relation,
+)
 
 
 MAXIMUM_OBSERVATION_GAP_SIM_S = 3.0
@@ -101,8 +104,7 @@ def _trigger(snapshot: dict) -> bool:
                 and states["blue_inventory"]["drop_from_reference_raw"] >= THRESHOLDS["blue_quantity_onset_drop_raw"]))
 
 
-def _fact(name: str, snapshots: list[dict]) -> dict:
-    _, channel, _ = _SPECS[name]
+def _fact(name: str, channel: str, snapshots: list[dict], *, whole_epoch=False) -> dict:
     positive = [s for s in snapshots if s["facts"][name] == "observed"]
     unavailable = [s["sample_index"] for s in snapshots if not s["usable"][name]]
     pending = [s["sample_index"] for s in snapshots
@@ -111,7 +113,8 @@ def _fact(name: str, snapshots: list[dict]) -> dict:
     gaps = []
     for previous, current in zip(points, points[1:]):
         delta = current["sim_time_s"] - previous["sim_time_s"]
-        if delta <= 0 or delta > MAXIMUM_OBSERVATION_GAP_SIM_S:
+        skipped_poll = whole_epoch and current["sample_index"] != previous["sample_index"] + 1
+        if skipped_poll or delta <= 0 or delta > MAXIMUM_OBSERVATION_GAP_SIM_S:
             gaps.append({"from_sample_index": previous["sample_index"], "to_sample_index": current["sample_index"],
                          "simulator_gap_s": delta})
     coverage = {"samples": len(snapshots), "usable_samples": len(points),
@@ -154,6 +157,12 @@ def _fact(name: str, snapshots: list[dict]) -> dict:
                     "lower_sample_index": lower_point["sample_index"] if lower_point else None,
                     "upper_sample_index": onset_index,
                     "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."}
+        if whole_epoch:
+            confirmation = first["sample_index"]
+            interval["covered_through_confirmation"] = not (
+                any(index <= confirmation for index in unavailable)
+                or any(gap["to_sample_index"] <= confirmation for gap in gaps)
+            )
     elif points:
         evidence.append(copy.deepcopy(points[-1]))
     return {"state": state, "evidence": evidence, "channels": [channel],
@@ -170,8 +179,8 @@ def _relation(facts: dict) -> dict:
     q, p = quantity["onset_interval"], pressure["onset_interval"]
     result.update(status="unknown", reason="Onset brackets overlap or observation gaps prevent a qualitative ordering claim.")
     if (q is None or p is None or q["lower_sim_time_s"] is None or p["lower_sim_time_s"] is None
-            or not quantity["coverage"]["measurement_coverage_complete"]
-            or not pressure["coverage"]["measurement_coverage_complete"]):
+            or not q.get("covered_through_confirmation", quantity["coverage"]["measurement_coverage_complete"])
+            or not p.get("covered_through_confirmation", pressure["coverage"]["measurement_coverage_complete"])):
         return result
     # Requiring separate poll brackets prevents tiny non-atomic read offsets in
     # one poll from becoming a fabricated physical propagation direction.
@@ -195,6 +204,7 @@ def _impact(facts: dict) -> list[dict]:
         "blue_pressure_loss": ("hydraulic", "Blue pressure degradation was observed in this incident.",
                                "Pressure degradation does not establish total controllability or manual-control force."),
     }
+    descriptions.update(PROPULSION_IMPACTS)
     return [{"fact_id": name, "system": descriptions[name][0], "observation": descriptions[name][1],
              "remaining_capability": descriptions[name][2], "scope": "incident_or_selected_window_history",
              "evidence": copy.deepcopy(fact["evidence"])}
@@ -208,15 +218,26 @@ class FeatureHistory:
     rebuilding earlier feature frames on every live update; no thresholds change.
     """
 
-    def __init__(self):
+    def __init__(self, *, propulsion=False, generated=False):
+        self.propulsion = propulsion or generated
+        self.generated = generated
+        self.channels = {name: spec[1] for name, spec in _SPECS.items()}
+        if self.propulsion:
+            self.channels.update({name: channel for name, (channel, _) in PROPULSION_FACTS.items()})
         self.epoch_history = []
         self.incident = None
         self.epoch = None
         self.incident_counter = 0
         self.normal_run = 0
 
-    def advance(self, row: dict, report: dict) -> dict:
+    def snapshot(self, row: dict, report: dict) -> dict:
         snapshot = _snapshot(row, report)
+        if self.propulsion:
+            add_propulsion_evidence(snapshot, report["airborne_context"]["latest_channels"], generated=self.generated)
+        return snapshot
+
+    def advance(self, row: dict, report: dict) -> dict:
+        snapshot = self.snapshot(row, report)
         if snapshot["epoch"] != self.epoch:
             self.epoch, self.epoch_history, self.incident, self.normal_run = snapshot["epoch"], [], None, 0
         previous = self.epoch_history[-1] if self.epoch_history else None
@@ -247,34 +268,51 @@ class FeatureHistory:
                      "start_sample_index": window[0]["sample_index"],
                      "end_sample_index": snapshot["sample_index"], "closed": False}
         scope["reference_sample_index"] = window[0]["sample_index"]
-        facts = {name: _fact(name, window) for name in _SPECS}
+        facts, relations = self.window_evidence(window)
         frame = {"sample_index": snapshot["sample_index"], "sim_time_s": snapshot["sim_time_s"],
                  "epoch": self.epoch, "scope": scope, "facts": facts,
-                 "temporal_relations": {"inventory_before_pressure": _relation(facts)},
+                 "temporal_relations": relations,
                  "current_state": copy.deepcopy(snapshot["states"]),
                  "current_impact": copy.deepcopy(snapshot["impact"]), "observed_impact": _impact(facts),
                  "current_quality": copy.deepcopy(report.get("airborne_context", {}).get("quality", snapshot["states"]["data_quality"])),
                  "fact_provenance": "aircraft_debugger.diagnostic_features; existing detector states/events, no category or private-label inference"}
         return frame
 
+    def window_evidence(self, window, *, whole_epoch=False):
+        facts = {name: _fact(name, channel, window, whole_epoch=whole_epoch)
+                 for name, channel in self.channels.items()}
+        relations = {"inventory_before_pressure": _relation(facts)}
+        if self.propulsion:
+            relations["yellow_pressure_follows_measured_supply"] = yellow_supply_relation(facts, window)
+        if self.generated:
+            relations.update(retained_drive_relations(window))
+        return facts, relations
 
-def build_feature_frames(records: Iterable[dict]) -> dict:
+
+def build_feature_frames(records: Iterable[dict], *, propulsion: bool = False, generated: bool = False,
+                         whole_epoch: bool = False) -> dict:
     """Validate public input and return per-prefix incident features plus its report.
 
     The only input is the supplied observations. A new clock epoch clears incident
     references. After two normal selected snapshots an incident closes; its history
     remains inspectable until a genuinely new anomaly starts a fresh incident.
+    Whole-epoch mode returns one evidence frame per clock epoch, retaining facts
+    across observable recovery gaps.
     """
+    propulsion = propulsion or generated
     rows = [copy.deepcopy(row) for row in records]
     if not rows:
         raise ObservationFormatError("At least one public observation is required")
     if not isinstance(rows[0], dict):
         raise ObservationFormatError("Each public observation must be an object")
     version = rows[0].get("schema_version")
-    if type(version) is not int or version not in (1, 2):
-        raise ObservationFormatError("schema_version must be integer 1 or 2")
-    validator = validate_airborne_observation if version == 2 else validate_observation
-    analyzer = analyze_airborne_observations if version == 2 else analyze_observations
+    supported = (3,) if propulsion else (1, 2)
+    if type(version) is not int or version not in supported:
+        raise ObservationFormatError("The propulsion catalogue requires schema 3; other catalogues require schema 1 or 2")
+    if propulsion:
+        validator = validate_propulsion_observation
+    else:
+        validator = validate_airborne_observation if version == 2 else validate_observation
     for row in rows:
         if not isinstance(row, dict):
             raise ObservationFormatError("Each public observation must be an object")
@@ -282,12 +320,31 @@ def build_feature_frames(records: Iterable[dict]) -> dict:
             raise ObservationFormatError("Mixed observation schemas are not permitted")
         validator(row)
 
-    history = FeatureHistory()
+    history = FeatureHistory(propulsion=propulsion, generated=generated)
     frames = []
+    epoch_snapshots = []
     report = None
+
+    def close_epoch():
+        facts, relations = history.window_evidence(epoch_snapshots, whole_epoch=True)
+        frames.append({"epoch": epoch_snapshots[0]["epoch"],
+                       "first_sample_index": epoch_snapshots[0]["sample_index"],
+                       "last_sample_index": epoch_snapshots[-1]["sample_index"],
+                       "facts": facts, "temporal_relations": relations})
+
     for end, row in enumerate(rows, 1):
-        report = analyzer(rows[:end])
-        frames.append(history.advance(row, report))
+        report = (analyze_observations(rows[:end]) if version == 1
+                  else analyze_airborne_observations(rows[:end], propulsion=propulsion))
+        if not whole_epoch:
+            frames.append(history.advance(row, report))
+            continue
+        snapshot = history.snapshot(row, report)
+        if epoch_snapshots and epoch_snapshots[-1]["epoch"] != snapshot["epoch"]:
+            close_epoch()
+            epoch_snapshots.clear()
+        epoch_snapshots.append(snapshot)
+    if whole_epoch:
+        close_epoch()
     return {"frames": frames, "observation_report": report}
 
 

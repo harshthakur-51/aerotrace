@@ -10,6 +10,9 @@ incidents. Retained bus supply and retained early pressure are allowed outcomes.
 from __future__ import annotations
 
 import copy
+from itertools import combinations
+
+from .propulsion_features import PROPULSION_FACTS
 
 
 _GEN_ROOT = "generator_2_source_path_fault"
@@ -17,10 +20,6 @@ _BLUE_ROOT = "blue_fluid_loss_mechanism"
 _FACTS = (
     "generator_source_anomaly", "blue_inventory_loss",
     "bus_supply_loss", "blue_pressure_loss",
-)
-_CANDIDATES = (
-    "selected_reference", "generator_2_source_path_fault", "blue_inventory_loss",
-    "independent_pair", "grouped_joint_event",
 )
 
 
@@ -124,6 +123,26 @@ def default_model() -> dict:
 
 _PRESSURE_ROOT = "blue_pressure_supply_loss"
 V2_MODEL_ID = "aerotrace-three-mechanism-compatibility-v2"
+V3_MODEL_ID = "aerotrace-engine-drive-compatibility-v3"
+V4_MODEL_ID = "aerotrace-generated-mechanism-sets-v4"
+MODEL_VERSIONS = ("v1", "v2", "v3", "v4")
+_ENGINE_ROOT = "engine_2_power_loss"
+_EDP_ROOT = "yellow_engine_driven_pump_supply_loss"
+_PROPULSION_CANDIDATES = {
+    _ENGINE_ROOT: ("Engine 2 power loss", [_ENGINE_ROOT], "single_mechanism",
+                   "Low fuel flow and low core speed support the represented functional loss. Initiating damage, fuel starvation and commanded shutdown remain distinct possibilities."),
+    _EDP_ROOT: ("Local Yellow engine-driven pump supply loss", [_EDP_ROOT], "single_mechanism",
+                "Reduced pump output with engine drive retained leaves the local component or switch state unresolved."),
+    "independent_generator_yellow_pump_loss": ("Separate generator 2 and Yellow pump supply losses",
+        [_GEN_ROOT, _EDP_ROOT], "multiple_initiators",
+        "Both source outputs fall while the observed engine drive is retained. The observations do not establish statistical independence or exclude every shared cause."),
+    "independent_engine_blue_pressure_loss": ("Engine 2 power loss and separate Blue pressure-supply loss",
+        [_ENGINE_ROOT, _PRESSURE_ROOT], "multiple_initiators",
+        "The engine-drive path accounts for generator and Yellow pump loss. The extra Blue pressure loss requires another path in the selected model."),
+    "grouped_engine_blue_pressure_loss": ("One event affecting engine drive and Blue pressure supply",
+        [_ENGINE_ROOT, _PRESSURE_ROOT], "conditional_shared_initiator",
+        "A shared physical event is a candidate history. These observations also fit separate initiators and leave damage geometry unresolved."),
+}
 
 
 def pressure_supply_model() -> dict:
@@ -151,23 +170,109 @@ def pressure_supply_model() -> dict:
     return model
 
 
+def propulsion_model() -> dict:
+    """Opt-in version 3 catalogue with measured Engine 2 and Yellow supply paths."""
+    model = pressure_supply_model()
+    model["model_id"] = V3_MODEL_ID
+    model["provenance"]["mechanism_mapping"] = "docs/ENGINE-DRIVE-STUDY.md"
+    model["roots"].extend((_ENGINE_ROOT, _EDP_ROOT))
+    model["nodes"].extend({"id": root, "kind": "hypothesized_mechanism"} for root in (_ENGINE_ROOT, _EDP_ROOT))
+    for name, (channel, label) in PROPULSION_FACTS.items():
+        model["facts"][name] = {"label": label, "channels": [channel]}
+        model["nodes"].append({"id": name, "kind": "observable_effect"})
+    for source, target, necessity, reason in (
+        (_ENGINE_ROOT, "engine_2_fuel_flow_loss", "required", "The represented power-loss pattern predicts low fuel flow."),
+        (_ENGINE_ROOT, "engine_2_core_speed_loss", "required", "Loss of combustion drive predicts a decrease in the measured core speed."),
+        ("engine_2_core_speed_loss", "generator_source_anomaly", "required", "Insufficient core drive removes generator 2 output in this tested condition."),
+        ("engine_2_core_speed_loss", "yellow_edp_output_loss", "required", "The engine-driven Yellow pump needs core rotation. The represented cutoff episode progresses through pump output loss."),
+        (_EDP_ROOT, "yellow_edp_output_loss", "required", "A local Yellow pump supply loss predicts reduced engine-driven output with core drive retained."),
+        ("yellow_edp_output_loss", "yellow_line_pressure_loss", "conditional", "Measured alternate supply can maintain Yellow line pressure. A settled-window check uses pump, transfer, quantity and line observations."),
+    ):
+        model["edges"].append({"from": source, "to": target, "necessity": necessity, "reason": reason})
+    for root in (_ENGINE_ROOT, _EDP_ROOT):
+        model["temporal_constraints"].append({
+            "id": "yellow_pressure_follows_measured_supply", "root": root,
+            "reason": "Given observed low primary output, adequate inventory and settled backup state, Yellow line pressure should track whether alternate pressure is available.",
+        })
+    for name, (label, roots, kind, note) in _PROPULSION_CANDIDATES.items():
+        model["candidates"].append({"id": name, "label": label, "roots": list(roots), "kind": kind, "scope_note": note})
+    model["assumptions"].append(
+        "Propulsion predictions cover a sustained Engine 2 cutoff-like response in the pinned FlightGear study. "
+        "Windmilling, partial thrust loss and additional Yellow supply mechanisms may yield other effects."
+    )
+    return model
+
+
+def model_for_version(version: str) -> dict:
+    return {"v1": default_model, "v2": pressure_supply_model,
+            "v3": propulsion_model, "v4": generated_model}[version]()
+
+
+def uses_propulsion_profile(model: dict) -> bool:
+    return model["model_id"] in (V3_MODEL_ID, V4_MODEL_ID)
+
+
+def _generated_candidates(roots):
+    labels = {
+        _GEN_ROOT: "Generator 2 source-path loss", _BLUE_ROOT: "Blue inventory loss",
+        _PRESSURE_ROOT: "Blue pressure-supply loss", _ENGINE_ROOT: "Engine 2 power loss",
+        _EDP_ROOT: "Local Yellow engine-driven pump loss",
+    }
+    for count in range(len(roots) + 1):
+        for members in combinations(roots, count):
+            yield {
+                "id": "+".join(members) or "selected_reference",
+                "label": " + ".join(labels[root] for root in members) or "No selected mechanism currently required",
+                "roots": list(members), "kind": "generated_root_set",
+                "scope_note": "The selected mechanism set is evaluated against observable effects. Initiating history can remain ambiguous.",
+            }
+
+
+def generated_model() -> dict:
+    """Generate every subset of the five mechanism roots for observation-only replay."""
+    model = propulsion_model()
+    model["model_id"] = V4_MODEL_ID
+    model["provenance"]["mechanism_mapping"] = "docs/FAULT-SEQUENCE-STUDY.md"
+    model["candidates"] = list(_generated_candidates(model["roots"]))
+    model["temporal_constraints"][0]["unless_root"] = _PRESSURE_ROOT
+    model["temporal_constraints"].extend([
+        {"id": "generator_loss_with_drive_retained", "root": _ENGINE_ROOT, "unless_root": _GEN_ROOT,
+         "reason": "The cutoff-like engine drive loss cannot account for generator loss while measured drive is retained."},
+        {"id": "yellow_pump_loss_with_drive_retained", "root": _ENGINE_ROOT, "unless_root": _EDP_ROOT,
+         "reason": "The cutoff-like engine drive loss cannot account for Yellow pump loss while measured drive is retained."},
+    ])
+    # The generated catalogue replaces the older, explicitly authored candidate groups.
+    model["assumptions"] = [note for note in model["assumptions"] if not note.startswith(
+        ("The independent and grouped candidates", "The pressure extension covers"))]
+    model["assumptions"].extend([
+        "All subsets of the five selected mechanism classes are considered. Minimal compatible sets explain the observed facts without an extra root. Additional compatible roots may be masked.",
+        "A root set can fit more than one initiating history. Observation timing can constrain separate paths without identifying every command order or physical shared cause.",
+    ])
+    return model
+
+
 def _validate_model(model: dict) -> None:
     if not isinstance(model, dict) or model.get("schema_version") != 1:
         raise ValueError("Expected a version-1 hypothesis model")
     if not isinstance(model.get("model_id"), str) or not model["model_id"]:
         raise ValueError("Hypothesis model needs an identity")
-    extended = model["model_id"] == V2_MODEL_ID
+    generated = model["model_id"] == V4_MODEL_ID
+    propulsion = uses_propulsion_profile(model)
+    extended = propulsion or model["model_id"] == V2_MODEL_ID
     supported_roots = {_GEN_ROOT, _BLUE_ROOT} | ({_PRESSURE_ROOT} if extended else set())
-    supported_candidates = set(_CANDIDATES) | ({_PRESSURE_ROOT, "independent_pressure_pair", "grouped_pressure_joint_event"} if extended else set())
-    if set(model.get("roots", [])) != supported_roots:
+    if propulsion:
+        supported_roots.update((_ENGINE_ROOT, _EDP_ROOT))
+    facts = set(_FACTS) | (set(PROPULSION_FACTS) if propulsion else set())
+    roots = model.get("roots", [])
+    if len(roots) != len(supported_roots) or set(roots) != supported_roots:
         raise ValueError("Model roots differ from the selected bounded catalogue")
-    if not isinstance(model.get("facts"), dict) or set(model["facts"]) != set(_FACTS):
-        raise ValueError("Hypothesis model must declare all four selected facts")
+    if not isinstance(model.get("facts"), dict) or set(model["facts"]) != facts:
+        raise ValueError("Hypothesis model facts must match the selected catalogue")
     nodes = model.get("nodes")
     if not isinstance(nodes, list) or any(not isinstance(node, dict) for node in nodes):
         raise ValueError("Hypothesis model needs typed nodes")
     ids = [node.get("id") for node in nodes]
-    if len(set(ids)) != len(ids) or set(ids) != set(_FACTS) | supported_roots:
+    if len(set(ids)) != len(ids) or set(ids) != facts | supported_roots:
         raise ValueError("Hypothesis nodes must match the supported roots and effects")
     edges = model.get("edges")
     if not isinstance(edges, list):
@@ -199,11 +304,6 @@ def _validate_model(model: dict) -> None:
 
     for node in ids:
         visit(node)
-    candidates = model.get("candidates")
-    if (not isinstance(candidates, list) or len(candidates) != len(supported_candidates)
-            or {candidate.get("id") for candidate in candidates if isinstance(candidate, dict)} != supported_candidates):
-        raise ValueError("Expected the selected bounded candidate definitions")
-    by_id = {candidate["id"]: candidate for candidate in candidates}
     expected_roots = {
         "selected_reference": set(), "generator_2_source_path_fault": {_GEN_ROOT},
         "blue_inventory_loss": {_BLUE_ROOT}, "independent_pair": {_GEN_ROOT, _BLUE_ROOT},
@@ -213,14 +313,36 @@ def _validate_model(model: dict) -> None:
         expected_roots.update({_PRESSURE_ROOT: {_PRESSURE_ROOT},
             "independent_pressure_pair": {_GEN_ROOT, _PRESSURE_ROOT},
             "grouped_pressure_joint_event": {_GEN_ROOT, _PRESSURE_ROOT}})
+    if propulsion:
+        expected_roots.update({name: set(definition[1]) for name, definition in _PROPULSION_CANDIDATES.items()})
+    if generated:
+        expected_roots = {item["id"]: set(item["roots"]) for item in _generated_candidates(roots)}
+    candidates = model.get("candidates")
+    if (not isinstance(candidates, list) or len(candidates) != len(expected_roots)
+            or {candidate.get("id") for candidate in candidates if isinstance(candidate, dict)} != set(expected_roots)):
+        raise ValueError("Expected the selected bounded candidate definitions")
+    by_id = {candidate["id"]: candidate for candidate in candidates}
     for name, candidate in by_id.items():
         roots = candidate.get("roots")
         if (not isinstance(roots, list) or len(roots) != len(set(roots))
                 or set(roots) != expected_roots[name] or not isinstance(candidate.get("label"), str)):
             raise ValueError("Invalid bounded candidate root definition")
     constraints = model.get("temporal_constraints")
+    permitted_constraints = {("inventory_before_pressure", _BLUE_ROOT)}
+    if propulsion:
+        permitted_constraints.update(("yellow_pressure_follows_measured_supply", root) for root in (_ENGINE_ROOT, _EDP_ROOT))
+    exceptions = {}
+    if generated:
+        exceptions = {
+            "inventory_before_pressure": _PRESSURE_ROOT,
+            "generator_loss_with_drive_retained": _GEN_ROOT,
+            "yellow_pump_loss_with_drive_retained": _EDP_ROOT,
+        }
+        permitted_constraints.update((name, _ENGINE_ROOT) for name in
+                                     ("generator_loss_with_drive_retained", "yellow_pump_loss_with_drive_retained"))
     if (not isinstance(constraints, list) or any(not isinstance(item, dict)
-            or item.get("id") != "inventory_before_pressure" or item.get("root") != _BLUE_ROOT
+            or (item.get("id"), item.get("root")) not in permitted_constraints
+            or item.get("unless_root") != exceptions.get(item.get("id"))
             or not isinstance(item.get("reason"), str) for item in constraints)):
         raise ValueError("Unknown temporal constraint")
 
@@ -230,7 +352,7 @@ def _predictions(roots: list[str], model: dict) -> tuple[dict, list[dict]]:
     outgoing = {node["id"]: [] for node in model["nodes"]}
     for edge in model["edges"]:
         outgoing[edge["from"]].append(edge)
-    reached: dict[str, list[dict]] = {fact: [] for fact in _FACTS}
+    reached: dict[str, list[dict]] = {fact: [] for fact in model["facts"]}
     paths = []
 
     def walk(node, path, reasons, conditional):
@@ -250,7 +372,7 @@ def _predictions(roots: list[str], model: dict) -> tuple[dict, list[dict]]:
     for root in roots:
         walk(root, [root], [], False)
     result = {}
-    for fact in _FACTS:
+    for fact in reached:
         entries = reached[fact]
         if any(entry["necessity"] == "required" for entry in entries):
             expected = "observed"
@@ -272,8 +394,10 @@ def evaluate_hypotheses(frame: dict, *, temporal: bool = True, model: dict | Non
         raise ValueError("temporal must be a Boolean")
     selected_model = default_model() if model is None else copy.deepcopy(model)
     _validate_model(selected_model)
-    if not isinstance(frame, dict) or not isinstance(frame.get("facts"), dict) or set(frame["facts"]) != set(_FACTS):
-        raise ValueError("A hypothesis frame requires exactly the four selected facts")
+    generated = selected_model["model_id"] == V4_MODEL_ID
+    fact_ids = tuple(selected_model["facts"])
+    if not isinstance(frame, dict) or not isinstance(frame.get("facts"), dict) or set(frame["facts"]) != set(fact_ids):
+        raise ValueError("A hypothesis frame requires exactly the facts selected by its model")
     facts = frame["facts"]
     for name, fact in facts.items():
         if (not isinstance(fact, dict) or fact.get("state") not in {"observed", "not_observed", "unknown"}
@@ -323,10 +447,14 @@ def evaluate_hypotheses(frame: dict, *, temporal: bool = True, model: dict | Non
             consequences.append(item)
         temporal_items = []
         if temporal:
+            checked = set()
             for constraint in selected_model["temporal_constraints"]:
-                if constraint["root"] not in definition["roots"]:
+                name = constraint["id"]
+                if (constraint["root"] not in definition["roots"] or constraint.get("unless_root") in definition["roots"]
+                        or name in checked):
                     continue
-                relation = relations.get(constraint["id"], {})
+                checked.add(name)
+                relation = relations.get(name, {})
                 status = relation.get("status", "unknown")
                 if status not in {"consistent", "contradicted", "unknown", "not_applicable"}:
                     raise ValueError("Invalid temporal relation status")
@@ -355,12 +483,12 @@ def evaluate_hypotheses(frame: dict, *, temporal: bool = True, model: dict | Non
         })
     compatible = [panel["id"] for panel in panels if panel["status"] == "compatible"]
     plausible = [panel["id"] for panel in panels if panel["status"] != "contradicted"]
-    unknowns = [name for name in _FACTS if facts[name]["state"] == "unknown"]
+    unknowns = [name for name in fact_ids if facts[name]["state"] == "unknown"]
     for panel in panels:
         alternatives = [other for other in panels if other["id"] != panel["id"] and other["id"] in plausible]
         panel["alternative_candidate_ids"] = [other["id"] for other in alternatives]
         panel["alternative_explanations"] = [{"id": other["id"], "label": other["label"], "status": other["status"]} for other in alternatives]
-    fully_observed_normal = not unknowns and all(facts[name]["state"] == "not_observed" for name in _FACTS)
+    fully_observed_normal = not unknowns and all(facts[name]["state"] == "not_observed" for name in fact_ids)
     if not plausible:
         status = "poor_model_fit"
     elif unknowns or not compatible:
@@ -373,7 +501,8 @@ def evaluate_hypotheses(frame: dict, *, temporal: bool = True, model: dict | Non
         status = "single_compatible_candidate"
     model_fit = "poor_fit" if not plausible else "fits" if compatible else "undetermined"
     joint_pairs = [pair for pair in [("independent_pair", "grouped_joint_event"),
-                                   ("independent_pressure_pair", "grouped_pressure_joint_event")]
+                                   ("independent_pressure_pair", "grouped_pressure_joint_event"),
+                                   ("independent_engine_blue_pressure_loss", "grouped_engine_blue_pressure_loss")]
                    if all(name in plausible for name in pair)]
     joint_tie = bool(joint_pairs)
     discriminators = []
@@ -399,7 +528,7 @@ def evaluate_hypotheses(frame: dict, *, temporal: bool = True, model: dict | Non
                 "available_discriminator": True, "candidate_partitions": requirements,
                 "reason": "Restoring this selected measurement and its usable reference/progression could test different predicted effects. It cannot resolve equivalent initiating histories.",
             })
-    return {
+    result = {
         "schema_version": 1, "model_id": selected_model["model_id"],
         "mode": "temporal" if temporal else "atemporal", "status": status,
         "candidate_ids": compatible, "plausible_candidate_ids": plausible, "candidates": panels,
@@ -422,3 +551,12 @@ def evaluate_hypotheses(frame: dict, *, temporal: bool = True, model: dict | Non
         "sample_index": frame.get("sample_index"), "epoch": frame.get("epoch"),
         "sim_time_s": frame.get("sim_time_s"),
     }
+    if generated:
+        matching_roots = {panel["id"]: set(panel["roots"]) for panel in panels if panel["id"] in compatible}
+        minimal = [name for name, roots in matching_roots.items()
+                   if not any(other < roots for other in matching_roots.values())]
+        result["minimal_candidate_ids"] = minimal
+        result["additional_compatible_ids"] = [name for name in compatible if name not in minimal]
+        if status in ("single_compatible_candidate", "causal_ambiguity") and len(minimal) == 1:
+            result["status"] = "one_minimal_explanation"
+    return result

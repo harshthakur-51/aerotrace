@@ -9,7 +9,7 @@ import secrets
 import threading
 
 from .diagnostic_features import build_feature_frames
-from .hypotheses import default_model, evaluate_hypotheses
+from .hypotheses import V4_MODEL_ID, default_model, evaluate_hypotheses, uses_propulsion_profile
 
 
 class ReplayPanelState:
@@ -17,10 +17,11 @@ class ReplayPanelState:
         self.token = secrets.token_urlsafe(32)
         self._lock = threading.Lock()
         self._records = copy.deepcopy(list(records))
-        self._frames = build_feature_frames(self._records)["frames"]
+        self._model = default_model() if model is None else copy.deepcopy(model)
+        self._frames = build_feature_frames(self._records, propulsion=uses_propulsion_profile(self._model),
+                                            generated=self._model["model_id"] == V4_MODEL_ID)["frames"]
         if not self._frames:
             raise ValueError("Replay needs at least one public observation")
-        self._model = default_model() if model is None else copy.deepcopy(model)
         self._diagnoses = [evaluate_hypotheses(frame, temporal=temporal, model=self._model)
                            for frame in self._frames]
         self._position = 0

@@ -11,7 +11,10 @@ from __future__ import annotations
 from dataclasses import dataclass, fields
 import math
 
-from .airborne_profile import AIRBORNE_CHANNELS, PROFILE_ID, validate_airborne_observation
+from .airborne_profile import (
+    AIRBORNE_CHANNELS, PROFILE_ID, PROPULSION_CHANNELS, PROPULSION_PROFILE_ID,
+    validate_airborne_observation, validate_propulsion_observation,
+)
 from .flightgear import PropertyReading, PropertySpec, TelemetrySnapshot
 
 
@@ -29,6 +32,18 @@ _EXPECTED_READINESS = {
     "startup_in_progress": False, "startup_mismatch_reason": "XX", "engine_1_running": True, "engine_2_running": True,
     "generator_2_fault": False, "blue_leak_fault": False,
     "blue_pump_fault": False,
+}
+PROPULSION_FAULTS = {
+    "engine_2_cutoff": "/controls/engines/engine[1]/cutoff-switch",
+    "yellow_edp": "/systems/failures/hydraulic/yellow-edp",
+}
+PROPULSION_READINESS_CHANNELS = {
+    **_READINESS_SPECS,
+    **{f"{name}_fault": PropertySpec(path, kind="bool") for name, path in PROPULSION_FAULTS.items()},
+}
+_PROPULSION_REFERENCE_MINIMA = {
+    "engine_2_n2": 60.0, "engine_2_fuel_flow": 100.0, "yellow_edp_pressure": 2500.0,
+    "yellow_pressure": 2500.0, "yellow_quantity": 1.0,
 }
 
 
@@ -85,10 +100,15 @@ class AirborneAdmission:
     This gate must not filter or discard post-intervention motion outcomes.
     """
 
-    def __init__(self, settings: QualificationSettings | None = None):
+    def __init__(self, settings: QualificationSettings | None = None, *, ptu_selected: bool | None = None):
         if settings is not None and not isinstance(settings, QualificationSettings):
             raise TypeError("settings must be QualificationSettings or None")
         self.settings = settings or QualificationSettings()
+        if ptu_selected is not None and type(ptu_selected) is not bool:
+            raise TypeError("ptu_selected must be Boolean or None")
+        self.ptu_selected = ptu_selected
+        self.channels = AIRBORNE_CHANNELS if ptu_selected is None else PROPULSION_CHANNELS
+        self.readiness_channels = _READINESS_SPECS if ptu_selected is None else PROPULSION_READINESS_CHANNELS
         self._previous_index: int | None = None
         self._previous_local: float | None = None
         self._previous_evaluation: float | None = None
@@ -106,7 +126,8 @@ class AirborneAdmission:
         eligible = not reasons
         qualified = eligible and elapsed >= self.settings.qualification_duration_sim_s
         return {
-            "profile_id": PROFILE_ID, "purpose": "experiment_baseline_eligibility_only",
+            "profile_id": PROFILE_ID if self.ptu_selected is None else PROPULSION_PROFILE_ID,
+            "purpose": "experiment_baseline_eligibility_only",
             "qualified": qualified, "eligible_current_sample": eligible,
             "reasons": list(dict.fromkeys(reasons)) if reasons else [] if qualified else ["qualification_window_incomplete"],
             "window_elapsed_sim_s": elapsed if eligible else 0.0,
@@ -120,7 +141,8 @@ class AirborneAdmission:
             self._clear_window()
             return self._result(["evaluation_clock_invalid"])
         try:
-            record = validate_airborne_observation(record)
+            validator = validate_airborne_observation if self.ptu_selected is None else validate_propulsion_observation
+            record = validator(record)
         except (ValueError, TypeError, KeyError):
             self._clear_window()
             return self._result(["observation_contract_invalid"])
@@ -128,7 +150,7 @@ class AirborneAdmission:
         reasons: list[str] = []
         readings = record["readings"]
         index, local = record["sample_index"], record["received_monotonic_s"]
-        if record["connected"] is not True or record["complete"] is not True or readings.keys() != AIRBORNE_CHANNELS.keys():
+        if record["connected"] is not True or record["complete"] is not True or readings.keys() != self.channels.keys():
             reasons.append("required_observations_unavailable")
         if local - record["poll_started_monotonic_s"] > settings.maximum_poll_span_s:
             reasons.append("observation_poll_span_exceeded")
@@ -152,7 +174,7 @@ class AirborneAdmission:
 
         sim_times, local_times = {}, {}
         values = {}
-        for name in AIRBORNE_CHANNELS:
+        for name in self.channels:
             reading = readings.get(name)
             if not reading or reading["valid"] is not True or reading["reachable"] is not True:
                 reasons.append("required_observations_unavailable")
@@ -166,17 +188,17 @@ class AirborneAdmission:
 
         valid_initialization = isinstance(readiness, TelemetrySnapshot)
         if valid_initialization:
-            valid_initialization = readiness.connected is True and readiness.complete is True and isinstance(readiness.readings, dict) and readiness.readings.keys() == _READINESS_SPECS.keys() and _number(readiness.received_monotonic_s) and readiness.received_monotonic_s >= 0
+            valid_initialization = readiness.connected is True and readiness.complete is True and isinstance(readiness.readings, dict) and readiness.readings.keys() == self.readiness_channels.keys() and _number(readiness.received_monotonic_s) and readiness.received_monotonic_s >= 0
         if valid_initialization:
             initialization_receipts = []
-            for name, spec in _READINESS_SPECS.items():
+            for name, spec in self.readiness_channels.items():
                 reading = readiness.readings[name]
                 typed = isinstance(reading, PropertyReading) and (type(reading.value) is bool if spec.kind == "bool" else isinstance(reading.value, str))
                 valid = typed and reading.path == spec.path and reading.unit == spec.unit and reading.valid is True and reading.reachable is True and reading.error is None and _number(reading.sim_time_s) and reading.sim_time_s >= 0 and _number(reading.received_monotonic_s) and 0 <= reading.received_monotonic_s <= readiness.received_monotonic_s
                 if not valid:
                     valid_initialization = False
                     continue
-                if reading.value != _EXPECTED_READINESS[name]:
+                if reading.value != _EXPECTED_READINESS.get(name, False):
                     reasons.append("initialization_reference_not_ready")
                 # Internal names are never copied into returned eligibility results.
                 sim_times["initialization:" + name] = reading.sim_time_s
@@ -231,6 +253,12 @@ class AirborneAdmission:
                     reasons.append("flight_context_outside_stability_band")
                 if any(values[name] < settings.minimum_reference_voltage_v for name in ("generator_2_voltage", "ac_bus_1", "ac_bus_2")) or values["blue_quantity"] < settings.minimum_blue_quantity_raw or values["blue_pressure"] < settings.minimum_blue_pressure_psi:
                     reasons.append("observed_reference_supply_inadequate")
+            if self.ptu_selected is not None:
+                if (values.get("ptu_selected") is not self.ptu_selected
+                        or any(values.get(name, 0) < minimum for name, minimum in _PROPULSION_REFERENCE_MINIMA.items())
+                        or any(not 0 <= values.get(name, 500) < 500 for name in
+                               ("yellow_electric_pressure", "yellow_transfer_pressure"))):
+                    reasons.append("propulsion_reference_or_backup_configuration_invalid")
         if sim_times and max(sim_times.values()) - min(sim_times.values()) > settings.maximum_timestamp_skew_s:
             reasons.append("required_timestamp_skew_exceeded")
         automation = tuple(values.get(name) for name in ("autopilot_1", "autopilot_2", "autothrust"))

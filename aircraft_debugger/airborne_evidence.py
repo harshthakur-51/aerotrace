@@ -1,4 +1,4 @@
-"""Explicit observation-only replay of the schema-2 airborne profile.
+"""Explicit observation-only replay of the airborne profiles.
 
 Full airborne records are validated and retained. A private, validated projection
 reuses the unchanged selected-system detectors; it is never a public conversion
@@ -17,7 +17,10 @@ import hashlib
 import json
 from pathlib import Path
 
-from .airborne_profile import AIRBORNE_CHANNELS, PROFILE_ID, iter_profile_observations, validate_airborne_observation
+from .airborne_profile import (
+    AIRBORNE_CHANNELS, PROFILE_ID, PROPULSION_CHANNELS, PROPULSION_PROFILE_ID,
+    iter_profile_observations, validate_airborne_observation, validate_propulsion_observation,
+)
 from .evidence import THRESHOLDS, analyze_observations
 from .observations import CHANNELS, ObservationFormatError
 
@@ -29,7 +32,7 @@ _CONTEXT_NAMES = ("aircraft", "sim_time", "paused", "altitude", "airspeed") + tu
 _LIMITATIONS = [
     "This report analyzes the airborne observation profile; it does not certify that a flight was qualified or that a physical fault experiment was performed.",
     "Selected voltage/inventory compatibility rules are reused from aircraft_debugger.evidence. Their thresholds are project choices, not aircraft warning limits or calibrated probabilities.",
-    "All twenty recorded channels, transport quality and per-reading timestamps remain in retained_observations. Derived current values are null when unavailable; raw historical values are not substituted for current evidence.",
+    "All {channel_count} recorded channels, transport quality and per-reading timestamps remain in retained_observations. Derived current values are null when unavailable; raw historical values are not substituted for current evidence.",
     "No stability-band or admission filter is applied. Motion after any event remains an observation, including altitude, airspeed and bank departures.",
     "Automation engagement is observed context. Unchanged motion with engaged automation, retained pressure or a normal bus does not establish healthy actuators or whole-aircraft controllability.",
     "Observed contact/height indications do not independently establish loaded-terrain validity, flightworthiness or an admitted airborne baseline.",
@@ -39,7 +42,7 @@ _LIMITATIONS = [
 
 
 def _shared_core_record(record: dict) -> dict:
-    """Internal reuse only, after full schema-2 validation and context retention."""
+    """Internal reuse only, after full airborne validation and context retention."""
     readings = {name: reading for name, reading in record["readings"].items() if name in CHANNELS}
     return {
         "schema_version": 1, "sample_index": record["sample_index"],
@@ -51,7 +54,9 @@ def _shared_core_record(record: dict) -> dict:
 
 
 class _ContextHistory:
-    def __init__(self):
+    def __init__(self, *, propulsion=False):
+        self.channels = PROPULSION_CHANNELS if propulsion else AIRBORNE_CHANNELS
+        self.profile_id = PROPULSION_PROFILE_ID if propulsion else PROFILE_ID
         self.records: list[dict] = []
         self.changes: list[dict] = []
         self.latest_channels: dict[str, dict] = {}
@@ -107,7 +112,7 @@ class _ContextHistory:
             self.previous_sim = sim_time
 
         current = {}
-        for name, spec in AIRBORNE_CHANNELS.items():
+        for name, spec in self.channels.items():
             reading = readings.get(name)
             channel_reasons = list(reasons)
             if reading is None:
@@ -148,7 +153,7 @@ class _ContextHistory:
         self.latest_channels = current
         self.quality = {
             "sample_index": record["sample_index"], "epoch": self.epoch,
-            "all_twenty_current_usable": all(state["current_usable"] for state in current.values()),
+            "all_twenty_current_usable": all(current[name]["current_usable"] for name in AIRBORNE_CHANNELS),
             "context_channels_current_usable": all(current[name]["current_usable"] for name in _CONTEXT_NAMES),
             "unavailable_channels": [name for name, state in current.items() if not state["current_usable"]],
             "time_progressing": not reasons, "global_reasons": reasons,
@@ -168,7 +173,7 @@ class _ContextHistory:
         else:
             airborne_status = "unknown"
         return {
-            "profile_id": PROFILE_ID, "channel_specs": {name: asdict(spec) for name, spec in AIRBORNE_CHANNELS.items()},
+            "profile_id": self.profile_id, "channel_specs": {name: asdict(spec) for name, spec in self.channels.items()},
             "latest_channels": self.latest_channels, "quality": self.quality,
             "automation": {"values": automation, "complete": all(value is not None for value in automation.values())},
             "airborne_indications": airborne_status,
@@ -177,31 +182,33 @@ class _ContextHistory:
         }
 
 
-def analyze_airborne_observations(records: Iterable[dict]) -> dict:
-    """Analyze only schema 2; reject legacy/private extras rather than hiding them.
+def analyze_airborne_observations(records: Iterable[dict], *, propulsion: bool = False) -> dict:
+    """Analyze the selected airborne schema after validating every recorded field.
 
     The selected-system category keeps its original limited meaning. Full current
     assessment additionally requires usable airborne context. Missing context does
     not erase valid voltage/inventory evidence, and normal motion is never used to
     establish actuator health. The canonical hash includes every validated field.
     """
-    context = _ContextHistory()
+    context = _ContextHistory(propulsion=propulsion)
+    validator = validate_propulsion_observation if propulsion else validate_airborne_observation
+    version = 3 if propulsion else 2
     digest = hashlib.sha256()
 
     def shared_records():
         for raw in records:
-            record = validate_airborne_observation(raw)
+            record = validator(raw)
             context.add(record)
             digest.update((json.dumps(record, sort_keys=True, separators=(",", ":"), ensure_ascii=True, allow_nan=False) + "\n").encode("utf-8"))
             yield _shared_core_record(record)
 
     report = analyze_observations(shared_records())
     if not context.records:
-        raise ObservationFormatError("At least one schema-2 airborne observation is required")
+        raise ObservationFormatError(f"At least one schema-{version} airborne observation is required")
     selected_complete = report["assessment"]["complete_current_assessment"]
     report.update(
-        schema_version=2, report_type="airborne_observation_evidence_replay",
-        observation_schema_version=2, observation_profile=PROFILE_ID,
+        schema_version=version, report_type="airborne_observation_evidence_replay",
+        observation_schema_version=version, observation_profile=context.profile_id,
         airborne_context=context.to_dict(),
         input_provenance={
             "canonical_observations_sha256": digest.hexdigest(),
@@ -211,16 +218,19 @@ def analyze_airborne_observations(records: Iterable[dict]) -> dict:
         implementation_provenance={
             "airborne_analysis": "aircraft_debugger.airborne_evidence.analyze_airborne_observations",
             "shared_selected_system_detector": "aircraft_debugger.evidence.analyze_observations",
-            "internal_reuse": "Full schema-2 validation and retention precede the private shared-field projection",
+            "internal_reuse": f"Full schema-{version} validation and retention precede the private shared-field projection",
             "legacy_schema_1_api_unchanged": True,
         },
     )
     report["method"] = "airborne_observation_only_compatibility_with_context"
     report["assessment"]["selected_system_assessment_complete"] = selected_complete
-    report["assessment"]["airborne_context_complete"] = context.quality["all_twenty_current_usable"]
-    report["assessment"]["complete_current_assessment"] = selected_complete and context.quality["all_twenty_current_usable"]
+    context_complete = not context.quality["unavailable_channels"]
+    report["assessment"]["airborne_context_complete"] = context_complete
+    report["assessment"]["complete_current_assessment"] = selected_complete and context_complete
     report["assessment"]["category_scope"] = "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
-    report["limitations"] = report["limitations"] + _LIMITATIONS
+    report["limitations"] = report["limitations"] + [
+        limit.format(channel_count="28" if propulsion else "twenty") for limit in _LIMITATIONS
+    ]
     return report
 
 

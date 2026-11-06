@@ -2,9 +2,19 @@
 
 **An evidence-driven debugger for cross-system failures in an Airbus A320 simulation.**
 
-AeroTrace reads FlightGear telemetry and explains which causal configurations fit the observed electrical and hydraulic effects. It shows the evidence, contradictions and missing measurements for each candidate, and keeps competing explanations visible when the signals cannot distinguish them.
+AeroTrace reads FlightGear telemetry and explains which causal configurations fit the observed propulsion, electrical and hydraulic effects. It shows the evidence, contradictions and missing measurements for each candidate, and keeps competing explanations visible when the signals cannot distinguish them.
 
 [Engineering report (PDF)](output/pdf/AeroTrace-Engineering-Report.pdf) · [Architecture](docs/ARCHITECTURE.md) · [Reproduce the results](docs/REPRODUCING.md) · [Connect FlightGear](docs/LIVE-SIMULATOR.md)
+
+## Replay the five-fault study in v1.1
+
+From the repository root with Python 3.11 or later, run the Engine 2 example using the included recording.
+
+```sh
+python -B -m aircraft_debugger.sequence_reasoning --observations results/engine-drive-20261106-01/engine-auto/observations.jsonl --output work/v1.1-engine-replay
+```
+
+Open `work/v1.1-engine-replay/report.md` to see how one loss of engine drive explains both a generator and a hydraulic pump dropping out. The report also shows which additional faults could have been masked. The [sequence study](docs/FAULT-SEQUENCE-STUDY.md) includes a staggered pair where the measured timing rules out two onset orders under the declared response limits.
 
 ## What the experiments showed
 
@@ -16,11 +26,13 @@ The figure shows a recorded airborne A320 simulation. Generator 2 output reached
 | --- | --- |
 | **Prospective version 2 evaluation** | All **6** planned episodes matched their sealed candidate sets across **2** fresh simulator flights. All **276** public polls were complete. |
 | **Live and recorded diagnosis** | The final live and replay results agreed for all six episodes, including the candidate sets, evidence and observed impact. |
-| **Timing comparison** | The timing rule changed no candidate sets on the native evaluation recordings. In replay stress tests, it rejected a late false quantity decline. An early false decline could still make the inventory-loss explanation fit. |
+| **Timed airborne study** | A staggered generator and pump intervention ruled out a shared trigger within the declared response limits. Near-synchronous effects left both explanations compatible. Recovery between interventions produced two separate incidents. |
+| **Engine 2 drive-loss study** | All **4** planned contrasts matched their expected candidates. Generator and Yellow pump outputs fell in both failure patterns. Fuel flow and core speed distinguished the engine loss from the separate source failures. |
+| **Five-fault sequence study** | The offline debugger tests **1,081** onset histories across **26** multi-fault sets and five isolated mechanisms using the same dependency graph. The software exercise retained the expected history in every synthetic case. Native replays show where timing narrows the order and where faults stay masked. |
 | **Local update cost** | After airborne context reuse, the 95th-percentile update was **80 ms** over a synthetic 1,200-poll fixture, compared with **490 ms** before. Host background load differed between runs. These times cover local processing and snapshot copying. |
-| **Software verification** | **190** automated tests cover the observation contract, causal inference, replay, evaluation and operator controls. |
+| **Software verification** | **217** automated tests cover the observation contract, causal inference, replay, evaluation and operator controls. |
 
-[Prospective evaluation](results/pressure-v2-prospective-20261106-01/REPORT.md) · [Quantity stress test](results/quantity-indication-stress-20261106-01/README.md) · [Load measurements](results/pressure-v2-load-optimized-20261106-01/REPORT.md)
+[Engine drive results](results/engine-drive-20261106-01/REPORT.md) · [Prospective evaluation](results/pressure-v2-prospective-20261106-01/REPORT.md) · [Timed fault study](docs/TEMPORAL-STUDY.md) · [Quantity stress test](results/quantity-indication-stress-20261106-01/README.md) · [Load measurements](results/pressure-v2-load-optimized-20261106-01/REPORT.md)
 
 ## Run the recorded demo
 
@@ -31,6 +43,12 @@ python -B -m aircraft_debugger.sim_panel --replay results/pressure-pair-20261106
 ```
 
 Open [the local evidence inspector](http://127.0.0.1:8769). Move from sample **17** through sample **22** to see how the candidate set changes as the hydraulic evidence arrives. Expand both compatible explanations, then advance to the end to compare recovered readings with the incident history. Recorded mode uses only Python and the included data.
+
+Each candidate shows an **evidence support percentage** with the number of model checks behind it. Both explanations in the recorded demo reach 100% while the initiating cause remains ambiguous.
+
+The [version 3 drive-loss replay](docs/ENGINE-DRIVE-STUDY.md#replay-and-compare) compares Engine 2 power loss with a generator and pump pair. It shows the measured alternate supply and explains why Yellow line pressure can persist after the engine-driven pump stops.
+
+The [five-fault sequence replay](docs/FAULT-SEQUENCE-STUDY.md) explains which mechanism sets and onset orders fit a public recording, including why timing or observed effects exclude an order. The separate operator planner produces onset and release designs for future collection.
 
 To write an inspectable diagnosis report, run the following command with an unused output directory:
 
@@ -46,11 +64,11 @@ python -B -m unittest discover -s tests -v
 
 ## What the debugger can explain
 
-The model tracks generator output, bus voltage, indicated Blue reservoir quantity and Blue pressure. It evaluates supported causal configurations against those measurements and distinguishes absent, observed and unknown effects. Version 1 covers generator source loss and hydraulic inventory loss. Version 2 adds pressure-supply loss, which can explain lost pressure with a steady quantity indication.
+The model tracks generator output, bus voltage, indicated Blue reservoir quantity and Blue pressure. It evaluates supported causal configurations against those measurements and distinguishes absent, observed and unknown effects. Version 1 covers generator source loss and hydraulic inventory loss. Version 2 adds Blue pressure-supply loss. Version 3 adds propulsion and Yellow supply observations, with 13 candidate configurations across five mechanism classes.
 
 The simulator operator records fault commands and readiness checks separately. Diagnosis uses the public observations. The evaluator compares a completed prediction with the expected candidate set declared before the flight. The replay also preserves incident history after the current measurements recover.
 
-The evaluation covers selected conditions in the FlightGear A320 model. The observed signals leave component identity, common physical damage and broader aircraft capability unresolved. The six cases measure agreement with predeclared candidate sets. The live inspector exposes its 1,200-poll inference limit.
+The evaluations measure agreement with predeclared candidate sets at selected conditions in the FlightGear A320 model. The observed signals leave component identity, common physical damage and broader aircraft capability unresolved. The live inspector exposes its 1,200-poll inference limit.
 
 ## Project map
 

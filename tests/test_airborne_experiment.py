@@ -13,8 +13,8 @@ import unittest
 from unittest.mock import patch
 
 from aircraft_debugger import airborne_experiment as experiment
-from aircraft_debugger.airborne_admission import QualificationSettings, READINESS_CHANNELS
-from aircraft_debugger.airborne_profile import AIRBORNE_CHANNELS, iter_profile_observations
+from aircraft_debugger.airborne_admission import PROPULSION_FAULTS, QualificationSettings, READINESS_CHANNELS
+from aircraft_debugger.airborne_profile import AIRBORNE_CHANNELS, PROPULSION_CHANNELS, iter_profile_observations
 from aircraft_debugger.flightgear import PropertyReading, TelemetrySnapshot
 from aircraft_debugger.sim_panel import FAULT_PATHS
 
@@ -33,7 +33,8 @@ class Clock:
 class Transport:
     def __init__(self, clock):
         self.clock = clock
-        self.flags = {name: False for name in FAULT_PATHS}
+        self.flags = {name: False for name in (FAULT_PATHS | PROPULSION_FAULTS)}
+        self.ptu_selected = True
         self.polls = []
         self.public_count = 0
         self.freeze_after_enable = False
@@ -47,6 +48,7 @@ class Transport:
         self.generator_timestamp = None
         self.timestamp_jump = False
         self.aircraft = "A320-200-CFM"
+        self.active_bank = 30.0
 
     def poll(self, channels):
         self.polls.append(tuple(channels))
@@ -70,13 +72,17 @@ class Transport:
             "blue_pressure": 3000.0, "blue_quantity": 7.0 if self.flags["blue_leak"] else 8.0,
             "main_gear_1_wow": False, "main_gear_2_wow": False,
             "height_agl": 9000.0, "vertical_speed": 0.0,
-            "bank": 30.0 if active else 0.0,
+            "bank": self.active_bank if active else 0.0,
             "autopilot_1": True, "autopilot_2": False, "autothrust": True,
             "startup_in_progress": False, "startup_mismatch_reason": self.initial_mismatch,
             "engine_1_running": True, "engine_2_running": True,
             "generator_2_fault": self.flags["generator_2"], "blue_leak_fault": self.flags["blue_leak"], "blue_pump_fault": self.flags["blue_pump"],
+            "engine_2_cutoff_fault": self.flags["engine_2_cutoff"], "yellow_edp_fault": self.flags["yellow_edp"],
+            "engine_2_n2": 77.0, "engine_2_fuel_flow": 3500.0, "yellow_edp_pressure": 3000.0,
+            "yellow_pressure": 3000.0, "yellow_quantity": 15.0,
+            "yellow_electric_pressure": 0.0, "yellow_transfer_pressure": 0.0, "ptu_selected": self.ptu_selected,
         }
-        if set(channels) == set(AIRBORNE_CHANNELS):
+        if channels.keys() in (AIRBORNE_CHANNELS.keys(), PROPULSION_CHANNELS.keys()):
             self.public_count += 1
             if self.bad_final and self.public_count >= 17:
                 values["bank"] = 20.0
@@ -99,7 +105,7 @@ class Transport:
         return TelemetrySnapshot(readings, True, all(item.valid for item in readings.values()), self.clock.now)
 
     def read_property(self, path, kind="number", unit=""):
-        fault = next(name for name, candidate in FAULT_PATHS.items() if path == candidate)
+        fault = next(name for name, candidate in (FAULT_PATHS | PROPULSION_FAULTS).items() if path == candidate)
         self.clock.now += 0.05
         return PropertyReading(path, self.flags[fault], True, None, self.clock.now, self.clock.now, True, unit)
 
@@ -214,6 +220,47 @@ class AirborneExperimentTests(unittest.TestCase):
         result = subprocess.run([sys.executable, '-I', '-B', '-c', program, str(archive.resolve())],
                                 capture_output=True, text=True, timeout=10)
         self.assertEqual(result.returncode, 0, result.stderr)
+
+    def test_propulsion_cutoff_is_private_and_cleans_up_an_uncertain_enable(self):
+        self.operator.lose_enable_ack = True
+        with self.assertRaisesRegex(RuntimeError, "enable was not verified"):
+            self.run_controller("engine_2_cutoff", ptu_selected=True)
+        self.assertEqual(self.operator.posts, [("engine_2_cutoff", True), ("engine_2_cutoff", False)])
+        self.assertFalse(self.client.flags["engine_2_cutoff"])
+        self.assertTrue(all(row["schema_version"] == 3 and row["readings"].keys() == PROPULSION_CHANNELS.keys()
+                            for row in self.records()))
+
+    def test_propulsion_trial_requires_the_declared_ptu_configuration(self):
+        result = self.run_controller("engine_2_cutoff", ptu_selected=False, max_wait_s=20)
+        self.assertEqual(result["status"], "not_qualified")
+        self.assertIn("propulsion_reference_or_backup_configuration_invalid", result["last_gate"]["reasons"])
+        self.assertEqual(self.operator.posts, [])
+
+    def test_timed_schedule_records_overlap_and_clears_outgoing_flags(self):
+        self.client.active_bank = 0
+        result = self.run_controller(schedule=[
+            {"faults": ["generator_2"], "duration_sim_s": 2},
+            {"faults": ["generator_2", "blue_pump"], "duration_sim_s": 3},
+            {"faults": ["blue_pump"], "duration_sim_s": 2},
+        ])
+        self.assertTrue(result["completed"])
+        self.assertEqual(self.operator.calls, [
+            ("generator_2", True), ("blue_pump", True),
+            ("generator_2", False), ("blue_pump", False),
+        ])
+        self.assertEqual([phase["name"] for phase in result["phases"]],
+                         ["timed_phase_1", "timed_phase_2", "timed_phase_3", "recovery"])
+        self.assertTrue(any(action["stage"] == "timed_transition_clearance" for action in self.actions()))
+        self.assertTrue(all(not value for value in self.client.flags.values()))
+
+    def test_unstable_transition_aborts_before_second_enable_and_cleans_up(self):
+        with self.assertRaisesRegex(RuntimeError, "stable airborne"):
+            self.run_controller(schedule=[
+                {"faults": ["generator_2"], "duration_sim_s": 2},
+                {"faults": ["generator_2", "blue_pump"], "duration_sim_s": 2},
+            ])
+        self.assertEqual(self.operator.calls, [("generator_2", True), ("generator_2", False)])
+        self.assertTrue(all(not value for value in self.client.flags.values()))
 
     def test_live_observer_gets_exact_public_records_without_control_metadata(self):
         from aircraft_debugger.sim_panel import ObservationPanelState
