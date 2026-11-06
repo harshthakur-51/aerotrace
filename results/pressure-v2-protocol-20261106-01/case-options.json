@@ -1,0 +1,17 @@
+{
+  "reference": {
+    "case": "selected_reference",
+    "active_seconds": 5,
+    "recovery_seconds": 5
+  },
+  "pressure_supply": {
+    "case": "isolated_blue_pressure_supply",
+    "active_seconds": 24,
+    "recovery_seconds": 8
+  },
+  "joint_pressure_effects": {
+    "case": "source_and_pressure_supply_pair",
+    "active_seconds": 24,
+    "recovery_seconds": 8
+  }
+}

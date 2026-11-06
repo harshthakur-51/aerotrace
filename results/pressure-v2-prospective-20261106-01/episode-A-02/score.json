@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "run_id": "pressure-prospective-A-02",
+  "flight_group": "pressure-flight-20261106-A",
+  "data_role": "final",
+  "protocol_sha256": "8fca0e0623161425905f483e957c9a818e07b42d11f722f110f1d46c4bece93e",
+  "observation_sha256": "c9df1f2ef495913ce61ac73704e1a0d77abbcf96186183c988645960e03ab71c",
+  "profile": "pressure_supply",
+  "expected_compatible_ids": [
+    "blue_pressure_supply_loss"
+  ],
+  "observed_compatible_ids": [
+    "blue_pressure_supply_loss"
+  ],
+  "plausible_ids": [
+    "blue_pressure_supply_loss"
+  ],
+  "diagnosis_status": "single_compatible_candidate",
+  "data_sufficiency": {
+    "status": "sufficient",
+    "unknown_facts": [],
+    "scope": "Supplied selected incident/epoch facts; current observed impact is assessed separately."
+  },
+  "model_fit": {
+    "status": "fits",
+    "compatible_candidate_count": 1,
+    "plausible_candidate_count": 1
+  },
+  "exact_bounded_profile_match": true,
+  "assessment": "matched_bounded_profile",
+  "expected_ids_not_compatible": [],
+  "extra_compatible_ids": [],
+  "current_impact": [],
+  "incident_impact": [
+    {
+      "fact_id": "blue_pressure_loss",
+      "system": "hydraulic",
+      "observation": "Blue pressure degradation was observed in this incident.",
+      "remaining_capability": "Pressure degradation does not establish total controllability or manual-control force.",
+      "scope": "incident_or_selected_window_history",
+      "evidence": [
+        {
+          "sample_index": 22,
+          "sim_time_s": 296.733333,
+          "channel": "blue_pressure",
+          "value": 2380.0,
+          "unit": "psi",
+          "observed_status": "pressure_degraded",
+          "evidence_id": null
+        },
+        {
+          "sample_index": 47,
+          "sim_time_s": 321.191667,
+          "channel": "blue_pressure",
+          "value": 2100.0,
+          "unit": "psi",
+          "observed_status": "pressure_degraded",
+          "evidence_id": null
+        }
+      ]
+    }
+  ],
+  "sample_count": 53,
+  "physical_cause_accuracy_measured": false,
+  "independent_trials_claimed": false,
+  "target_semantics": "Expected compatible configurations within the declared model, not unique physical cause ground truth"
+}

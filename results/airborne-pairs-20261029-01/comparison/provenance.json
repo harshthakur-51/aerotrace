@@ -1,0 +1,50 @@
+{
+  "created_utc": "2026-10-29T11:10:28.132871+00:00",
+  "purpose": "Two explicit public inputs only; prefix replay, no private labels or native I/O",
+  "command_arguments": [
+    "--observations-a",
+    "results/airborne-pairs-20261029-01/grouped-recipe/observations.jsonl",
+    "--observations-b",
+    "results/airborne-pairs-20261029-01/matched-independent-recipe/observations.jsonl",
+    "--output",
+    "results/airborne-pairs-20261029-01/comparison"
+  ],
+  "inputs": {
+    "inputA": {
+      "explicit_path": "Z:\\aircraft-debugger\\results\\airborne-pairs-20261029-01\\grouped-recipe\\observations.jsonl",
+      "observation_file_sha256": "cdb8e4f58eea8a6ab96521f0fee9e45ae38700ee1cfd84efe11e00dcea1ac045",
+      "canonical_observations_sha256": "ca81164ec38bef5a8dbe99d3d10071d940468bcb07e00be0045a522ef40b931c",
+      "bytes": 307460,
+      "samples": 80
+    },
+    "inputB": {
+      "explicit_path": "Z:\\aircraft-debugger\\results\\airborne-pairs-20261029-01\\matched-independent-recipe\\observations.jsonl",
+      "observation_file_sha256": "f763b14f2b8bdb6944c1657c7672b2ac7a4acd02d86dd10f5e79da6754e49be1",
+      "canonical_observations_sha256": "1ef14efd5912efc8779a11c319a3b7a452f1a678c7c15fe9174b92c12f4a1c81",
+      "bytes": 311178,
+      "samples": 81
+    }
+  },
+  "source_sha256": {
+    "aircraft_debugger/__init__.py": "8b3988af59cc46fdbb7c4e8bccfa65a2aaf90e4882d3ba8c70c344e15f63d68a",
+    "aircraft_debugger/airborne_evidence.py": "690b73569789b8c2ef72532c3b58def8b604adad2c68c10bceb8e964ee2463f2",
+    "aircraft_debugger/airborne_profile.py": "fefe20b9ce275ccfd581749452ade96c522192216ebc189fd3801d083befc565",
+    "aircraft_debugger/evidence.py": "cd0c6ad86b66ccb15a3d1c3b446ea9208f0ea3b419d12ecb23beb91db542f519",
+    "aircraft_debugger/observations.py": "56d3acd38311403f340ad2ae8a733ebb00135ca290484d3ad95ef07e5689011c",
+    "aircraft_debugger/flightgear.py": "4e60e793ad30fdc5fa8d2b8d9d9157b16c1ab20fa99014df0252216325bdd443",
+    "compare_paired.py": "f3e8fb3d735d52fabc4675f02b07af343a9d28c05fc842e2ae3c60b99485e9ad"
+  },
+  "executed_source_archives": {
+    "aircraft_debugger/__init__.py": "executed-source/aircraft_debugger/__init__.py",
+    "aircraft_debugger/airborne_evidence.py": "executed-source/aircraft_debugger/airborne_evidence.py",
+    "aircraft_debugger/airborne_profile.py": "executed-source/aircraft_debugger/airborne_profile.py",
+    "aircraft_debugger/evidence.py": "executed-source/aircraft_debugger/evidence.py",
+    "aircraft_debugger/observations.py": "executed-source/aircraft_debugger/observations.py",
+    "aircraft_debugger/flightgear.py": "executed-source/aircraft_debugger/flightgear.py",
+    "compare_paired.py": "executed-source/compare_paired.py"
+  },
+  "artifact_sha256": {
+    "comparison.json": "d75fcc0e888794ed702dfa57e991e7c09fba9d8ad1042bc7bbc5f53c10bbe6e2",
+    "comparison.md": "463a0c3d1fccc66c90967007884ffe25829afe37aebb7b9b72e4689c6c7329c9"
+  }
+}

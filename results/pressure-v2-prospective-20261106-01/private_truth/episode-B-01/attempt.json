@@ -1,0 +1,13 @@
+{
+  "run_id": "pressure-prospective-B-01",
+  "flight_group": "pressure-flight-20261106-B",
+  "profile": "reference",
+  "protocol_sha256": "8fca0e0623161425905f483e957c9a818e07b42d11f722f110f1d46c4bece93e",
+  "flightgear_process_id": 39024,
+  "operator_case_options": {
+    "case": "selected_reference",
+    "active_seconds": 5,
+    "recovery_seconds": 5
+  },
+  "status": "started"
+}

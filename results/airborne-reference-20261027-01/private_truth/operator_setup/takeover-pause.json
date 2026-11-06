@@ -1,0 +1,81 @@
+{
+  "authorization": "Owner explicitly handed over setup and launch controls on 27 October; notify before faults.",
+  "before": {
+    "readings": {
+      "paused": {
+        "path": "/sim/freeze/master",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 1685.833333,
+        "received_monotonic_s": 883038.8852431,
+        "reachable": true,
+        "unit": ""
+      },
+      "altitude": {
+        "path": "/position/altitude-ft",
+        "value": 34926.782561,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 1685.891667,
+        "received_monotonic_s": 883038.9449402,
+        "reachable": true,
+        "unit": ""
+      },
+      "speed": {
+        "path": "/velocities/airspeed-kt",
+        "value": 206.360656,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 1685.916667,
+        "received_monotonic_s": 883038.9797616,
+        "reachable": true,
+        "unit": ""
+      },
+      "bank": {
+        "path": "/orientation/roll-deg",
+        "value": 33.000623,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 1685.858333,
+        "received_monotonic_s": 883038.9193108,
+        "reachable": true,
+        "unit": ""
+      },
+      "heading": {
+        "path": "/orientation/heading-deg",
+        "value": 4.535277,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 1686.008333,
+        "received_monotonic_s": 883039.0802595,
+        "reachable": true,
+        "unit": ""
+      },
+      "vertical_speed": {
+        "path": "/velocities/vertical-speed-fps",
+        "value": 41.376156,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 1686.05,
+        "received_monotonic_s": 883039.1245253,
+        "reachable": true,
+        "unit": ""
+      }
+    },
+    "connected": true,
+    "complete": true,
+    "received_monotonic_s": 883039.1250166
+  },
+  "pause_http_status": 200,
+  "verified": {
+    "path": "/sim/freeze/master",
+    "value": true,
+    "valid": true,
+    "error": null,
+    "sim_time_s": 1686.316667,
+    "received_monotonic_s": 883039.3868041,
+    "reachable": true,
+    "unit": ""
+  }
+}

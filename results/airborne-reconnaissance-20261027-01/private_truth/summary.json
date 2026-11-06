@@ -1,0 +1,53 @@
+{
+  "kind": "operator qualification result; not diagnostic input or flight safety advice",
+  "created_utc": "2026-10-27T16:17:53.907220+00:00",
+  "status": "not_qualified",
+  "artifacts_complete": true,
+  "samples": 9,
+  "elapsed_local_s": 21.29121169995051,
+  "maximum_wait_local_s": 20.0,
+  "poll_interval_target_s": 1.0,
+  "settings": {
+    "altitude_target_ft": 24000.0,
+    "altitude_tolerance_ft": 200.0,
+    "airspeed_target_kt": 170.0,
+    "airspeed_tolerance_kt": 10.0,
+    "minimum_height_agl_ft": 3000.0,
+    "maximum_abs_bank_deg": 5.0,
+    "maximum_abs_vertical_speed_fps": 5.0,
+    "qualification_duration_sim_s": 15.0,
+    "maximum_sim_gap_s": 3.0,
+    "maximum_local_gap_s": 3.0,
+    "maximum_reading_age_s": 2.0,
+    "maximum_poll_span_s": 2.0,
+    "maximum_timestamp_skew_s": 2.0,
+    "minimum_reference_voltage_v": 100.0,
+    "minimum_blue_quantity_raw": 7.9,
+    "minimum_blue_pressure_psi": 2500.0
+  },
+  "last_gate": {
+    "profile_id": "a320-stable-airborne-v1",
+    "purpose": "experiment_baseline_eligibility_only",
+    "qualified": false,
+    "eligible_current_sample": false,
+    "reasons": [
+      "required_observation_not_fresh",
+      "altitude_outside_reference_band",
+      "airspeed_outside_reference_band",
+      "flight_context_outside_stability_band",
+      "required_timestamp_skew_exceeded"
+    ],
+    "window_elapsed_sim_s": 0.0,
+    "window_start": null,
+    "window_end": null
+  },
+  "failure": null,
+  "simulator_writes_performed": false,
+  "faults_injected": false,
+  "limits": [
+    "Qualification applies to this recorded window and may cease immediately afterward",
+    "Passing selected checks does not prove whole-aircraft health, loaded terrain validity or real-aircraft safety",
+    "Selected autopilot engagement/autothrust states are observed; all automation modes and pilot inputs are not recorded",
+    "No diagnostic cause ranking, controlled airborne fault injection or ground-to-flight validation is performed"
+  ]
+}

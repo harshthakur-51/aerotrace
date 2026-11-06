@@ -1,0 +1,777 @@
+[
+  {
+    "sample_index": 0,
+    "epoch": 0,
+    "sim_time_s": 351.716667,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 0,
+      "end_sample_index": 0,
+      "closed": false,
+      "reference_sample_index": 0
+    },
+    "status": "insufficient_observations",
+    "candidate_ids": [],
+    "plausible_candidate_ids": [
+      "selected_reference",
+      "generator_2_source_path_fault",
+      "blue_inventory_loss",
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 1,
+    "epoch": 0,
+    "sim_time_s": 352.725,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 0,
+      "end_sample_index": 1,
+      "closed": false,
+      "reference_sample_index": 0
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 2,
+    "epoch": 0,
+    "sim_time_s": 353.733333,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 1,
+      "end_sample_index": 2,
+      "closed": false,
+      "reference_sample_index": 1
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 3,
+    "epoch": 0,
+    "sim_time_s": 354.725,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 2,
+      "end_sample_index": 3,
+      "closed": false,
+      "reference_sample_index": 2
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 4,
+    "epoch": 0,
+    "sim_time_s": 355.733333,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 3,
+      "end_sample_index": 4,
+      "closed": false,
+      "reference_sample_index": 3
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 5,
+    "epoch": 0,
+    "sim_time_s": 356.725,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 4,
+      "end_sample_index": 5,
+      "closed": false,
+      "reference_sample_index": 4
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 6,
+    "epoch": 0,
+    "sim_time_s": 357.733333,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 5,
+      "end_sample_index": 6,
+      "closed": false,
+      "reference_sample_index": 5
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 7,
+    "epoch": 0,
+    "sim_time_s": 358.725,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 6,
+      "end_sample_index": 7,
+      "closed": false,
+      "reference_sample_index": 6
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 8,
+    "epoch": 0,
+    "sim_time_s": 359.741667,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 7,
+      "end_sample_index": 8,
+      "closed": false,
+      "reference_sample_index": 7
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 9,
+    "epoch": 0,
+    "sim_time_s": 360.741667,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 8,
+      "end_sample_index": 9,
+      "closed": false,
+      "reference_sample_index": 8
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 10,
+    "epoch": 0,
+    "sim_time_s": 361.733333,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 9,
+      "end_sample_index": 10,
+      "closed": false,
+      "reference_sample_index": 9
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 11,
+    "epoch": 0,
+    "sim_time_s": 362.733333,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 10,
+      "end_sample_index": 11,
+      "closed": false,
+      "reference_sample_index": 10
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 12,
+    "epoch": 0,
+    "sim_time_s": 363.741667,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 11,
+      "end_sample_index": 12,
+      "closed": false,
+      "reference_sample_index": 11
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 13,
+    "epoch": 0,
+    "sim_time_s": 364.733333,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 12,
+      "end_sample_index": 13,
+      "closed": false,
+      "reference_sample_index": 12
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 14,
+    "epoch": 0,
+    "sim_time_s": 365.741667,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 13,
+      "end_sample_index": 14,
+      "closed": false,
+      "reference_sample_index": 13
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 15,
+    "epoch": 0,
+    "sim_time_s": 366.741667,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 14,
+      "end_sample_index": 15,
+      "closed": false,
+      "reference_sample_index": 14
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 16,
+    "epoch": 0,
+    "sim_time_s": 367.741667,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 15,
+      "end_sample_index": 16,
+      "closed": false,
+      "reference_sample_index": 15
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 17,
+    "epoch": 0,
+    "sim_time_s": 368.158333,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 17,
+      "end_sample_index": 17,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 16
+    },
+    "status": "insufficient_observations",
+    "candidate_ids": [],
+    "plausible_candidate_ids": [
+      "selected_reference",
+      "generator_2_source_path_fault"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 18,
+    "epoch": 0,
+    "sim_time_s": 369.15,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 17,
+      "end_sample_index": 18,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 16
+    },
+    "status": "single_compatible_candidate",
+    "candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "plausible_candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      }
+    ]
+  },
+  {
+    "sample_index": 19,
+    "epoch": 0,
+    "sim_time_s": 370.158333,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 17,
+      "end_sample_index": 19,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 16
+    },
+    "status": "single_compatible_candidate",
+    "candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "plausible_candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      }
+    ]
+  },
+  {
+    "sample_index": 20,
+    "epoch": 0,
+    "sim_time_s": 371.158333,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 17,
+      "end_sample_index": 20,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 16
+    },
+    "status": "single_compatible_candidate",
+    "candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "plausible_candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      }
+    ]
+  },
+  {
+    "sample_index": 21,
+    "epoch": 0,
+    "sim_time_s": 372.158333,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 17,
+      "end_sample_index": 21,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 16
+    },
+    "status": "single_compatible_candidate",
+    "candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "plausible_candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      }
+    ]
+  },
+  {
+    "sample_index": 22,
+    "epoch": 0,
+    "sim_time_s": 373.158333,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 17,
+      "end_sample_index": 22,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 16
+    },
+    "status": "single_compatible_candidate",
+    "candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "plausible_candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      }
+    ]
+  },
+  {
+    "sample_index": 23,
+    "epoch": 0,
+    "sim_time_s": 374.158333,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 17,
+      "end_sample_index": 23,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 16
+    },
+    "status": "single_compatible_candidate",
+    "candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "plausible_candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      }
+    ]
+  },
+  {
+    "sample_index": 24,
+    "epoch": 0,
+    "sim_time_s": 375.166667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 17,
+      "end_sample_index": 24,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 16
+    },
+    "status": "single_compatible_candidate",
+    "candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "plausible_candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      }
+    ]
+  },
+  {
+    "sample_index": 25,
+    "epoch": 0,
+    "sim_time_s": 376.158333,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 17,
+      "end_sample_index": 25,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 16
+    },
+    "status": "single_compatible_candidate",
+    "candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "plausible_candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      }
+    ]
+  },
+  {
+    "sample_index": 26,
+    "epoch": 0,
+    "sim_time_s": 376.541667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 17,
+      "end_sample_index": 26,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 16
+    },
+    "status": "single_compatible_candidate",
+    "candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "plausible_candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 27,
+    "epoch": 0,
+    "sim_time_s": 377.541667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 17,
+      "end_sample_index": 27,
+      "closed": true,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 16
+    },
+    "status": "single_compatible_candidate",
+    "candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "plausible_candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 28,
+    "epoch": 0,
+    "sim_time_s": 378.533333,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 17,
+      "end_sample_index": 27,
+      "closed": true,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 16
+    },
+    "status": "single_compatible_candidate",
+    "candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "plausible_candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 29,
+    "epoch": 0,
+    "sim_time_s": 379.55,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 17,
+      "end_sample_index": 27,
+      "closed": true,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 16
+    },
+    "status": "single_compatible_candidate",
+    "candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "plausible_candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 30,
+    "epoch": 0,
+    "sim_time_s": 380.558333,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 17,
+      "end_sample_index": 27,
+      "closed": true,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 16
+    },
+    "status": "single_compatible_candidate",
+    "candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "plausible_candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 31,
+    "epoch": 0,
+    "sim_time_s": 381.541667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 17,
+      "end_sample_index": 27,
+      "closed": true,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 16
+    },
+    "status": "single_compatible_candidate",
+    "candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "plausible_candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 32,
+    "epoch": 0,
+    "sim_time_s": 382.541667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 17,
+      "end_sample_index": 27,
+      "closed": true,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 16
+    },
+    "status": "single_compatible_candidate",
+    "candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "plausible_candidate_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "current_impact": []
+  }
+]

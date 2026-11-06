@@ -1,0 +1,2480 @@
+[
+  {
+    "sample_index": 0,
+    "epoch": 0,
+    "sim_time_s": 354.025,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 0,
+      "end_sample_index": 0,
+      "closed": false,
+      "reference_sample_index": 0
+    },
+    "status": "insufficient_observations",
+    "candidate_ids": [],
+    "plausible_candidate_ids": [
+      "selected_reference",
+      "generator_2_source_path_fault",
+      "blue_inventory_loss",
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 1,
+    "epoch": 0,
+    "sim_time_s": 355.025,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 0,
+      "end_sample_index": 1,
+      "closed": false,
+      "reference_sample_index": 0
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 2,
+    "epoch": 0,
+    "sim_time_s": 356.033333,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 1,
+      "end_sample_index": 2,
+      "closed": false,
+      "reference_sample_index": 1
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 3,
+    "epoch": 0,
+    "sim_time_s": 357.025,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 2,
+      "end_sample_index": 3,
+      "closed": false,
+      "reference_sample_index": 2
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 4,
+    "epoch": 0,
+    "sim_time_s": 358.033333,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 3,
+      "end_sample_index": 4,
+      "closed": false,
+      "reference_sample_index": 3
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 5,
+    "epoch": 0,
+    "sim_time_s": 359.025,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 4,
+      "end_sample_index": 5,
+      "closed": false,
+      "reference_sample_index": 4
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 6,
+    "epoch": 0,
+    "sim_time_s": 360.05,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 5,
+      "end_sample_index": 6,
+      "closed": false,
+      "reference_sample_index": 5
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 7,
+    "epoch": 0,
+    "sim_time_s": 361.016667,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 6,
+      "end_sample_index": 7,
+      "closed": false,
+      "reference_sample_index": 6
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 8,
+    "epoch": 0,
+    "sim_time_s": 362.025,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 7,
+      "end_sample_index": 8,
+      "closed": false,
+      "reference_sample_index": 7
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 9,
+    "epoch": 0,
+    "sim_time_s": 363.025,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 8,
+      "end_sample_index": 9,
+      "closed": false,
+      "reference_sample_index": 8
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 10,
+    "epoch": 0,
+    "sim_time_s": 364.025,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 9,
+      "end_sample_index": 10,
+      "closed": false,
+      "reference_sample_index": 9
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 11,
+    "epoch": 0,
+    "sim_time_s": 365.041667,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 10,
+      "end_sample_index": 11,
+      "closed": false,
+      "reference_sample_index": 10
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 12,
+    "epoch": 0,
+    "sim_time_s": 366.041667,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 11,
+      "end_sample_index": 12,
+      "closed": false,
+      "reference_sample_index": 11
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 13,
+    "epoch": 0,
+    "sim_time_s": 367.025,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 12,
+      "end_sample_index": 13,
+      "closed": false,
+      "reference_sample_index": 12
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 14,
+    "epoch": 0,
+    "sim_time_s": 368.033333,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 13,
+      "end_sample_index": 14,
+      "closed": false,
+      "reference_sample_index": 13
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 15,
+    "epoch": 0,
+    "sim_time_s": 369.033333,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 14,
+      "end_sample_index": 15,
+      "closed": false,
+      "reference_sample_index": 14
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 16,
+    "epoch": 0,
+    "sim_time_s": 370.025,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 15,
+      "end_sample_index": 16,
+      "closed": false,
+      "reference_sample_index": 15
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 17,
+    "epoch": 0,
+    "sim_time_s": 371.033333,
+    "scope": {
+      "kind": "selected_reference_window",
+      "incident_id": null,
+      "epoch": 0,
+      "start_sample_index": 16,
+      "end_sample_index": 17,
+      "closed": false,
+      "reference_sample_index": 16
+    },
+    "status": "no_selected_anomaly",
+    "candidate_ids": [
+      "selected_reference"
+    ],
+    "plausible_candidate_ids": [
+      "selected_reference"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 18,
+    "epoch": 0,
+    "sim_time_s": 371.608333,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 18,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "insufficient_observations",
+    "candidate_ids": [],
+    "plausible_candidate_ids": [
+      "selected_reference",
+      "generator_2_source_path_fault"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 19,
+    "epoch": 0,
+    "sim_time_s": 372.616667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 19,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "insufficient_observations",
+    "candidate_ids": [],
+    "plausible_candidate_ids": [
+      "generator_2_source_path_fault",
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      }
+    ]
+  },
+  {
+    "sample_index": 20,
+    "epoch": 0,
+    "sim_time_s": 373.608333,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 20,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 21,
+    "epoch": 0,
+    "sim_time_s": 374.608333,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 21,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 22,
+    "epoch": 0,
+    "sim_time_s": 375.616667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 22,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 23,
+    "epoch": 0,
+    "sim_time_s": 376.616667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 23,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 24,
+    "epoch": 0,
+    "sim_time_s": 377.616667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 24,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 25,
+    "epoch": 0,
+    "sim_time_s": 378.616667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 25,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 26,
+    "epoch": 0,
+    "sim_time_s": 379.625,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 26,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 27,
+    "epoch": 0,
+    "sim_time_s": 380.616667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 27,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 28,
+    "epoch": 0,
+    "sim_time_s": 381.608333,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 28,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 29,
+    "epoch": 0,
+    "sim_time_s": 382.616667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 29,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 30,
+    "epoch": 0,
+    "sim_time_s": 383.633333,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 30,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 31,
+    "epoch": 0,
+    "sim_time_s": 384.616667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 31,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 32,
+    "epoch": 0,
+    "sim_time_s": 385.616667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 32,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 33,
+    "epoch": 0,
+    "sim_time_s": 386.616667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 33,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 34,
+    "epoch": 0,
+    "sim_time_s": 387.616667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 34,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 35,
+    "epoch": 0,
+    "sim_time_s": 388.625,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 35,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 36,
+    "epoch": 0,
+    "sim_time_s": 389.625,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 36,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 37,
+    "epoch": 0,
+    "sim_time_s": 390.633333,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 37,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 38,
+    "epoch": 0,
+    "sim_time_s": 391.633333,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 38,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 39,
+    "epoch": 0,
+    "sim_time_s": 392.625,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 39,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 40,
+    "epoch": 0,
+    "sim_time_s": 393.633333,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 40,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 41,
+    "epoch": 0,
+    "sim_time_s": 394.616667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 41,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 42,
+    "epoch": 0,
+    "sim_time_s": 395.625,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 42,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 43,
+    "epoch": 0,
+    "sim_time_s": 396.616667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 43,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 44,
+    "epoch": 0,
+    "sim_time_s": 397.625,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 44,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 45,
+    "epoch": 0,
+    "sim_time_s": 398.625,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 45,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 46,
+    "epoch": 0,
+    "sim_time_s": 399.616667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 46,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 47,
+    "epoch": 0,
+    "sim_time_s": 400.625,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 47,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 48,
+    "epoch": 0,
+    "sim_time_s": 401.625,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 48,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 49,
+    "epoch": 0,
+    "sim_time_s": 402.633333,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 49,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+      }
+    ]
+  },
+  {
+    "sample_index": 50,
+    "epoch": 0,
+    "sim_time_s": 403.65,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 50,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure is below the illustrative retained range."
+      }
+    ]
+  },
+  {
+    "sample_index": 51,
+    "epoch": 0,
+    "sim_time_s": 404.625,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 51,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure is below the illustrative retained range."
+      }
+    ]
+  },
+  {
+    "sample_index": 52,
+    "epoch": 0,
+    "sim_time_s": 405.625,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 52,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure is below the illustrative retained range."
+      }
+    ]
+  },
+  {
+    "sample_index": 53,
+    "epoch": 0,
+    "sim_time_s": 406.633333,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 53,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure is below the illustrative retained range."
+      }
+    ]
+  },
+  {
+    "sample_index": 54,
+    "epoch": 0,
+    "sim_time_s": 407.641667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 54,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure is below the illustrative retained range."
+      }
+    ]
+  },
+  {
+    "sample_index": 55,
+    "epoch": 0,
+    "sim_time_s": 408.633333,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 55,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure is below the illustrative retained range."
+      }
+    ]
+  },
+  {
+    "sample_index": 56,
+    "epoch": 0,
+    "sim_time_s": 409.625,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 56,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure is below the illustrative retained range."
+      }
+    ]
+  },
+  {
+    "sample_index": 57,
+    "epoch": 0,
+    "sim_time_s": 410.625,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 57,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure is below the illustrative retained range."
+      }
+    ]
+  },
+  {
+    "sample_index": 58,
+    "epoch": 0,
+    "sim_time_s": 411.625,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 58,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure is below the illustrative retained range."
+      }
+    ]
+  },
+  {
+    "sample_index": 59,
+    "epoch": 0,
+    "sim_time_s": 412.625,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 59,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure is below the illustrative retained range."
+      }
+    ]
+  },
+  {
+    "sample_index": 60,
+    "epoch": 0,
+    "sim_time_s": 413.633333,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 60,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure is below the illustrative retained range."
+      }
+    ]
+  },
+  {
+    "sample_index": 61,
+    "epoch": 0,
+    "sim_time_s": 414.641667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 61,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure is below the illustrative retained range."
+      }
+    ]
+  },
+  {
+    "sample_index": 62,
+    "epoch": 0,
+    "sim_time_s": 415.625,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 62,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure is below the illustrative retained range."
+      }
+    ]
+  },
+  {
+    "sample_index": 63,
+    "epoch": 0,
+    "sim_time_s": 416.641667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 63,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure is below the illustrative retained range."
+      }
+    ]
+  },
+  {
+    "sample_index": 64,
+    "epoch": 0,
+    "sim_time_s": 417.633333,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 64,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure is below the illustrative retained range."
+      }
+    ]
+  },
+  {
+    "sample_index": 65,
+    "epoch": 0,
+    "sim_time_s": 418.641667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 65,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure is below the illustrative retained range."
+      }
+    ]
+  },
+  {
+    "sample_index": 66,
+    "epoch": 0,
+    "sim_time_s": 419.641667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 66,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure is below the illustrative retained range."
+      }
+    ]
+  },
+  {
+    "sample_index": 67,
+    "epoch": 0,
+    "sim_time_s": 420.625,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 67,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure is below the illustrative retained range."
+      }
+    ]
+  },
+  {
+    "sample_index": 68,
+    "epoch": 0,
+    "sim_time_s": 421.641667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 68,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure is below the illustrative retained range."
+      }
+    ]
+  },
+  {
+    "sample_index": 69,
+    "epoch": 0,
+    "sim_time_s": 422.625,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 69,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure is below the illustrative retained range."
+      }
+    ]
+  },
+  {
+    "sample_index": 70,
+    "epoch": 0,
+    "sim_time_s": 423.641667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 70,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      },
+      {
+        "system": "hydraulic",
+        "observation": "Blue-system inventory loss observed.",
+        "remaining_capability": "Pressure is below the illustrative retained range."
+      }
+    ]
+  },
+  {
+    "sample_index": 71,
+    "epoch": 0,
+    "sim_time_s": 424.2,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 71,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "hydraulic",
+        "observation": "Blue pressure is below the illustrative retained range.",
+        "remaining_capability": "Pressure degradation is observed without confirmed inventory depletion; cause and actuator capability remain unresolved."
+      }
+    ]
+  },
+  {
+    "sample_index": 72,
+    "epoch": 0,
+    "sim_time_s": 425.191667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 72,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "hydraulic",
+        "observation": "Blue pressure is below the illustrative retained range.",
+        "remaining_capability": "Pressure degradation is observed without confirmed inventory depletion; cause and actuator capability remain unresolved."
+      }
+    ]
+  },
+  {
+    "sample_index": 73,
+    "epoch": 0,
+    "sim_time_s": 426.2,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 73,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "hydraulic",
+        "observation": "Blue pressure is below the illustrative retained range.",
+        "remaining_capability": "Pressure degradation is observed without confirmed inventory depletion; cause and actuator capability remain unresolved."
+      }
+    ]
+  },
+  {
+    "sample_index": 74,
+    "epoch": 0,
+    "sim_time_s": 427.2,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 74,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "hydraulic",
+        "observation": "Blue pressure is below the illustrative retained range.",
+        "remaining_capability": "Pressure degradation is observed without confirmed inventory depletion; cause and actuator capability remain unresolved."
+      }
+    ]
+  },
+  {
+    "sample_index": 75,
+    "epoch": 0,
+    "sim_time_s": 428.2,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 75,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": [
+      {
+        "system": "hydraulic",
+        "observation": "Blue pressure is below the illustrative retained range.",
+        "remaining_capability": "Pressure degradation is observed without confirmed inventory depletion; cause and actuator capability remain unresolved."
+      }
+    ]
+  },
+  {
+    "sample_index": 76,
+    "epoch": 0,
+    "sim_time_s": 429.2,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 76,
+      "closed": false,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 77,
+    "epoch": 0,
+    "sim_time_s": 430.2,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 77,
+      "closed": true,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 78,
+    "epoch": 0,
+    "sim_time_s": 431.216667,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 77,
+      "closed": true,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": []
+  },
+  {
+    "sample_index": 79,
+    "epoch": 0,
+    "sim_time_s": 432.2,
+    "scope": {
+      "incident_id": "I0001",
+      "epoch": 0,
+      "start_sample_index": 18,
+      "end_sample_index": 77,
+      "closed": true,
+      "kind": "last_observed_incident",
+      "reference_sample_index": 17
+    },
+    "status": "causal_ambiguity",
+    "candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "plausible_candidate_ids": [
+      "independent_pair",
+      "grouped_joint_event"
+    ],
+    "current_impact": []
+  }
+]

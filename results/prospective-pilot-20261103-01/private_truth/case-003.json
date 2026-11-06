@@ -1,0 +1,107 @@
+{
+  "run_id": "prospective-A-003",
+  "flight_group": "prospective-flight-20261103-A",
+  "profile": "blue_inventory",
+  "native_case": "isolated_blue_leak",
+  "protocol_sha256": "b6f6f9b178befd343b7a4dc88de99ab130e9e8a1488898585bbff075567619b9",
+  "source_hash_check": true,
+  "role": "held out for sealed bounded-profile pilot; not real-aircraft cause accuracy",
+  "collection_completed": true,
+  "scoring": {
+    "schema_version": 1,
+    "run_id": "prospective-A-003",
+    "flight_group": "prospective-flight-20261103-A",
+    "data_role": "final",
+    "protocol_sha256": "b6f6f9b178befd343b7a4dc88de99ab130e9e8a1488898585bbff075567619b9",
+    "observation_sha256": "8440a9d368b532dea5d73bca4ca28c99bbebffe316e9694114cc61fb7ced70df",
+    "profile": "blue_inventory",
+    "expected_compatible_ids": [
+      "blue_inventory_loss"
+    ],
+    "observed_compatible_ids": [
+      "blue_inventory_loss"
+    ],
+    "plausible_ids": [
+      "blue_inventory_loss"
+    ],
+    "diagnosis_status": "single_compatible_candidate",
+    "data_sufficiency": {
+      "status": "sufficient",
+      "unknown_facts": [],
+      "scope": "Supplied selected incident/epoch facts; current observed impact is assessed separately."
+    },
+    "model_fit": {
+      "status": "fits",
+      "compatible_candidate_count": 1,
+      "plausible_candidate_count": 1
+    },
+    "exact_bounded_profile_match": true,
+    "assessment": "matched_bounded_profile",
+    "expected_ids_not_compatible": [],
+    "extra_compatible_ids": [],
+    "current_impact": [],
+    "incident_impact": [
+      {
+        "fact_id": "blue_inventory_loss",
+        "system": "hydraulic",
+        "observation": "Blue inventory depletion was observed in this incident.",
+        "remaining_capability": "Raw inventory units and actuator capability remain unresolved; pressure is assessed separately.",
+        "scope": "incident_or_selected_window_history",
+        "evidence": [
+          {
+            "sample_index": 19,
+            "sim_time_s": 493.55,
+            "channel": "blue_quantity",
+            "value": 7.45,
+            "unit": "raw model quantity",
+            "observed_status": "inventory_loss_observed",
+            "evidence_id": "E0001",
+            "legacy_event_id": "E0001",
+            "onset_sample_index": 18,
+            "confirmation_sample_index": 19
+          },
+          {
+            "sample_index": 69,
+            "sim_time_s": 543.583333,
+            "channel": "blue_quantity",
+            "value": 0.0,
+            "unit": "raw model quantity",
+            "observed_status": "inventory_loss_observed",
+            "evidence_id": "E0001"
+          }
+        ]
+      },
+      {
+        "fact_id": "blue_pressure_loss",
+        "system": "hydraulic",
+        "observation": "Blue pressure degradation was observed in this incident.",
+        "remaining_capability": "Pressure degradation does not establish total controllability or manual-control force.",
+        "scope": "incident_or_selected_window_history",
+        "evidence": [
+          {
+            "sample_index": 49,
+            "sim_time_s": 523.558333,
+            "channel": "blue_pressure",
+            "value": 2370.0,
+            "unit": "psi",
+            "observed_status": "pressure_degraded",
+            "evidence_id": null
+          },
+          {
+            "sample_index": 74,
+            "sim_time_s": 547.975,
+            "channel": "blue_pressure",
+            "value": 2100.0,
+            "unit": "psi",
+            "observed_status": "pressure_degraded",
+            "evidence_id": null
+          }
+        ]
+      }
+    ],
+    "sample_count": 80,
+    "physical_cause_accuracy_measured": false,
+    "independent_trials_claimed": false,
+    "target_semantics": "Expected compatible configurations within the declared model, not unique physical cause ground truth"
+  }
+}

@@ -1,0 +1,323 @@
+{
+  "readiness": {
+    "readings": {
+      "startup_in_progress": {
+        "path": "/systems/acconfig/autoconfig-running",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.233333,
+        "received_monotonic_s": 60715.3555013,
+        "reachable": true,
+        "unit": ""
+      },
+      "startup_mismatch_reason": {
+        "path": "/systems/acconfig/mismatch-reason",
+        "value": "XX",
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.208333,
+        "received_monotonic_s": 60715.3360047,
+        "reachable": true,
+        "unit": ""
+      },
+      "engine_1_running": {
+        "path": "/engines/engine[0]/running",
+        "value": true,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.25,
+        "received_monotonic_s": 60715.3911898,
+        "reachable": true,
+        "unit": ""
+      },
+      "engine_2_running": {
+        "path": "/engines/engine[1]/running",
+        "value": true,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.275,
+        "received_monotonic_s": 60715.4079649,
+        "reachable": true,
+        "unit": ""
+      },
+      "generator_2_fault": {
+        "path": "/systems/failures/electrical/gen-2",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.3,
+        "received_monotonic_s": 60715.4278274,
+        "reachable": true,
+        "unit": ""
+      },
+      "blue_leak_fault": {
+        "path": "/systems/failures/hydraulic/blue-leak",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.325,
+        "received_monotonic_s": 60715.453539,
+        "reachable": true,
+        "unit": ""
+      }
+    },
+    "connected": true,
+    "complete": true,
+    "received_monotonic_s": 60715.4538283
+  },
+  "observations": {
+    "readings": {
+      "aircraft": {
+        "path": "/sim/aircraft",
+        "value": "A320-200-CFM",
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.391667,
+        "received_monotonic_s": 60715.515386,
+        "reachable": true,
+        "unit": ""
+      },
+      "sim_time": {
+        "path": "/sim/time/elapsed-sec",
+        "value": 18.408333,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.408333,
+        "received_monotonic_s": 60715.5368188,
+        "reachable": true,
+        "unit": "s"
+      },
+      "paused": {
+        "path": "/sim/freeze/master",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.433333,
+        "received_monotonic_s": 60715.5553894,
+        "reachable": true,
+        "unit": ""
+      },
+      "altitude": {
+        "path": "/position/altitude-ft",
+        "value": 28.058319,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.45,
+        "received_monotonic_s": 60715.5735254,
+        "reachable": true,
+        "unit": "ft"
+      },
+      "airspeed": {
+        "path": "/velocities/airspeed-kt",
+        "value": 2.999958,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.466667,
+        "received_monotonic_s": 60715.5942487,
+        "reachable": true,
+        "unit": "kt"
+      },
+      "engine_1_n1": {
+        "path": "/engines/engine[0]/n1-actual",
+        "value": 18.900015,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.491667,
+        "received_monotonic_s": 60715.6162704,
+        "reachable": true,
+        "unit": "%"
+      },
+      "engine_2_n1": {
+        "path": "/engines/engine[1]/n1-actual",
+        "value": 18.900014,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.508333,
+        "received_monotonic_s": 60715.6324561,
+        "reachable": true,
+        "unit": "%"
+      },
+      "generator_2_voltage": {
+        "path": "/systems/electrical/sources/idg-2/output-volt",
+        "value": 114.999999,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.525,
+        "received_monotonic_s": 60715.6510915,
+        "reachable": true,
+        "unit": "V"
+      },
+      "ac_bus_1": {
+        "path": "/systems/electrical/bus/ac-1",
+        "value": 114.999999,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.541667,
+        "received_monotonic_s": 60715.6689559,
+        "reachable": true,
+        "unit": "V"
+      },
+      "ac_bus_2": {
+        "path": "/systems/electrical/bus/ac-2",
+        "value": 114.999999,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.566667,
+        "received_monotonic_s": 60715.689085,
+        "reachable": true,
+        "unit": "V"
+      },
+      "blue_pressure": {
+        "path": "/systems/hydraulic/blue-psi",
+        "value": 3000.0,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.583333,
+        "received_monotonic_s": 60715.7062414,
+        "reachable": true,
+        "unit": "psi"
+      },
+      "blue_quantity": {
+        "path": "/systems/hydraulic/blue-qty",
+        "value": 8.0,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.6,
+        "received_monotonic_s": 60715.7240846,
+        "reachable": true,
+        "unit": "raw model quantity"
+      },
+      "main_gear_1_wow": {
+        "path": "/gear/gear[1]/wow",
+        "value": true,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.616667,
+        "received_monotonic_s": 60715.7414966,
+        "reachable": true,
+        "unit": ""
+      },
+      "main_gear_2_wow": {
+        "path": "/gear/gear[2]/wow",
+        "value": true,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.633333,
+        "received_monotonic_s": 60715.7601109,
+        "reachable": true,
+        "unit": ""
+      },
+      "height_agl": {
+        "path": "/position/altitude-agl-ft",
+        "value": 11.056573,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.658333,
+        "received_monotonic_s": 60715.7817619,
+        "reachable": true,
+        "unit": "ft"
+      },
+      "vertical_speed": {
+        "path": "/velocities/vertical-speed-fps",
+        "value": 3e-06,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.675,
+        "received_monotonic_s": 60715.80223,
+        "reachable": true,
+        "unit": "ft/s"
+      },
+      "bank": {
+        "path": "/orientation/roll-deg",
+        "value": 0.078734,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.7,
+        "received_monotonic_s": 60715.8205292,
+        "reachable": true,
+        "unit": "deg"
+      },
+      "autopilot_1": {
+        "path": "/it-autoflight/output/ap1",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.716667,
+        "received_monotonic_s": 60715.839255,
+        "reachable": true,
+        "unit": ""
+      },
+      "autopilot_2": {
+        "path": "/it-autoflight/output/ap2",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.733333,
+        "received_monotonic_s": 60715.8692448,
+        "reachable": true,
+        "unit": ""
+      },
+      "autothrust": {
+        "path": "/it-autoflight/output/athr",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.766667,
+        "received_monotonic_s": 60715.891317,
+        "reachable": true,
+        "unit": ""
+      }
+    },
+    "connected": true,
+    "complete": true,
+    "received_monotonic_s": 60715.891602
+  },
+  "operator": {
+    "readings": {
+      "save_state": {
+        "path": "/options/system/save-state",
+        "value": 0.0,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.841667,
+        "received_monotonic_s": 60715.9684681,
+        "reachable": true,
+        "unit": ""
+      },
+      "fuel": {
+        "path": "/consumables/fuel/total-fuel-lbs",
+        "value": 12034.883827,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.825,
+        "received_monotonic_s": 60715.9507288,
+        "reachable": true,
+        "unit": ""
+      },
+      "speedbrake": {
+        "path": "/controls/flight/speedbrake",
+        "value": 0.0,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.866667,
+        "received_monotonic_s": 60715.9881961,
+        "reachable": true,
+        "unit": ""
+      },
+      "speedup": {
+        "path": "/sim/speed-up",
+        "value": 1.0,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 18.883333,
+        "received_monotonic_s": 60716.007687,
+        "reachable": true,
+        "unit": ""
+      }
+    },
+    "connected": true,
+    "complete": true,
+    "received_monotonic_s": 60716.0081219
+  }
+}

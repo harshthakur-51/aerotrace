@@ -1,0 +1,8 @@
+{
+    "config":  "--config=Z:/aircraft-debugger/configs/flightgear-a320.fgfsrc",
+    "process_id":  31832,
+    "intended_airspeed_kt":  250,
+    "intended_altitude_ft":  10000,
+    "launched_utc":  "2026-11-05T22:56:48.3185764Z",
+    "git_head":  "4f82b7c5121672bce75ef0efc9689652a398675f"
+}

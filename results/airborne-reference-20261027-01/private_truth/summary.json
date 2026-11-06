@@ -1,0 +1,55 @@
+{
+  "kind": "operator qualification result; not diagnostic input or flight safety advice",
+  "created_utc": "2026-10-27T16:32:38.827322+00:00",
+  "status": "qualified_recorded_window",
+  "artifacts_complete": true,
+  "samples": 145,
+  "elapsed_local_s": 145.58761809999123,
+  "maximum_wait_local_s": 180,
+  "poll_interval_target_s": 1,
+  "settings": {
+    "altitude_target_ft": 35000,
+    "altitude_tolerance_ft": 200.0,
+    "airspeed_target_kt": 220,
+    "airspeed_tolerance_kt": 10.0,
+    "minimum_height_agl_ft": 3000.0,
+    "maximum_abs_bank_deg": 5.0,
+    "maximum_abs_vertical_speed_fps": 5.0,
+    "qualification_duration_sim_s": 15.0,
+    "maximum_sim_gap_s": 3.0,
+    "maximum_local_gap_s": 3.0,
+    "maximum_reading_age_s": 2.0,
+    "maximum_poll_span_s": 2.0,
+    "maximum_timestamp_skew_s": 2.0,
+    "minimum_reference_voltage_v": 100.0,
+    "minimum_blue_quantity_raw": 7.9,
+    "minimum_blue_pressure_psi": 2500.0
+  },
+  "last_gate": {
+    "profile_id": "a320-stable-airborne-v1",
+    "purpose": "experiment_baseline_eligibility_only",
+    "qualified": true,
+    "eligible_current_sample": true,
+    "reasons": [],
+    "window_elapsed_sim_s": 15.900000000000091,
+    "window_start": {
+      "sample_index": 128,
+      "sim_time_s": 2026.4,
+      "received_monotonic_s": 883561.8165384
+    },
+    "window_end": {
+      "sample_index": 144,
+      "sim_time_s": 2042.391667,
+      "received_monotonic_s": 883577.7406433
+    }
+  },
+  "failure": null,
+  "simulator_writes_performed": false,
+  "faults_injected": false,
+  "limits": [
+    "Qualification applies to this recorded window and may cease immediately afterward",
+    "Passing selected checks does not prove whole-aircraft health, loaded terrain validity or real-aircraft safety",
+    "Selected autopilot engagement/autothrust states are observed; all automation modes and pilot inputs are not recorded",
+    "No diagnostic cause ranking, controlled airborne fault injection or ground-to-flight validation is performed"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "preserved_analysis": "analysis-before-pressure-state-fix",
+  "reason": "Complete public evidence during refill pressure lag was miscategorized as insufficient_current_evidence. Raw observations/controller unchanged. Original report/prefix timeline/source provenance preserved before repair.",
+  "original_paths_note": "Original audit evaluated the directory when named analysis; its source/artifact hashes resolve in the preserved directory now.",
+  "files": {
+    "verification-before-pressure-state-fix.json": "911e9de24a3f8c0ba48d02c62865245b87ef73fdbf81485b20bc83bcc42e1944",
+    "audit-before-pressure-state-fix.py": "bd58b2dbd60b35014a2458b4f8d29697f9085af6303140f1ddf1c1397981c5fb"
+  },
+  "corrected_analysis": "analysis",
+  "correction_source_commit": "f47e5d2ab00217ef12d5003f07e7e42edc8b7835",
+  "changed_prefix_indices": [
+    71,
+    72,
+    73,
+    74,
+    75
+  ],
+  "changed_fields": "assessment.category and explanation hypothesis/compatibility/reason only",
+  "all_raw_states_impacts_evidence_ids_and_context_quality_identical": true,
+  "final_report_identical_except_implementation_provenance": true,
+  "new_verification": "verification.json",
+  "new_verification_sha256": "1b36afc6d91cea90934d88d92fabe5abf9ffe87322dfe1b76b250974de726469"
+}

@@ -1,0 +1,103 @@
+{
+  "script": "setprop(\"/sim/freeze/master\",1);setprop(\"/sim/freeze/clock\",1);",
+  "status": 200,
+  "response": "ok.",
+  "local_monotonic_s": 966607.1491136,
+  "readback": {
+    "readings": {
+      "master": {
+        "path": "/sim/freeze/master",
+        "value": true,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 498.658333,
+        "received_monotonic_s": 966607.2010564,
+        "reachable": true,
+        "unit": ""
+      },
+      "clock": {
+        "path": "/sim/freeze/clock",
+        "value": true,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 498.658333,
+        "received_monotonic_s": 966607.1922515,
+        "reachable": true,
+        "unit": ""
+      },
+      "gen2fault": {
+        "path": "/systems/failures/electrical/gen-2",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 498.658333,
+        "received_monotonic_s": 966607.1838778,
+        "reachable": true,
+        "unit": ""
+      },
+      "bluefault": {
+        "path": "/systems/failures/hydraulic/blue-leak",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 498.658333,
+        "received_monotonic_s": 966607.2093352,
+        "reachable": true,
+        "unit": ""
+      },
+      "alt": {
+        "path": "/position/altitude-ft",
+        "value": 10171.496061,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 498.658333,
+        "received_monotonic_s": 966607.2180886,
+        "reachable": true,
+        "unit": ""
+      },
+      "speed": {
+        "path": "/velocities/airspeed-kt",
+        "value": 250.315474,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 498.658333,
+        "received_monotonic_s": 966607.2270814,
+        "reachable": true,
+        "unit": ""
+      },
+      "native_gear_nose": {
+        "path": "/systems/gear/unit/pos-actuator",
+        "value": 0.0,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 498.658333,
+        "received_monotonic_s": 966607.2408841,
+        "reachable": true,
+        "unit": ""
+      },
+      "native_gear_left": {
+        "path": "/systems/gear/unit[1]/pos-actuator",
+        "value": 0.0,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 498.658333,
+        "received_monotonic_s": 966607.2506913,
+        "reachable": true,
+        "unit": ""
+      },
+      "native_gear_right": {
+        "path": "/systems/gear/unit[2]/pos-actuator",
+        "value": 0.0,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 498.658333,
+        "received_monotonic_s": 966607.2598434,
+        "reachable": true,
+        "unit": ""
+      }
+    },
+    "connected": true,
+    "complete": true,
+    "received_monotonic_s": 966607.2601691
+  }
+}

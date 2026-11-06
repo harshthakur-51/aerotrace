@@ -1,0 +1,716 @@
+[
+  {
+    "write": "/controls/flight/aileron",
+    "value": -0.15,
+    "status": 200,
+    "local": 883319.5386474
+  },
+  {
+    "write": "/controls/flight/elevator",
+    "value": 0.12,
+    "status": 200,
+    "local": 883319.6492355
+  },
+  {
+    "snapshot": {
+      "readings": {
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 32.546127,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1784.783333,
+          "received_monotonic_s": 883319.7470551,
+          "reachable": true,
+          "unit": ""
+        },
+        "pitch": {
+          "path": "/orientation/pitch-deg",
+          "value": 8.873557,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1784.816667,
+          "received_monotonic_s": 883319.774539,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 13.405362,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1784.85,
+          "received_monotonic_s": 883319.8059164,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 189.305523,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1784.875,
+          "received_monotonic_s": 883319.8304756,
+          "reachable": true,
+          "unit": ""
+        },
+        "alpha": {
+          "path": "/systems/fbw/protections/alpha",
+          "value": 1.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1784.9,
+          "received_monotonic_s": 883319.8640428,
+          "reachable": true,
+          "unit": ""
+        },
+        "floor": {
+          "path": "/systems/fadec/alpha-floor-switch",
+          "value": 1.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1784.933333,
+          "received_monotonic_s": 883319.8910235,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883319.8914586
+    }
+  },
+  {
+    "snapshot": {
+      "readings": {
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 31.133667,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1785.691667,
+          "received_monotonic_s": 883320.6529716,
+          "reachable": true,
+          "unit": ""
+        },
+        "pitch": {
+          "path": "/orientation/pitch-deg",
+          "value": 8.662234,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1785.783333,
+          "received_monotonic_s": 883320.7465384,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 11.811317,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1785.75,
+          "received_monotonic_s": 883320.7194681,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 189.416867,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1785.725,
+          "received_monotonic_s": 883320.6796863,
+          "reachable": true,
+          "unit": ""
+        },
+        "alpha": {
+          "path": "/systems/fbw/protections/alpha",
+          "value": 1.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1785.816667,
+          "received_monotonic_s": 883320.7795832,
+          "reachable": true,
+          "unit": ""
+        },
+        "floor": {
+          "path": "/systems/fadec/alpha-floor-switch",
+          "value": 1.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1785.85,
+          "received_monotonic_s": 883320.8102367,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883320.8107485
+    }
+  },
+  {
+    "snapshot": {
+      "readings": {
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 29.309212,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1786.616667,
+          "received_monotonic_s": 883321.5721396,
+          "reachable": true,
+          "unit": ""
+        },
+        "pitch": {
+          "path": "/orientation/pitch-deg",
+          "value": 8.544756,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1786.641667,
+          "received_monotonic_s": 883321.6008413,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 10.825409,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1786.675,
+          "received_monotonic_s": 883321.628505,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 189.580784,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1786.7,
+          "received_monotonic_s": 883321.662594,
+          "reachable": true,
+          "unit": ""
+        },
+        "alpha": {
+          "path": "/systems/fbw/protections/alpha",
+          "value": 1.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1786.733333,
+          "received_monotonic_s": 883321.6941985,
+          "reachable": true,
+          "unit": ""
+        },
+        "floor": {
+          "path": "/systems/fadec/alpha-floor-switch",
+          "value": 1.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1786.766667,
+          "received_monotonic_s": 883321.7274276,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883321.7277796
+    }
+  },
+  {
+    "snapshot": {
+      "readings": {
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 27.472455,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1787.55,
+          "received_monotonic_s": 883322.5039668,
+          "reachable": true,
+          "unit": ""
+        },
+        "pitch": {
+          "path": "/orientation/pitch-deg",
+          "value": 8.535752,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1787.575,
+          "received_monotonic_s": 883322.5387235,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 10.692797,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1787.608333,
+          "received_monotonic_s": 883322.5685289,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 189.74753,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1787.641667,
+          "received_monotonic_s": 883322.5989573,
+          "reachable": true,
+          "unit": ""
+        },
+        "alpha": {
+          "path": "/systems/fbw/protections/alpha",
+          "value": 1.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1787.675,
+          "received_monotonic_s": 883322.6295786,
+          "reachable": true,
+          "unit": ""
+        },
+        "floor": {
+          "path": "/systems/fadec/alpha-floor-switch",
+          "value": 1.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1787.7,
+          "received_monotonic_s": 883322.6610393,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883322.6613732
+    }
+  },
+  {
+    "snapshot": {
+      "readings": {
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 25.631377,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1788.466667,
+          "received_monotonic_s": 883323.4308952,
+          "reachable": true,
+          "unit": ""
+        },
+        "pitch": {
+          "path": "/orientation/pitch-deg",
+          "value": 8.626262,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1788.5,
+          "received_monotonic_s": 883323.4579867,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 11.112525,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1788.566667,
+          "received_monotonic_s": 883323.5174577,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 189.908301,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1788.533333,
+          "received_monotonic_s": 883323.4912694,
+          "reachable": true,
+          "unit": ""
+        },
+        "alpha": {
+          "path": "/systems/fbw/protections/alpha",
+          "value": 1.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1788.591667,
+          "received_monotonic_s": 883323.5508808,
+          "reachable": true,
+          "unit": ""
+        },
+        "floor": {
+          "path": "/systems/fadec/alpha-floor-switch",
+          "value": 1.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1788.625,
+          "received_monotonic_s": 883323.5800241,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883323.5807747
+    }
+  },
+  {
+    "snapshot": {
+      "readings": {
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 23.805472,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1789.391667,
+          "received_monotonic_s": 883324.3489805,
+          "reachable": true,
+          "unit": ""
+        },
+        "pitch": {
+          "path": "/orientation/pitch-deg",
+          "value": 8.765409,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1789.425,
+          "received_monotonic_s": 883324.381074,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 11.833516,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1789.45,
+          "received_monotonic_s": 883324.4252499,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 190.073423,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1789.5,
+          "received_monotonic_s": 883324.464992,
+          "reachable": true,
+          "unit": ""
+        },
+        "alpha": {
+          "path": "/systems/fbw/protections/alpha",
+          "value": 1.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1789.533333,
+          "received_monotonic_s": 883324.4897261,
+          "reachable": true,
+          "unit": ""
+        },
+        "floor": {
+          "path": "/systems/fadec/alpha-floor-switch",
+          "value": 1.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1789.558333,
+          "received_monotonic_s": 883324.5199946,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883324.5204252
+    }
+  },
+  {
+    "snapshot": {
+      "readings": {
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 21.846947,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1790.375,
+          "received_monotonic_s": 883325.3309985,
+          "reachable": true,
+          "unit": ""
+        },
+        "pitch": {
+          "path": "/orientation/pitch-deg",
+          "value": 8.937943,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1790.341667,
+          "received_monotonic_s": 883325.3058542,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 12.965929,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1790.4,
+          "received_monotonic_s": 883325.3620585,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 190.221047,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1790.433333,
+          "received_monotonic_s": 883325.3881043,
+          "reachable": true,
+          "unit": ""
+        },
+        "alpha": {
+          "path": "/systems/fbw/protections/alpha",
+          "value": 1.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1790.458333,
+          "received_monotonic_s": 883325.4196597,
+          "reachable": true,
+          "unit": ""
+        },
+        "floor": {
+          "path": "/systems/fadec/alpha-floor-switch",
+          "value": 1.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1790.491667,
+          "received_monotonic_s": 883325.4439729,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883325.444424
+    }
+  },
+  {
+    "snapshot": {
+      "readings": {
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 20.038268,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1791.283333,
+          "received_monotonic_s": 883326.2479837,
+          "reachable": true,
+          "unit": ""
+        },
+        "pitch": {
+          "path": "/orientation/pitch-deg",
+          "value": 9.157841,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1791.316667,
+          "received_monotonic_s": 883326.279863,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 14.272475,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1791.25,
+          "received_monotonic_s": 883326.2098043,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 190.337713,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1791.35,
+          "received_monotonic_s": 883326.3095867,
+          "reachable": true,
+          "unit": ""
+        },
+        "alpha": {
+          "path": "/systems/fbw/protections/alpha",
+          "value": 1.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1791.383333,
+          "received_monotonic_s": 883326.3425317,
+          "reachable": true,
+          "unit": ""
+        },
+        "floor": {
+          "path": "/systems/fadec/alpha-floor-switch",
+          "value": 1.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1791.416667,
+          "received_monotonic_s": 883326.3705852,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883326.3709808
+    }
+  },
+  {
+    "snapshot": {
+      "readings": {
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 18.246588,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1792.183333,
+          "received_monotonic_s": 883327.1395932,
+          "reachable": true,
+          "unit": ""
+        },
+        "pitch": {
+          "path": "/orientation/pitch-deg",
+          "value": 9.385088,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1792.208333,
+          "received_monotonic_s": 883327.1669267,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 16.149608,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1792.241667,
+          "received_monotonic_s": 883327.1969262,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 190.421862,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1792.266667,
+          "received_monotonic_s": 883327.2247409,
+          "reachable": true,
+          "unit": ""
+        },
+        "alpha": {
+          "path": "/systems/fbw/protections/alpha",
+          "value": 1.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1792.3,
+          "received_monotonic_s": 883327.258881,
+          "reachable": true,
+          "unit": ""
+        },
+        "floor": {
+          "path": "/systems/fadec/alpha-floor-switch",
+          "value": 1.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1792.333333,
+          "received_monotonic_s": 883327.2882788,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883327.2890778
+    }
+  },
+  {
+    "snapshot": {
+      "readings": {
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 16.422025,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1793.1,
+          "received_monotonic_s": 883328.0597626,
+          "reachable": true,
+          "unit": ""
+        },
+        "pitch": {
+          "path": "/orientation/pitch-deg",
+          "value": 9.638677,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1793.133333,
+          "received_monotonic_s": 883328.0936136,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 18.19544,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1793.166667,
+          "received_monotonic_s": 883328.1191366,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 190.465536,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1793.191667,
+          "received_monotonic_s": 883328.1502476,
+          "reachable": true,
+          "unit": ""
+        },
+        "alpha": {
+          "path": "/systems/fbw/protections/alpha",
+          "value": 1.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1793.225,
+          "received_monotonic_s": 883328.1817019,
+          "reachable": true,
+          "unit": ""
+        },
+        "floor": {
+          "path": "/systems/fadec/alpha-floor-switch",
+          "value": 1.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1793.258333,
+          "received_monotonic_s": 883328.2184813,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883328.2187652
+    }
+  },
+  {
+    "write": "/controls/flight/aileron",
+    "value": 0,
+    "status": 200,
+    "local": 883328.9807014
+  },
+  {
+    "write": "/controls/flight/elevator",
+    "value": 0,
+    "status": 200,
+    "local": 883329.1301647
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "inputs": [
+    {
+      "path": "results\\prospective-pilot-20261103-01\\episode-001\\observations.jsonl",
+      "sha256": "2b27b9fe0346bd242c1c468202544822e2c3d835aa20f333b6366202e9202e8a"
+    },
+    {
+      "path": "results\\prospective-pilot-20261103-01\\episode-002\\observations.jsonl",
+      "sha256": "48029a11e9f6252ac410c2bd3c4da21d2d71e202dfaf872af090fee114653b86"
+    },
+    {
+      "path": "results\\prospective-pilot-20261103-01\\episode-003\\observations.jsonl",
+      "sha256": "8440a9d368b532dea5d73bca4ca28c99bbebffe316e9694114cc61fb7ced70df"
+    },
+    {
+      "path": "results\\prospective-pilot-20261103-01\\episode-004\\observations.jsonl",
+      "sha256": "ee89191a374f6fbbff92daab12a72a43dad2572102b9754f9e035e64b4ba180d"
+    }
+  ],
+  "source_sha256": {
+    "aircraft_debugger/__init__.py": "8b3988af59cc46fdbb7c4e8bccfa65a2aaf90e4882d3ba8c70c344e15f63d68a",
+    "aircraft_debugger/diagnosis.py": "4cd3dc942ccf7dac7f2d0390a545c12ee81c1beedb15c1713da2cdac2fd090f0",
+    "aircraft_debugger/diagnostic_features.py": "1745401ca2de2cff72cd8cb9b381e86feae14aceac548388d326009da35ac43a",
+    "aircraft_debugger/hypotheses.py": "51ca2215048796615a90dc4786b2df6af7f65c16d9321b5ea941b4be14b5d659",
+    "aircraft_debugger/airborne_evidence.py": "690b73569789b8c2ef72532c3b58def8b604adad2c68c10bceb8e964ee2463f2",
+    "aircraft_debugger/airborne_profile.py": "fefe20b9ce275ccfd581749452ade96c522192216ebc189fd3801d083befc565",
+    "aircraft_debugger/evidence.py": "cd0c6ad86b66ccb15a3d1c3b446ea9208f0ea3b419d12ecb23beb91db542f519",
+    "aircraft_debugger/observations.py": "56d3acd38311403f340ad2ae8a733ebb00135ca290484d3ad95ef07e5689011c",
+    "aircraft_debugger/flightgear.py": "4e60e793ad30fdc5fa8d2b8d9d9157b16c1ab20fa99014df0252216325bdd443",
+    "aircraft_debugger/comparison.py": "37c231095da36df1a9ed8e19519f60f1eebb28a97eae21b66adb439cb3c9bc9a"
+  },
+  "artifact_sha256": {
+    "comparison.json": "1a313f9b644fd2836711b77673339c6b2204773a6fafaab5680bad7cddb18d06",
+    "comparison.md": "0e951c1e2ad19ed6cbf1be0c80495a72e4ecfdb417be5ade870090fda920200a"
+  },
+  "whole_comparison_local_s": 2.2468582000001334,
+  "timing_scope": "Shared feature extraction and both methods for whole files; not streaming or method speed ranking",
+  "evaluation_split": "Development recordings only; no final holdout claimed"
+}

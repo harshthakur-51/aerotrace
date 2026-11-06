@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "run_id": "prospective-A-004",
+  "flight_group": "prospective-flight-20261103-A",
+  "data_role": "final",
+  "protocol_sha256": "b6f6f9b178befd343b7a4dc88de99ab130e9e8a1488898585bbff075567619b9",
+  "observation_sha256": "ee89191a374f6fbbff92daab12a72a43dad2572102b9754f9e035e64b4ba180d",
+  "profile": "joint_selected_effects",
+  "expected_compatible_ids": [
+    "grouped_joint_event",
+    "independent_pair"
+  ],
+  "observed_compatible_ids": [
+    "grouped_joint_event",
+    "independent_pair"
+  ],
+  "plausible_ids": [
+    "independent_pair",
+    "grouped_joint_event"
+  ],
+  "diagnosis_status": "causal_ambiguity",
+  "data_sufficiency": {
+    "status": "sufficient",
+    "unknown_facts": [],
+    "scope": "Supplied selected incident/epoch facts; current observed impact is assessed separately."
+  },
+  "model_fit": {
+    "status": "fits",
+    "compatible_candidate_count": 2,
+    "plausible_candidate_count": 2
+  },
+  "exact_bounded_profile_match": true,
+  "assessment": "matched_bounded_profile",
+  "expected_ids_not_compatible": [],
+  "extra_compatible_ids": [],
+  "current_impact": [],
+  "incident_impact": [
+    {
+      "fact_id": "generator_source_anomaly",
+      "system": "electrical",
+      "observation": "Generator-2 source-output degradation was observed in this incident.",
+      "remaining_capability": "Bus observations are separate; source loss does not establish total downstream supply loss.",
+      "scope": "incident_or_selected_window_history",
+      "evidence": [
+        {
+          "sample_index": 19,
+          "sim_time_s": 626.025,
+          "channel": "generator_2_voltage",
+          "value": 0.0,
+          "unit": "V",
+          "observed_status": "source_unavailable",
+          "evidence_id": "E0001",
+          "legacy_event_id": "E0001",
+          "onset_sample_index": 18,
+          "confirmation_sample_index": 19
+        },
+        {
+          "sample_index": 70,
+          "sim_time_s": 677.041667,
+          "channel": "generator_2_voltage",
+          "value": 0.0,
+          "unit": "V",
+          "observed_status": "source_unavailable",
+          "evidence_id": "E0001"
+        }
+      ]
+    },
+    {
+      "fact_id": "blue_inventory_loss",
+      "system": "hydraulic",
+      "observation": "Blue inventory depletion was observed in this incident.",
+      "remaining_capability": "Raw inventory units and actuator capability remain unresolved; pressure is assessed separately.",
+      "scope": "incident_or_selected_window_history",
+      "evidence": [
+        {
+          "sample_index": 20,
+          "sim_time_s": 627.075,
+          "channel": "blue_quantity",
+          "value": 7.466667,
+          "unit": "raw model quantity",
+          "observed_status": "inventory_loss_observed",
+          "evidence_id": "E0002",
+          "legacy_event_id": "E0002",
+          "onset_sample_index": 19,
+          "confirmation_sample_index": 20
+        },
+        {
+          "sample_index": 70,
+          "sim_time_s": 677.083333,
+          "channel": "blue_quantity",
+          "value": 0.0,
+          "unit": "raw model quantity",
+          "observed_status": "inventory_loss_observed",
+          "evidence_id": "E0002"
+        }
+      ]
+    },
+    {
+      "fact_id": "blue_pressure_loss",
+      "system": "hydraulic",
+      "observation": "Blue pressure degradation was observed in this incident.",
+      "remaining_capability": "Pressure degradation does not establish total controllability or manual-control force.",
+      "scope": "incident_or_selected_window_history",
+      "evidence": [
+        {
+          "sample_index": 50,
+          "sim_time_s": 657.066667,
+          "channel": "blue_pressure",
+          "value": 2380.0,
+          "unit": "psi",
+          "observed_status": "pressure_degraded",
+          "evidence_id": null
+        },
+        {
+          "sample_index": 75,
+          "sim_time_s": 681.691667,
+          "channel": "blue_pressure",
+          "value": 2200.0,
+          "unit": "psi",
+          "observed_status": "pressure_degraded",
+          "evidence_id": null
+        }
+      ]
+    }
+  ],
+  "sample_count": 81,
+  "physical_cause_accuracy_measured": false,
+  "independent_trials_claimed": false,
+  "target_semantics": "Expected compatible configurations within the declared model, not unique physical cause ground truth"
+}

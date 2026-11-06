@@ -1,0 +1,946 @@
+{
+  "request": {
+    "script": "if (!fmgc.Output.ap1.getBoolValue()) { fcu.FCUController.AP1(); }",
+    "http_status": 200,
+    "response": "ok.",
+    "local_time": 883187.4428962
+  },
+  "snapshots": [
+    {
+      "readings": {
+        "ap1": {
+          "path": "/it-autoflight/output/ap1",
+          "value": false,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883187.5092604,
+          "reachable": true,
+          "unit": ""
+        },
+        "athr_active": {
+          "path": "/systems/fadec/athr/active",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883187.4905882,
+          "reachable": true,
+          "unit": ""
+        },
+        "altitude": {
+          "path": "/position/altitude-ft",
+          "value": 35833.608637,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883187.5238075,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 191.630586,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883187.5360635,
+          "reachable": true,
+          "unit": ""
+        },
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 32.999267,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883187.5477597,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 45.396839,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883187.5632992,
+          "reachable": true,
+          "unit": ""
+        },
+        "aileron": {
+          "path": "/controls/flight/aileron",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883187.5789969,
+          "reachable": true,
+          "unit": ""
+        },
+        "elevator": {
+          "path": "/controls/flight/elevator",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883187.5958139,
+          "reachable": true,
+          "unit": ""
+        },
+        "rudder": {
+          "path": "/controls/flight/rudder",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883187.6147729,
+          "reachable": true,
+          "unit": ""
+        },
+        "lat": {
+          "path": "/it-autoflight/text/lat",
+          "value": "HDG",
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883187.6294592,
+          "reachable": true,
+          "unit": ""
+        },
+        "vert": {
+          "path": "/it-autoflight/text/vert",
+          "value": "ALT CAP",
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883187.6426324,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883187.6429734
+    },
+    {
+      "readings": {
+        "ap1": {
+          "path": "/it-autoflight/output/ap1",
+          "value": false,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883188.6842875,
+          "reachable": true,
+          "unit": ""
+        },
+        "athr_active": {
+          "path": "/systems/fadec/athr/active",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883188.6974437,
+          "reachable": true,
+          "unit": ""
+        },
+        "altitude": {
+          "path": "/position/altitude-ft",
+          "value": 35833.608637,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883188.7156585,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 191.630586,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883188.7314828,
+          "reachable": true,
+          "unit": ""
+        },
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 32.999267,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883188.7485322,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 45.396839,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883188.7699316,
+          "reachable": true,
+          "unit": ""
+        },
+        "aileron": {
+          "path": "/controls/flight/aileron",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883188.7866929,
+          "reachable": true,
+          "unit": ""
+        },
+        "elevator": {
+          "path": "/controls/flight/elevator",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883188.8009978,
+          "reachable": true,
+          "unit": ""
+        },
+        "rudder": {
+          "path": "/controls/flight/rudder",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883188.8186663,
+          "reachable": true,
+          "unit": ""
+        },
+        "lat": {
+          "path": "/it-autoflight/text/lat",
+          "value": "HDG",
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883188.8339066,
+          "reachable": true,
+          "unit": ""
+        },
+        "vert": {
+          "path": "/it-autoflight/text/vert",
+          "value": "ALT CAP",
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883188.846384,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883188.8468435
+    },
+    {
+      "readings": {
+        "ap1": {
+          "path": "/it-autoflight/output/ap1",
+          "value": false,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883189.8812325,
+          "reachable": true,
+          "unit": ""
+        },
+        "athr_active": {
+          "path": "/systems/fadec/athr/active",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883189.8935596,
+          "reachable": true,
+          "unit": ""
+        },
+        "altitude": {
+          "path": "/position/altitude-ft",
+          "value": 35833.608637,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883189.9092404,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 191.630586,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883189.9247953,
+          "reachable": true,
+          "unit": ""
+        },
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 32.999267,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883189.9377858,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 45.396839,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883189.953634,
+          "reachable": true,
+          "unit": ""
+        },
+        "aileron": {
+          "path": "/controls/flight/aileron",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883189.9699532,
+          "reachable": true,
+          "unit": ""
+        },
+        "elevator": {
+          "path": "/controls/flight/elevator",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883189.9851974,
+          "reachable": true,
+          "unit": ""
+        },
+        "rudder": {
+          "path": "/controls/flight/rudder",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883189.9968271,
+          "reachable": true,
+          "unit": ""
+        },
+        "lat": {
+          "path": "/it-autoflight/text/lat",
+          "value": "HDG",
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883190.0095055,
+          "reachable": true,
+          "unit": ""
+        },
+        "vert": {
+          "path": "/it-autoflight/text/vert",
+          "value": "ALT CAP",
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883190.0249809,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883190.0252691
+    },
+    {
+      "readings": {
+        "ap1": {
+          "path": "/it-autoflight/output/ap1",
+          "value": false,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883191.0625944,
+          "reachable": true,
+          "unit": ""
+        },
+        "athr_active": {
+          "path": "/systems/fadec/athr/active",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883191.0814368,
+          "reachable": true,
+          "unit": ""
+        },
+        "altitude": {
+          "path": "/position/altitude-ft",
+          "value": 35833.608637,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883191.1004271,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 191.630586,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883191.1136642,
+          "reachable": true,
+          "unit": ""
+        },
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 32.999267,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883191.1300571,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 45.396839,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883191.145394,
+          "reachable": true,
+          "unit": ""
+        },
+        "aileron": {
+          "path": "/controls/flight/aileron",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883191.1581708,
+          "reachable": true,
+          "unit": ""
+        },
+        "elevator": {
+          "path": "/controls/flight/elevator",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883191.1746197,
+          "reachable": true,
+          "unit": ""
+        },
+        "rudder": {
+          "path": "/controls/flight/rudder",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883191.188847,
+          "reachable": true,
+          "unit": ""
+        },
+        "lat": {
+          "path": "/it-autoflight/text/lat",
+          "value": "HDG",
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883191.2054169,
+          "reachable": true,
+          "unit": ""
+        },
+        "vert": {
+          "path": "/it-autoflight/text/vert",
+          "value": "ALT CAP",
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883191.220155,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883191.2204722
+    },
+    {
+      "readings": {
+        "ap1": {
+          "path": "/it-autoflight/output/ap1",
+          "value": false,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883192.2615485,
+          "reachable": true,
+          "unit": ""
+        },
+        "athr_active": {
+          "path": "/systems/fadec/athr/active",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883192.2772612,
+          "reachable": true,
+          "unit": ""
+        },
+        "altitude": {
+          "path": "/position/altitude-ft",
+          "value": 35833.608637,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883192.2919706,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 191.630586,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883192.3087969,
+          "reachable": true,
+          "unit": ""
+        },
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 32.999267,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883192.3236433,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 45.396839,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883192.3361715,
+          "reachable": true,
+          "unit": ""
+        },
+        "aileron": {
+          "path": "/controls/flight/aileron",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883192.3473832,
+          "reachable": true,
+          "unit": ""
+        },
+        "elevator": {
+          "path": "/controls/flight/elevator",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883192.3658202,
+          "reachable": true,
+          "unit": ""
+        },
+        "rudder": {
+          "path": "/controls/flight/rudder",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883192.3803196,
+          "reachable": true,
+          "unit": ""
+        },
+        "lat": {
+          "path": "/it-autoflight/text/lat",
+          "value": "HDG",
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883192.3927251,
+          "reachable": true,
+          "unit": ""
+        },
+        "vert": {
+          "path": "/it-autoflight/text/vert",
+          "value": "ALT CAP",
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883192.4081293,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883192.4086099
+    },
+    {
+      "readings": {
+        "ap1": {
+          "path": "/it-autoflight/output/ap1",
+          "value": false,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883193.4550926,
+          "reachable": true,
+          "unit": ""
+        },
+        "athr_active": {
+          "path": "/systems/fadec/athr/active",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883193.4838746,
+          "reachable": true,
+          "unit": ""
+        },
+        "altitude": {
+          "path": "/position/altitude-ft",
+          "value": 35833.608637,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883193.4671278,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 191.630586,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883193.5011403,
+          "reachable": true,
+          "unit": ""
+        },
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 32.999267,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883193.5169048,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 45.396839,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883193.5346329,
+          "reachable": true,
+          "unit": ""
+        },
+        "aileron": {
+          "path": "/controls/flight/aileron",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883193.549363,
+          "reachable": true,
+          "unit": ""
+        },
+        "elevator": {
+          "path": "/controls/flight/elevator",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883193.5616183,
+          "reachable": true,
+          "unit": ""
+        },
+        "rudder": {
+          "path": "/controls/flight/rudder",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883193.5746905,
+          "reachable": true,
+          "unit": ""
+        },
+        "lat": {
+          "path": "/it-autoflight/text/lat",
+          "value": "HDG",
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883193.5912201,
+          "reachable": true,
+          "unit": ""
+        },
+        "vert": {
+          "path": "/it-autoflight/text/vert",
+          "value": "ALT CAP",
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883193.6085114,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883193.6088103
+    },
+    {
+      "readings": {
+        "ap1": {
+          "path": "/it-autoflight/output/ap1",
+          "value": false,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883194.6573197,
+          "reachable": true,
+          "unit": ""
+        },
+        "athr_active": {
+          "path": "/systems/fadec/athr/active",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883194.6719553,
+          "reachable": true,
+          "unit": ""
+        },
+        "altitude": {
+          "path": "/position/altitude-ft",
+          "value": 35833.608637,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883194.6869869,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 191.630586,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883194.7031904,
+          "reachable": true,
+          "unit": ""
+        },
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 32.999267,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883194.7188636,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 45.396839,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883194.7306988,
+          "reachable": true,
+          "unit": ""
+        },
+        "aileron": {
+          "path": "/controls/flight/aileron",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883194.7439961,
+          "reachable": true,
+          "unit": ""
+        },
+        "elevator": {
+          "path": "/controls/flight/elevator",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883194.7630205,
+          "reachable": true,
+          "unit": ""
+        },
+        "rudder": {
+          "path": "/controls/flight/rudder",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883194.7790279,
+          "reachable": true,
+          "unit": ""
+        },
+        "lat": {
+          "path": "/it-autoflight/text/lat",
+          "value": "HDG",
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883194.7936883,
+          "reachable": true,
+          "unit": ""
+        },
+        "vert": {
+          "path": "/it-autoflight/text/vert",
+          "value": "ALT CAP",
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883194.8128278,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883194.8131213
+    },
+    {
+      "readings": {
+        "ap1": {
+          "path": "/it-autoflight/output/ap1",
+          "value": false,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883195.8600191,
+          "reachable": true,
+          "unit": ""
+        },
+        "athr_active": {
+          "path": "/systems/fadec/athr/active",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883195.8946664,
+          "reachable": true,
+          "unit": ""
+        },
+        "altitude": {
+          "path": "/position/altitude-ft",
+          "value": 35833.608637,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883195.8785763,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 191.630586,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883195.9079586,
+          "reachable": true,
+          "unit": ""
+        },
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 32.999267,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883195.9244132,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 45.396839,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883195.938925,
+          "reachable": true,
+          "unit": ""
+        },
+        "aileron": {
+          "path": "/controls/flight/aileron",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883195.9531343,
+          "reachable": true,
+          "unit": ""
+        },
+        "elevator": {
+          "path": "/controls/flight/elevator",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883195.9664782,
+          "reachable": true,
+          "unit": ""
+        },
+        "rudder": {
+          "path": "/controls/flight/rudder",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883195.9842383,
+          "reachable": true,
+          "unit": ""
+        },
+        "lat": {
+          "path": "/it-autoflight/text/lat",
+          "value": "HDG",
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883195.9989656,
+          "reachable": true,
+          "unit": ""
+        },
+        "vert": {
+          "path": "/it-autoflight/text/vert",
+          "value": "ALT CAP",
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1703.466667,
+          "received_monotonic_s": 883196.0116898,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883196.0120371
+    }
+  ]
+}

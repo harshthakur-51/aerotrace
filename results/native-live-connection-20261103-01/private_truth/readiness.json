@@ -1,0 +1,84 @@
+[
+  {
+    "aircraft": {
+      "path": "/sim/aircraft",
+      "value": "A320-200-CFM",
+      "valid": true,
+      "error": null,
+      "sim_time_s": 57.416667,
+      "received_monotonic_s": 262527.9298428,
+      "reachable": true,
+      "unit": ""
+    },
+    "autoconfig": {
+      "path": "/systems/acconfig/autoconfig-running",
+      "value": false,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 57.475,
+      "received_monotonic_s": 262527.983716,
+      "reachable": true,
+      "unit": ""
+    },
+    "paused": {
+      "path": "/sim/freeze/master",
+      "value": false,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 57.533333,
+      "received_monotonic_s": 262528.0428501,
+      "reachable": true,
+      "unit": ""
+    },
+    "engine_1_running": {
+      "path": "/engines/engine[0]/running",
+      "value": true,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 57.591667,
+      "received_monotonic_s": 262528.1127631,
+      "reachable": true,
+      "unit": ""
+    },
+    "engine_2_running": {
+      "path": "/engines/engine[1]/running",
+      "value": true,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 57.666667,
+      "received_monotonic_s": 262528.1735538,
+      "reachable": true,
+      "unit": ""
+    },
+    "ground_contact": {
+      "path": "/gear/gear[1]/wow",
+      "value": true,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 57.725,
+      "received_monotonic_s": 262528.232352,
+      "reachable": true,
+      "unit": ""
+    },
+    "generator_2": {
+      "path": "/systems/failures/electrical/gen-2",
+      "value": false,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 57.783333,
+      "received_monotonic_s": 262528.2987776,
+      "reachable": true,
+      "unit": ""
+    },
+    "blue_leak": {
+      "path": "/systems/failures/hydraulic/blue-leak",
+      "value": false,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 57.858333,
+      "received_monotonic_s": 262528.3713504,
+      "reachable": true,
+      "unit": ""
+    }
+  }
+]

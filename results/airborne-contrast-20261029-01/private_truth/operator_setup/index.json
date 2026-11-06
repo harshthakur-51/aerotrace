@@ -1,0 +1,85 @@
+{
+  "scope": "Private operator setup provenance, never diagnostic input",
+  "authorization": "Owner reviewed the previous airborne generator checkpoint and requested the next stage. Standing native setup handover; leak notification preceded qualification/injection. No D snapshot approval.",
+  "launch": "Fresh native ground startup because no FlightGear or systems-panel process/listener existed at initial inspection. Native takeoff/climb; no instantaneous cruise restore or computed-state/gauge overwrite.",
+  "capture_limits": "Supporting exact helper/log snapshots, not a complete machine/input recorder. No native HTTP screenshot or Windows capture attempted this stage. Startup probe initially requested a nonexistent dictionary key and failed read-only before readiness was rechecked; partial startup snapshot is preserved.",
+  "operator_parameters": "160kt experimental rotation trigger and -0.18 normalized elevator input are original simulator setup choices, not aircraft takeoff performance values/procedures. Selected indicated10000ft differs from observed position altitude near10171ft.",
+  "checkpoint_state": "Master/clock paused after verified recovery; gen2/leak flags false; gear actuator readbacks0; AP1/autothrust engaged and effective autothrust active.",
+  "files": {
+    "declared-plan.json": {
+      "sha256": "fea50de2794d62c4c4437a99166d6c210306ccacbbe8c27ab8e7154d3af9380d",
+      "bytes": 2380,
+      "transform": "Exact bytes copied."
+    },
+    "ground-initialization.json": {
+      "sha256": "d2a9682b9a17aeffb72a9dcf175e36dc254746eee3e4f6cb46f8670ed5b8b805",
+      "bytes": 8915,
+      "transform": "Exact bytes copied."
+    },
+    "startup-readiness.jsonl": {
+      "sha256": "e61af4fa2bb9ab5a7ba1a05314ac7f82590c955f5e0d7f017f2803d8c1e630f5",
+      "bytes": 1331,
+      "transform": "Exact bytes copied."
+    },
+    "prepare_flight.py": {
+      "sha256": "731fe775bab2ad2c713753ad8be96475fcabfd2e5d385576e2983670c1309957",
+      "bytes": 4447,
+      "transform": "Exact bytes copied."
+    },
+    "flight-setup.jsonl": {
+      "sha256": "627d201920920ef4f74773251795f1296c3d1322d953419160d27c0a1ae0f98b",
+      "bytes": 183216,
+      "transform": "Exact bytes copied."
+    },
+    "wait_for_condition.py": {
+      "sha256": "e7609962a9a79243650b8b817ac55598e9618f55e17605e3682cccc31df0671d",
+      "bytes": 1351,
+      "transform": "Exact bytes copied."
+    },
+    "settling-watch.jsonl": {
+      "sha256": "f435d99dd70d473a31a53eb99c9e99b95481a8424f6da3720a786dce5027e63f",
+      "bytes": 818435,
+      "transform": "Exact bytes copied."
+    },
+    "ready-inspection.json": {
+      "sha256": "eba2d2144953a738587a6fff65e70bb5ddb848d696bcc583f4d78d75a61ccb28",
+      "bytes": 10104,
+      "transform": "Exact bytes copied."
+    },
+    "pause_checkpoint.py": {
+      "sha256": "c265eb595447638b0f237ebd6233ce12fd1aee08b13cfd2467a136824e90afbb",
+      "bytes": 1822,
+      "transform": "Exact bytes copied."
+    },
+    "checkpoint-pause.json": {
+      "sha256": "e5399b89571e10592ffead7324ab9eb8650b92589e243ea1b225e596b2044d4f",
+      "bytes": 10934,
+      "transform": "Exact bytes copied."
+    },
+    "cockpit.out.log": {
+      "sha256": "526e6665a41b6883e2d819a402b95300449c3b26621e1763f80b7c46fb023f77",
+      "bytes": 126,
+      "transform": "Exact captured bytes; runtime logs are a checkpoint snapshot of an ongoing process."
+    },
+    "cockpit.err.log": {
+      "sha256": "e51323f794682a29487d74efcbdc19d45e083e3db221825a7fb6891366dddc96",
+      "bytes": 167300,
+      "transform": "Exact captured bytes; runtime logs are a checkpoint snapshot of an ongoing process."
+    },
+    "native-source/Systems/a320-hydraulic.xml": {
+      "sha256": "28159f2e9dd7cc1736d6e8e19c33c366b7762a6febb354012fdb966d99418e47",
+      "bytes": 29039,
+      "transform": "Exact bytes copied."
+    },
+    "native-source/Nasal/Systems/hydraulics.nas": {
+      "sha256": "149dedf56bbacd9403a09fd87ffb8c20f775083946165d4084e775daa1ea0015",
+      "bytes": 11167,
+      "transform": "Exact bytes copied."
+    },
+    "software-tests.log": {
+      "sha256": "478a2587ff95866dc2180b2fc65b25841ee9ff13fe8d3cf48c3a9cb594949af9",
+      "bytes": 49162,
+      "transform": "Exact PowerShell UTF-16 software-test log bytes copied."
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "run_id": "prospective-A-003",
+  "flight_group": "prospective-flight-20261103-A",
+  "profile": "blue_inventory",
+  "data_role": "final",
+  "observation_sha256": "8440a9d368b532dea5d73bca4ca28c99bbebffe316e9694114cc61fb7ced70df",
+  "canonical_observations_sha256": "e90f104ce4c95b3b7431c2aa44a24c4e0b730ce698b8e2737954c99b7cd934ff"
+}

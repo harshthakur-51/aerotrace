@@ -1,0 +1,221 @@
+{
+  "kind": "operator interventions and experiment labels; exclude from inference",
+  "created_utc": "2026-10-26T16:31:28.425536+00:00",
+  "episodes": [
+    {
+      "episode_id": "episode-001",
+      "label": "selected_reference",
+      "requested_faults": [],
+      "intervention_sequence_identical_to": null,
+      "physical_regional_damage_simulated": false,
+      "baseline_sample_count": 5,
+      "active_first_sample_index": 5
+    },
+    {
+      "episode_id": "episode-002",
+      "label": "isolated_generator_2",
+      "requested_faults": [
+        "generator_2"
+      ],
+      "intervention_sequence_identical_to": null,
+      "physical_regional_damage_simulated": false,
+      "baseline_sample_count": 5,
+      "active_first_sample_index": 5
+    },
+    {
+      "episode_id": "episode-003",
+      "label": "isolated_blue_leak",
+      "requested_faults": [
+        "blue_leak"
+      ],
+      "intervention_sequence_identical_to": null,
+      "physical_regional_damage_simulated": false,
+      "baseline_sample_count": 5,
+      "active_first_sample_index": 5
+    },
+    {
+      "episode_id": "episode-004",
+      "label": "synthetic_shared_regional_event",
+      "requested_faults": [
+        "generator_2",
+        "blue_leak"
+      ],
+      "intervention_sequence_identical_to": null,
+      "physical_regional_damage_simulated": false,
+      "baseline_sample_count": 5,
+      "active_first_sample_index": 5
+    },
+    {
+      "episode_id": "episode-005",
+      "label": "independent_pair_matched_interventions",
+      "requested_faults": [
+        "generator_2",
+        "blue_leak"
+      ],
+      "intervention_sequence_identical_to": "episode-004",
+      "physical_regional_damage_simulated": false,
+      "baseline_sample_count": 5,
+      "active_first_sample_index": 5
+    }
+  ],
+  "actions": [
+    {
+      "fault": "generator_2",
+      "enabled": true,
+      "requested_monotonic_s": 797128.8584592,
+      "completed_monotonic_s": 797129.0745142,
+      "status": 200,
+      "result": {
+        "ok": true,
+        "fault": "generator_2",
+        "enabled": true,
+        "message": "Native fault flag verified. Clearing follows the aircraft model and may automatically restore hydraulic quantity. This is a model simplification, not physical fluid recovery or maintenance."
+      }
+    },
+    {
+      "fault": "generator_2",
+      "enabled": false,
+      "requested_monotonic_s": 797137.0760571,
+      "completed_monotonic_s": 797137.302963,
+      "status": 200,
+      "result": {
+        "ok": true,
+        "fault": "generator_2",
+        "enabled": false,
+        "message": "Native fault flag verified. Clearing follows the aircraft model and may automatically restore hydraulic quantity. This is a model simplification, not physical fluid recovery or maintenance."
+      }
+    },
+    {
+      "fault": "blue_leak",
+      "enabled": true,
+      "requested_monotonic_s": 797144.8791067,
+      "completed_monotonic_s": 797145.1252489,
+      "status": 200,
+      "result": {
+        "ok": true,
+        "fault": "blue_leak",
+        "enabled": true,
+        "message": "Native fault flag verified. Clearing follows the aircraft model and may automatically restore hydraulic quantity. This is a model simplification, not physical fluid recovery or maintenance."
+      }
+    },
+    {
+      "fault": "blue_leak",
+      "enabled": false,
+      "requested_monotonic_s": 797153.1263965,
+      "completed_monotonic_s": 797153.3722032,
+      "status": 200,
+      "result": {
+        "ok": true,
+        "fault": "blue_leak",
+        "enabled": false,
+        "message": "Native fault flag verified. Clearing follows the aircraft model and may automatically restore hydraulic quantity. This is a model simplification, not physical fluid recovery or maintenance."
+      }
+    },
+    {
+      "fault": "generator_2",
+      "enabled": true,
+      "requested_monotonic_s": 797160.9571797,
+      "completed_monotonic_s": 797161.2257618,
+      "status": 200,
+      "result": {
+        "ok": true,
+        "fault": "generator_2",
+        "enabled": true,
+        "message": "Native fault flag verified. Clearing follows the aircraft model and may automatically restore hydraulic quantity. This is a model simplification, not physical fluid recovery or maintenance."
+      }
+    },
+    {
+      "fault": "blue_leak",
+      "enabled": true,
+      "requested_monotonic_s": 797161.2261775,
+      "completed_monotonic_s": 797161.4874765,
+      "status": 200,
+      "result": {
+        "ok": true,
+        "fault": "blue_leak",
+        "enabled": true,
+        "message": "Native fault flag verified. Clearing follows the aircraft model and may automatically restore hydraulic quantity. This is a model simplification, not physical fluid recovery or maintenance."
+      }
+    },
+    {
+      "fault": "blue_leak",
+      "enabled": false,
+      "requested_monotonic_s": 797169.4890603,
+      "completed_monotonic_s": 797169.7029586,
+      "status": 200,
+      "result": {
+        "ok": true,
+        "fault": "blue_leak",
+        "enabled": false,
+        "message": "Native fault flag verified. Clearing follows the aircraft model and may automatically restore hydraulic quantity. This is a model simplification, not physical fluid recovery or maintenance."
+      }
+    },
+    {
+      "fault": "generator_2",
+      "enabled": false,
+      "requested_monotonic_s": 797169.7033559,
+      "completed_monotonic_s": 797169.9492173,
+      "status": 200,
+      "result": {
+        "ok": true,
+        "fault": "generator_2",
+        "enabled": false,
+        "message": "Native fault flag verified. Clearing follows the aircraft model and may automatically restore hydraulic quantity. This is a model simplification, not physical fluid recovery or maintenance."
+      }
+    },
+    {
+      "fault": "generator_2",
+      "enabled": true,
+      "requested_monotonic_s": 797177.5808944,
+      "completed_monotonic_s": 797177.803838,
+      "status": 200,
+      "result": {
+        "ok": true,
+        "fault": "generator_2",
+        "enabled": true,
+        "message": "Native fault flag verified. Clearing follows the aircraft model and may automatically restore hydraulic quantity. This is a model simplification, not physical fluid recovery or maintenance."
+      }
+    },
+    {
+      "fault": "blue_leak",
+      "enabled": true,
+      "requested_monotonic_s": 797177.804248,
+      "completed_monotonic_s": 797178.0602725,
+      "status": 200,
+      "result": {
+        "ok": true,
+        "fault": "blue_leak",
+        "enabled": true,
+        "message": "Native fault flag verified. Clearing follows the aircraft model and may automatically restore hydraulic quantity. This is a model simplification, not physical fluid recovery or maintenance."
+      }
+    },
+    {
+      "fault": "blue_leak",
+      "enabled": false,
+      "requested_monotonic_s": 797186.0610027,
+      "completed_monotonic_s": 797186.287906,
+      "status": 200,
+      "result": {
+        "ok": true,
+        "fault": "blue_leak",
+        "enabled": false,
+        "message": "Native fault flag verified. Clearing follows the aircraft model and may automatically restore hydraulic quantity. This is a model simplification, not physical fluid recovery or maintenance."
+      }
+    },
+    {
+      "fault": "generator_2",
+      "enabled": false,
+      "requested_monotonic_s": 797186.2883147,
+      "completed_monotonic_s": 797186.5195239,
+      "status": 200,
+      "result": {
+        "ok": true,
+        "fault": "generator_2",
+        "enabled": false,
+        "message": "Native fault flag verified. Clearing follows the aircraft model and may automatically restore hydraulic quantity. This is a model simplification, not physical fluid recovery or maintenance."
+      }
+    }
+  ],
+  "cleanup_errors": [],
+  "completed": true
+}

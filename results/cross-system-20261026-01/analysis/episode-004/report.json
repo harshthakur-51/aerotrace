@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "method": "observation_only_compatibility_rules",
+  "sample_count": 13,
+  "thresholds": {
+    "generator_unavailable_below_v": 20.0,
+    "energized_reference_at_least_v": 100.0,
+    "bus_retained_at_least_v": 100.0,
+    "blue_pressure_retained_at_least_psi": 2500.0,
+    "blue_quantity_drop_raw": 0.5,
+    "blue_quantity_onset_drop_raw": 0.1,
+    "blue_quantity_recovery_tolerance_raw": 0.1,
+    "generator_confirmation_readings": 2,
+    "quantity_minimum_progressing_readings": 2,
+    "maximum_reading_age_local_s": 2.0
+  },
+  "threshold_provenance": "aircraft_debugger/evidence.py: project-specific illustrative detector choices",
+  "threshold_units": {
+    "v": "volts",
+    "psi": "pounds per square inch",
+    "raw": "unverified native quantity units",
+    "s": "seconds",
+    "readings": "count"
+  },
+  "ledger": [
+    {
+      "evidence_id": "E0001",
+      "kind": "generator_2_source_unavailable",
+      "epoch": 0,
+      "onset": {
+        "sample_index": 5,
+        "sim_time_s": 220.233333,
+        "received_monotonic_s": 797161.6840231
+      },
+      "confirmation": {
+        "sample_index": 6,
+        "sim_time_s": 221.216667,
+        "received_monotonic_s": 797162.6758829
+      },
+      "channels": [
+        "generator_2_voltage"
+      ],
+      "details": "Low output persisted on two advancing readings after an observed energized reference; this is source-output evidence, not identification of a generator fault."
+    },
+    {
+      "evidence_id": "E0002",
+      "kind": "blue_inventory_loss",
+      "epoch": 0,
+      "onset": {
+        "sample_index": 6,
+        "sim_time_s": 221.291667,
+        "received_monotonic_s": 797162.7484595
+      },
+      "confirmation": {
+        "sample_index": 7,
+        "sim_time_s": 222.3,
+        "received_monotonic_s": 797163.750144
+      },
+      "channels": [
+        "blue_quantity"
+      ],
+      "details": "Observed quantity fell at least 0.5 raw model units from its reference across advancing readings. This does not identify a leak or its initiating cause."
+    }
+  ],
+  "current_state": {
+    "generator_2": {
+      "status": "source_unavailable",
+      "value_v": 0.0,
+      "observed_at": {
+        "sample_index": 12,
+        "sim_time_s": 227.241667,
+        "received_monotonic_s": 797168.6914129
+      },
+      "energized_reference": {
+        "value_v": 115.0,
+        "observed_at": {
+          "sample_index": 0,
+          "sim_time_s": 214.708333,
+          "received_monotonic_s": 797156.1623897
+        }
+      },
+      "evidence_id": "E0001"
+    },
+    "ac_bus_2": {
+      "status": "supply_retained",
+      "value_v": 115.0,
+      "observed_at": {
+        "sample_index": 12,
+        "sim_time_s": 227.275,
+        "received_monotonic_s": 797168.7296756
+      }
+    },
+    "blue_inventory": {
+      "status": "inventory_loss_observed",
+      "value_raw": 6.15,
+      "drop_from_reference_raw": 1.8499999999999996,
+      "reference": {
+        "value_raw": 8.0,
+        "observed_at": {
+          "sample_index": 0,
+          "sim_time_s": 214.8,
+          "received_monotonic_s": 797156.2588986
+        }
+      },
+      "observed_at": {
+        "sample_index": 12,
+        "sim_time_s": 227.325,
+        "received_monotonic_s": 797168.7879402
+      },
+      "evidence_id": "E0002"
+    },
+    "blue_pressure": {
+      "status": "pressure_retained",
+      "value_psi": 3000.0,
+      "observed_at": {
+        "sample_index": 12,
+        "sim_time_s": 227.291667,
+        "received_monotonic_s": 797168.7628173
+      }
+    },
+    "data_quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 12,
+      "epoch": 0
+    }
+  },
+  "assessment": {
+    "category": "multiple_system_anomalies",
+    "cause_identifiable": false,
+    "probabilities_computed": false,
+    "complete_current_assessment": true
+  },
+  "explanations": [
+    {
+      "hypothesis": "shared regional damage",
+      "compatibility": "equally_compatible",
+      "supporting_evidence_ids": [
+        "E0001",
+        "E0002"
+      ],
+      "reason": "Both can account for the observed source-output and inventory changes. These channels provide no distinguishing observation of the initiating event."
+    },
+    {
+      "hypothesis": "independent electrical/hydraulic faults",
+      "compatibility": "equally_compatible",
+      "supporting_evidence_ids": [
+        "E0001",
+        "E0002"
+      ],
+      "reason": "Both can account for the observed source-output and inventory changes. These channels provide no distinguishing observation of the initiating event."
+    }
+  ],
+  "impact": [
+    {
+      "system": "electrical",
+      "observation": "Generator 2 source output unavailable; one observed source is lost.",
+      "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+    },
+    {
+      "system": "hydraulic",
+      "observation": "Blue-system inventory loss observed.",
+      "remaining_capability": "Pressure remains in the illustrative retained range; inventory loss can precede pressure degradation."
+    }
+  ],
+  "limitations": [
+    "Thresholds are illustrative native-model detector choices; provenance: aircraft_debugger/evidence.py. They are not physical laws or aircraft warning limits.",
+    "A stable or energized observed reference does not establish that the whole aircraft is healthy.",
+    "Internal simulator properties have not been validated as realistic aircraft sensors.",
+    "Readings are non-atomic. Simulator seconds and local monotonic seconds are distinct clocks and are never subtracted from each other.",
+    "Current means the final recorded sample, not a live assessment at the wall-clock time when this historical file is replayed.",
+    "Event onset means the first observed qualifying change, not the exact physical failure time; confirmation can occur later.",
+    "Closely timed electrical and hydraulic observations do not identify a shared initiating cause. Independent faults remain equally compatible.",
+    "The two multi-system explanations are a limited comparison, not an exhaustive set of causes. No evidence here establishes fire or an uncontained engine failure.",
+    "Retained bus voltage or hydraulic pressure does not establish full remaining capability, flightworthiness, or safe flight.",
+    "Upward hydraulic quantity changes can reflect the native model's automatic restoration. They do not prove repair or physical fluid recovery."
+  ]
+}

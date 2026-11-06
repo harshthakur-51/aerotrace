@@ -1,0 +1,562 @@
+{
+  "data_role": "development software substitutions of one native pump-only recording",
+  "parent_sha256": "e1aa056dd973a03b42d71626d3c907d27f12ae0a43d77281c96f2ff29dcb658c",
+  "parent_samples": 53,
+  "substituted_channel": "blue_quantity",
+  "substitutions_by_sample": {
+    "early_quantity_decline": {
+      "17": 7.75,
+      "18": 7.4,
+      "19": 7.1,
+      "20": 6.8,
+      "21": 6.8,
+      "22": 6.8,
+      "23": 6.8,
+      "24": 6.8,
+      "25": 6.8,
+      "26": 6.8,
+      "27": 6.8,
+      "28": 6.8,
+      "29": 6.8,
+      "30": 6.8,
+      "31": 6.8,
+      "32": 6.8,
+      "33": 6.8,
+      "34": 6.8,
+      "35": 6.8,
+      "36": 6.8,
+      "37": 6.8,
+      "38": 6.8,
+      "39": 6.8,
+      "40": 6.8,
+      "41": 6.8,
+      "42": 6.8
+    },
+    "late_quantity_decline": {
+      "30": 7.75,
+      "31": 7.4,
+      "32": 7.1,
+      "33": 6.8,
+      "34": 6.8,
+      "35": 6.8,
+      "36": 6.8,
+      "37": 6.8,
+      "38": 6.8,
+      "39": 6.8,
+      "40": 6.8,
+      "41": 6.8,
+      "42": 6.8
+    }
+  },
+  "source_sha256": {
+    "aircraft_debugger/__init__.py": "8b3988af59cc46fdbb7c4e8bccfa65a2aaf90e4882d3ba8c70c344e15f63d68a",
+    "aircraft_debugger/diagnosis.py": "dd3aa9b6f857622ec12defda7b3734188d5a9ce243dbde1b94b12774468b08c0",
+    "aircraft_debugger/diagnostic_features.py": "1745401ca2de2cff72cd8cb9b381e86feae14aceac548388d326009da35ac43a",
+    "aircraft_debugger/hypotheses.py": "b194a9ffb0b4597e2727fa1fe0eed7fa6e7b0afd16744e95c35e7b778369504d",
+    "aircraft_debugger/airborne_evidence.py": "690b73569789b8c2ef72532c3b58def8b604adad2c68c10bceb8e964ee2463f2",
+    "aircraft_debugger/airborne_profile.py": "fefe20b9ce275ccfd581749452ade96c522192216ebc189fd3801d083befc565",
+    "aircraft_debugger/evidence.py": "cd0c6ad86b66ccb15a3d1c3b446ea9208f0ea3b419d12ecb23beb91db542f519",
+    "aircraft_debugger/observations.py": "56d3acd38311403f340ad2ae8a733ebb00135ca290484d3ad95ef07e5689011c",
+    "aircraft_debugger/flightgear.py": "4e60e793ad30fdc5fa8d2b8d9d9157b16c1ab20fa99014df0252216325bdd443"
+  },
+  "results": [
+    {
+      "variant": "original",
+      "mode": "dependency",
+      "public_file": "results/pressure-v2-native-20261103-01/pump-only/observations.jsonl",
+      "sha256": "e1aa056dd973a03b42d71626d3c907d27f12ae0a43d77281c96f2ff29dcb658c",
+      "expected_candidate_ids": [
+        "blue_pressure_supply_loss"
+      ],
+      "actual_candidate_ids": [
+        "blue_pressure_supply_loss"
+      ],
+      "status": "single_compatible_candidate",
+      "data_sufficiency": "sufficient",
+      "inventory_before_pressure": {
+        "status": "not_applicable",
+        "evidence": [],
+        "reason": "Both inventory and pressure loss have not been established within this incident."
+      },
+      "incident_impact": [
+        {
+          "fact_id": "blue_pressure_loss",
+          "system": "hydraulic",
+          "observation": "Blue pressure degradation was observed in this incident.",
+          "remaining_capability": "Pressure degradation does not establish total controllability or manual-control force.",
+          "scope": "incident_or_selected_window_history",
+          "evidence": [
+            {
+              "sample_index": 21,
+              "sim_time_s": 321.55,
+              "channel": "blue_pressure",
+              "value": 2370.0,
+              "unit": "psi",
+              "observed_status": "pressure_degraded",
+              "evidence_id": null
+            },
+            {
+              "sample_index": 47,
+              "sim_time_s": 346.966667,
+              "channel": "blue_pressure",
+              "value": 2100.0,
+              "unit": "psi",
+              "observed_status": "pressure_degraded",
+              "evidence_id": null
+            }
+          ]
+        }
+      ],
+      "matches_prediction": true
+    },
+    {
+      "variant": "original",
+      "mode": "temporal",
+      "public_file": "results/pressure-v2-native-20261103-01/pump-only/observations.jsonl",
+      "sha256": "e1aa056dd973a03b42d71626d3c907d27f12ae0a43d77281c96f2ff29dcb658c",
+      "expected_candidate_ids": [
+        "blue_pressure_supply_loss"
+      ],
+      "actual_candidate_ids": [
+        "blue_pressure_supply_loss"
+      ],
+      "status": "single_compatible_candidate",
+      "data_sufficiency": "sufficient",
+      "inventory_before_pressure": {
+        "status": "not_applicable",
+        "evidence": [],
+        "reason": "Both inventory and pressure loss have not been established within this incident."
+      },
+      "incident_impact": [
+        {
+          "fact_id": "blue_pressure_loss",
+          "system": "hydraulic",
+          "observation": "Blue pressure degradation was observed in this incident.",
+          "remaining_capability": "Pressure degradation does not establish total controllability or manual-control force.",
+          "scope": "incident_or_selected_window_history",
+          "evidence": [
+            {
+              "sample_index": 21,
+              "sim_time_s": 321.55,
+              "channel": "blue_pressure",
+              "value": 2370.0,
+              "unit": "psi",
+              "observed_status": "pressure_degraded",
+              "evidence_id": null
+            },
+            {
+              "sample_index": 47,
+              "sim_time_s": 346.966667,
+              "channel": "blue_pressure",
+              "value": 2100.0,
+              "unit": "psi",
+              "observed_status": "pressure_degraded",
+              "evidence_id": null
+            }
+          ]
+        }
+      ],
+      "matches_prediction": true
+    },
+    {
+      "variant": "early_quantity_decline",
+      "mode": "dependency",
+      "public_file": "results/quantity-indication-stress-20261106-01/early_quantity_decline.jsonl",
+      "sha256": "9023cc8a91b7f01c07db4519f408ad668c61d1f6f0ce96c0a507e487a6687a15",
+      "expected_candidate_ids": [
+        "blue_inventory_loss"
+      ],
+      "actual_candidate_ids": [
+        "blue_inventory_loss"
+      ],
+      "status": "single_compatible_candidate",
+      "data_sufficiency": "sufficient",
+      "inventory_before_pressure": {
+        "status": "consistent",
+        "evidence": [
+          {
+            "sample_index": 18,
+            "sim_time_s": 318.55,
+            "channel": "blue_quantity",
+            "value": 7.4,
+            "unit": "raw model quantity",
+            "observed_status": "inventory_loss_observed",
+            "evidence_id": "E0001",
+            "legacy_event_id": "E0001",
+            "onset_sample_index": 17,
+            "confirmation_sample_index": 18
+          },
+          {
+            "sample_index": 21,
+            "sim_time_s": 321.55,
+            "channel": "blue_pressure",
+            "value": 2370.0,
+            "unit": "psi",
+            "observed_status": "pressure_degraded",
+            "evidence_id": null
+          }
+        ],
+        "reason": "The observed inventory-loss bracket precedes the pressure-loss bracket; this supports the qualitative selected depletion path, not an exact physical delay."
+      },
+      "incident_impact": [
+        {
+          "fact_id": "blue_inventory_loss",
+          "system": "hydraulic",
+          "observation": "Blue inventory depletion was observed in this incident.",
+          "remaining_capability": "Raw inventory units and actuator capability remain unresolved; pressure is assessed separately.",
+          "scope": "incident_or_selected_window_history",
+          "evidence": [
+            {
+              "sample_index": 18,
+              "sim_time_s": 318.55,
+              "channel": "blue_quantity",
+              "value": 7.4,
+              "unit": "raw model quantity",
+              "observed_status": "inventory_loss_observed",
+              "evidence_id": "E0001",
+              "legacy_event_id": "E0001",
+              "onset_sample_index": 17,
+              "confirmation_sample_index": 18
+            },
+            {
+              "sample_index": 42,
+              "sim_time_s": 342.575,
+              "channel": "blue_quantity",
+              "value": 6.8,
+              "unit": "raw model quantity",
+              "observed_status": "inventory_loss_observed",
+              "evidence_id": "E0001"
+            }
+          ]
+        },
+        {
+          "fact_id": "blue_pressure_loss",
+          "system": "hydraulic",
+          "observation": "Blue pressure degradation was observed in this incident.",
+          "remaining_capability": "Pressure degradation does not establish total controllability or manual-control force.",
+          "scope": "incident_or_selected_window_history",
+          "evidence": [
+            {
+              "sample_index": 21,
+              "sim_time_s": 321.55,
+              "channel": "blue_pressure",
+              "value": 2370.0,
+              "unit": "psi",
+              "observed_status": "pressure_degraded",
+              "evidence_id": null
+            },
+            {
+              "sample_index": 47,
+              "sim_time_s": 346.966667,
+              "channel": "blue_pressure",
+              "value": 2100.0,
+              "unit": "psi",
+              "observed_status": "pressure_degraded",
+              "evidence_id": null
+            }
+          ]
+        }
+      ],
+      "matches_prediction": true
+    },
+    {
+      "variant": "early_quantity_decline",
+      "mode": "temporal",
+      "public_file": "results/quantity-indication-stress-20261106-01/early_quantity_decline.jsonl",
+      "sha256": "9023cc8a91b7f01c07db4519f408ad668c61d1f6f0ce96c0a507e487a6687a15",
+      "expected_candidate_ids": [
+        "blue_inventory_loss"
+      ],
+      "actual_candidate_ids": [
+        "blue_inventory_loss"
+      ],
+      "status": "single_compatible_candidate",
+      "data_sufficiency": "sufficient",
+      "inventory_before_pressure": {
+        "status": "consistent",
+        "evidence": [
+          {
+            "sample_index": 18,
+            "sim_time_s": 318.55,
+            "channel": "blue_quantity",
+            "value": 7.4,
+            "unit": "raw model quantity",
+            "observed_status": "inventory_loss_observed",
+            "evidence_id": "E0001",
+            "legacy_event_id": "E0001",
+            "onset_sample_index": 17,
+            "confirmation_sample_index": 18
+          },
+          {
+            "sample_index": 21,
+            "sim_time_s": 321.55,
+            "channel": "blue_pressure",
+            "value": 2370.0,
+            "unit": "psi",
+            "observed_status": "pressure_degraded",
+            "evidence_id": null
+          }
+        ],
+        "reason": "The observed inventory-loss bracket precedes the pressure-loss bracket; this supports the qualitative selected depletion path, not an exact physical delay."
+      },
+      "incident_impact": [
+        {
+          "fact_id": "blue_inventory_loss",
+          "system": "hydraulic",
+          "observation": "Blue inventory depletion was observed in this incident.",
+          "remaining_capability": "Raw inventory units and actuator capability remain unresolved; pressure is assessed separately.",
+          "scope": "incident_or_selected_window_history",
+          "evidence": [
+            {
+              "sample_index": 18,
+              "sim_time_s": 318.55,
+              "channel": "blue_quantity",
+              "value": 7.4,
+              "unit": "raw model quantity",
+              "observed_status": "inventory_loss_observed",
+              "evidence_id": "E0001",
+              "legacy_event_id": "E0001",
+              "onset_sample_index": 17,
+              "confirmation_sample_index": 18
+            },
+            {
+              "sample_index": 42,
+              "sim_time_s": 342.575,
+              "channel": "blue_quantity",
+              "value": 6.8,
+              "unit": "raw model quantity",
+              "observed_status": "inventory_loss_observed",
+              "evidence_id": "E0001"
+            }
+          ]
+        },
+        {
+          "fact_id": "blue_pressure_loss",
+          "system": "hydraulic",
+          "observation": "Blue pressure degradation was observed in this incident.",
+          "remaining_capability": "Pressure degradation does not establish total controllability or manual-control force.",
+          "scope": "incident_or_selected_window_history",
+          "evidence": [
+            {
+              "sample_index": 21,
+              "sim_time_s": 321.55,
+              "channel": "blue_pressure",
+              "value": 2370.0,
+              "unit": "psi",
+              "observed_status": "pressure_degraded",
+              "evidence_id": null
+            },
+            {
+              "sample_index": 47,
+              "sim_time_s": 346.966667,
+              "channel": "blue_pressure",
+              "value": 2100.0,
+              "unit": "psi",
+              "observed_status": "pressure_degraded",
+              "evidence_id": null
+            }
+          ]
+        }
+      ],
+      "matches_prediction": true
+    },
+    {
+      "variant": "late_quantity_decline",
+      "mode": "dependency",
+      "public_file": "results/quantity-indication-stress-20261106-01/late_quantity_decline.jsonl",
+      "sha256": "3eeadcadfb442130dd90be994e57104b8f666f48dc9b980dc0697129a636c453",
+      "expected_candidate_ids": [
+        "blue_inventory_loss"
+      ],
+      "actual_candidate_ids": [
+        "blue_inventory_loss"
+      ],
+      "status": "single_compatible_candidate",
+      "data_sufficiency": "sufficient",
+      "inventory_before_pressure": {
+        "status": "contradicted",
+        "evidence": [
+          {
+            "sample_index": 31,
+            "sim_time_s": 331.558333,
+            "channel": "blue_quantity",
+            "value": 7.4,
+            "unit": "raw model quantity",
+            "observed_status": "inventory_loss_observed",
+            "evidence_id": "E0001",
+            "legacy_event_id": "E0001",
+            "onset_sample_index": 30,
+            "confirmation_sample_index": 31
+          },
+          {
+            "sample_index": 21,
+            "sim_time_s": 321.55,
+            "channel": "blue_pressure",
+            "value": 2370.0,
+            "unit": "psi",
+            "observed_status": "pressure_degraded",
+            "evidence_id": null
+          }
+        ],
+        "reason": "Observed pressure loss clearly precedes observed inventory loss under continuous selected measurements; the represented inventory-first path does not account for this order."
+      },
+      "incident_impact": [
+        {
+          "fact_id": "blue_inventory_loss",
+          "system": "hydraulic",
+          "observation": "Blue inventory depletion was observed in this incident.",
+          "remaining_capability": "Raw inventory units and actuator capability remain unresolved; pressure is assessed separately.",
+          "scope": "incident_or_selected_window_history",
+          "evidence": [
+            {
+              "sample_index": 31,
+              "sim_time_s": 331.558333,
+              "channel": "blue_quantity",
+              "value": 7.4,
+              "unit": "raw model quantity",
+              "observed_status": "inventory_loss_observed",
+              "evidence_id": "E0001",
+              "legacy_event_id": "E0001",
+              "onset_sample_index": 30,
+              "confirmation_sample_index": 31
+            },
+            {
+              "sample_index": 42,
+              "sim_time_s": 342.575,
+              "channel": "blue_quantity",
+              "value": 6.8,
+              "unit": "raw model quantity",
+              "observed_status": "inventory_loss_observed",
+              "evidence_id": "E0001"
+            }
+          ]
+        },
+        {
+          "fact_id": "blue_pressure_loss",
+          "system": "hydraulic",
+          "observation": "Blue pressure degradation was observed in this incident.",
+          "remaining_capability": "Pressure degradation does not establish total controllability or manual-control force.",
+          "scope": "incident_or_selected_window_history",
+          "evidence": [
+            {
+              "sample_index": 21,
+              "sim_time_s": 321.55,
+              "channel": "blue_pressure",
+              "value": 2370.0,
+              "unit": "psi",
+              "observed_status": "pressure_degraded",
+              "evidence_id": null
+            },
+            {
+              "sample_index": 47,
+              "sim_time_s": 346.966667,
+              "channel": "blue_pressure",
+              "value": 2100.0,
+              "unit": "psi",
+              "observed_status": "pressure_degraded",
+              "evidence_id": null
+            }
+          ]
+        }
+      ],
+      "matches_prediction": true
+    },
+    {
+      "variant": "late_quantity_decline",
+      "mode": "temporal",
+      "public_file": "results/quantity-indication-stress-20261106-01/late_quantity_decline.jsonl",
+      "sha256": "3eeadcadfb442130dd90be994e57104b8f666f48dc9b980dc0697129a636c453",
+      "expected_candidate_ids": [],
+      "actual_candidate_ids": [],
+      "status": "poor_model_fit",
+      "data_sufficiency": "sufficient",
+      "inventory_before_pressure": {
+        "status": "contradicted",
+        "evidence": [
+          {
+            "sample_index": 31,
+            "sim_time_s": 331.558333,
+            "channel": "blue_quantity",
+            "value": 7.4,
+            "unit": "raw model quantity",
+            "observed_status": "inventory_loss_observed",
+            "evidence_id": "E0001",
+            "legacy_event_id": "E0001",
+            "onset_sample_index": 30,
+            "confirmation_sample_index": 31
+          },
+          {
+            "sample_index": 21,
+            "sim_time_s": 321.55,
+            "channel": "blue_pressure",
+            "value": 2370.0,
+            "unit": "psi",
+            "observed_status": "pressure_degraded",
+            "evidence_id": null
+          }
+        ],
+        "reason": "Observed pressure loss clearly precedes observed inventory loss under continuous selected measurements; the represented inventory-first path does not account for this order."
+      },
+      "incident_impact": [
+        {
+          "fact_id": "blue_inventory_loss",
+          "system": "hydraulic",
+          "observation": "Blue inventory depletion was observed in this incident.",
+          "remaining_capability": "Raw inventory units and actuator capability remain unresolved; pressure is assessed separately.",
+          "scope": "incident_or_selected_window_history",
+          "evidence": [
+            {
+              "sample_index": 31,
+              "sim_time_s": 331.558333,
+              "channel": "blue_quantity",
+              "value": 7.4,
+              "unit": "raw model quantity",
+              "observed_status": "inventory_loss_observed",
+              "evidence_id": "E0001",
+              "legacy_event_id": "E0001",
+              "onset_sample_index": 30,
+              "confirmation_sample_index": 31
+            },
+            {
+              "sample_index": 42,
+              "sim_time_s": 342.575,
+              "channel": "blue_quantity",
+              "value": 6.8,
+              "unit": "raw model quantity",
+              "observed_status": "inventory_loss_observed",
+              "evidence_id": "E0001"
+            }
+          ]
+        },
+        {
+          "fact_id": "blue_pressure_loss",
+          "system": "hydraulic",
+          "observation": "Blue pressure degradation was observed in this incident.",
+          "remaining_capability": "Pressure degradation does not establish total controllability or manual-control force.",
+          "scope": "incident_or_selected_window_history",
+          "evidence": [
+            {
+              "sample_index": 21,
+              "sim_time_s": 321.55,
+              "channel": "blue_pressure",
+              "value": 2370.0,
+              "unit": "psi",
+              "observed_status": "pressure_degraded",
+              "evidence_id": null
+            },
+            {
+              "sample_index": 47,
+              "sim_time_s": 346.966667,
+              "channel": "blue_pressure",
+              "value": 2100.0,
+              "unit": "psi",
+              "observed_status": "pressure_degraded",
+              "evidence_id": null
+            }
+          ]
+        }
+      ],
+      "matches_prediction": true
+    }
+  ]
+}

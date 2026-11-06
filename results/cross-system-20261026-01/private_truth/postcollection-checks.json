@@ -1,0 +1,36 @@
+{
+  "kind": "offline collection integrity audit; not diagnostic evidence",
+  "episodes": [
+    {
+      "episode_id": "episode-001",
+      "samples": 13,
+      "all_observed_clocks_advanced": true,
+      "paused_samples": 0
+    },
+    {
+      "episode_id": "episode-002",
+      "samples": 13,
+      "all_observed_clocks_advanced": true,
+      "paused_samples": 0
+    },
+    {
+      "episode_id": "episode-003",
+      "samples": 13,
+      "all_observed_clocks_advanced": true,
+      "paused_samples": 0
+    },
+    {
+      "episode_id": "episode-004",
+      "samples": 13,
+      "all_observed_clocks_advanced": true,
+      "paused_samples": 0
+    },
+    {
+      "episode_id": "episode-005",
+      "samples": 13,
+      "all_observed_clocks_advanced": true,
+      "paused_samples": 0
+    }
+  ],
+  "note": "Both phases advanced in the recorded data. The controller was subsequently hardened to enforce per-phase advancement and explicit ground contact; executed source versions are archived against original hashes."
+}

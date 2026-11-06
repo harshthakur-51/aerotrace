@@ -1,0 +1,38 @@
+{
+  "purpose": "Blind public-input prefix replay and native-response plot; no private truth read",
+  "source_commit": "3970f931e7d882e81a9285f4c56baf7d82a262a6",
+  "observations_sha256": "f763b14f2b8bdb6944c1657c7672b2ac7a4acd02d86dd10f5e79da6754e49be1",
+  "samples": 81,
+  "source_sha256": {
+    "aircraft_debugger/__init__.py": "8b3988af59cc46fdbb7c4e8bccfa65a2aaf90e4882d3ba8c70c344e15f63d68a",
+    "aircraft_debugger/airborne_evidence.py": "690b73569789b8c2ef72532c3b58def8b604adad2c68c10bceb8e964ee2463f2",
+    "aircraft_debugger/airborne_profile.py": "fefe20b9ce275ccfd581749452ade96c522192216ebc189fd3801d083befc565",
+    "aircraft_debugger/evidence.py": "cd0c6ad86b66ccb15a3d1c3b446ea9208f0ea3b419d12ecb23beb91db542f519",
+    "aircraft_debugger/observations.py": "56d3acd38311403f340ad2ae8a733ebb00135ca290484d3ad95ef07e5689011c",
+    "replay_and_plot.py": "fb50f2f7577b3bf943030c59fccebd23f1fdc56b5234c7a3c958a6ef9b57abf9"
+  },
+  "executed_source_archives": {
+    "aircraft_debugger/__init__.py": "executed-source/aircraft_debugger/__init__.py",
+    "aircraft_debugger/airborne_evidence.py": "executed-source/aircraft_debugger/airborne_evidence.py",
+    "aircraft_debugger/airborne_profile.py": "executed-source/aircraft_debugger/airborne_profile.py",
+    "aircraft_debugger/evidence.py": "executed-source/aircraft_debugger/evidence.py",
+    "aircraft_debugger/observations.py": "executed-source/aircraft_debugger/observations.py",
+    "replay_and_plot.py": "executed-source/replay_and_plot.py"
+  },
+  "artifact_sha256": {
+    "report.json": "c72278d4c74b7c03e67b3f84adb9045841ed79f14ad35de2c354e9083bf2bec8",
+    "report.md": "81ea6943af9f301ca5703445ea0c0a6e3545659f49c3e0528e0b151d043a1459",
+    "timeline.json": "0cbebd856fc6220f1fde60e0d9509b8a7bae1ad59a03b7903e1249ebb3b747a6",
+    "native-response.png": "19a5be77132972e5e5fd5e2e5f61f4fcb3a500008e7a037dac44622491953efa"
+  },
+  "axis_units": {
+    "V": "volts",
+    "psi": "pounds per square inch",
+    "ft": "feet",
+    "kt": "knots (one nautical mile per hour)",
+    "s": "simulator seconds",
+    "raw model units": "physical quantity unit unresolved"
+  },
+  "plot_limits": "Axis display ranges are visualization choices, not operating limits; All recorded samples are plotted with no phase or stability filtering.",
+  "timeline_semantics": "Each prefix ends at a public sample index; no operator phase or injection label selects the diagnostic state."
+}

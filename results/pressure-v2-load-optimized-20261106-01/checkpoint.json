@@ -1,0 +1,9 @@
+{
+  "artifact_sha256": {
+    "executed-helper.py": "02888a2ac0217f57085256d9ea684fc19b73e733063cc54256808e8e62d1eb7d",
+    "measurements.json": "20bf148b3745565198277e79aacceb85e2a19efa79d2694d8180f695c96d9231",
+    "prospective-parity.json": "8a3bd88c4b360547cfdafb37d0d5c37d8c22ac7b689b90f7dbfc5ca50bd5bbe6",
+    "REPORT.md": "b2bf306df87a6869f93bc8d47c741fba28992c0dd7713bd2eea1819fc4cec342",
+    "software-tests.log": "184a4b1020bb77011e938ef468e9d66cefa7d2fa512b826b751eeff9f3a7ce56"
+  }
+}

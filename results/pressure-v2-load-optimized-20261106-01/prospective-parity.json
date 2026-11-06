@@ -1,0 +1,32 @@
+[
+  {
+    "input": "results/pressure-v2-prospective-20261106-01/episode-A-01/observations.jsonl",
+    "sha256": "89621e16803fc166521e276019d9217fafd8149337024ffc13ff1b49cbec8754",
+    "prefixes_verified": 32
+  },
+  {
+    "input": "results/pressure-v2-prospective-20261106-01/episode-A-02/observations.jsonl",
+    "sha256": "c9df1f2ef495913ce61ac73704e1a0d77abbcf96186183c988645960e03ab71c",
+    "prefixes_verified": 53
+  },
+  {
+    "input": "results/pressure-v2-prospective-20261106-01/episode-A-03/observations.jsonl",
+    "sha256": "69380467355b4320c35cfccce5cff40c2c18ff9c4200409cb3a4c436663eb837",
+    "prefixes_verified": 53
+  },
+  {
+    "input": "results/pressure-v2-prospective-20261106-01/episode-B-01/observations.jsonl",
+    "sha256": "74f35a839323d611f76a255df5a16d1517fa43813f28d5f837e57be56ddd1b3d",
+    "prefixes_verified": 32
+  },
+  {
+    "input": "results/pressure-v2-prospective-20261106-01/episode-B-02/observations.jsonl",
+    "sha256": "5f769eea8a0b4705154b0d66f211533ca2999583a785698f2d1f5c212868bc4c",
+    "prefixes_verified": 53
+  },
+  {
+    "input": "results/pressure-v2-prospective-20261106-01/episode-B-03/observations.jsonl",
+    "sha256": "2fc8f1e58d9a6eacf3d0e0a14e585ae4c738bd1279bea1f9f78d3f53cb533a34",
+    "prefixes_verified": 53
+  }
+]

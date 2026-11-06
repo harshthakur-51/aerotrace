@@ -1,0 +1,49 @@
+{
+  "manifest_schema_version": 1,
+  "purpose": "Two matched native command episodes; paths/hashes support offline audit, not diagnostic input.",
+  "observation_schema_version": 2,
+  "observation_profile": "a320-stable-airborne-v1",
+  "source_commit_before_runs": "3970f931e7d882e81a9285f4c56baf7d82a262a6",
+  "episodes": [
+    {
+      "directory": "grouped-recipe",
+      "manifest": "grouped-recipe/manifest.json",
+      "manifest_sha256": "be880db16c230e335909ee737a28561ccf2e3dd3592e4a8d9020720c86244bc3",
+      "observations": "grouped-recipe/observations.jsonl",
+      "observations_sha256": "cdb8e4f58eea8a6ab96521f0fee9e45ae38700ee1cfd84efe11e00dcea1ac045",
+      "samples": 80,
+      "analysis_provenance": "grouped-recipe/analysis/provenance.json",
+      "analysis_provenance_sha256": "8ca3a5910823d9d1374a33f30d5a843cd72a9285cb712225c46143955d7f7215",
+      "verification": "grouped-recipe/private_truth/verification.json",
+      "verification_sha256": "d19efc7b0268e70253ab2c414db1b834cddc39ddfad05a3c027815420b302bf8"
+    },
+    {
+      "directory": "matched-independent-recipe",
+      "manifest": "matched-independent-recipe/manifest.json",
+      "manifest_sha256": "bc9922214f64494ac9c325ab96bb4afcc603d57beeae38be2e628bd3a6aa2e66",
+      "observations": "matched-independent-recipe/observations.jsonl",
+      "observations_sha256": "f763b14f2b8bdb6944c1657c7672b2ac7a4acd02d86dd10f5e79da6754e49be1",
+      "samples": 81,
+      "analysis_provenance": "matched-independent-recipe/analysis/provenance.json",
+      "analysis_provenance_sha256": "7dac09fb264e8b3d0e8be0f968e01d1133d5f520533d08a6761b3c7e1e1548f1",
+      "verification": "matched-independent-recipe/private_truth/verification.json",
+      "verification_sha256": "3468f95338777e759bd69b4ff89c40f0d6f34af988bfd96f1a720771dcb300cf"
+    }
+  ],
+  "comparison": "comparison/comparison.json",
+  "comparison_sha256": "d75fcc0e888794ed702dfa57e991e7c09fba9d8ad1042bc7bbc5f53c10bbe6e2",
+  "comparison_provenance": "comparison/provenance.json",
+  "comparison_provenance_sha256": "4b981a1b91ba40252a7fa666eae90cd0ef5951770c9e33b992ebdeaf51b20dc4",
+  "common_private_setup": "private_truth/operator_setup/index.json",
+  "common_private_setup_sha256": "161dba8d3d39284219b377f40e1190cb679382474b22ca62dcffdc9e7edf9d06",
+  "software_verification": "private_truth/software-verification.json",
+  "software_verification_sha256": "b2b3b73887e1fb72cd46523247911969500c9662173c153519f21d2ec80acd8a",
+  "comparison_verification": "private_truth/comparison-verification.json",
+  "comparison_verification_sha256": "dc0cab4d7b80c16e87757da8a843d3ec107edcd96e2e1a7869b8d70de8ef55fb",
+  "limits": [
+    "Identical ordered component-command recipes do not implement distinct physical initiating causes.",
+    "One continuing native flight, separate fresh admission/reset; no independent statistical trials or causal identification claimed.",
+    "Raw observations contain no private labels/actions/admission decisions; analysis reads explicit public inputs only."
+  ],
+  "samples": 161
+}

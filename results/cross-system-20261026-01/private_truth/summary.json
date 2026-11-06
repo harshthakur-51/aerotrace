@@ -1,0 +1,137 @@
+{
+  "kind": "offline native-model contrast check; not diagnosis accuracy or debris simulation",
+  "episodes": [
+    {
+      "episode_id": "episode-001",
+      "private_label": "selected_reference",
+      "samples": 13,
+      "checks": {
+        "generator_output_expected": true,
+        "blue_quantity_expected": true,
+        "bus_2_retained": true,
+        "blue_pressure_retained_during_brief_window": true
+      },
+      "final_observed": {
+        "aircraft": "A320-200-CFM",
+        "sim_time": 178.925,
+        "paused": false,
+        "altitude": 28.059291,
+        "airspeed": 2.989081,
+        "engine_1_n1": 18.9,
+        "engine_2_n1": 18.9,
+        "generator_2_voltage": 115.0,
+        "ac_bus_1": 115.0,
+        "ac_bus_2": 115.0,
+        "blue_pressure": 3000.0,
+        "blue_quantity": 8.0
+      }
+    },
+    {
+      "episode_id": "episode-002",
+      "private_label": "isolated_generator_2",
+      "samples": 13,
+      "checks": {
+        "generator_output_expected": true,
+        "blue_quantity_expected": true,
+        "bus_2_retained": true,
+        "blue_pressure_retained_during_brief_window": true
+      },
+      "final_observed": {
+        "aircraft": "A320-200-CFM",
+        "sim_time": 194.683333,
+        "paused": false,
+        "altitude": 28.059382,
+        "airspeed": 2.989081,
+        "engine_1_n1": 18.9,
+        "engine_2_n1": 18.9,
+        "generator_2_voltage": 0.0,
+        "ac_bus_1": 115.0,
+        "ac_bus_2": 115.0,
+        "blue_pressure": 3000.0,
+        "blue_quantity": 8.0
+      }
+    },
+    {
+      "episode_id": "episode-003",
+      "private_label": "isolated_blue_leak",
+      "samples": 13,
+      "checks": {
+        "generator_output_expected": true,
+        "blue_quantity_expected": true,
+        "bus_2_retained": true,
+        "blue_pressure_retained_during_brief_window": true
+      },
+      "final_observed": {
+        "aircraft": "A320-200-CFM",
+        "sim_time": 210.733333,
+        "paused": false,
+        "altitude": 28.059475,
+        "airspeed": 2.989081,
+        "engine_1_n1": 18.9,
+        "engine_2_n1": 18.9,
+        "generator_2_voltage": 115.0,
+        "ac_bus_1": 115.0,
+        "ac_bus_2": 115.0,
+        "blue_pressure": 3000.0,
+        "blue_quantity": 6.166667
+      }
+    },
+    {
+      "episode_id": "episode-004",
+      "private_label": "synthetic_shared_regional_event",
+      "samples": 13,
+      "checks": {
+        "generator_output_expected": true,
+        "blue_quantity_expected": true,
+        "bus_2_retained": true,
+        "blue_pressure_retained_during_brief_window": true
+      },
+      "final_observed": {
+        "aircraft": "A320-200-CFM",
+        "sim_time": 227.15,
+        "paused": false,
+        "altitude": 28.059571,
+        "airspeed": 2.989081,
+        "engine_1_n1": 18.9,
+        "engine_2_n1": 18.9,
+        "generator_2_voltage": 0.0,
+        "ac_bus_1": 115.0,
+        "ac_bus_2": 115.0,
+        "blue_pressure": 3000.0,
+        "blue_quantity": 6.15
+      }
+    },
+    {
+      "episode_id": "episode-005",
+      "private_label": "independent_pair_matched_interventions",
+      "samples": 13,
+      "checks": {
+        "generator_output_expected": true,
+        "blue_quantity_expected": true,
+        "bus_2_retained": true,
+        "blue_pressure_retained_during_brief_window": true
+      },
+      "final_observed": {
+        "aircraft": "A320-200-CFM",
+        "sim_time": 243.733333,
+        "paused": false,
+        "altitude": 28.059666,
+        "airspeed": 2.98908,
+        "engine_1_n1": 18.9,
+        "engine_2_n1": 18.9,
+        "generator_2_voltage": 0.0,
+        "ac_bus_1": 115.0,
+        "ac_bus_2": 115.0,
+        "blue_pressure": 3000.0,
+        "blue_quantity": 6.15
+      }
+    }
+  ],
+  "private_truth_excluded_from_inference": true,
+  "limits": [
+    "Shared and independent cases use matched component interventions; actual sampling jitter differs",
+    "Blue quantity uses unresolved raw units and native clearing can refill",
+    "An engine-initiated event and uncontained damage physics are not implemented",
+    "Cases are sequential ground tests, not independent full simulator resets"
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "readings": {
+    "startup_in_progress": {
+      "path": "/systems/acconfig/autoconfig-running",
+      "value": false,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 326.558333,
+      "received_monotonic_s": 522382.3722808,
+      "reachable": true,
+      "unit": ""
+    },
+    "startup_mismatch_reason": {
+      "path": "/systems/acconfig/mismatch-reason",
+      "value": "XX",
+      "valid": true,
+      "error": null,
+      "sim_time_s": 326.566667,
+      "received_monotonic_s": 522382.3922038,
+      "reachable": true,
+      "unit": ""
+    },
+    "engine_1_running": {
+      "path": "/engines/engine[0]/running",
+      "value": true,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 326.575,
+      "received_monotonic_s": 522382.4029625,
+      "reachable": true,
+      "unit": ""
+    },
+    "engine_2_running": {
+      "path": "/engines/engine[1]/running",
+      "value": true,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 326.6,
+      "received_monotonic_s": 522382.4202091,
+      "reachable": true,
+      "unit": ""
+    },
+    "generator_2_fault": {
+      "path": "/systems/failures/electrical/gen-2",
+      "value": false,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 326.616667,
+      "received_monotonic_s": 522382.433939,
+      "reachable": true,
+      "unit": ""
+    },
+    "blue_leak_fault": {
+      "path": "/systems/failures/hydraulic/blue-leak",
+      "value": false,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 326.625,
+      "received_monotonic_s": 522382.4471512,
+      "reachable": true,
+      "unit": ""
+    },
+    "blue_pump_fault": {
+      "path": "/systems/failures/hydraulic/blue-elec",
+      "value": false,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 326.641667,
+      "received_monotonic_s": 522382.4635713,
+      "reachable": true,
+      "unit": ""
+    },
+    "rat_position": {
+      "path": "/systems/hydraulic/sources/rat/position",
+      "value": 0.0,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 326.658333,
+      "received_monotonic_s": 522382.4757817,
+      "reachable": true,
+      "unit": ""
+    }
+  },
+  "connected": true,
+  "complete": true,
+  "received_monotonic_s": 522382.4765003
+}

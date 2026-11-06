@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+build/
+dist/
+work/
+
+# Repeatable local launcher runs; curated experiments are tracked separately.
+/results/local-*/

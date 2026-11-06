@@ -1,0 +1,22 @@
+[
+  {
+    "run_id": "prospective-A-001",
+    "flight_group": "prospective-flight-20261103-A",
+    "profile": "reference"
+  },
+  {
+    "run_id": "prospective-A-002",
+    "flight_group": "prospective-flight-20261103-A",
+    "profile": "source_path"
+  },
+  {
+    "run_id": "prospective-A-003",
+    "flight_group": "prospective-flight-20261103-A",
+    "profile": "blue_inventory"
+  },
+  {
+    "run_id": "prospective-A-004",
+    "flight_group": "prospective-flight-20261103-A",
+    "profile": "joint_selected_effects"
+  }
+]

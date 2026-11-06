@@ -1,0 +1,143 @@
+{
+  "script": "setprop(\"/sim/freeze/master\", 1); setprop(\"/sim/freeze/clock\", 1);",
+  "http_status": 200,
+  "response": "ok.",
+  "local": 883650.9914632,
+  "verified": {
+    "readings": {
+      "paused": {
+        "path": "/sim/freeze/master",
+        "value": true,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 2116.041667,
+        "received_monotonic_s": 883651.0401952,
+        "reachable": true,
+        "unit": ""
+      },
+      "clock_frozen": {
+        "path": "/sim/freeze/clock",
+        "value": true,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 2116.041667,
+        "received_monotonic_s": 883651.0565299,
+        "reachable": true,
+        "unit": ""
+      },
+      "ap1": {
+        "path": "/it-autoflight/output/ap1",
+        "value": true,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 2116.041667,
+        "received_monotonic_s": 883651.0841942,
+        "reachable": true,
+        "unit": ""
+      },
+      "athr_active": {
+        "path": "/systems/fadec/athr/active",
+        "value": 1.0,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 2116.041667,
+        "received_monotonic_s": 883651.0711836,
+        "reachable": true,
+        "unit": ""
+      },
+      "latitude": {
+        "path": "/position/latitude-deg",
+        "value": 21.416783,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 2116.041667,
+        "received_monotonic_s": 883651.0969546,
+        "reachable": true,
+        "unit": ""
+      },
+      "longitude": {
+        "path": "/position/longitude-deg",
+        "value": -157.434836,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 2116.041667,
+        "received_monotonic_s": 883651.1153664,
+        "reachable": true,
+        "unit": ""
+      },
+      "terrain_elevation": {
+        "path": "/position/ground-elev-m",
+        "value": -0.275626,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 2116.041667,
+        "received_monotonic_s": 883651.1297371,
+        "reachable": true,
+        "unit": ""
+      },
+      "scenery_loaded": {
+        "path": "/sim/sceneryloaded",
+        "value": true,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 2116.041667,
+        "received_monotonic_s": 883651.1431964,
+        "reachable": true,
+        "unit": ""
+      },
+      "altitude": {
+        "path": "/position/altitude-ft",
+        "value": 34939.086476,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 2116.041667,
+        "received_monotonic_s": 883651.1601828,
+        "reachable": true,
+        "unit": ""
+      },
+      "speed": {
+        "path": "/velocities/airspeed-kt",
+        "value": 221.000421,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 2116.041667,
+        "received_monotonic_s": 883651.1750449,
+        "reachable": true,
+        "unit": ""
+      },
+      "bank": {
+        "path": "/orientation/roll-deg",
+        "value": -0.071771,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 2116.041667,
+        "received_monotonic_s": 883651.1874534,
+        "reachable": true,
+        "unit": ""
+      },
+      "vs": {
+        "path": "/velocities/vertical-speed-fps",
+        "value": 0.002226,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 2116.041667,
+        "received_monotonic_s": 883651.1994755,
+        "reachable": true,
+        "unit": ""
+      },
+      "floor": {
+        "path": "/systems/fadec/alpha-floor-switch",
+        "value": 0.0,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 2116.041667,
+        "received_monotonic_s": 883651.215641,
+        "reachable": true,
+        "unit": ""
+      }
+    },
+    "connected": true,
+    "complete": true,
+    "received_monotonic_s": 883651.2160647
+  }
+}

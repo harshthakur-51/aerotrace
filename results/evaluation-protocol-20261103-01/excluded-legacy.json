@@ -1,0 +1,7 @@
+[
+  {
+    "path": "results/flightgear-connection-20261022-01/observations.jsonl",
+    "raw_sha256": "ab667c513af8e8d3f565b00e61e7ae6080dbc1f1efa73916d4eae406811e3ded",
+    "reason": "Earlier non-contract probe; rejected by strict prediction reader"
+  }
+]

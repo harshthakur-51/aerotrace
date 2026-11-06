@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-29 Asia/Calcutta",
+  "software_commit_before_run": "3970f931e7d882e81a9285f4c56baf7d82a262a6",
+  "episodes": [
+    {
+      "directory": "results/airborne-pairs-20261029-01/grouped-recipe",
+      "selector": "synthetic_shared_regional_event"
+    },
+    {
+      "directory": "results/airborne-pairs-20261029-01/matched-independent-recipe",
+      "selector": "independent_pair_matched_interventions"
+    }
+  ],
+  "qualification_settings": "configs/airborne-qualification-settings.json",
+  "condition": "Native takeoff/climb, selected indicated altitude10000ft and speed250kt. Observed position/context must pass original independent fresh admission for each episode.",
+  "active_minimum_sim_s": 52,
+  "recovery_minimum_sim_s": 8,
+  "maximum_postfault_local_s": 120,
+  "predictions": [
+    "Generator2 source output lost; selected bus voltages may be retained through alternate native supplies.",
+    "Blue inventory declines first, followed by pressure loss; selected native electrical and blue responses are combined, not physical debris damage.",
+    "Clearing blue automatically refills model quantity; pressure recovers gradually and generator output returns after its clear.",
+    "When both selected abnormalities are observed, retain equally compatible shared/independent explanations. Identical public input must give identical output irrespective of private selector labels."
+  ],
+  "limits": [
+    "Both selectors issue exactly the same generator2-then-blue-leak ordered component requests; labels are private annotations, not distinct native initiating mechanisms.",
+    "Paired requests are sequential, not atomic or proven simultaneous.",
+    "Separate episodes share a continuing native flight and native reset/refill; they are not independent statistical trials or a randomized dataset.",
+    "Raw blue quantity units unresolved; refill is artificial restoration, not physical repair.",
+    "Stable motion under automation does not establish actuator capability or manual-control forces."
+  ],
+  "source_provenance": {
+    "Systems/a320-hydraulic.xml": {
+      "sha256": "28159f2e9dd7cc1736d6e8e19c33c366b7762a6febb354012fdb966d99418e47",
+      "url": "https://svn.code.sf.net/p/flightgear/fgaddon/!svn/rvr/20376/branches/release-2024.1/Aircraft/A320-family/Systems/a320-hydraulic.xml",
+      "archive": "native-source/Systems/a320-hydraulic.xml"
+    },
+    "Nasal/Systems/hydraulics.nas": {
+      "sha256": "149dedf56bbacd9403a09fd87ffb8c20f775083946165d4084e775daa1ea0015",
+      "url": "https://svn.code.sf.net/p/flightgear/fgaddon/!svn/rvr/20376/branches/release-2024.1/Aircraft/A320-family/Nasal/Systems/hydraulics.nas",
+      "archive": "native-source/Nasal/Systems/hydraulics.nas"
+    },
+    "Systems/a320-electrical.xml": {
+      "sha256": "84562f72cfed5bfb07e27042d740ec14e3b99a66cef4dbc165be4ec4c00f8d58",
+      "url": "https://svn.code.sf.net/p/flightgear/fgaddon/!svn/rvr/20376/branches/release-2024.1/Aircraft/A320-family/Systems/a320-electrical.xml",
+      "archive": "native-source/Systems/a320-electrical.xml"
+    }
+  }
+}

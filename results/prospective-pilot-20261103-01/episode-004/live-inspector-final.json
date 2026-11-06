@@ -1,0 +1,3297 @@
+{
+  "telemetry": {
+    "readings": {
+      "aircraft": {
+        "path": "/sim/aircraft",
+        "value": "A320-200-CFM",
+        "valid": true,
+        "error": null,
+        "sim_time_s": 686.575,
+        "received_monotonic_s": 266131.4838832,
+        "reachable": true,
+        "unit": ""
+      },
+      "sim_time": {
+        "path": "/sim/time/elapsed-sec",
+        "value": 686.583333,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 686.583333,
+        "received_monotonic_s": 266131.4923803,
+        "reachable": true,
+        "unit": "s"
+      },
+      "paused": {
+        "path": "/sim/freeze/master",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 686.591667,
+        "received_monotonic_s": 266131.5017308,
+        "reachable": true,
+        "unit": ""
+      },
+      "altitude": {
+        "path": "/position/altitude-ft",
+        "value": 10171.265699,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 686.6,
+        "received_monotonic_s": 266131.513424,
+        "reachable": true,
+        "unit": "ft"
+      },
+      "airspeed": {
+        "path": "/velocities/airspeed-kt",
+        "value": 250.31544,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 686.616667,
+        "received_monotonic_s": 266131.525356,
+        "reachable": true,
+        "unit": "kt"
+      },
+      "engine_1_n1": {
+        "path": "/engines/engine[0]/n1-actual",
+        "value": 54.816193,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 686.625,
+        "received_monotonic_s": 266131.5337225,
+        "reachable": true,
+        "unit": "%"
+      },
+      "engine_2_n1": {
+        "path": "/engines/engine[1]/n1-actual",
+        "value": 54.816193,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 686.633333,
+        "received_monotonic_s": 266131.5423413,
+        "reachable": true,
+        "unit": "%"
+      },
+      "generator_2_voltage": {
+        "path": "/systems/electrical/sources/idg-2/output-volt",
+        "value": 115.000154,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 686.641667,
+        "received_monotonic_s": 266131.5521587,
+        "reachable": true,
+        "unit": "V"
+      },
+      "ac_bus_1": {
+        "path": "/systems/electrical/bus/ac-1",
+        "value": 115.000794,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 686.65,
+        "received_monotonic_s": 266131.5638858,
+        "reachable": true,
+        "unit": "V"
+      },
+      "ac_bus_2": {
+        "path": "/systems/electrical/bus/ac-2",
+        "value": 115.000794,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 686.666667,
+        "received_monotonic_s": 266131.5786208,
+        "reachable": true,
+        "unit": "V"
+      },
+      "blue_pressure": {
+        "path": "/systems/hydraulic/blue-psi",
+        "value": 3000.0,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 686.683333,
+        "received_monotonic_s": 266131.5886688,
+        "reachable": true,
+        "unit": "psi"
+      },
+      "blue_quantity": {
+        "path": "/systems/hydraulic/blue-qty",
+        "value": 8.0,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 686.691667,
+        "received_monotonic_s": 266131.5993623,
+        "reachable": true,
+        "unit": "raw model quantity"
+      },
+      "main_gear_1_wow": {
+        "path": "/gear/gear[1]/wow",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 686.7,
+        "received_monotonic_s": 266131.6109852,
+        "reachable": true,
+        "unit": ""
+      },
+      "main_gear_2_wow": {
+        "path": "/gear/gear[2]/wow",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 686.708333,
+        "received_monotonic_s": 266131.6184695,
+        "reachable": true,
+        "unit": ""
+      },
+      "height_agl": {
+        "path": "/position/altitude-agl-ft",
+        "value": 10182.710745,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 686.716667,
+        "received_monotonic_s": 266131.6317254,
+        "reachable": true,
+        "unit": "ft"
+      },
+      "vertical_speed": {
+        "path": "/velocities/vertical-speed-fps",
+        "value": 0.003719,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 686.733333,
+        "received_monotonic_s": 266131.6422432,
+        "reachable": true,
+        "unit": "ft/s"
+      },
+      "bank": {
+        "path": "/orientation/roll-deg",
+        "value": -0.053971,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 686.741667,
+        "received_monotonic_s": 266131.6521792,
+        "reachable": true,
+        "unit": "deg"
+      },
+      "autopilot_1": {
+        "path": "/it-autoflight/output/ap1",
+        "value": true,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 686.75,
+        "received_monotonic_s": 266131.6631206,
+        "reachable": true,
+        "unit": ""
+      },
+      "autopilot_2": {
+        "path": "/it-autoflight/output/ap2",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 686.766667,
+        "received_monotonic_s": 266131.6757761,
+        "reachable": true,
+        "unit": ""
+      },
+      "autothrust": {
+        "path": "/it-autoflight/output/athr",
+        "value": true,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 686.775,
+        "received_monotonic_s": 266131.6841798,
+        "reachable": true,
+        "unit": ""
+      }
+    },
+    "connected": true,
+    "complete": true,
+    "received_monotonic_s": 266131.6848745,
+    "schema_version": 2,
+    "observation_profile": "a320-stable-airborne-v1",
+    "sample_index": 80,
+    "poll_started_monotonic_s": 266131.4572171
+  },
+  "poll_error": null,
+  "poll_age_s": 0.06219140003668144,
+  "oldest_reading_age_s": 0.26318270002957433,
+  "poll_duration_s": 0.22765739995520562,
+  "poll_started_monotonic_s": 266131.4572171,
+  "time_since_sim_advance_s": 0.022947999997995794,
+  "target_poll_interval_s": 1.0,
+  "operator_commands": {},
+  "recording": {
+    "status": "not_requested",
+    "samples_written": 0
+  },
+  "mode": "live",
+  "diagnosis": {
+    "implemented": true,
+    "result": {
+      "schema_version": 1,
+      "model_id": "aerotrace-two-mechanism-compatibility-v1",
+      "mode": "temporal",
+      "status": "causal_ambiguity",
+      "candidate_ids": [
+        "independent_pair",
+        "grouped_joint_event"
+      ],
+      "plausible_candidate_ids": [
+        "independent_pair",
+        "grouped_joint_event"
+      ],
+      "candidates": [
+        {
+          "id": "selected_reference",
+          "label": "No selected mechanism currently required",
+          "kind": "reference",
+          "roots": [],
+          "status": "contradicted",
+          "scope_note": "Selected-observation reference, not whole-aircraft health.",
+          "supporting_evidence": [
+            {
+              "fact": "bus_supply_loss",
+              "expected": "not_observed",
+              "observed_state": "not_observed",
+              "evidence": [
+                {
+                  "sample_index": 77,
+                  "sim_time_s": 683.658333,
+                  "channel": "ac_bus_2",
+                  "value": 115.000796,
+                  "unit": "V",
+                  "observed_status": "supply_retained",
+                  "evidence_id": null
+                }
+              ],
+              "dependency_paths": [],
+              "status": "supported",
+              "reason": "Usable observation agrees with the executable dependency prediction."
+            }
+          ],
+          "contradicting_evidence": [
+            {
+              "fact": "generator_source_anomaly",
+              "expected": "not_observed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 19,
+                  "sim_time_s": 626.025,
+                  "channel": "generator_2_voltage",
+                  "value": 0.0,
+                  "unit": "V",
+                  "observed_status": "source_unavailable",
+                  "evidence_id": "E0001",
+                  "legacy_event_id": "E0001",
+                  "onset_sample_index": 18,
+                  "confirmation_sample_index": 19
+                },
+                {
+                  "sample_index": 70,
+                  "sim_time_s": 677.041667,
+                  "channel": "generator_2_voltage",
+                  "value": 0.0,
+                  "unit": "V",
+                  "observed_status": "source_unavailable",
+                  "evidence_id": "E0001"
+                }
+              ],
+              "dependency_paths": [],
+              "status": "contradicted",
+              "reason": "This observed effect is not explained by the candidate's selected dependency paths."
+            },
+            {
+              "fact": "blue_inventory_loss",
+              "expected": "not_observed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 20,
+                  "sim_time_s": 627.075,
+                  "channel": "blue_quantity",
+                  "value": 7.466667,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002",
+                  "legacy_event_id": "E0002",
+                  "onset_sample_index": 19,
+                  "confirmation_sample_index": 20
+                },
+                {
+                  "sample_index": 70,
+                  "sim_time_s": 677.083333,
+                  "channel": "blue_quantity",
+                  "value": 0.0,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002"
+                }
+              ],
+              "dependency_paths": [],
+              "status": "contradicted",
+              "reason": "This observed effect is not explained by the candidate's selected dependency paths."
+            },
+            {
+              "fact": "blue_pressure_loss",
+              "expected": "not_observed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 50,
+                  "sim_time_s": 657.066667,
+                  "channel": "blue_pressure",
+                  "value": 2380.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                },
+                {
+                  "sample_index": 75,
+                  "sim_time_s": 681.691667,
+                  "channel": "blue_pressure",
+                  "value": 2200.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                }
+              ],
+              "dependency_paths": [],
+              "status": "contradicted",
+              "reason": "This observed effect is not explained by the candidate's selected dependency paths."
+            }
+          ],
+          "predicted_consequences": [
+            {
+              "fact": "generator_source_anomaly",
+              "expected": "not_observed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 19,
+                  "sim_time_s": 626.025,
+                  "channel": "generator_2_voltage",
+                  "value": 0.0,
+                  "unit": "V",
+                  "observed_status": "source_unavailable",
+                  "evidence_id": "E0001",
+                  "legacy_event_id": "E0001",
+                  "onset_sample_index": 18,
+                  "confirmation_sample_index": 19
+                },
+                {
+                  "sample_index": 70,
+                  "sim_time_s": 677.041667,
+                  "channel": "generator_2_voltage",
+                  "value": 0.0,
+                  "unit": "V",
+                  "observed_status": "source_unavailable",
+                  "evidence_id": "E0001"
+                }
+              ],
+              "dependency_paths": [],
+              "status": "contradicted",
+              "reason": "This observed effect is not explained by the candidate's selected dependency paths."
+            },
+            {
+              "fact": "blue_inventory_loss",
+              "expected": "not_observed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 20,
+                  "sim_time_s": 627.075,
+                  "channel": "blue_quantity",
+                  "value": 7.466667,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002",
+                  "legacy_event_id": "E0002",
+                  "onset_sample_index": 19,
+                  "confirmation_sample_index": 20
+                },
+                {
+                  "sample_index": 70,
+                  "sim_time_s": 677.083333,
+                  "channel": "blue_quantity",
+                  "value": 0.0,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002"
+                }
+              ],
+              "dependency_paths": [],
+              "status": "contradicted",
+              "reason": "This observed effect is not explained by the candidate's selected dependency paths."
+            },
+            {
+              "fact": "bus_supply_loss",
+              "expected": "not_observed",
+              "observed_state": "not_observed",
+              "evidence": [
+                {
+                  "sample_index": 77,
+                  "sim_time_s": 683.658333,
+                  "channel": "ac_bus_2",
+                  "value": 115.000796,
+                  "unit": "V",
+                  "observed_status": "supply_retained",
+                  "evidence_id": null
+                }
+              ],
+              "dependency_paths": [],
+              "status": "supported",
+              "reason": "Usable observation agrees with the executable dependency prediction."
+            },
+            {
+              "fact": "blue_pressure_loss",
+              "expected": "not_observed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 50,
+                  "sim_time_s": 657.066667,
+                  "channel": "blue_pressure",
+                  "value": 2380.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                },
+                {
+                  "sample_index": 75,
+                  "sim_time_s": 681.691667,
+                  "channel": "blue_pressure",
+                  "value": 2200.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                }
+              ],
+              "dependency_paths": [],
+              "status": "contradicted",
+              "reason": "This observed effect is not explained by the candidate's selected dependency paths."
+            }
+          ],
+          "dependency_paths": [],
+          "temporal_evidence": [],
+          "missing_evidence": [],
+          "alternative_candidate_ids": [
+            "independent_pair",
+            "grouped_joint_event"
+          ],
+          "alternative_explanations": [
+            {
+              "id": "independent_pair",
+              "label": "Independent source-path and blue inventory-loss mechanisms",
+              "status": "compatible"
+            },
+            {
+              "id": "grouped_joint_event",
+              "label": "One grouped event affecting both selected mechanisms",
+              "status": "compatible"
+            }
+          ],
+          "cause_identifiable": false,
+          "probabilities_computed": false
+        },
+        {
+          "id": "generator_2_source_path_fault",
+          "label": "Generator 2 source-path fault",
+          "kind": "single_mechanism",
+          "roots": [
+            "generator_2_source_path_fault"
+          ],
+          "status": "contradicted",
+          "scope_note": "One compatible source-path mechanism does not identify a generator component, engine/drive fault, switching state or repair.",
+          "supporting_evidence": [
+            {
+              "fact": "generator_source_anomaly",
+              "expected": "observed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 19,
+                  "sim_time_s": 626.025,
+                  "channel": "generator_2_voltage",
+                  "value": 0.0,
+                  "unit": "V",
+                  "observed_status": "source_unavailable",
+                  "evidence_id": "E0001",
+                  "legacy_event_id": "E0001",
+                  "onset_sample_index": 18,
+                  "confirmation_sample_index": 19
+                },
+                {
+                  "sample_index": 70,
+                  "sim_time_s": 677.041667,
+                  "channel": "generator_2_voltage",
+                  "value": 0.0,
+                  "unit": "V",
+                  "observed_status": "source_unavailable",
+                  "evidence_id": "E0001"
+                }
+              ],
+              "dependency_paths": [
+                {
+                  "nodes": [
+                    "generator_2_source_path_fault",
+                    "generator_source_anomaly"
+                  ],
+                  "fact": "generator_source_anomaly",
+                  "necessity": "required",
+                  "reason": "The selected source-path mechanism predicts abnormal generator-2 output."
+                }
+              ],
+              "status": "supported",
+              "reason": "Usable observation agrees with the executable dependency prediction."
+            },
+            {
+              "fact": "bus_supply_loss",
+              "expected": "allowed",
+              "observed_state": "not_observed",
+              "evidence": [
+                {
+                  "sample_index": 77,
+                  "sim_time_s": 683.658333,
+                  "channel": "ac_bus_2",
+                  "value": 115.000796,
+                  "unit": "V",
+                  "observed_status": "supply_retained",
+                  "evidence_id": null
+                }
+              ],
+              "dependency_paths": [
+                {
+                  "nodes": [
+                    "generator_2_source_path_fault",
+                    "generator_source_anomaly",
+                    "bus_supply_loss"
+                  ],
+                  "fact": "bus_supply_loss",
+                  "necessity": "conditional",
+                  "reason": "The selected source-path mechanism predicts abnormal generator-2 output. Downstream supply can be lost if alternate supply is unavailable; retained bus voltage is compatible and does not identify its supply route."
+                }
+              ],
+              "status": "consistent_conditional",
+              "reason": "This downstream effect is conditional; either retained or degraded output is compatible."
+            }
+          ],
+          "contradicting_evidence": [
+            {
+              "fact": "blue_inventory_loss",
+              "expected": "not_observed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 20,
+                  "sim_time_s": 627.075,
+                  "channel": "blue_quantity",
+                  "value": 7.466667,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002",
+                  "legacy_event_id": "E0002",
+                  "onset_sample_index": 19,
+                  "confirmation_sample_index": 20
+                },
+                {
+                  "sample_index": 70,
+                  "sim_time_s": 677.083333,
+                  "channel": "blue_quantity",
+                  "value": 0.0,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002"
+                }
+              ],
+              "dependency_paths": [],
+              "status": "contradicted",
+              "reason": "This observed effect is not explained by the candidate's selected dependency paths."
+            },
+            {
+              "fact": "blue_pressure_loss",
+              "expected": "not_observed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 50,
+                  "sim_time_s": 657.066667,
+                  "channel": "blue_pressure",
+                  "value": 2380.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                },
+                {
+                  "sample_index": 75,
+                  "sim_time_s": 681.691667,
+                  "channel": "blue_pressure",
+                  "value": 2200.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                }
+              ],
+              "dependency_paths": [],
+              "status": "contradicted",
+              "reason": "This observed effect is not explained by the candidate's selected dependency paths."
+            }
+          ],
+          "predicted_consequences": [
+            {
+              "fact": "generator_source_anomaly",
+              "expected": "observed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 19,
+                  "sim_time_s": 626.025,
+                  "channel": "generator_2_voltage",
+                  "value": 0.0,
+                  "unit": "V",
+                  "observed_status": "source_unavailable",
+                  "evidence_id": "E0001",
+                  "legacy_event_id": "E0001",
+                  "onset_sample_index": 18,
+                  "confirmation_sample_index": 19
+                },
+                {
+                  "sample_index": 70,
+                  "sim_time_s": 677.041667,
+                  "channel": "generator_2_voltage",
+                  "value": 0.0,
+                  "unit": "V",
+                  "observed_status": "source_unavailable",
+                  "evidence_id": "E0001"
+                }
+              ],
+              "dependency_paths": [
+                {
+                  "nodes": [
+                    "generator_2_source_path_fault",
+                    "generator_source_anomaly"
+                  ],
+                  "fact": "generator_source_anomaly",
+                  "necessity": "required",
+                  "reason": "The selected source-path mechanism predicts abnormal generator-2 output."
+                }
+              ],
+              "status": "supported",
+              "reason": "Usable observation agrees with the executable dependency prediction."
+            },
+            {
+              "fact": "blue_inventory_loss",
+              "expected": "not_observed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 20,
+                  "sim_time_s": 627.075,
+                  "channel": "blue_quantity",
+                  "value": 7.466667,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002",
+                  "legacy_event_id": "E0002",
+                  "onset_sample_index": 19,
+                  "confirmation_sample_index": 20
+                },
+                {
+                  "sample_index": 70,
+                  "sim_time_s": 677.083333,
+                  "channel": "blue_quantity",
+                  "value": 0.0,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002"
+                }
+              ],
+              "dependency_paths": [],
+              "status": "contradicted",
+              "reason": "This observed effect is not explained by the candidate's selected dependency paths."
+            },
+            {
+              "fact": "bus_supply_loss",
+              "expected": "allowed",
+              "observed_state": "not_observed",
+              "evidence": [
+                {
+                  "sample_index": 77,
+                  "sim_time_s": 683.658333,
+                  "channel": "ac_bus_2",
+                  "value": 115.000796,
+                  "unit": "V",
+                  "observed_status": "supply_retained",
+                  "evidence_id": null
+                }
+              ],
+              "dependency_paths": [
+                {
+                  "nodes": [
+                    "generator_2_source_path_fault",
+                    "generator_source_anomaly",
+                    "bus_supply_loss"
+                  ],
+                  "fact": "bus_supply_loss",
+                  "necessity": "conditional",
+                  "reason": "The selected source-path mechanism predicts abnormal generator-2 output. Downstream supply can be lost if alternate supply is unavailable; retained bus voltage is compatible and does not identify its supply route."
+                }
+              ],
+              "status": "consistent_conditional",
+              "reason": "This downstream effect is conditional; either retained or degraded output is compatible."
+            },
+            {
+              "fact": "blue_pressure_loss",
+              "expected": "not_observed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 50,
+                  "sim_time_s": 657.066667,
+                  "channel": "blue_pressure",
+                  "value": 2380.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                },
+                {
+                  "sample_index": 75,
+                  "sim_time_s": 681.691667,
+                  "channel": "blue_pressure",
+                  "value": 2200.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                }
+              ],
+              "dependency_paths": [],
+              "status": "contradicted",
+              "reason": "This observed effect is not explained by the candidate's selected dependency paths."
+            }
+          ],
+          "dependency_paths": [
+            {
+              "nodes": [
+                "generator_2_source_path_fault",
+                "generator_source_anomaly"
+              ],
+              "fact": "generator_source_anomaly",
+              "necessity": "required",
+              "reason": "The selected source-path mechanism predicts abnormal generator-2 output."
+            },
+            {
+              "nodes": [
+                "generator_2_source_path_fault",
+                "generator_source_anomaly",
+                "bus_supply_loss"
+              ],
+              "fact": "bus_supply_loss",
+              "necessity": "conditional",
+              "reason": "The selected source-path mechanism predicts abnormal generator-2 output. Downstream supply can be lost if alternate supply is unavailable; retained bus voltage is compatible and does not identify its supply route."
+            }
+          ],
+          "temporal_evidence": [],
+          "missing_evidence": [],
+          "alternative_candidate_ids": [
+            "independent_pair",
+            "grouped_joint_event"
+          ],
+          "alternative_explanations": [
+            {
+              "id": "independent_pair",
+              "label": "Independent source-path and blue inventory-loss mechanisms",
+              "status": "compatible"
+            },
+            {
+              "id": "grouped_joint_event",
+              "label": "One grouped event affecting both selected mechanisms",
+              "status": "compatible"
+            }
+          ],
+          "cause_identifiable": false,
+          "probabilities_computed": false
+        },
+        {
+          "id": "blue_inventory_loss",
+          "label": "Blue fluid-inventory-loss analogue",
+          "kind": "single_mechanism",
+          "roots": [
+            "blue_fluid_loss_mechanism"
+          ],
+          "status": "contradicted",
+          "scope_note": "A supported fluid-loss analogue, not unique identification of an external leak or validated lost volume.",
+          "supporting_evidence": [
+            {
+              "fact": "blue_inventory_loss",
+              "expected": "observed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 20,
+                  "sim_time_s": 627.075,
+                  "channel": "blue_quantity",
+                  "value": 7.466667,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002",
+                  "legacy_event_id": "E0002",
+                  "onset_sample_index": 19,
+                  "confirmation_sample_index": 20
+                },
+                {
+                  "sample_index": 70,
+                  "sim_time_s": 677.083333,
+                  "channel": "blue_quantity",
+                  "value": 0.0,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002"
+                }
+              ],
+              "dependency_paths": [
+                {
+                  "nodes": [
+                    "blue_fluid_loss_mechanism",
+                    "blue_inventory_loss"
+                  ],
+                  "fact": "blue_inventory_loss",
+                  "necessity": "required",
+                  "reason": "The selected fluid-loss analogue predicts inventory decline from an observed reference."
+                }
+              ],
+              "status": "supported",
+              "reason": "Usable observation agrees with the executable dependency prediction."
+            },
+            {
+              "fact": "bus_supply_loss",
+              "expected": "not_observed",
+              "observed_state": "not_observed",
+              "evidence": [
+                {
+                  "sample_index": 77,
+                  "sim_time_s": 683.658333,
+                  "channel": "ac_bus_2",
+                  "value": 115.000796,
+                  "unit": "V",
+                  "observed_status": "supply_retained",
+                  "evidence_id": null
+                }
+              ],
+              "dependency_paths": [],
+              "status": "supported",
+              "reason": "Usable observation agrees with the executable dependency prediction."
+            },
+            {
+              "fact": "blue_pressure_loss",
+              "expected": "allowed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 50,
+                  "sim_time_s": 657.066667,
+                  "channel": "blue_pressure",
+                  "value": 2380.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                },
+                {
+                  "sample_index": 75,
+                  "sim_time_s": 681.691667,
+                  "channel": "blue_pressure",
+                  "value": 2200.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                }
+              ],
+              "dependency_paths": [
+                {
+                  "nodes": [
+                    "blue_fluid_loss_mechanism",
+                    "blue_inventory_loss",
+                    "blue_pressure_loss"
+                  ],
+                  "fact": "blue_pressure_loss",
+                  "necessity": "conditional",
+                  "reason": "The selected fluid-loss analogue predicts inventory decline from an observed reference. Pressure can degrade as inventory/supply becomes insufficient; early retained pressure and subsequent restoration lag are allowed. No exact delay is assumed."
+                }
+              ],
+              "status": "consistent_conditional",
+              "reason": "This downstream effect is conditional; either retained or degraded output is compatible."
+            },
+            {
+              "relation": "inventory_before_pressure",
+              "status": "consistent",
+              "reason": "The observed inventory-loss bracket precedes the pressure-loss bracket; this supports the qualitative selected depletion path, not an exact physical delay.",
+              "model_reason": "For this selected depletion mechanism, observed inventory loss should not be definitely later than related pressure degradation. Overlapping/unknown onset intervals remain unresolved.",
+              "evidence": [
+                {
+                  "sample_index": 20,
+                  "sim_time_s": 627.075,
+                  "channel": "blue_quantity",
+                  "value": 7.466667,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002",
+                  "legacy_event_id": "E0002",
+                  "onset_sample_index": 19,
+                  "confirmation_sample_index": 20
+                },
+                {
+                  "sample_index": 50,
+                  "sim_time_s": 657.066667,
+                  "channel": "blue_pressure",
+                  "value": 2380.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                }
+              ]
+            }
+          ],
+          "contradicting_evidence": [
+            {
+              "fact": "generator_source_anomaly",
+              "expected": "not_observed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 19,
+                  "sim_time_s": 626.025,
+                  "channel": "generator_2_voltage",
+                  "value": 0.0,
+                  "unit": "V",
+                  "observed_status": "source_unavailable",
+                  "evidence_id": "E0001",
+                  "legacy_event_id": "E0001",
+                  "onset_sample_index": 18,
+                  "confirmation_sample_index": 19
+                },
+                {
+                  "sample_index": 70,
+                  "sim_time_s": 677.041667,
+                  "channel": "generator_2_voltage",
+                  "value": 0.0,
+                  "unit": "V",
+                  "observed_status": "source_unavailable",
+                  "evidence_id": "E0001"
+                }
+              ],
+              "dependency_paths": [],
+              "status": "contradicted",
+              "reason": "This observed effect is not explained by the candidate's selected dependency paths."
+            }
+          ],
+          "predicted_consequences": [
+            {
+              "fact": "generator_source_anomaly",
+              "expected": "not_observed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 19,
+                  "sim_time_s": 626.025,
+                  "channel": "generator_2_voltage",
+                  "value": 0.0,
+                  "unit": "V",
+                  "observed_status": "source_unavailable",
+                  "evidence_id": "E0001",
+                  "legacy_event_id": "E0001",
+                  "onset_sample_index": 18,
+                  "confirmation_sample_index": 19
+                },
+                {
+                  "sample_index": 70,
+                  "sim_time_s": 677.041667,
+                  "channel": "generator_2_voltage",
+                  "value": 0.0,
+                  "unit": "V",
+                  "observed_status": "source_unavailable",
+                  "evidence_id": "E0001"
+                }
+              ],
+              "dependency_paths": [],
+              "status": "contradicted",
+              "reason": "This observed effect is not explained by the candidate's selected dependency paths."
+            },
+            {
+              "fact": "blue_inventory_loss",
+              "expected": "observed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 20,
+                  "sim_time_s": 627.075,
+                  "channel": "blue_quantity",
+                  "value": 7.466667,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002",
+                  "legacy_event_id": "E0002",
+                  "onset_sample_index": 19,
+                  "confirmation_sample_index": 20
+                },
+                {
+                  "sample_index": 70,
+                  "sim_time_s": 677.083333,
+                  "channel": "blue_quantity",
+                  "value": 0.0,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002"
+                }
+              ],
+              "dependency_paths": [
+                {
+                  "nodes": [
+                    "blue_fluid_loss_mechanism",
+                    "blue_inventory_loss"
+                  ],
+                  "fact": "blue_inventory_loss",
+                  "necessity": "required",
+                  "reason": "The selected fluid-loss analogue predicts inventory decline from an observed reference."
+                }
+              ],
+              "status": "supported",
+              "reason": "Usable observation agrees with the executable dependency prediction."
+            },
+            {
+              "fact": "bus_supply_loss",
+              "expected": "not_observed",
+              "observed_state": "not_observed",
+              "evidence": [
+                {
+                  "sample_index": 77,
+                  "sim_time_s": 683.658333,
+                  "channel": "ac_bus_2",
+                  "value": 115.000796,
+                  "unit": "V",
+                  "observed_status": "supply_retained",
+                  "evidence_id": null
+                }
+              ],
+              "dependency_paths": [],
+              "status": "supported",
+              "reason": "Usable observation agrees with the executable dependency prediction."
+            },
+            {
+              "fact": "blue_pressure_loss",
+              "expected": "allowed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 50,
+                  "sim_time_s": 657.066667,
+                  "channel": "blue_pressure",
+                  "value": 2380.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                },
+                {
+                  "sample_index": 75,
+                  "sim_time_s": 681.691667,
+                  "channel": "blue_pressure",
+                  "value": 2200.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                }
+              ],
+              "dependency_paths": [
+                {
+                  "nodes": [
+                    "blue_fluid_loss_mechanism",
+                    "blue_inventory_loss",
+                    "blue_pressure_loss"
+                  ],
+                  "fact": "blue_pressure_loss",
+                  "necessity": "conditional",
+                  "reason": "The selected fluid-loss analogue predicts inventory decline from an observed reference. Pressure can degrade as inventory/supply becomes insufficient; early retained pressure and subsequent restoration lag are allowed. No exact delay is assumed."
+                }
+              ],
+              "status": "consistent_conditional",
+              "reason": "This downstream effect is conditional; either retained or degraded output is compatible."
+            }
+          ],
+          "dependency_paths": [
+            {
+              "nodes": [
+                "blue_fluid_loss_mechanism",
+                "blue_inventory_loss"
+              ],
+              "fact": "blue_inventory_loss",
+              "necessity": "required",
+              "reason": "The selected fluid-loss analogue predicts inventory decline from an observed reference."
+            },
+            {
+              "nodes": [
+                "blue_fluid_loss_mechanism",
+                "blue_inventory_loss",
+                "blue_pressure_loss"
+              ],
+              "fact": "blue_pressure_loss",
+              "necessity": "conditional",
+              "reason": "The selected fluid-loss analogue predicts inventory decline from an observed reference. Pressure can degrade as inventory/supply becomes insufficient; early retained pressure and subsequent restoration lag are allowed. No exact delay is assumed."
+            }
+          ],
+          "temporal_evidence": [
+            {
+              "relation": "inventory_before_pressure",
+              "status": "consistent",
+              "reason": "The observed inventory-loss bracket precedes the pressure-loss bracket; this supports the qualitative selected depletion path, not an exact physical delay.",
+              "model_reason": "For this selected depletion mechanism, observed inventory loss should not be definitely later than related pressure degradation. Overlapping/unknown onset intervals remain unresolved.",
+              "evidence": [
+                {
+                  "sample_index": 20,
+                  "sim_time_s": 627.075,
+                  "channel": "blue_quantity",
+                  "value": 7.466667,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002",
+                  "legacy_event_id": "E0002",
+                  "onset_sample_index": 19,
+                  "confirmation_sample_index": 20
+                },
+                {
+                  "sample_index": 50,
+                  "sim_time_s": 657.066667,
+                  "channel": "blue_pressure",
+                  "value": 2380.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                }
+              ]
+            }
+          ],
+          "missing_evidence": [],
+          "alternative_candidate_ids": [
+            "independent_pair",
+            "grouped_joint_event"
+          ],
+          "alternative_explanations": [
+            {
+              "id": "independent_pair",
+              "label": "Independent source-path and blue inventory-loss mechanisms",
+              "status": "compatible"
+            },
+            {
+              "id": "grouped_joint_event",
+              "label": "One grouped event affecting both selected mechanisms",
+              "status": "compatible"
+            }
+          ],
+          "cause_identifiable": false,
+          "probabilities_computed": false
+        },
+        {
+          "id": "independent_pair",
+          "label": "Independent source-path and blue inventory-loss mechanisms",
+          "kind": "multiple_initiators",
+          "roots": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism"
+          ],
+          "status": "compatible",
+          "scope_note": "Independent initiating mechanisms are a candidate history; component-command recipes do not establish statistical independence.",
+          "supporting_evidence": [
+            {
+              "fact": "generator_source_anomaly",
+              "expected": "observed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 19,
+                  "sim_time_s": 626.025,
+                  "channel": "generator_2_voltage",
+                  "value": 0.0,
+                  "unit": "V",
+                  "observed_status": "source_unavailable",
+                  "evidence_id": "E0001",
+                  "legacy_event_id": "E0001",
+                  "onset_sample_index": 18,
+                  "confirmation_sample_index": 19
+                },
+                {
+                  "sample_index": 70,
+                  "sim_time_s": 677.041667,
+                  "channel": "generator_2_voltage",
+                  "value": 0.0,
+                  "unit": "V",
+                  "observed_status": "source_unavailable",
+                  "evidence_id": "E0001"
+                }
+              ],
+              "dependency_paths": [
+                {
+                  "nodes": [
+                    "generator_2_source_path_fault",
+                    "generator_source_anomaly"
+                  ],
+                  "fact": "generator_source_anomaly",
+                  "necessity": "required",
+                  "reason": "The selected source-path mechanism predicts abnormal generator-2 output."
+                }
+              ],
+              "status": "supported",
+              "reason": "Usable observation agrees with the executable dependency prediction."
+            },
+            {
+              "fact": "blue_inventory_loss",
+              "expected": "observed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 20,
+                  "sim_time_s": 627.075,
+                  "channel": "blue_quantity",
+                  "value": 7.466667,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002",
+                  "legacy_event_id": "E0002",
+                  "onset_sample_index": 19,
+                  "confirmation_sample_index": 20
+                },
+                {
+                  "sample_index": 70,
+                  "sim_time_s": 677.083333,
+                  "channel": "blue_quantity",
+                  "value": 0.0,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002"
+                }
+              ],
+              "dependency_paths": [
+                {
+                  "nodes": [
+                    "blue_fluid_loss_mechanism",
+                    "blue_inventory_loss"
+                  ],
+                  "fact": "blue_inventory_loss",
+                  "necessity": "required",
+                  "reason": "The selected fluid-loss analogue predicts inventory decline from an observed reference."
+                }
+              ],
+              "status": "supported",
+              "reason": "Usable observation agrees with the executable dependency prediction."
+            },
+            {
+              "fact": "bus_supply_loss",
+              "expected": "allowed",
+              "observed_state": "not_observed",
+              "evidence": [
+                {
+                  "sample_index": 77,
+                  "sim_time_s": 683.658333,
+                  "channel": "ac_bus_2",
+                  "value": 115.000796,
+                  "unit": "V",
+                  "observed_status": "supply_retained",
+                  "evidence_id": null
+                }
+              ],
+              "dependency_paths": [
+                {
+                  "nodes": [
+                    "generator_2_source_path_fault",
+                    "generator_source_anomaly",
+                    "bus_supply_loss"
+                  ],
+                  "fact": "bus_supply_loss",
+                  "necessity": "conditional",
+                  "reason": "The selected source-path mechanism predicts abnormal generator-2 output. Downstream supply can be lost if alternate supply is unavailable; retained bus voltage is compatible and does not identify its supply route."
+                }
+              ],
+              "status": "consistent_conditional",
+              "reason": "This downstream effect is conditional; either retained or degraded output is compatible."
+            },
+            {
+              "fact": "blue_pressure_loss",
+              "expected": "allowed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 50,
+                  "sim_time_s": 657.066667,
+                  "channel": "blue_pressure",
+                  "value": 2380.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                },
+                {
+                  "sample_index": 75,
+                  "sim_time_s": 681.691667,
+                  "channel": "blue_pressure",
+                  "value": 2200.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                }
+              ],
+              "dependency_paths": [
+                {
+                  "nodes": [
+                    "blue_fluid_loss_mechanism",
+                    "blue_inventory_loss",
+                    "blue_pressure_loss"
+                  ],
+                  "fact": "blue_pressure_loss",
+                  "necessity": "conditional",
+                  "reason": "The selected fluid-loss analogue predicts inventory decline from an observed reference. Pressure can degrade as inventory/supply becomes insufficient; early retained pressure and subsequent restoration lag are allowed. No exact delay is assumed."
+                }
+              ],
+              "status": "consistent_conditional",
+              "reason": "This downstream effect is conditional; either retained or degraded output is compatible."
+            },
+            {
+              "relation": "inventory_before_pressure",
+              "status": "consistent",
+              "reason": "The observed inventory-loss bracket precedes the pressure-loss bracket; this supports the qualitative selected depletion path, not an exact physical delay.",
+              "model_reason": "For this selected depletion mechanism, observed inventory loss should not be definitely later than related pressure degradation. Overlapping/unknown onset intervals remain unresolved.",
+              "evidence": [
+                {
+                  "sample_index": 20,
+                  "sim_time_s": 627.075,
+                  "channel": "blue_quantity",
+                  "value": 7.466667,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002",
+                  "legacy_event_id": "E0002",
+                  "onset_sample_index": 19,
+                  "confirmation_sample_index": 20
+                },
+                {
+                  "sample_index": 50,
+                  "sim_time_s": 657.066667,
+                  "channel": "blue_pressure",
+                  "value": 2380.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                }
+              ]
+            }
+          ],
+          "contradicting_evidence": [],
+          "predicted_consequences": [
+            {
+              "fact": "generator_source_anomaly",
+              "expected": "observed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 19,
+                  "sim_time_s": 626.025,
+                  "channel": "generator_2_voltage",
+                  "value": 0.0,
+                  "unit": "V",
+                  "observed_status": "source_unavailable",
+                  "evidence_id": "E0001",
+                  "legacy_event_id": "E0001",
+                  "onset_sample_index": 18,
+                  "confirmation_sample_index": 19
+                },
+                {
+                  "sample_index": 70,
+                  "sim_time_s": 677.041667,
+                  "channel": "generator_2_voltage",
+                  "value": 0.0,
+                  "unit": "V",
+                  "observed_status": "source_unavailable",
+                  "evidence_id": "E0001"
+                }
+              ],
+              "dependency_paths": [
+                {
+                  "nodes": [
+                    "generator_2_source_path_fault",
+                    "generator_source_anomaly"
+                  ],
+                  "fact": "generator_source_anomaly",
+                  "necessity": "required",
+                  "reason": "The selected source-path mechanism predicts abnormal generator-2 output."
+                }
+              ],
+              "status": "supported",
+              "reason": "Usable observation agrees with the executable dependency prediction."
+            },
+            {
+              "fact": "blue_inventory_loss",
+              "expected": "observed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 20,
+                  "sim_time_s": 627.075,
+                  "channel": "blue_quantity",
+                  "value": 7.466667,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002",
+                  "legacy_event_id": "E0002",
+                  "onset_sample_index": 19,
+                  "confirmation_sample_index": 20
+                },
+                {
+                  "sample_index": 70,
+                  "sim_time_s": 677.083333,
+                  "channel": "blue_quantity",
+                  "value": 0.0,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002"
+                }
+              ],
+              "dependency_paths": [
+                {
+                  "nodes": [
+                    "blue_fluid_loss_mechanism",
+                    "blue_inventory_loss"
+                  ],
+                  "fact": "blue_inventory_loss",
+                  "necessity": "required",
+                  "reason": "The selected fluid-loss analogue predicts inventory decline from an observed reference."
+                }
+              ],
+              "status": "supported",
+              "reason": "Usable observation agrees with the executable dependency prediction."
+            },
+            {
+              "fact": "bus_supply_loss",
+              "expected": "allowed",
+              "observed_state": "not_observed",
+              "evidence": [
+                {
+                  "sample_index": 77,
+                  "sim_time_s": 683.658333,
+                  "channel": "ac_bus_2",
+                  "value": 115.000796,
+                  "unit": "V",
+                  "observed_status": "supply_retained",
+                  "evidence_id": null
+                }
+              ],
+              "dependency_paths": [
+                {
+                  "nodes": [
+                    "generator_2_source_path_fault",
+                    "generator_source_anomaly",
+                    "bus_supply_loss"
+                  ],
+                  "fact": "bus_supply_loss",
+                  "necessity": "conditional",
+                  "reason": "The selected source-path mechanism predicts abnormal generator-2 output. Downstream supply can be lost if alternate supply is unavailable; retained bus voltage is compatible and does not identify its supply route."
+                }
+              ],
+              "status": "consistent_conditional",
+              "reason": "This downstream effect is conditional; either retained or degraded output is compatible."
+            },
+            {
+              "fact": "blue_pressure_loss",
+              "expected": "allowed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 50,
+                  "sim_time_s": 657.066667,
+                  "channel": "blue_pressure",
+                  "value": 2380.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                },
+                {
+                  "sample_index": 75,
+                  "sim_time_s": 681.691667,
+                  "channel": "blue_pressure",
+                  "value": 2200.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                }
+              ],
+              "dependency_paths": [
+                {
+                  "nodes": [
+                    "blue_fluid_loss_mechanism",
+                    "blue_inventory_loss",
+                    "blue_pressure_loss"
+                  ],
+                  "fact": "blue_pressure_loss",
+                  "necessity": "conditional",
+                  "reason": "The selected fluid-loss analogue predicts inventory decline from an observed reference. Pressure can degrade as inventory/supply becomes insufficient; early retained pressure and subsequent restoration lag are allowed. No exact delay is assumed."
+                }
+              ],
+              "status": "consistent_conditional",
+              "reason": "This downstream effect is conditional; either retained or degraded output is compatible."
+            }
+          ],
+          "dependency_paths": [
+            {
+              "nodes": [
+                "generator_2_source_path_fault",
+                "generator_source_anomaly"
+              ],
+              "fact": "generator_source_anomaly",
+              "necessity": "required",
+              "reason": "The selected source-path mechanism predicts abnormal generator-2 output."
+            },
+            {
+              "nodes": [
+                "generator_2_source_path_fault",
+                "generator_source_anomaly",
+                "bus_supply_loss"
+              ],
+              "fact": "bus_supply_loss",
+              "necessity": "conditional",
+              "reason": "The selected source-path mechanism predicts abnormal generator-2 output. Downstream supply can be lost if alternate supply is unavailable; retained bus voltage is compatible and does not identify its supply route."
+            },
+            {
+              "nodes": [
+                "blue_fluid_loss_mechanism",
+                "blue_inventory_loss"
+              ],
+              "fact": "blue_inventory_loss",
+              "necessity": "required",
+              "reason": "The selected fluid-loss analogue predicts inventory decline from an observed reference."
+            },
+            {
+              "nodes": [
+                "blue_fluid_loss_mechanism",
+                "blue_inventory_loss",
+                "blue_pressure_loss"
+              ],
+              "fact": "blue_pressure_loss",
+              "necessity": "conditional",
+              "reason": "The selected fluid-loss analogue predicts inventory decline from an observed reference. Pressure can degrade as inventory/supply becomes insufficient; early retained pressure and subsequent restoration lag are allowed. No exact delay is assumed."
+            }
+          ],
+          "temporal_evidence": [
+            {
+              "relation": "inventory_before_pressure",
+              "status": "consistent",
+              "reason": "The observed inventory-loss bracket precedes the pressure-loss bracket; this supports the qualitative selected depletion path, not an exact physical delay.",
+              "model_reason": "For this selected depletion mechanism, observed inventory loss should not be definitely later than related pressure degradation. Overlapping/unknown onset intervals remain unresolved.",
+              "evidence": [
+                {
+                  "sample_index": 20,
+                  "sim_time_s": 627.075,
+                  "channel": "blue_quantity",
+                  "value": 7.466667,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002",
+                  "legacy_event_id": "E0002",
+                  "onset_sample_index": 19,
+                  "confirmation_sample_index": 20
+                },
+                {
+                  "sample_index": 50,
+                  "sim_time_s": 657.066667,
+                  "channel": "blue_pressure",
+                  "value": 2380.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                }
+              ]
+            }
+          ],
+          "missing_evidence": [
+            {
+              "candidate_ids": [
+                "independent_pair",
+                "grouped_joint_event"
+              ],
+              "available_measurements": [],
+              "available_discriminator": false,
+              "reason": "Both candidates have identical predicted effects and temporal rules across the selected observation model. No available modeled measurement can establish their initiating history."
+            }
+          ],
+          "alternative_candidate_ids": [
+            "grouped_joint_event"
+          ],
+          "alternative_explanations": [
+            {
+              "id": "grouped_joint_event",
+              "label": "One grouped event affecting both selected mechanisms",
+              "status": "compatible"
+            }
+          ],
+          "cause_identifiable": false,
+          "probabilities_computed": false
+        },
+        {
+          "id": "grouped_joint_event",
+          "label": "One grouped event affecting both selected mechanisms",
+          "kind": "conditional_shared_initiator",
+          "roots": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism"
+          ],
+          "status": "compatible",
+          "scope_note": "Conditional co-exposure hypothesis only. Native damage geometry, debris and common physical origin are unverified.",
+          "supporting_evidence": [
+            {
+              "fact": "generator_source_anomaly",
+              "expected": "observed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 19,
+                  "sim_time_s": 626.025,
+                  "channel": "generator_2_voltage",
+                  "value": 0.0,
+                  "unit": "V",
+                  "observed_status": "source_unavailable",
+                  "evidence_id": "E0001",
+                  "legacy_event_id": "E0001",
+                  "onset_sample_index": 18,
+                  "confirmation_sample_index": 19
+                },
+                {
+                  "sample_index": 70,
+                  "sim_time_s": 677.041667,
+                  "channel": "generator_2_voltage",
+                  "value": 0.0,
+                  "unit": "V",
+                  "observed_status": "source_unavailable",
+                  "evidence_id": "E0001"
+                }
+              ],
+              "dependency_paths": [
+                {
+                  "nodes": [
+                    "generator_2_source_path_fault",
+                    "generator_source_anomaly"
+                  ],
+                  "fact": "generator_source_anomaly",
+                  "necessity": "required",
+                  "reason": "The selected source-path mechanism predicts abnormal generator-2 output."
+                }
+              ],
+              "status": "supported",
+              "reason": "Usable observation agrees with the executable dependency prediction."
+            },
+            {
+              "fact": "blue_inventory_loss",
+              "expected": "observed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 20,
+                  "sim_time_s": 627.075,
+                  "channel": "blue_quantity",
+                  "value": 7.466667,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002",
+                  "legacy_event_id": "E0002",
+                  "onset_sample_index": 19,
+                  "confirmation_sample_index": 20
+                },
+                {
+                  "sample_index": 70,
+                  "sim_time_s": 677.083333,
+                  "channel": "blue_quantity",
+                  "value": 0.0,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002"
+                }
+              ],
+              "dependency_paths": [
+                {
+                  "nodes": [
+                    "blue_fluid_loss_mechanism",
+                    "blue_inventory_loss"
+                  ],
+                  "fact": "blue_inventory_loss",
+                  "necessity": "required",
+                  "reason": "The selected fluid-loss analogue predicts inventory decline from an observed reference."
+                }
+              ],
+              "status": "supported",
+              "reason": "Usable observation agrees with the executable dependency prediction."
+            },
+            {
+              "fact": "bus_supply_loss",
+              "expected": "allowed",
+              "observed_state": "not_observed",
+              "evidence": [
+                {
+                  "sample_index": 77,
+                  "sim_time_s": 683.658333,
+                  "channel": "ac_bus_2",
+                  "value": 115.000796,
+                  "unit": "V",
+                  "observed_status": "supply_retained",
+                  "evidence_id": null
+                }
+              ],
+              "dependency_paths": [
+                {
+                  "nodes": [
+                    "generator_2_source_path_fault",
+                    "generator_source_anomaly",
+                    "bus_supply_loss"
+                  ],
+                  "fact": "bus_supply_loss",
+                  "necessity": "conditional",
+                  "reason": "The selected source-path mechanism predicts abnormal generator-2 output. Downstream supply can be lost if alternate supply is unavailable; retained bus voltage is compatible and does not identify its supply route."
+                }
+              ],
+              "status": "consistent_conditional",
+              "reason": "This downstream effect is conditional; either retained or degraded output is compatible."
+            },
+            {
+              "fact": "blue_pressure_loss",
+              "expected": "allowed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 50,
+                  "sim_time_s": 657.066667,
+                  "channel": "blue_pressure",
+                  "value": 2380.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                },
+                {
+                  "sample_index": 75,
+                  "sim_time_s": 681.691667,
+                  "channel": "blue_pressure",
+                  "value": 2200.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                }
+              ],
+              "dependency_paths": [
+                {
+                  "nodes": [
+                    "blue_fluid_loss_mechanism",
+                    "blue_inventory_loss",
+                    "blue_pressure_loss"
+                  ],
+                  "fact": "blue_pressure_loss",
+                  "necessity": "conditional",
+                  "reason": "The selected fluid-loss analogue predicts inventory decline from an observed reference. Pressure can degrade as inventory/supply becomes insufficient; early retained pressure and subsequent restoration lag are allowed. No exact delay is assumed."
+                }
+              ],
+              "status": "consistent_conditional",
+              "reason": "This downstream effect is conditional; either retained or degraded output is compatible."
+            },
+            {
+              "relation": "inventory_before_pressure",
+              "status": "consistent",
+              "reason": "The observed inventory-loss bracket precedes the pressure-loss bracket; this supports the qualitative selected depletion path, not an exact physical delay.",
+              "model_reason": "For this selected depletion mechanism, observed inventory loss should not be definitely later than related pressure degradation. Overlapping/unknown onset intervals remain unresolved.",
+              "evidence": [
+                {
+                  "sample_index": 20,
+                  "sim_time_s": 627.075,
+                  "channel": "blue_quantity",
+                  "value": 7.466667,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002",
+                  "legacy_event_id": "E0002",
+                  "onset_sample_index": 19,
+                  "confirmation_sample_index": 20
+                },
+                {
+                  "sample_index": 50,
+                  "sim_time_s": 657.066667,
+                  "channel": "blue_pressure",
+                  "value": 2380.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                }
+              ]
+            }
+          ],
+          "contradicting_evidence": [],
+          "predicted_consequences": [
+            {
+              "fact": "generator_source_anomaly",
+              "expected": "observed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 19,
+                  "sim_time_s": 626.025,
+                  "channel": "generator_2_voltage",
+                  "value": 0.0,
+                  "unit": "V",
+                  "observed_status": "source_unavailable",
+                  "evidence_id": "E0001",
+                  "legacy_event_id": "E0001",
+                  "onset_sample_index": 18,
+                  "confirmation_sample_index": 19
+                },
+                {
+                  "sample_index": 70,
+                  "sim_time_s": 677.041667,
+                  "channel": "generator_2_voltage",
+                  "value": 0.0,
+                  "unit": "V",
+                  "observed_status": "source_unavailable",
+                  "evidence_id": "E0001"
+                }
+              ],
+              "dependency_paths": [
+                {
+                  "nodes": [
+                    "generator_2_source_path_fault",
+                    "generator_source_anomaly"
+                  ],
+                  "fact": "generator_source_anomaly",
+                  "necessity": "required",
+                  "reason": "The selected source-path mechanism predicts abnormal generator-2 output."
+                }
+              ],
+              "status": "supported",
+              "reason": "Usable observation agrees with the executable dependency prediction."
+            },
+            {
+              "fact": "blue_inventory_loss",
+              "expected": "observed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 20,
+                  "sim_time_s": 627.075,
+                  "channel": "blue_quantity",
+                  "value": 7.466667,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002",
+                  "legacy_event_id": "E0002",
+                  "onset_sample_index": 19,
+                  "confirmation_sample_index": 20
+                },
+                {
+                  "sample_index": 70,
+                  "sim_time_s": 677.083333,
+                  "channel": "blue_quantity",
+                  "value": 0.0,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002"
+                }
+              ],
+              "dependency_paths": [
+                {
+                  "nodes": [
+                    "blue_fluid_loss_mechanism",
+                    "blue_inventory_loss"
+                  ],
+                  "fact": "blue_inventory_loss",
+                  "necessity": "required",
+                  "reason": "The selected fluid-loss analogue predicts inventory decline from an observed reference."
+                }
+              ],
+              "status": "supported",
+              "reason": "Usable observation agrees with the executable dependency prediction."
+            },
+            {
+              "fact": "bus_supply_loss",
+              "expected": "allowed",
+              "observed_state": "not_observed",
+              "evidence": [
+                {
+                  "sample_index": 77,
+                  "sim_time_s": 683.658333,
+                  "channel": "ac_bus_2",
+                  "value": 115.000796,
+                  "unit": "V",
+                  "observed_status": "supply_retained",
+                  "evidence_id": null
+                }
+              ],
+              "dependency_paths": [
+                {
+                  "nodes": [
+                    "generator_2_source_path_fault",
+                    "generator_source_anomaly",
+                    "bus_supply_loss"
+                  ],
+                  "fact": "bus_supply_loss",
+                  "necessity": "conditional",
+                  "reason": "The selected source-path mechanism predicts abnormal generator-2 output. Downstream supply can be lost if alternate supply is unavailable; retained bus voltage is compatible and does not identify its supply route."
+                }
+              ],
+              "status": "consistent_conditional",
+              "reason": "This downstream effect is conditional; either retained or degraded output is compatible."
+            },
+            {
+              "fact": "blue_pressure_loss",
+              "expected": "allowed",
+              "observed_state": "observed",
+              "evidence": [
+                {
+                  "sample_index": 50,
+                  "sim_time_s": 657.066667,
+                  "channel": "blue_pressure",
+                  "value": 2380.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                },
+                {
+                  "sample_index": 75,
+                  "sim_time_s": 681.691667,
+                  "channel": "blue_pressure",
+                  "value": 2200.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                }
+              ],
+              "dependency_paths": [
+                {
+                  "nodes": [
+                    "blue_fluid_loss_mechanism",
+                    "blue_inventory_loss",
+                    "blue_pressure_loss"
+                  ],
+                  "fact": "blue_pressure_loss",
+                  "necessity": "conditional",
+                  "reason": "The selected fluid-loss analogue predicts inventory decline from an observed reference. Pressure can degrade as inventory/supply becomes insufficient; early retained pressure and subsequent restoration lag are allowed. No exact delay is assumed."
+                }
+              ],
+              "status": "consistent_conditional",
+              "reason": "This downstream effect is conditional; either retained or degraded output is compatible."
+            }
+          ],
+          "dependency_paths": [
+            {
+              "nodes": [
+                "generator_2_source_path_fault",
+                "generator_source_anomaly"
+              ],
+              "fact": "generator_source_anomaly",
+              "necessity": "required",
+              "reason": "The selected source-path mechanism predicts abnormal generator-2 output."
+            },
+            {
+              "nodes": [
+                "generator_2_source_path_fault",
+                "generator_source_anomaly",
+                "bus_supply_loss"
+              ],
+              "fact": "bus_supply_loss",
+              "necessity": "conditional",
+              "reason": "The selected source-path mechanism predicts abnormal generator-2 output. Downstream supply can be lost if alternate supply is unavailable; retained bus voltage is compatible and does not identify its supply route."
+            },
+            {
+              "nodes": [
+                "blue_fluid_loss_mechanism",
+                "blue_inventory_loss"
+              ],
+              "fact": "blue_inventory_loss",
+              "necessity": "required",
+              "reason": "The selected fluid-loss analogue predicts inventory decline from an observed reference."
+            },
+            {
+              "nodes": [
+                "blue_fluid_loss_mechanism",
+                "blue_inventory_loss",
+                "blue_pressure_loss"
+              ],
+              "fact": "blue_pressure_loss",
+              "necessity": "conditional",
+              "reason": "The selected fluid-loss analogue predicts inventory decline from an observed reference. Pressure can degrade as inventory/supply becomes insufficient; early retained pressure and subsequent restoration lag are allowed. No exact delay is assumed."
+            }
+          ],
+          "temporal_evidence": [
+            {
+              "relation": "inventory_before_pressure",
+              "status": "consistent",
+              "reason": "The observed inventory-loss bracket precedes the pressure-loss bracket; this supports the qualitative selected depletion path, not an exact physical delay.",
+              "model_reason": "For this selected depletion mechanism, observed inventory loss should not be definitely later than related pressure degradation. Overlapping/unknown onset intervals remain unresolved.",
+              "evidence": [
+                {
+                  "sample_index": 20,
+                  "sim_time_s": 627.075,
+                  "channel": "blue_quantity",
+                  "value": 7.466667,
+                  "unit": "raw model quantity",
+                  "observed_status": "inventory_loss_observed",
+                  "evidence_id": "E0002",
+                  "legacy_event_id": "E0002",
+                  "onset_sample_index": 19,
+                  "confirmation_sample_index": 20
+                },
+                {
+                  "sample_index": 50,
+                  "sim_time_s": 657.066667,
+                  "channel": "blue_pressure",
+                  "value": 2380.0,
+                  "unit": "psi",
+                  "observed_status": "pressure_degraded",
+                  "evidence_id": null
+                }
+              ]
+            }
+          ],
+          "missing_evidence": [
+            {
+              "candidate_ids": [
+                "independent_pair",
+                "grouped_joint_event"
+              ],
+              "available_measurements": [],
+              "available_discriminator": false,
+              "reason": "Both candidates have identical predicted effects and temporal rules across the selected observation model. No available modeled measurement can establish their initiating history."
+            }
+          ],
+          "alternative_candidate_ids": [
+            "independent_pair"
+          ],
+          "alternative_explanations": [
+            {
+              "id": "independent_pair",
+              "label": "Independent source-path and blue inventory-loss mechanisms",
+              "status": "compatible"
+            }
+          ],
+          "cause_identifiable": false,
+          "probabilities_computed": false
+        }
+      ],
+      "unique_candidate_within_catalogue": null,
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "data_sufficiency": {
+        "status": "sufficient",
+        "unknown_facts": [],
+        "scope": "Supplied selected incident/epoch facts; current observed impact is assessed separately."
+      },
+      "model_fit": {
+        "status": "fits",
+        "compatible_candidate_count": 2,
+        "plausible_candidate_count": 2
+      },
+      "ambiguity": {
+        "status": "ambiguous",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ],
+        "equivalent_joint_histories": true
+      },
+      "missing_evidence": [
+        {
+          "candidate_ids": [
+            "independent_pair",
+            "grouped_joint_event"
+          ],
+          "available_measurements": [],
+          "available_discriminator": false,
+          "reason": "Both candidates have identical predicted effects and temporal rules across the selected observation model. No available modeled measurement can establish their initiating history."
+        }
+      ],
+      "model_assumptions": [
+        "Predictions apply to the supplied selected incident/epoch, not all aircraft systems or unobserved prehistory.",
+        "Within this finite catalogue, an effect unreachable from a candidate's roots is not explained by that candidate; a usable contrary observation rejects it.",
+        "Required effect absence is evaluated as observed absence in the current feature scope; candidates are reevaluated as evidence evolves, not permanently eliminated.",
+        "Conditional edges allow both retained and degraded downstream output; missing measurements never count as contradiction.",
+        "The independent and grouped candidates have identical observable signatures and temporal rules. No prior, complexity preference or initiating-event count breaks their tie.",
+        "Detector thresholds belong to the reused evidence layer, not this hypothesis model; no native depletion rates or fixed delays are fitted here."
+      ],
+      "scope": {
+        "incident_id": "I0001",
+        "epoch": 0,
+        "start_sample_index": 18,
+        "end_sample_index": 77,
+        "closed": true,
+        "kind": "last_observed_incident",
+        "reference_sample_index": 17
+      },
+      "sample_index": 80,
+      "epoch": 0,
+      "sim_time_s": 686.583333
+    },
+    "evidence": {
+      "generator_source_anomaly": {
+        "state": "observed",
+        "evidence": [
+          {
+            "sample_index": 19,
+            "sim_time_s": 626.025,
+            "channel": "generator_2_voltage",
+            "value": 0.0,
+            "unit": "V",
+            "observed_status": "source_unavailable",
+            "evidence_id": "E0001",
+            "legacy_event_id": "E0001",
+            "onset_sample_index": 18,
+            "confirmation_sample_index": 19
+          },
+          {
+            "sample_index": 70,
+            "sim_time_s": 677.041667,
+            "channel": "generator_2_voltage",
+            "value": 0.0,
+            "unit": "V",
+            "observed_status": "source_unavailable",
+            "evidence_id": "E0001"
+          }
+        ],
+        "channels": [
+          "generator_2_voltage"
+        ],
+        "onset_interval": {
+          "lower_sim_time_s": 624.483333,
+          "upper_sim_time_s": 625.033333,
+          "lower_sample_index": 17,
+          "upper_sample_index": 18,
+          "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+        },
+        "reason": "A confirmed selected anomaly was observed within this incident/window. Later recovery or missingness does not erase it.",
+        "coverage": {
+          "samples": 61,
+          "usable_samples": 61,
+          "unavailable_sample_indices": [],
+          "pending_sample_indices": [
+            18
+          ],
+          "timestamp_gaps": [],
+          "measurement_coverage_complete": true,
+          "absence_complete": false,
+          "counts_are_not_independent_experiments": true
+        }
+      },
+      "blue_inventory_loss": {
+        "state": "observed",
+        "evidence": [
+          {
+            "sample_index": 20,
+            "sim_time_s": 627.075,
+            "channel": "blue_quantity",
+            "value": 7.466667,
+            "unit": "raw model quantity",
+            "observed_status": "inventory_loss_observed",
+            "evidence_id": "E0002",
+            "legacy_event_id": "E0002",
+            "onset_sample_index": 19,
+            "confirmation_sample_index": 20
+          },
+          {
+            "sample_index": 70,
+            "sim_time_s": 677.083333,
+            "channel": "blue_quantity",
+            "value": 0.0,
+            "unit": "raw model quantity",
+            "observed_status": "inventory_loss_observed",
+            "evidence_id": "E0002"
+          }
+        ],
+        "channels": [
+          "blue_quantity"
+        ],
+        "onset_interval": {
+          "lower_sim_time_s": 625.066667,
+          "upper_sim_time_s": 626.075,
+          "lower_sample_index": 18,
+          "upper_sample_index": 19,
+          "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+        },
+        "reason": "A confirmed selected anomaly was observed within this incident/window. Later recovery or missingness does not erase it.",
+        "coverage": {
+          "samples": 61,
+          "usable_samples": 61,
+          "unavailable_sample_indices": [],
+          "pending_sample_indices": [
+            19
+          ],
+          "timestamp_gaps": [],
+          "measurement_coverage_complete": true,
+          "absence_complete": false,
+          "counts_are_not_independent_experiments": true
+        }
+      },
+      "bus_supply_loss": {
+        "state": "not_observed",
+        "evidence": [
+          {
+            "sample_index": 77,
+            "sim_time_s": 683.658333,
+            "channel": "ac_bus_2",
+            "value": 115.000796,
+            "unit": "V",
+            "observed_status": "supply_retained",
+            "evidence_id": null
+          }
+        ],
+        "channels": [
+          "ac_bus_2"
+        ],
+        "onset_interval": null,
+        "reason": "No selected anomaly was observed across the progressing covered window; this is not whole-aircraft health.",
+        "coverage": {
+          "samples": 61,
+          "usable_samples": 61,
+          "unavailable_sample_indices": [],
+          "pending_sample_indices": [],
+          "timestamp_gaps": [],
+          "measurement_coverage_complete": true,
+          "absence_complete": true,
+          "counts_are_not_independent_experiments": true
+        }
+      },
+      "blue_pressure_loss": {
+        "state": "observed",
+        "evidence": [
+          {
+            "sample_index": 50,
+            "sim_time_s": 657.066667,
+            "channel": "blue_pressure",
+            "value": 2380.0,
+            "unit": "psi",
+            "observed_status": "pressure_degraded",
+            "evidence_id": null
+          },
+          {
+            "sample_index": 75,
+            "sim_time_s": 681.691667,
+            "channel": "blue_pressure",
+            "value": 2200.0,
+            "unit": "psi",
+            "observed_status": "pressure_degraded",
+            "evidence_id": null
+          }
+        ],
+        "channels": [
+          "blue_pressure"
+        ],
+        "onset_interval": {
+          "lower_sim_time_s": 656.075,
+          "upper_sim_time_s": 657.066667,
+          "lower_sample_index": 49,
+          "upper_sample_index": 50,
+          "semantics": "Last observed non-anomalous to first observed qualifying change, not exact physical failure onset."
+        },
+        "reason": "A confirmed selected anomaly was observed within this incident/window. Later recovery or missingness does not erase it.",
+        "coverage": {
+          "samples": 61,
+          "usable_samples": 61,
+          "unavailable_sample_indices": [],
+          "pending_sample_indices": [],
+          "timestamp_gaps": [],
+          "measurement_coverage_complete": true,
+          "absence_complete": true,
+          "counts_are_not_independent_experiments": true
+        }
+      }
+    },
+    "temporal_relations": {
+      "inventory_before_pressure": {
+        "status": "consistent",
+        "evidence": [
+          {
+            "sample_index": 20,
+            "sim_time_s": 627.075,
+            "channel": "blue_quantity",
+            "value": 7.466667,
+            "unit": "raw model quantity",
+            "observed_status": "inventory_loss_observed",
+            "evidence_id": "E0002",
+            "legacy_event_id": "E0002",
+            "onset_sample_index": 19,
+            "confirmation_sample_index": 20
+          },
+          {
+            "sample_index": 50,
+            "sim_time_s": 657.066667,
+            "channel": "blue_pressure",
+            "value": 2380.0,
+            "unit": "psi",
+            "observed_status": "pressure_degraded",
+            "evidence_id": null
+          }
+        ],
+        "reason": "The observed inventory-loss bracket precedes the pressure-loss bracket; this supports the qualitative selected depletion path, not an exact physical delay."
+      }
+    },
+    "current_impact": [],
+    "observed_impact": [
+      {
+        "fact_id": "generator_source_anomaly",
+        "system": "electrical",
+        "observation": "Generator-2 source-output degradation was observed in this incident.",
+        "remaining_capability": "Bus observations are separate; source loss does not establish total downstream supply loss.",
+        "scope": "incident_or_selected_window_history",
+        "evidence": [
+          {
+            "sample_index": 19,
+            "sim_time_s": 626.025,
+            "channel": "generator_2_voltage",
+            "value": 0.0,
+            "unit": "V",
+            "observed_status": "source_unavailable",
+            "evidence_id": "E0001",
+            "legacy_event_id": "E0001",
+            "onset_sample_index": 18,
+            "confirmation_sample_index": 19
+          },
+          {
+            "sample_index": 70,
+            "sim_time_s": 677.041667,
+            "channel": "generator_2_voltage",
+            "value": 0.0,
+            "unit": "V",
+            "observed_status": "source_unavailable",
+            "evidence_id": "E0001"
+          }
+        ]
+      },
+      {
+        "fact_id": "blue_inventory_loss",
+        "system": "hydraulic",
+        "observation": "Blue inventory depletion was observed in this incident.",
+        "remaining_capability": "Raw inventory units and actuator capability remain unresolved; pressure is assessed separately.",
+        "scope": "incident_or_selected_window_history",
+        "evidence": [
+          {
+            "sample_index": 20,
+            "sim_time_s": 627.075,
+            "channel": "blue_quantity",
+            "value": 7.466667,
+            "unit": "raw model quantity",
+            "observed_status": "inventory_loss_observed",
+            "evidence_id": "E0002",
+            "legacy_event_id": "E0002",
+            "onset_sample_index": 19,
+            "confirmation_sample_index": 20
+          },
+          {
+            "sample_index": 70,
+            "sim_time_s": 677.083333,
+            "channel": "blue_quantity",
+            "value": 0.0,
+            "unit": "raw model quantity",
+            "observed_status": "inventory_loss_observed",
+            "evidence_id": "E0002"
+          }
+        ]
+      },
+      {
+        "fact_id": "blue_pressure_loss",
+        "system": "hydraulic",
+        "observation": "Blue pressure degradation was observed in this incident.",
+        "remaining_capability": "Pressure degradation does not establish total controllability or manual-control force.",
+        "scope": "incident_or_selected_window_history",
+        "evidence": [
+          {
+            "sample_index": 50,
+            "sim_time_s": 657.066667,
+            "channel": "blue_pressure",
+            "value": 2380.0,
+            "unit": "psi",
+            "observed_status": "pressure_degraded",
+            "evidence_id": null
+          },
+          {
+            "sample_index": 75,
+            "sim_time_s": 681.691667,
+            "channel": "blue_pressure",
+            "value": 2200.0,
+            "unit": "psi",
+            "observed_status": "pressure_degraded",
+            "evidence_id": null
+          }
+        ]
+      }
+    ],
+    "current_quality": {
+      "sample_index": 80,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "model": {
+      "schema_version": 1,
+      "model_id": "aerotrace-two-mechanism-compatibility-v1",
+      "method": "dependency_predictions_and_optional_temporal_consistency",
+      "provenance": {
+        "implementation": "aircraft_debugger/hypotheses.py",
+        "mechanism_mapping": "docs/A320-MECHANISM-MAP.md",
+        "observability": "docs/OBSERVABILITY.md",
+        "classification": "Project-authored finite compatibility model; no external physical validation or probability calibration"
+      },
+      "roots": [
+        "generator_2_source_path_fault",
+        "blue_fluid_loss_mechanism"
+      ],
+      "facts": {
+        "generator_source_anomaly": {
+          "label": "Generator 2 source-output anomaly",
+          "channels": [
+            "generator_2_voltage"
+          ]
+        },
+        "blue_inventory_loss": {
+          "label": "Blue inventory loss relative to an observed reference",
+          "channels": [
+            "blue_quantity"
+          ]
+        },
+        "bus_supply_loss": {
+          "label": "Monitored bus-2 supply loss/degradation",
+          "channels": [
+            "ac_bus_2"
+          ]
+        },
+        "blue_pressure_loss": {
+          "label": "Blue pressure below the selected retained range",
+          "channels": [
+            "blue_pressure"
+          ]
+        }
+      },
+      "nodes": [
+        {
+          "id": "generator_2_source_path_fault",
+          "kind": "hypothesized_mechanism"
+        },
+        {
+          "id": "blue_fluid_loss_mechanism",
+          "kind": "hypothesized_mechanism"
+        },
+        {
+          "id": "generator_source_anomaly",
+          "kind": "observable_effect"
+        },
+        {
+          "id": "blue_inventory_loss",
+          "kind": "observable_effect"
+        },
+        {
+          "id": "bus_supply_loss",
+          "kind": "observable_effect"
+        },
+        {
+          "id": "blue_pressure_loss",
+          "kind": "observable_effect"
+        }
+      ],
+      "edges": [
+        {
+          "from": "generator_2_source_path_fault",
+          "to": "generator_source_anomaly",
+          "necessity": "required",
+          "reason": "The selected source-path mechanism predicts abnormal generator-2 output."
+        },
+        {
+          "from": "generator_source_anomaly",
+          "to": "bus_supply_loss",
+          "necessity": "conditional",
+          "reason": "Downstream supply can be lost if alternate supply is unavailable; retained bus voltage is compatible and does not identify its supply route."
+        },
+        {
+          "from": "blue_fluid_loss_mechanism",
+          "to": "blue_inventory_loss",
+          "necessity": "required",
+          "reason": "The selected fluid-loss analogue predicts inventory decline from an observed reference."
+        },
+        {
+          "from": "blue_inventory_loss",
+          "to": "blue_pressure_loss",
+          "necessity": "conditional",
+          "reason": "Pressure can degrade as inventory/supply becomes insufficient; early retained pressure and subsequent restoration lag are allowed. No exact delay is assumed."
+        }
+      ],
+      "candidates": [
+        {
+          "id": "selected_reference",
+          "label": "No selected mechanism currently required",
+          "roots": [],
+          "kind": "reference",
+          "scope_note": "Selected-observation reference, not whole-aircraft health."
+        },
+        {
+          "id": "generator_2_source_path_fault",
+          "label": "Generator 2 source-path fault",
+          "roots": [
+            "generator_2_source_path_fault"
+          ],
+          "kind": "single_mechanism",
+          "scope_note": "One compatible source-path mechanism does not identify a generator component, engine/drive fault, switching state or repair."
+        },
+        {
+          "id": "blue_inventory_loss",
+          "label": "Blue fluid-inventory-loss analogue",
+          "roots": [
+            "blue_fluid_loss_mechanism"
+          ],
+          "kind": "single_mechanism",
+          "scope_note": "A supported fluid-loss analogue, not unique identification of an external leak or validated lost volume."
+        },
+        {
+          "id": "independent_pair",
+          "label": "Independent source-path and blue inventory-loss mechanisms",
+          "roots": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism"
+          ],
+          "kind": "multiple_initiators",
+          "scope_note": "Independent initiating mechanisms are a candidate history; component-command recipes do not establish statistical independence."
+        },
+        {
+          "id": "grouped_joint_event",
+          "label": "One grouped event affecting both selected mechanisms",
+          "roots": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism"
+          ],
+          "kind": "conditional_shared_initiator",
+          "scope_note": "Conditional co-exposure hypothesis only. Native damage geometry, debris and common physical origin are unverified."
+        }
+      ],
+      "temporal_constraints": [
+        {
+          "id": "inventory_before_pressure",
+          "root": "blue_fluid_loss_mechanism",
+          "reason": "For this selected depletion mechanism, observed inventory loss should not be definitely later than related pressure degradation. Overlapping/unknown onset intervals remain unresolved."
+        }
+      ],
+      "assumptions": [
+        "Predictions apply to the supplied selected incident/epoch, not all aircraft systems or unobserved prehistory.",
+        "Within this finite catalogue, an effect unreachable from a candidate's roots is not explained by that candidate; a usable contrary observation rejects it.",
+        "Required effect absence is evaluated as observed absence in the current feature scope; candidates are reevaluated as evidence evolves, not permanently eliminated.",
+        "Conditional edges allow both retained and degraded downstream output; missing measurements never count as contradiction.",
+        "The independent and grouped candidates have identical observable signatures and temporal rules. No prior, complexity preference or initiating-event count breaks their tie.",
+        "Detector thresholds belong to the reused evidence layer, not this hypothesis model; no native depletion rates or fixed delays are fitted here."
+      ]
+    },
+    "timeline": [
+      {
+        "sample_index": 0,
+        "sim_time_s": 607.408333,
+        "status": "insufficient_observations",
+        "candidate_ids": []
+      },
+      {
+        "sample_index": 1,
+        "sim_time_s": 608.4,
+        "status": "no_selected_anomaly",
+        "candidate_ids": [
+          "selected_reference"
+        ]
+      },
+      {
+        "sample_index": 2,
+        "sim_time_s": 609.408333,
+        "status": "no_selected_anomaly",
+        "candidate_ids": [
+          "selected_reference"
+        ]
+      },
+      {
+        "sample_index": 3,
+        "sim_time_s": 610.433333,
+        "status": "no_selected_anomaly",
+        "candidate_ids": [
+          "selected_reference"
+        ]
+      },
+      {
+        "sample_index": 4,
+        "sim_time_s": 611.416667,
+        "status": "no_selected_anomaly",
+        "candidate_ids": [
+          "selected_reference"
+        ]
+      },
+      {
+        "sample_index": 5,
+        "sim_time_s": 612.416667,
+        "status": "no_selected_anomaly",
+        "candidate_ids": [
+          "selected_reference"
+        ]
+      },
+      {
+        "sample_index": 6,
+        "sim_time_s": 613.416667,
+        "status": "no_selected_anomaly",
+        "candidate_ids": [
+          "selected_reference"
+        ]
+      },
+      {
+        "sample_index": 7,
+        "sim_time_s": 614.416667,
+        "status": "no_selected_anomaly",
+        "candidate_ids": [
+          "selected_reference"
+        ]
+      },
+      {
+        "sample_index": 8,
+        "sim_time_s": 615.408333,
+        "status": "no_selected_anomaly",
+        "candidate_ids": [
+          "selected_reference"
+        ]
+      },
+      {
+        "sample_index": 9,
+        "sim_time_s": 616.416667,
+        "status": "no_selected_anomaly",
+        "candidate_ids": [
+          "selected_reference"
+        ]
+      },
+      {
+        "sample_index": 10,
+        "sim_time_s": 617.408333,
+        "status": "no_selected_anomaly",
+        "candidate_ids": [
+          "selected_reference"
+        ]
+      },
+      {
+        "sample_index": 11,
+        "sim_time_s": 618.408333,
+        "status": "no_selected_anomaly",
+        "candidate_ids": [
+          "selected_reference"
+        ]
+      },
+      {
+        "sample_index": 12,
+        "sim_time_s": 619.408333,
+        "status": "no_selected_anomaly",
+        "candidate_ids": [
+          "selected_reference"
+        ]
+      },
+      {
+        "sample_index": 13,
+        "sim_time_s": 620.416667,
+        "status": "no_selected_anomaly",
+        "candidate_ids": [
+          "selected_reference"
+        ]
+      },
+      {
+        "sample_index": 14,
+        "sim_time_s": 621.416667,
+        "status": "no_selected_anomaly",
+        "candidate_ids": [
+          "selected_reference"
+        ]
+      },
+      {
+        "sample_index": 15,
+        "sim_time_s": 622.416667,
+        "status": "no_selected_anomaly",
+        "candidate_ids": [
+          "selected_reference"
+        ]
+      },
+      {
+        "sample_index": 16,
+        "sim_time_s": 623.425,
+        "status": "no_selected_anomaly",
+        "candidate_ids": [
+          "selected_reference"
+        ]
+      },
+      {
+        "sample_index": 17,
+        "sim_time_s": 624.416667,
+        "status": "no_selected_anomaly",
+        "candidate_ids": [
+          "selected_reference"
+        ]
+      },
+      {
+        "sample_index": 18,
+        "sim_time_s": 624.975,
+        "status": "insufficient_observations",
+        "candidate_ids": []
+      },
+      {
+        "sample_index": 19,
+        "sim_time_s": 625.966667,
+        "status": "insufficient_observations",
+        "candidate_ids": []
+      },
+      {
+        "sample_index": 20,
+        "sim_time_s": 626.958333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 21,
+        "sim_time_s": 627.966667,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 22,
+        "sim_time_s": 628.958333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 23,
+        "sim_time_s": 629.958333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 24,
+        "sim_time_s": 630.966667,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 25,
+        "sim_time_s": 631.966667,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 26,
+        "sim_time_s": 632.966667,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 27,
+        "sim_time_s": 633.966667,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 28,
+        "sim_time_s": 634.958333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 29,
+        "sim_time_s": 635.966667,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 30,
+        "sim_time_s": 636.966667,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 31,
+        "sim_time_s": 637.975,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 32,
+        "sim_time_s": 638.975,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 33,
+        "sim_time_s": 639.966667,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 34,
+        "sim_time_s": 640.966667,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 35,
+        "sim_time_s": 641.966667,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 36,
+        "sim_time_s": 642.966667,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 37,
+        "sim_time_s": 643.975,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 38,
+        "sim_time_s": 644.975,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 39,
+        "sim_time_s": 645.975,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 40,
+        "sim_time_s": 646.966667,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 41,
+        "sim_time_s": 647.975,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 42,
+        "sim_time_s": 648.975,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 43,
+        "sim_time_s": 649.983333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 44,
+        "sim_time_s": 650.975,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 45,
+        "sim_time_s": 651.975,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 46,
+        "sim_time_s": 652.991667,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 47,
+        "sim_time_s": 653.966667,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 48,
+        "sim_time_s": 654.975,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 49,
+        "sim_time_s": 655.983333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 50,
+        "sim_time_s": 656.975,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 51,
+        "sim_time_s": 657.983333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 52,
+        "sim_time_s": 658.991667,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 53,
+        "sim_time_s": 659.975,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 54,
+        "sim_time_s": 660.975,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 55,
+        "sim_time_s": 662.0,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 56,
+        "sim_time_s": 662.975,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 57,
+        "sim_time_s": 663.983333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 58,
+        "sim_time_s": 664.983333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 59,
+        "sim_time_s": 665.983333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 60,
+        "sim_time_s": 666.983333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 61,
+        "sim_time_s": 667.983333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 62,
+        "sim_time_s": 668.983333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 63,
+        "sim_time_s": 669.991667,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 64,
+        "sim_time_s": 670.983333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 65,
+        "sim_time_s": 671.983333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 66,
+        "sim_time_s": 672.983333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 67,
+        "sim_time_s": 673.983333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 68,
+        "sim_time_s": 674.983333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 69,
+        "sim_time_s": 675.983333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 70,
+        "sim_time_s": 676.983333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 71,
+        "sim_time_s": 677.583333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 72,
+        "sim_time_s": 678.583333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 73,
+        "sim_time_s": 679.575,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 74,
+        "sim_time_s": 680.583333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 75,
+        "sim_time_s": 681.583333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 76,
+        "sim_time_s": 682.575,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 77,
+        "sim_time_s": 683.583333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 78,
+        "sim_time_s": 684.575,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 79,
+        "sim_time_s": 685.575,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      },
+      {
+        "sample_index": 80,
+        "sim_time_s": 686.583333,
+        "status": "causal_ambiguity",
+        "candidate_ids": [
+          "independent_pair",
+          "grouped_joint_event"
+        ]
+      }
+    ],
+    "session": {
+      "record_count": 81,
+      "max_records": 1200,
+      "history_policy": "Retain every accepted public poll; stop inference at limit without truncation."
+    },
+    "availability": "ready",
+    "sample_index": 80,
+    "update_duration_s": 0.03827239997917786,
+    "wall_clock_stale": false
+  },
+  "read_only": true,
+  "source": "Exact public observations from the experiment recorder; no independent polling"
+}

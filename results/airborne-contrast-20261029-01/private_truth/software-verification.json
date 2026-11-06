@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-29 Asia/Calcutta",
+  "command": ".venv/Scripts/python.exe -B -m unittest discover -s tests -v",
+  "tests_passed": 111,
+  "duration_local_s": 7.608,
+  "test_log": "operator_setup/software-tests.log",
+  "sha256": "478a2587ff95866dc2180b2fc65b25841ee9ff13fe8d3cf48c3a9cb594949af9",
+  "code_commit": "f47e5d2ab00217ef12d5003f07e7e42edc8b7835",
+  "new_regressions": 6,
+  "limits": "Software correctness/regression checks, not additional native episodes or diagnostic accuracy measurements."
+}

@@ -1,0 +1,137 @@
+{
+  "readings": {
+    "startup": {
+      "path": "/systems/acconfig/autoconfig-running",
+      "value": false,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 67.691667,
+      "received_monotonic_s": 965406.4471294,
+      "reachable": true,
+      "unit": ""
+    },
+    "reason": {
+      "path": "/systems/acconfig/mismatch-reason",
+      "value": "XX",
+      "valid": true,
+      "error": null,
+      "sim_time_s": 67.741667,
+      "received_monotonic_s": 965406.5014621,
+      "reachable": true,
+      "unit": ""
+    },
+    "engine1": {
+      "path": "/engines/engine[0]/running",
+      "value": true,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 67.716667,
+      "received_monotonic_s": 965406.4705661,
+      "reachable": true,
+      "unit": ""
+    },
+    "engine2": {
+      "path": "/engines/engine[1]/running",
+      "value": true,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 67.666667,
+      "received_monotonic_s": 965406.4210064,
+      "reachable": true,
+      "unit": ""
+    },
+    "save_state": {
+      "path": "/options/system/save-state",
+      "value": 0.0,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 67.766667,
+      "received_monotonic_s": 965406.5298995,
+      "reachable": true,
+      "unit": ""
+    },
+    "fuel_lbs": {
+      "path": "/consumables/fuel/total-fuel-lbs",
+      "value": 11953.972837,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 67.8,
+      "received_monotonic_s": 965406.5562727,
+      "reachable": true,
+      "unit": ""
+    },
+    "speedbrake": {
+      "path": "/controls/flight/speedbrake",
+      "value": 0.0,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 67.825,
+      "received_monotonic_s": 965406.5857317,
+      "reachable": true,
+      "unit": ""
+    },
+    "parking": {
+      "path": "/controls/gear/brake-parking",
+      "value": 1.0,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 67.85,
+      "received_monotonic_s": 965406.6151567,
+      "reachable": true,
+      "unit": ""
+    },
+    "ground": {
+      "path": "/gear/gear[1]/wow",
+      "value": true,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 67.875,
+      "received_monotonic_s": 965406.6472939,
+      "reachable": true,
+      "unit": ""
+    },
+    "speed": {
+      "path": "/velocities/airspeed-kt",
+      "value": 2.989041,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 67.916667,
+      "received_monotonic_s": 965406.6715319,
+      "reachable": true,
+      "unit": ""
+    },
+    "heading": {
+      "path": "/orientation/heading-deg",
+      "value": 93.766273,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 67.941667,
+      "received_monotonic_s": 965406.7005532,
+      "reachable": true,
+      "unit": ""
+    },
+    "v_r": {
+      "path": "/FMGC/vr",
+      "value": null,
+      "valid": false,
+      "error": "missing_property",
+      "sim_time_s": null,
+      "received_monotonic_s": 965406.7225413,
+      "reachable": true,
+      "unit": ""
+    },
+    "v_2": {
+      "path": "/FMGC/v2",
+      "value": null,
+      "valid": false,
+      "error": "missing_property",
+      "sim_time_s": null,
+      "received_monotonic_s": 965406.7520892,
+      "reachable": true,
+      "unit": ""
+    }
+  },
+  "connected": true,
+  "complete": false,
+  "received_monotonic_s": 965406.7526917
+}

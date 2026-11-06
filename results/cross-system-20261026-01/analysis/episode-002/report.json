@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "method": "observation_only_compatibility_rules",
+  "sample_count": 13,
+  "thresholds": {
+    "generator_unavailable_below_v": 20.0,
+    "energized_reference_at_least_v": 100.0,
+    "bus_retained_at_least_v": 100.0,
+    "blue_pressure_retained_at_least_psi": 2500.0,
+    "blue_quantity_drop_raw": 0.5,
+    "blue_quantity_onset_drop_raw": 0.1,
+    "blue_quantity_recovery_tolerance_raw": 0.1,
+    "generator_confirmation_readings": 2,
+    "quantity_minimum_progressing_readings": 2,
+    "maximum_reading_age_local_s": 2.0
+  },
+  "threshold_provenance": "aircraft_debugger/evidence.py: project-specific illustrative detector choices",
+  "threshold_units": {
+    "v": "volts",
+    "psi": "pounds per square inch",
+    "raw": "unverified native quantity units",
+    "s": "seconds",
+    "readings": "count"
+  },
+  "ledger": [
+    {
+      "evidence_id": "E0001",
+      "kind": "generator_2_source_unavailable",
+      "epoch": 0,
+      "onset": {
+        "sample_index": 5,
+        "sim_time_s": 187.816667,
+        "received_monotonic_s": 797129.2704402
+      },
+      "confirmation": {
+        "sample_index": 6,
+        "sim_time_s": 188.825,
+        "received_monotonic_s": 797130.2814395
+      },
+      "channels": [
+        "generator_2_voltage"
+      ],
+      "details": "Low output persisted on two advancing readings after an observed energized reference; this is source-output evidence, not identification of a generator fault."
+    }
+  ],
+  "current_state": {
+    "generator_2": {
+      "status": "source_unavailable",
+      "value_v": 0.0,
+      "observed_at": {
+        "sample_index": 12,
+        "sim_time_s": 194.825,
+        "received_monotonic_s": 797136.282063
+      },
+      "energized_reference": {
+        "value_v": 115.0,
+        "observed_at": {
+          "sample_index": 0,
+          "sim_time_s": 182.608333,
+          "received_monotonic_s": 797124.0591661
+        }
+      },
+      "evidence_id": "E0001"
+    },
+    "ac_bus_2": {
+      "status": "supply_retained",
+      "value_v": 115.0,
+      "observed_at": {
+        "sample_index": 12,
+        "sim_time_s": 194.866667,
+        "received_monotonic_s": 797136.3228909
+      }
+    },
+    "blue_inventory": {
+      "status": "near_observed_reference",
+      "value_raw": 8.0,
+      "drop_from_reference_raw": 0.0,
+      "reference": {
+        "value_raw": 8.0,
+        "observed_at": {
+          "sample_index": 0,
+          "sim_time_s": 182.683333,
+          "received_monotonic_s": 797124.1382279
+        }
+      },
+      "observed_at": {
+        "sample_index": 12,
+        "sim_time_s": 194.908333,
+        "received_monotonic_s": 797136.3572809
+      },
+      "evidence_id": null
+    },
+    "blue_pressure": {
+      "status": "pressure_retained",
+      "value_psi": 3000.0,
+      "observed_at": {
+        "sample_index": 12,
+        "sim_time_s": 194.891667,
+        "received_monotonic_s": 797136.3404017
+      }
+    },
+    "data_quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 12,
+      "epoch": 0
+    }
+  },
+  "assessment": {
+    "category": "isolated_electrical_anomaly",
+    "cause_identifiable": false,
+    "probabilities_computed": false,
+    "complete_current_assessment": true
+  },
+  "explanations": [
+    {
+      "hypothesis": "electrical supply/source anomaly",
+      "compatibility": "compatible",
+      "supporting_evidence_ids": [
+        "E0001"
+      ],
+      "reason": "Output or bus voltage is abnormal relative to the detector choices. Engine stoppage, switching, supply configuration and component faults are not distinguished."
+    }
+  ],
+  "impact": [
+    {
+      "system": "electrical",
+      "observation": "Generator 2 source output unavailable; one observed source is lost.",
+      "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+    }
+  ],
+  "limitations": [
+    "Thresholds are illustrative native-model detector choices; provenance: aircraft_debugger/evidence.py. They are not physical laws or aircraft warning limits.",
+    "A stable or energized observed reference does not establish that the whole aircraft is healthy.",
+    "Internal simulator properties have not been validated as realistic aircraft sensors.",
+    "Readings are non-atomic. Simulator seconds and local monotonic seconds are distinct clocks and are never subtracted from each other.",
+    "Current means the final recorded sample, not a live assessment at the wall-clock time when this historical file is replayed.",
+    "Event onset means the first observed qualifying change, not the exact physical failure time; confirmation can occur later.",
+    "Closely timed electrical and hydraulic observations do not identify a shared initiating cause. Independent faults remain equally compatible.",
+    "The two multi-system explanations are a limited comparison, not an exhaustive set of causes. No evidence here establishes fire or an uncontained engine failure.",
+    "Retained bus voltage or hydraulic pressure does not establish full remaining capability, flightworthiness, or safe flight.",
+    "Upward hydraulic quantity changes can reflect the native model's automatic restoration. They do not prove repair or physical fluid recovery."
+  ]
+}

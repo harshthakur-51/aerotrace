@@ -1,0 +1,32 @@
+{
+  "generator_2": {
+    "path": "/systems/failures/electrical/gen-2",
+    "value": false,
+    "valid": true,
+    "error": null,
+    "sim_time_s": 135.741667,
+    "received_monotonic_s": 262606.2597027,
+    "reachable": true,
+    "unit": ""
+  },
+  "blue_leak": {
+    "path": "/systems/failures/hydraulic/blue-leak",
+    "value": false,
+    "valid": true,
+    "error": null,
+    "sim_time_s": 135.808333,
+    "received_monotonic_s": 262606.3174646,
+    "reachable": true,
+    "unit": ""
+  },
+  "runtime_version": {
+    "path": "/sim/version/flightgear",
+    "value": "2024.1.7",
+    "valid": true,
+    "error": null,
+    "sim_time_s": 135.866667,
+    "received_monotonic_s": 262606.374524,
+    "reachable": true,
+    "unit": ""
+  }
+}

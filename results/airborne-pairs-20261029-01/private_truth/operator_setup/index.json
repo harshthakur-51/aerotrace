@@ -1,0 +1,101 @@
+{
+  "scope": "Private common setup/control/software provenance, never diagnostic input. Episode-specific source/action/admission records remain in each episode.",
+  "authorization": "Owner requested next stage under standing native-operation handover. Each paired injection was announced. No D snapshot authorization.",
+  "operating_condition": "Fresh native ground startup and pilot/FCU takeoff/climb because previous cockpit process/listener absent. Selected indicated10000ft and speed250kt; achieved position near10171ft qualified separately in each episode.",
+  "recipe_limits": "Both private selectors issue the same generator2-then-blue ordered enables and reversed clears. They are separate matched command episodes in one continuing native flight, not distinct physical initiating mechanisms or independent statistical trials.",
+  "operator_parameters": "160kt rotation trigger and -0.18 normalized elevator are original simulator setup choices, not validated takeoff values/procedures. No computed-state/gauge overwrite or instant-cruise restore.",
+  "capture_limits": "Supporting exact helper/log snapshots, not a complete machine/input recorder. No native screenshot/Windows capture attempted; runtime log bytes captured at checkpoint. Prior cockpit termination cause was not investigated.",
+  "checkpoint_state": "After both recovered episodes: master/clock paused, both selected faults clear, native gear actuator readbacks0, AP1/autothrust engaged and autothrust active. Panel restored separately.",
+  "files": {
+    "declared-plan.json": {
+      "sha256": "e4a82a64f1bd05b874f177772587ac112772a545bcde7fcfcc71e4935eb6b03a",
+      "bytes": 3071,
+      "transform": "Exact captured bytes."
+    },
+    "ground-initialization.json": {
+      "sha256": "7fc11997ee7563cce86e0c90a23cffb5840986911a7c7177c26b733bc9d37d05",
+      "bytes": 8683,
+      "transform": "Exact captured bytes."
+    },
+    "startup-readiness.jsonl": {
+      "sha256": "3f04a52307160cd217106eb5a46d9e806f3526754ee6f3b9ae4f464c4067e3ec",
+      "bytes": 1324,
+      "transform": "Exact captured bytes."
+    },
+    "prepare_flight.py": {
+      "sha256": "731fe775bab2ad2c713753ad8be96475fcabfd2e5d385576e2983670c1309957",
+      "bytes": 4447,
+      "transform": "Exact captured bytes."
+    },
+    "flight-setup.jsonl": {
+      "sha256": "79d994f597b7f4e08e9a9f7739e83587f5cc81de05c88b38f689ccd06fd0b2eb",
+      "bytes": 183186,
+      "transform": "Exact captured bytes."
+    },
+    "wait_for_condition.py": {
+      "sha256": "e7609962a9a79243650b8b817ac55598e9618f55e17605e3682cccc31df0671d",
+      "bytes": 1351,
+      "transform": "Exact captured bytes."
+    },
+    "settling-watch.jsonl": {
+      "sha256": "ca90ad6363117effecec24d2ebca171691fc929640352d36257361fb7f0144df",
+      "bytes": 884258,
+      "transform": "Exact captured bytes."
+    },
+    "inspect_ready.py": {
+      "sha256": "813e662797ace9cd219ed3dabc9979fa63ebf973c43dd60f31e72e5de17e6fb3",
+      "bytes": 1692,
+      "transform": "Exact captured bytes."
+    },
+    "ready-inspection-grouped.json": {
+      "sha256": "f027ad41084ed93ddd2bda69f8bcab1b5254768115450b59fb028ca3b69346d3",
+      "bytes": 10097,
+      "transform": "Exact captured bytes."
+    },
+    "ready-inspection-matched.json": {
+      "sha256": "8d12a6cfca40dd264874806b09c2636f0a9342da8213156a35c8c07c578bdedd",
+      "bytes": 10111,
+      "transform": "Exact captured bytes."
+    },
+    "pause_checkpoint.py": {
+      "sha256": "c265eb595447638b0f237ebd6233ce12fd1aee08b13cfd2467a136824e90afbb",
+      "bytes": 1822,
+      "transform": "Exact captured bytes."
+    },
+    "checkpoint-pause.json": {
+      "sha256": "01f27f9c61edbf0193bbc2136a5b40d28c5d2a41858716d5ef2407d816308b32",
+      "bytes": 11021,
+      "transform": "Exact captured bytes."
+    },
+    "software-tests.log": {
+      "sha256": "6dc9cc17be9f5fa974af30dc116a3e2f0a0680968db49a466c408b3b2e30a96c",
+      "bytes": 49162,
+      "transform": "Exact captured bytes."
+    },
+    "cockpit.out.log": {
+      "sha256": "526e6665a41b6883e2d819a402b95300449c3b26621e1763f80b7c46fb023f77",
+      "bytes": 126,
+      "transform": "Exact captured bytes."
+    },
+    "cockpit.err.log": {
+      "sha256": "77073fd8c8750067156793082695859820a24a47e28113e413429e93f0e1a158",
+      "bytes": 235643,
+      "transform": "Exact captured bytes."
+    },
+    "native-source/Systems/a320-hydraulic.xml": {
+      "sha256": "28159f2e9dd7cc1736d6e8e19c33c366b7762a6febb354012fdb966d99418e47",
+      "bytes": 29039,
+      "transform": "Exact captured bytes."
+    },
+    "native-source/Nasal/Systems/hydraulics.nas": {
+      "sha256": "149dedf56bbacd9403a09fd87ffb8c20f775083946165d4084e775daa1ea0015",
+      "bytes": 11167,
+      "transform": "Exact captured bytes."
+    },
+    "native-source/Systems/a320-electrical.xml": {
+      "sha256": "84562f72cfed5bfb07e27042d740ec14e3b99a66cef4dbc165be4ec4c00f8d58",
+      "bytes": 86074,
+      "transform": "Exact captured bytes."
+    }
+  }
+}

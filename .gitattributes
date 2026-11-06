@@ -1,0 +1,16 @@
+* text=auto eol=lf
+*.csv -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.jsonl -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+*.png binary
+*.pdf binary
+
+# Windows command launchers require consistent checkout line endings.
+*.cmd text eol=crlf
+
+# Recording and executed-source hashes require exact artifact bytes in checkouts.
+results/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+# Native/operator captures retain upstream whitespace as evidence.
+results/**/private_truth/operator_setup/** -whitespace
+results/**/private_truth/flight-*-operator/** -whitespace
+results/**/executed-helper.py -whitespace
+results/native-live-connection-20261103-01/private_truth/flightgear.out.log -whitespace

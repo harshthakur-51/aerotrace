@@ -1,0 +1,80 @@
+{
+  "run_id": "prospective-A-002",
+  "flight_group": "prospective-flight-20261103-A",
+  "profile": "source_path",
+  "native_case": "isolated_generator_2",
+  "protocol_sha256": "b6f6f9b178befd343b7a4dc88de99ab130e9e8a1488898585bbff075567619b9",
+  "source_hash_check": true,
+  "role": "held out for sealed bounded-profile pilot; not real-aircraft cause accuracy",
+  "collection_completed": true,
+  "scoring": {
+    "schema_version": 1,
+    "run_id": "prospective-A-002",
+    "flight_group": "prospective-flight-20261103-A",
+    "data_role": "final",
+    "protocol_sha256": "b6f6f9b178befd343b7a4dc88de99ab130e9e8a1488898585bbff075567619b9",
+    "observation_sha256": "48029a11e9f6252ac410c2bd3c4da21d2d71e202dfaf872af090fee114653b86",
+    "profile": "source_path",
+    "expected_compatible_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "observed_compatible_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "plausible_ids": [
+      "generator_2_source_path_fault"
+    ],
+    "diagnosis_status": "single_compatible_candidate",
+    "data_sufficiency": {
+      "status": "sufficient",
+      "unknown_facts": [],
+      "scope": "Supplied selected incident/epoch facts; current observed impact is assessed separately."
+    },
+    "model_fit": {
+      "status": "fits",
+      "compatible_candidate_count": 1,
+      "plausible_candidate_count": 1
+    },
+    "exact_bounded_profile_match": true,
+    "assessment": "matched_bounded_profile",
+    "expected_ids_not_compatible": [],
+    "extra_compatible_ids": [],
+    "current_impact": [],
+    "incident_impact": [
+      {
+        "fact_id": "generator_source_anomaly",
+        "system": "electrical",
+        "observation": "Generator-2 source-output degradation was observed in this incident.",
+        "remaining_capability": "Bus observations are separate; source loss does not establish total downstream supply loss.",
+        "scope": "incident_or_selected_window_history",
+        "evidence": [
+          {
+            "sample_index": 18,
+            "sim_time_s": 369.208333,
+            "channel": "generator_2_voltage",
+            "value": 0.0,
+            "unit": "V",
+            "observed_status": "source_unavailable",
+            "evidence_id": "E0001",
+            "legacy_event_id": "E0001",
+            "onset_sample_index": 17,
+            "confirmation_sample_index": 18
+          },
+          {
+            "sample_index": 25,
+            "sim_time_s": 376.216667,
+            "channel": "generator_2_voltage",
+            "value": 0.0,
+            "unit": "V",
+            "observed_status": "source_unavailable",
+            "evidence_id": "E0001"
+          }
+        ]
+      }
+    ],
+    "sample_count": 33,
+    "physical_cause_accuracy_measured": false,
+    "independent_trials_claimed": false,
+    "target_semantics": "Expected compatible configurations within the declared model, not unique physical cause ground truth"
+  }
+}

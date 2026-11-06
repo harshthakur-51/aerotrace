@@ -1,0 +1,3340 @@
+[
+  {
+    "sample_index": 0,
+    "sim_time_s": 383.325,
+    "assessment": {
+      "category": "insufficient_current_evidence",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": false,
+      "selected_system_assessment_complete": false,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "energized_output_observed",
+        "value_v": 115.000107,
+        "observed_at": {
+          "sample_index": 0,
+          "sim_time_s": 383.433333,
+          "received_monotonic_s": 966491.9259002
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.000107,
+        "observed_at": {
+          "sample_index": 0,
+          "sim_time_s": 383.45,
+          "received_monotonic_s": 966491.9552195
+        }
+      },
+      "blue_inventory": {
+        "status": "reference_pending",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 0,
+          "sim_time_s": 383.483333,
+          "received_monotonic_s": 966491.9781998
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 0,
+          "sim_time_s": 383.475,
+          "received_monotonic_s": 966491.9690343
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 0,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "cause unresolved",
+        "compatibility": "insufficient_evidence",
+        "supporting_evidence_ids": [],
+        "reason": "Missing, unconfirmed, paused, frozen, stale or discontinuous observations prevent a current selected-system assessment."
+      }
+    ],
+    "impact": [],
+    "current_context_quality": {
+      "sample_index": 0,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": []
+  },
+  {
+    "sample_index": 1,
+    "sim_time_s": 384.341667,
+    "assessment": {
+      "category": "no_fault_observed",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "energized_output_observed",
+        "value_v": 115.000084,
+        "observed_at": {
+          "sample_index": 1,
+          "sim_time_s": 384.433333,
+          "received_monotonic_s": 966492.9317491
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.000084,
+        "observed_at": {
+          "sample_index": 1,
+          "sim_time_s": 384.458333,
+          "received_monotonic_s": 966492.9514823
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 1,
+          "sim_time_s": 384.475,
+          "received_monotonic_s": 966492.9716453
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 1,
+          "sim_time_s": 384.466667,
+          "received_monotonic_s": 966492.9615284
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 1,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "no selected anomaly currently observed",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [],
+        "reason": "The selected channels are currently near their references. This is not a whole-aircraft health claim."
+      }
+    ],
+    "impact": [],
+    "current_context_quality": {
+      "sample_index": 1,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": []
+  },
+  {
+    "sample_index": 2,
+    "sim_time_s": 385.333333,
+    "assessment": {
+      "category": "no_fault_observed",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "energized_output_observed",
+        "value_v": 115.000072,
+        "observed_at": {
+          "sample_index": 2,
+          "sim_time_s": 385.416667,
+          "received_monotonic_s": 966493.9199358
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.000072,
+        "observed_at": {
+          "sample_index": 2,
+          "sim_time_s": 385.45,
+          "received_monotonic_s": 966493.9409155
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 2,
+          "sim_time_s": 385.475,
+          "received_monotonic_s": 966493.9731167
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 2,
+          "sim_time_s": 385.458333,
+          "received_monotonic_s": 966493.9537754
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 2,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "no selected anomaly currently observed",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [],
+        "reason": "The selected channels are currently near their references. This is not a whole-aircraft health claim."
+      }
+    ],
+    "impact": [],
+    "current_context_quality": {
+      "sample_index": 2,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": []
+  },
+  {
+    "sample_index": 3,
+    "sim_time_s": 386.341667,
+    "assessment": {
+      "category": "no_fault_observed",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "energized_output_observed",
+        "value_v": 115.000067,
+        "observed_at": {
+          "sample_index": 3,
+          "sim_time_s": 386.425,
+          "received_monotonic_s": 966494.9217124
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.000067,
+        "observed_at": {
+          "sample_index": 3,
+          "sim_time_s": 386.45,
+          "received_monotonic_s": 966494.9512919
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 3,
+          "sim_time_s": 386.475,
+          "received_monotonic_s": 966494.9717946
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 3,
+          "sim_time_s": 386.466667,
+          "received_monotonic_s": 966494.9615182
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 3,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "no selected anomaly currently observed",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [],
+        "reason": "The selected channels are currently near their references. This is not a whole-aircraft health claim."
+      }
+    ],
+    "impact": [],
+    "current_context_quality": {
+      "sample_index": 3,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": []
+  },
+  {
+    "sample_index": 4,
+    "sim_time_s": 387.341667,
+    "assessment": {
+      "category": "no_fault_observed",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "energized_output_observed",
+        "value_v": 115.000064,
+        "observed_at": {
+          "sample_index": 4,
+          "sim_time_s": 387.425,
+          "received_monotonic_s": 966495.9202406
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.000064,
+        "observed_at": {
+          "sample_index": 4,
+          "sim_time_s": 387.45,
+          "received_monotonic_s": 966495.9414115
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 4,
+          "sim_time_s": 387.475,
+          "received_monotonic_s": 966495.9686703
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 4,
+          "sim_time_s": 387.458333,
+          "received_monotonic_s": 966495.9582315
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 4,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "no selected anomaly currently observed",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [],
+        "reason": "The selected channels are currently near their references. This is not a whole-aircraft health claim."
+      }
+    ],
+    "impact": [],
+    "current_context_quality": {
+      "sample_index": 4,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": []
+  },
+  {
+    "sample_index": 5,
+    "sim_time_s": 388.366667,
+    "assessment": {
+      "category": "no_fault_observed",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "energized_output_observed",
+        "value_v": 115.000063,
+        "observed_at": {
+          "sample_index": 5,
+          "sim_time_s": 388.433333,
+          "received_monotonic_s": 966496.9355275
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.000063,
+        "observed_at": {
+          "sample_index": 5,
+          "sim_time_s": 388.458333,
+          "received_monotonic_s": 966496.9539384
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 5,
+          "sim_time_s": 388.483333,
+          "received_monotonic_s": 966496.9899801
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 5,
+          "sim_time_s": 388.475,
+          "received_monotonic_s": 966496.9704204
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 5,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "no selected anomaly currently observed",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [],
+        "reason": "The selected channels are currently near their references. This is not a whole-aircraft health claim."
+      }
+    ],
+    "impact": [],
+    "current_context_quality": {
+      "sample_index": 5,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": []
+  },
+  {
+    "sample_index": 6,
+    "sim_time_s": 389.35,
+    "assessment": {
+      "category": "no_fault_observed",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "energized_output_observed",
+        "value_v": 114.998998,
+        "observed_at": {
+          "sample_index": 6,
+          "sim_time_s": 389.466667,
+          "received_monotonic_s": 966497.9680448
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 114.998957,
+        "observed_at": {
+          "sample_index": 6,
+          "sim_time_s": 389.5,
+          "received_monotonic_s": 966497.9906696
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 6,
+          "sim_time_s": 389.516667,
+          "received_monotonic_s": 966498.0256487
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 6,
+          "sim_time_s": 389.508333,
+          "received_monotonic_s": 966498.001386
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 6,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "no selected anomaly currently observed",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [],
+        "reason": "The selected channels are currently near their references. This is not a whole-aircraft health claim."
+      }
+    ],
+    "impact": [],
+    "current_context_quality": {
+      "sample_index": 6,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": []
+  },
+  {
+    "sample_index": 7,
+    "sim_time_s": 390.366667,
+    "assessment": {
+      "category": "no_fault_observed",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "energized_output_observed",
+        "value_v": 114.999093,
+        "observed_at": {
+          "sample_index": 7,
+          "sim_time_s": 390.441667,
+          "received_monotonic_s": 966498.9422165
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 114.999093,
+        "observed_at": {
+          "sample_index": 7,
+          "sim_time_s": 390.466667,
+          "received_monotonic_s": 966498.9625732
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 7,
+          "sim_time_s": 390.491667,
+          "received_monotonic_s": 966498.9950923
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 7,
+          "sim_time_s": 390.483333,
+          "received_monotonic_s": 966498.9762829
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 7,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "no selected anomaly currently observed",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [],
+        "reason": "The selected channels are currently near their references. This is not a whole-aircraft health claim."
+      }
+    ],
+    "impact": [],
+    "current_context_quality": {
+      "sample_index": 7,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": []
+  },
+  {
+    "sample_index": 8,
+    "sim_time_s": 391.358333,
+    "assessment": {
+      "category": "no_fault_observed",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "energized_output_observed",
+        "value_v": 115.000031,
+        "observed_at": {
+          "sample_index": 8,
+          "sim_time_s": 391.441667,
+          "received_monotonic_s": 966499.9364983
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.000031,
+        "observed_at": {
+          "sample_index": 8,
+          "sim_time_s": 391.466667,
+          "received_monotonic_s": 966499.960416
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 8,
+          "sim_time_s": 391.5,
+          "received_monotonic_s": 966499.9928146
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 8,
+          "sim_time_s": 391.475,
+          "received_monotonic_s": 966499.9804117
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 8,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "no selected anomaly currently observed",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [],
+        "reason": "The selected channels are currently near their references. This is not a whole-aircraft health claim."
+      }
+    ],
+    "impact": [],
+    "current_context_quality": {
+      "sample_index": 8,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": []
+  },
+  {
+    "sample_index": 9,
+    "sim_time_s": 392.35,
+    "assessment": {
+      "category": "no_fault_observed",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "energized_output_observed",
+        "value_v": 115.000693,
+        "observed_at": {
+          "sample_index": 9,
+          "sim_time_s": 392.425,
+          "received_monotonic_s": 966500.9195099
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.000693,
+        "observed_at": {
+          "sample_index": 9,
+          "sim_time_s": 392.45,
+          "received_monotonic_s": 966500.9523125
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 9,
+          "sim_time_s": 392.483333,
+          "received_monotonic_s": 966500.9923043
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 9,
+          "sim_time_s": 392.466667,
+          "received_monotonic_s": 966500.9664192
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 9,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "no selected anomaly currently observed",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [],
+        "reason": "The selected channels are currently near their references. This is not a whole-aircraft health claim."
+      }
+    ],
+    "impact": [],
+    "current_context_quality": {
+      "sample_index": 9,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": []
+  },
+  {
+    "sample_index": 10,
+    "sim_time_s": 393.35,
+    "assessment": {
+      "category": "no_fault_observed",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "energized_output_observed",
+        "value_v": 115.000428,
+        "observed_at": {
+          "sample_index": 10,
+          "sim_time_s": 393.425,
+          "received_monotonic_s": 966501.9208799
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.000428,
+        "observed_at": {
+          "sample_index": 10,
+          "sim_time_s": 393.45,
+          "received_monotonic_s": 966501.9458271
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 10,
+          "sim_time_s": 393.483333,
+          "received_monotonic_s": 966501.9777234
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 10,
+          "sim_time_s": 393.466667,
+          "received_monotonic_s": 966501.9656446
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 10,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "no selected anomaly currently observed",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [],
+        "reason": "The selected channels are currently near their references. This is not a whole-aircraft health claim."
+      }
+    ],
+    "impact": [],
+    "current_context_quality": {
+      "sample_index": 10,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": []
+  },
+  {
+    "sample_index": 11,
+    "sim_time_s": 394.358333,
+    "assessment": {
+      "category": "no_fault_observed",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "energized_output_observed",
+        "value_v": 114.999537,
+        "observed_at": {
+          "sample_index": 11,
+          "sim_time_s": 394.433333,
+          "received_monotonic_s": 966502.9276854
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 114.999537,
+        "observed_at": {
+          "sample_index": 11,
+          "sim_time_s": 394.458333,
+          "received_monotonic_s": 966502.959789
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 11,
+          "sim_time_s": 394.491667,
+          "received_monotonic_s": 966502.983855
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 11,
+          "sim_time_s": 394.475,
+          "received_monotonic_s": 966502.9719421
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 11,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "no selected anomaly currently observed",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [],
+        "reason": "The selected channels are currently near their references. This is not a whole-aircraft health claim."
+      }
+    ],
+    "impact": [],
+    "current_context_quality": {
+      "sample_index": 11,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": []
+  },
+  {
+    "sample_index": 12,
+    "sim_time_s": 395.35,
+    "assessment": {
+      "category": "no_fault_observed",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "energized_output_observed",
+        "value_v": 115.00034,
+        "observed_at": {
+          "sample_index": 12,
+          "sim_time_s": 395.433333,
+          "received_monotonic_s": 966503.9286658
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.00034,
+        "observed_at": {
+          "sample_index": 12,
+          "sim_time_s": 395.45,
+          "received_monotonic_s": 966503.9445496
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 12,
+          "sim_time_s": 395.483333,
+          "received_monotonic_s": 966503.9917881
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 12,
+          "sim_time_s": 395.458333,
+          "received_monotonic_s": 966503.9705156
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 12,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "no selected anomaly currently observed",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [],
+        "reason": "The selected channels are currently near their references. This is not a whole-aircraft health claim."
+      }
+    ],
+    "impact": [],
+    "current_context_quality": {
+      "sample_index": 12,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": []
+  },
+  {
+    "sample_index": 13,
+    "sim_time_s": 396.366667,
+    "assessment": {
+      "category": "no_fault_observed",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "energized_output_observed",
+        "value_v": 115.000249,
+        "observed_at": {
+          "sample_index": 13,
+          "sim_time_s": 396.441667,
+          "received_monotonic_s": 966504.9461506
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.000241,
+        "observed_at": {
+          "sample_index": 13,
+          "sim_time_s": 396.475,
+          "received_monotonic_s": 966504.965379
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 13,
+          "sim_time_s": 396.491667,
+          "received_monotonic_s": 966504.9859967
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 13,
+          "sim_time_s": 396.483333,
+          "received_monotonic_s": 966504.9739022
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 13,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "no selected anomaly currently observed",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [],
+        "reason": "The selected channels are currently near their references. This is not a whole-aircraft health claim."
+      }
+    ],
+    "impact": [],
+    "current_context_quality": {
+      "sample_index": 13,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": []
+  },
+  {
+    "sample_index": 14,
+    "sim_time_s": 397.358333,
+    "assessment": {
+      "category": "no_fault_observed",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "energized_output_observed",
+        "value_v": 115.000156,
+        "observed_at": {
+          "sample_index": 14,
+          "sim_time_s": 397.441667,
+          "received_monotonic_s": 966505.9433032
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.000156,
+        "observed_at": {
+          "sample_index": 14,
+          "sim_time_s": 397.475,
+          "received_monotonic_s": 966505.9658356
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 14,
+          "sim_time_s": 397.491667,
+          "received_monotonic_s": 966505.9938476
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 14,
+          "sim_time_s": 397.483333,
+          "received_monotonic_s": 966505.9771737
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 14,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "no selected anomaly currently observed",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [],
+        "reason": "The selected channels are currently near their references. This is not a whole-aircraft health claim."
+      }
+    ],
+    "impact": [],
+    "current_context_quality": {
+      "sample_index": 14,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": []
+  },
+  {
+    "sample_index": 15,
+    "sim_time_s": 398.366667,
+    "assessment": {
+      "category": "no_fault_observed",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "energized_output_observed",
+        "value_v": 115.000107,
+        "observed_at": {
+          "sample_index": 15,
+          "sim_time_s": 398.441667,
+          "received_monotonic_s": 966506.9365133
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.000107,
+        "observed_at": {
+          "sample_index": 15,
+          "sim_time_s": 398.475,
+          "received_monotonic_s": 966506.9668167
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 15,
+          "sim_time_s": 398.491667,
+          "received_monotonic_s": 966506.9828364
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 15,
+          "sim_time_s": 398.483333,
+          "received_monotonic_s": 966506.9747424
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 15,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "no selected anomaly currently observed",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [],
+        "reason": "The selected channels are currently near their references. This is not a whole-aircraft health claim."
+      }
+    ],
+    "impact": [],
+    "current_context_quality": {
+      "sample_index": 15,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": []
+  },
+  {
+    "sample_index": 16,
+    "sim_time_s": 399.366667,
+    "assessment": {
+      "category": "no_fault_observed",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "energized_output_observed",
+        "value_v": 115.000083,
+        "observed_at": {
+          "sample_index": 16,
+          "sim_time_s": 399.433333,
+          "received_monotonic_s": 966507.9306046
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.000083,
+        "observed_at": {
+          "sample_index": 16,
+          "sim_time_s": 399.466667,
+          "received_monotonic_s": 966507.9666037
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 16,
+          "sim_time_s": 399.491667,
+          "received_monotonic_s": 966507.9885131
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 16,
+          "sim_time_s": 399.483333,
+          "received_monotonic_s": 966507.9772768
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 16,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "no selected anomaly currently observed",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [],
+        "reason": "The selected channels are currently near their references. This is not a whole-aircraft health claim."
+      }
+    ],
+    "impact": [],
+    "current_context_quality": {
+      "sample_index": 16,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": []
+  },
+  {
+    "sample_index": 17,
+    "sim_time_s": 400.366667,
+    "assessment": {
+      "category": "no_fault_observed",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "energized_output_observed",
+        "value_v": 115.000072,
+        "observed_at": {
+          "sample_index": 17,
+          "sim_time_s": 400.45,
+          "received_monotonic_s": 966508.9453698
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.000072,
+        "observed_at": {
+          "sample_index": 17,
+          "sim_time_s": 400.466667,
+          "received_monotonic_s": 966508.9660126
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 17,
+          "sim_time_s": 400.5,
+          "received_monotonic_s": 966508.9985597
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 17,
+          "sim_time_s": 400.483333,
+          "received_monotonic_s": 966508.9869369
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 17,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "no selected anomaly currently observed",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [],
+        "reason": "The selected channels are currently near their references. This is not a whole-aircraft health claim."
+      }
+    ],
+    "impact": [],
+    "current_context_quality": {
+      "sample_index": 17,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": []
+  },
+  {
+    "sample_index": 18,
+    "sim_time_s": 400.941667,
+    "assessment": {
+      "category": "insufficient_current_evidence",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": false,
+      "selected_system_assessment_complete": false,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "suspected_source_unavailable",
+        "value_v": 0.0,
+        "observed_at": {
+          "sample_index": 18,
+          "sim_time_s": 401.025,
+          "received_monotonic_s": 966509.5247723
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 114.999841,
+        "observed_at": {
+          "sample_index": 18,
+          "sim_time_s": 401.05,
+          "received_monotonic_s": 966509.5468756
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 18,
+          "sim_time_s": 401.083333,
+          "received_monotonic_s": 966509.5795188
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 18,
+          "sim_time_s": 401.066667,
+          "received_monotonic_s": 966509.5664763
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 18,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "cause unresolved",
+        "compatibility": "insufficient_evidence",
+        "supporting_evidence_ids": [],
+        "reason": "Missing, unconfirmed, paused, frozen, stale or discontinuous observations prevent a current selected-system assessment."
+      }
+    ],
+    "impact": [],
+    "current_context_quality": {
+      "sample_index": 18,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": []
+  },
+  {
+    "sample_index": 19,
+    "sim_time_s": 401.933333,
+    "assessment": {
+      "category": "isolated_electrical_anomaly",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "source_unavailable",
+        "value_v": 0.0,
+        "observed_at": {
+          "sample_index": 19,
+          "sim_time_s": 402.016667,
+          "received_monotonic_s": 966510.5165583
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": "E0001"
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.00003,
+        "observed_at": {
+          "sample_index": 19,
+          "sim_time_s": 402.041667,
+          "received_monotonic_s": 966510.536749
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 19,
+          "sim_time_s": 402.066667,
+          "received_monotonic_s": 966510.5631208
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 19,
+          "sim_time_s": 402.05,
+          "received_monotonic_s": 966510.5495322
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 19,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "electrical supply/source anomaly",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [
+          "E0001"
+        ],
+        "reason": "Output or bus voltage is abnormal relative to the detector choices. Engine stoppage, switching, supply configuration and component faults are not distinguished."
+      }
+    ],
+    "impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      }
+    ],
+    "current_context_quality": {
+      "sample_index": 19,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": [
+      "E0001"
+    ]
+  },
+  {
+    "sample_index": 20,
+    "sim_time_s": 402.95,
+    "assessment": {
+      "category": "isolated_electrical_anomaly",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "source_unavailable",
+        "value_v": 0.0,
+        "observed_at": {
+          "sample_index": 20,
+          "sim_time_s": 403.025,
+          "received_monotonic_s": 966511.5244386
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": "E0001"
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.000327,
+        "observed_at": {
+          "sample_index": 20,
+          "sim_time_s": 403.05,
+          "received_monotonic_s": 966511.5432067
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 20,
+          "sim_time_s": 403.066667,
+          "received_monotonic_s": 966511.5655495
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 20,
+          "sim_time_s": 403.058333,
+          "received_monotonic_s": 966511.5510183
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 20,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "electrical supply/source anomaly",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [
+          "E0001"
+        ],
+        "reason": "Output or bus voltage is abnormal relative to the detector choices. Engine stoppage, switching, supply configuration and component faults are not distinguished."
+      }
+    ],
+    "impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      }
+    ],
+    "current_context_quality": {
+      "sample_index": 20,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": [
+      "E0001"
+    ]
+  },
+  {
+    "sample_index": 21,
+    "sim_time_s": 403.95,
+    "assessment": {
+      "category": "isolated_electrical_anomaly",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "source_unavailable",
+        "value_v": 0.0,
+        "observed_at": {
+          "sample_index": 21,
+          "sim_time_s": 404.016667,
+          "received_monotonic_s": 966512.5095942
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": "E0001"
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.000327,
+        "observed_at": {
+          "sample_index": 21,
+          "sim_time_s": 404.05,
+          "received_monotonic_s": 966512.5581296
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 21,
+          "sim_time_s": 404.1,
+          "received_monotonic_s": 966512.5936641
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 21,
+          "sim_time_s": 404.075,
+          "received_monotonic_s": 966512.5792872
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 21,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "electrical supply/source anomaly",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [
+          "E0001"
+        ],
+        "reason": "Output or bus voltage is abnormal relative to the detector choices. Engine stoppage, switching, supply configuration and component faults are not distinguished."
+      }
+    ],
+    "impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      }
+    ],
+    "current_context_quality": {
+      "sample_index": 21,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": [
+      "E0001"
+    ]
+  },
+  {
+    "sample_index": 22,
+    "sim_time_s": 404.95,
+    "assessment": {
+      "category": "isolated_electrical_anomaly",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "source_unavailable",
+        "value_v": 0.0,
+        "observed_at": {
+          "sample_index": 22,
+          "sim_time_s": 405.016667,
+          "received_monotonic_s": 966513.5091056
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": "E0001"
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.000327,
+        "observed_at": {
+          "sample_index": 22,
+          "sim_time_s": 405.033333,
+          "received_monotonic_s": 966513.5408012
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 22,
+          "sim_time_s": 405.066667,
+          "received_monotonic_s": 966513.5625238
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 22,
+          "sim_time_s": 405.058333,
+          "received_monotonic_s": 966513.552783
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 22,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "electrical supply/source anomaly",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [
+          "E0001"
+        ],
+        "reason": "Output or bus voltage is abnormal relative to the detector choices. Engine stoppage, switching, supply configuration and component faults are not distinguished."
+      }
+    ],
+    "impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      }
+    ],
+    "current_context_quality": {
+      "sample_index": 22,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": [
+      "E0001"
+    ]
+  },
+  {
+    "sample_index": 23,
+    "sim_time_s": 405.95,
+    "assessment": {
+      "category": "isolated_electrical_anomaly",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "source_unavailable",
+        "value_v": 0.0,
+        "observed_at": {
+          "sample_index": 23,
+          "sim_time_s": 406.025,
+          "received_monotonic_s": 966514.5209403
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": "E0001"
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.000327,
+        "observed_at": {
+          "sample_index": 23,
+          "sim_time_s": 406.058333,
+          "received_monotonic_s": 966514.5526227
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 23,
+          "sim_time_s": 406.075,
+          "received_monotonic_s": 966514.5724901
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 23,
+          "sim_time_s": 406.066667,
+          "received_monotonic_s": 966514.5619147
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 23,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "electrical supply/source anomaly",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [
+          "E0001"
+        ],
+        "reason": "Output or bus voltage is abnormal relative to the detector choices. Engine stoppage, switching, supply configuration and component faults are not distinguished."
+      }
+    ],
+    "impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      }
+    ],
+    "current_context_quality": {
+      "sample_index": 23,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": [
+      "E0001"
+    ]
+  },
+  {
+    "sample_index": 24,
+    "sim_time_s": 406.95,
+    "assessment": {
+      "category": "isolated_electrical_anomaly",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "source_unavailable",
+        "value_v": 0.0,
+        "observed_at": {
+          "sample_index": 24,
+          "sim_time_s": 407.016667,
+          "received_monotonic_s": 966515.5106446
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": "E0001"
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.000327,
+        "observed_at": {
+          "sample_index": 24,
+          "sim_time_s": 407.041667,
+          "received_monotonic_s": 966515.5429162
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 24,
+          "sim_time_s": 407.075,
+          "received_monotonic_s": 966515.5647341
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 24,
+          "sim_time_s": 407.058333,
+          "received_monotonic_s": 966515.5549917
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 24,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "electrical supply/source anomaly",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [
+          "E0001"
+        ],
+        "reason": "Output or bus voltage is abnormal relative to the detector choices. Engine stoppage, switching, supply configuration and component faults are not distinguished."
+      }
+    ],
+    "impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      }
+    ],
+    "current_context_quality": {
+      "sample_index": 24,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": [
+      "E0001"
+    ]
+  },
+  {
+    "sample_index": 25,
+    "sim_time_s": 407.95,
+    "assessment": {
+      "category": "isolated_electrical_anomaly",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "source_unavailable",
+        "value_v": 0.0,
+        "observed_at": {
+          "sample_index": 25,
+          "sim_time_s": 408.025,
+          "received_monotonic_s": 966516.5164153
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": "E0001"
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.00079,
+        "observed_at": {
+          "sample_index": 25,
+          "sim_time_s": 408.041667,
+          "received_monotonic_s": 966516.5454924
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 25,
+          "sim_time_s": 408.075,
+          "received_monotonic_s": 966516.5719302
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 25,
+          "sim_time_s": 408.058333,
+          "received_monotonic_s": 966516.5557249
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 25,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "electrical supply/source anomaly",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [
+          "E0001"
+        ],
+        "reason": "Output or bus voltage is abnormal relative to the detector choices. Engine stoppage, switching, supply configuration and component faults are not distinguished."
+      }
+    ],
+    "impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      }
+    ],
+    "current_context_quality": {
+      "sample_index": 25,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": [
+      "E0001"
+    ]
+  },
+  {
+    "sample_index": 26,
+    "sim_time_s": 408.941667,
+    "assessment": {
+      "category": "isolated_electrical_anomaly",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "source_unavailable",
+        "value_v": 0.0,
+        "observed_at": {
+          "sample_index": 26,
+          "sim_time_s": 409.033333,
+          "received_monotonic_s": 966517.5346367
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": "E0001"
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.000789,
+        "observed_at": {
+          "sample_index": 26,
+          "sim_time_s": 409.066667,
+          "received_monotonic_s": 966517.5575202
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 26,
+          "sim_time_s": 409.083333,
+          "received_monotonic_s": 966517.5862746
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 26,
+          "sim_time_s": 409.075,
+          "received_monotonic_s": 966517.5678151
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 26,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "electrical supply/source anomaly",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [
+          "E0001"
+        ],
+        "reason": "Output or bus voltage is abnormal relative to the detector choices. Engine stoppage, switching, supply configuration and component faults are not distinguished."
+      }
+    ],
+    "impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      }
+    ],
+    "current_context_quality": {
+      "sample_index": 26,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": [
+      "E0001"
+    ]
+  },
+  {
+    "sample_index": 27,
+    "sim_time_s": 409.941667,
+    "assessment": {
+      "category": "isolated_electrical_anomaly",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "source_unavailable",
+        "value_v": 0.0,
+        "observed_at": {
+          "sample_index": 27,
+          "sim_time_s": 410.033333,
+          "received_monotonic_s": 966518.535989
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": "E0001"
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.00079,
+        "observed_at": {
+          "sample_index": 27,
+          "sim_time_s": 410.066667,
+          "received_monotonic_s": 966518.5618301
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 27,
+          "sim_time_s": 410.1,
+          "received_monotonic_s": 966518.5928942
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 27,
+          "sim_time_s": 410.075,
+          "received_monotonic_s": 966518.5818771
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 27,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "electrical supply/source anomaly",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [
+          "E0001"
+        ],
+        "reason": "Output or bus voltage is abnormal relative to the detector choices. Engine stoppage, switching, supply configuration and component faults are not distinguished."
+      }
+    ],
+    "impact": [
+      {
+        "system": "electrical",
+        "observation": "Generator 2 source output unavailable; one observed source is lost.",
+        "remaining_capability": "AC bus 2 voltage remains available; total bus loss is not observed."
+      }
+    ],
+    "current_context_quality": {
+      "sample_index": 27,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": [
+      "E0001"
+    ]
+  },
+  {
+    "sample_index": 28,
+    "sim_time_s": 410.441667,
+    "assessment": {
+      "category": "no_fault_observed",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "energized_output_observed",
+        "value_v": 115.000229,
+        "observed_at": {
+          "sample_index": 28,
+          "sim_time_s": 410.516667,
+          "received_monotonic_s": 966519.0181739
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.00079,
+        "observed_at": {
+          "sample_index": 28,
+          "sim_time_s": 410.541667,
+          "received_monotonic_s": 966519.0387623
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 28,
+          "sim_time_s": 410.566667,
+          "received_monotonic_s": 966519.0680592
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 28,
+          "sim_time_s": 410.558333,
+          "received_monotonic_s": 966519.0505751
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 28,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "no selected anomaly currently observed",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [],
+        "reason": "The selected channels are currently near their references. This is not a whole-aircraft health claim."
+      }
+    ],
+    "impact": [],
+    "current_context_quality": {
+      "sample_index": 28,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": [
+      "E0001",
+      "E0002"
+    ]
+  },
+  {
+    "sample_index": 29,
+    "sim_time_s": 411.433333,
+    "assessment": {
+      "category": "no_fault_observed",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "energized_output_observed",
+        "value_v": 115.000162,
+        "observed_at": {
+          "sample_index": 29,
+          "sim_time_s": 411.525,
+          "received_monotonic_s": 966520.0167329
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.000789,
+        "observed_at": {
+          "sample_index": 29,
+          "sim_time_s": 411.541667,
+          "received_monotonic_s": 966520.0476609
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 29,
+          "sim_time_s": 411.575,
+          "received_monotonic_s": 966520.0709389
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 29,
+          "sim_time_s": 411.566667,
+          "received_monotonic_s": 966520.0613302
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 29,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "no selected anomaly currently observed",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [],
+        "reason": "The selected channels are currently near their references. This is not a whole-aircraft health claim."
+      }
+    ],
+    "impact": [],
+    "current_context_quality": {
+      "sample_index": 29,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": [
+      "E0001",
+      "E0002"
+    ]
+  },
+  {
+    "sample_index": 30,
+    "sim_time_s": 412.45,
+    "assessment": {
+      "category": "no_fault_observed",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "energized_output_observed",
+        "value_v": 115.000112,
+        "observed_at": {
+          "sample_index": 30,
+          "sim_time_s": 412.525,
+          "received_monotonic_s": 966521.0145677
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.00079,
+        "observed_at": {
+          "sample_index": 30,
+          "sim_time_s": 412.541667,
+          "received_monotonic_s": 966521.0475734
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 30,
+          "sim_time_s": 412.591667,
+          "received_monotonic_s": 966521.0924419
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 30,
+          "sim_time_s": 412.566667,
+          "received_monotonic_s": 966521.0735994
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 30,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "no selected anomaly currently observed",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [],
+        "reason": "The selected channels are currently near their references. This is not a whole-aircraft health claim."
+      }
+    ],
+    "impact": [],
+    "current_context_quality": {
+      "sample_index": 30,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": [
+      "E0001",
+      "E0002"
+    ]
+  },
+  {
+    "sample_index": 31,
+    "sim_time_s": 413.466667,
+    "assessment": {
+      "category": "no_fault_observed",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "energized_output_observed",
+        "value_v": 115.000086,
+        "observed_at": {
+          "sample_index": 31,
+          "sim_time_s": 413.541667,
+          "received_monotonic_s": 966522.0419423
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.000789,
+        "observed_at": {
+          "sample_index": 31,
+          "sim_time_s": 413.566667,
+          "received_monotonic_s": 966522.0632193
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 31,
+          "sim_time_s": 413.591667,
+          "received_monotonic_s": 966522.092823
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 31,
+          "sim_time_s": 413.583333,
+          "received_monotonic_s": 966522.0749717
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 31,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "no selected anomaly currently observed",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [],
+        "reason": "The selected channels are currently near their references. This is not a whole-aircraft health claim."
+      }
+    ],
+    "impact": [],
+    "current_context_quality": {
+      "sample_index": 31,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": [
+      "E0001",
+      "E0002"
+    ]
+  },
+  {
+    "sample_index": 32,
+    "sim_time_s": 414.441667,
+    "assessment": {
+      "category": "no_fault_observed",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "energized_output_observed",
+        "value_v": 115.000073,
+        "observed_at": {
+          "sample_index": 32,
+          "sim_time_s": 414.516667,
+          "received_monotonic_s": 966523.0180241
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.00079,
+        "observed_at": {
+          "sample_index": 32,
+          "sim_time_s": 414.55,
+          "received_monotonic_s": 966523.0436116
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 32,
+          "sim_time_s": 414.575,
+          "received_monotonic_s": 966523.0731819
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 32,
+          "sim_time_s": 414.558333,
+          "received_monotonic_s": 966523.0542142
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 32,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "no selected anomaly currently observed",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [],
+        "reason": "The selected channels are currently near their references. This is not a whole-aircraft health claim."
+      }
+    ],
+    "impact": [],
+    "current_context_quality": {
+      "sample_index": 32,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": [
+      "E0001",
+      "E0002"
+    ]
+  },
+  {
+    "sample_index": 33,
+    "sim_time_s": 415.441667,
+    "assessment": {
+      "category": "no_fault_observed",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "current_state": {
+      "generator_2": {
+        "status": "energized_output_observed",
+        "value_v": 115.000067,
+        "observed_at": {
+          "sample_index": 33,
+          "sim_time_s": 415.525,
+          "received_monotonic_s": 966524.0224936
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.000789,
+        "observed_at": {
+          "sample_index": 33,
+          "sim_time_s": 415.55,
+          "received_monotonic_s": 966524.0481942
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 33,
+          "sim_time_s": 415.583333,
+          "received_monotonic_s": 966524.0789363
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 33,
+          "sim_time_s": 415.566667,
+          "received_monotonic_s": 966524.0667226
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 33,
+        "epoch": 0
+      }
+    },
+    "explanations": [
+      {
+        "hypothesis": "no selected anomaly currently observed",
+        "compatibility": "compatible",
+        "supporting_evidence_ids": [],
+        "reason": "The selected channels are currently near their references. This is not a whole-aircraft health claim."
+      }
+    ],
+    "impact": [],
+    "current_context_quality": {
+      "sample_index": 33,
+      "epoch": 0,
+      "all_twenty_current_usable": true,
+      "context_channels_current_usable": true,
+      "unavailable_channels": [],
+      "time_progressing": true,
+      "global_reasons": []
+    },
+    "evidence_ids": [
+      "E0001",
+      "E0002"
+    ]
+  }
+]

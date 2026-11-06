@@ -1,0 +1,14 @@
+{
+  "input": "results/pressure-pair-20261106-01/pair/observations.jsonl",
+  "input_sha256": "1992ff7aca57a2a7c53c422eedaf87bb5a74a4b63d0f3301c96243f6b1f9c0cc",
+  "public_rows": 53,
+  "figure_sha256": "4e7ee02d1108d32098cf17eb860893b9aec11c8413d1b8ede9695d191a892bfb",
+  "channels": [
+    "generator_2_voltage",
+    "ac_bus_2",
+    "blue_pressure",
+    "blue_quantity"
+  ],
+  "x_axis": "Each channel's observed simulator timestamp, seconds",
+  "quantity_unit": "Unverified raw simulator model units"
+}

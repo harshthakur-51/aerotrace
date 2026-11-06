@@ -1,0 +1,6 @@
+{
+  "script": "foreach (var p; [\"/controls/flight/aileron\", \"/controls/flight/elevator\", \"/controls/flight/rudder\", \"/controls/flight/aileron[1]\", \"/controls/flight/elevator[1]\", \"/controls/flight/rudder[1]\"]) { setprop(p, 0); }\nfmgc.Input.fd1.setBoolValue(1);\nfmgc.Input.lat.setValue(3);\nfmgc.Input.alt.setValue(35000);\nfmgc.Input.vert.setValue(4);\nfmgc.Input.ktsMach.setBoolValue(0);\nfcu.FCUController.SPDPull();\nfmgc.Input.kts.setValue(220);\nvar cl = (getprop(\"/systems/acconfig/options/fadec/climb-b\") + getprop(\"/systems/acconfig/options/fadec/climb-t\")) / 2;\nsetprop(\"/controls/engines/engine[0]/throttle\", cl);\nsetprop(\"/controls/engines/engine[1]/throttle\", cl);\nif (!fmgc.Output.ap1.getBoolValue()) { fcu.FCUController.AP1(); }\n",
+  "http_status": 200,
+  "response": "ok.",
+  "local_time": 883176.593059
+}

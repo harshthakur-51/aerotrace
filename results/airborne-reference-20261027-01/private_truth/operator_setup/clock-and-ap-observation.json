@@ -1,0 +1,816 @@
+[
+  {
+    "target": "/json/sim/freeze/clock",
+    "payload": {
+      "value": false
+    },
+    "http_status": 200,
+    "response": "{}",
+    "local_time": 883238.4112323
+  },
+  {
+    "target": "/run.cgi?value=nasal",
+    "payload": {
+      "name": "",
+      "children": [
+        {
+          "name": "script",
+          "value": "if (!fmgc.Output.ap1.getBoolValue()) { fcu.FCUController.AP1(); }"
+        }
+      ]
+    },
+    "http_status": 200,
+    "response": "ok.",
+    "local_time": 883240.4724964
+  },
+  {
+    "snapshot": {
+      "readings": {
+        "time": {
+          "path": "/sim/time/elapsed-sec",
+          "value": 1705.608333,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1705.608333,
+          "received_monotonic_s": 883240.5797579,
+          "reachable": true,
+          "unit": ""
+        },
+        "ap1": {
+          "path": "/it-autoflight/output/ap1",
+          "value": false,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1705.65,
+          "received_monotonic_s": 883240.610559,
+          "reachable": true,
+          "unit": ""
+        },
+        "athr_active": {
+          "path": "/systems/fadec/athr/active",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1705.683333,
+          "received_monotonic_s": 883240.6362747,
+          "reachable": true,
+          "unit": ""
+        },
+        "altitude": {
+          "path": "/position/altitude-ft",
+          "value": 35929.260731,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1705.708333,
+          "received_monotonic_s": 883240.664001,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 190.399424,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1705.733333,
+          "received_monotonic_s": 883240.6891024,
+          "reachable": true,
+          "unit": ""
+        },
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 32.879156,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1705.758333,
+          "received_monotonic_s": 883240.716709,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 40.620299,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1705.791667,
+          "received_monotonic_s": 883240.7467304,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883240.7471681
+    }
+  },
+  {
+    "snapshot": {
+      "readings": {
+        "time": {
+          "path": "/sim/time/elapsed-sec",
+          "value": 1706.858333,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1706.858333,
+          "received_monotonic_s": 883241.8129865,
+          "reachable": true,
+          "unit": ""
+        },
+        "ap1": {
+          "path": "/it-autoflight/output/ap1",
+          "value": false,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1706.941667,
+          "received_monotonic_s": 883241.896486,
+          "reachable": true,
+          "unit": ""
+        },
+        "athr_active": {
+          "path": "/systems/fadec/athr/active",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1706.916667,
+          "received_monotonic_s": 883241.8681814,
+          "reachable": true,
+          "unit": ""
+        },
+        "altitude": {
+          "path": "/position/altitude-ft",
+          "value": 35975.923759,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1706.883333,
+          "received_monotonic_s": 883241.8418662,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 189.870678,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1706.966667,
+          "received_monotonic_s": 883241.9213851,
+          "reachable": true,
+          "unit": ""
+        },
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 32.605698,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1706.991667,
+          "received_monotonic_s": 883241.9503227,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 38.405996,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1707.025,
+          "received_monotonic_s": 883241.9762167,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883241.9768225
+    }
+  },
+  {
+    "snapshot": {
+      "readings": {
+        "time": {
+          "path": "/sim/time/elapsed-sec",
+          "value": 1708.125,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1708.125,
+          "received_monotonic_s": 883243.0842687,
+          "reachable": true,
+          "unit": ""
+        },
+        "ap1": {
+          "path": "/it-autoflight/output/ap1",
+          "value": false,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1708.091667,
+          "received_monotonic_s": 883243.0535139,
+          "reachable": true,
+          "unit": ""
+        },
+        "athr_active": {
+          "path": "/systems/fadec/athr/active",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1708.158333,
+          "received_monotonic_s": 883243.108548,
+          "reachable": true,
+          "unit": ""
+        },
+        "altitude": {
+          "path": "/position/altitude-ft",
+          "value": 36024.710509,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1708.183333,
+          "received_monotonic_s": 883243.1416058,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 189.406632,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1708.216667,
+          "received_monotonic_s": 883243.1640855,
+          "reachable": true,
+          "unit": ""
+        },
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 32.607974,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1708.233333,
+          "received_monotonic_s": 883243.1932059,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 36.202002,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1708.266667,
+          "received_monotonic_s": 883243.2139505,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883243.2143046
+    }
+  },
+  {
+    "snapshot": {
+      "readings": {
+        "time": {
+          "path": "/sim/time/elapsed-sec",
+          "value": 1709.35,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1709.35,
+          "received_monotonic_s": 883244.299597,
+          "reachable": true,
+          "unit": ""
+        },
+        "ap1": {
+          "path": "/it-autoflight/output/ap1",
+          "value": false,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1709.316667,
+          "received_monotonic_s": 883244.275569,
+          "reachable": true,
+          "unit": ""
+        },
+        "athr_active": {
+          "path": "/systems/fadec/athr/active",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1709.375,
+          "received_monotonic_s": 883244.3213597,
+          "reachable": true,
+          "unit": ""
+        },
+        "altitude": {
+          "path": "/position/altitude-ft",
+          "value": 36067.540688,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1709.391667,
+          "received_monotonic_s": 883244.3453258,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 189.020927,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1709.416667,
+          "received_monotonic_s": 883244.3668806,
+          "reachable": true,
+          "unit": ""
+        },
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 32.604507,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1709.441667,
+          "received_monotonic_s": 883244.4055017,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 33.855485,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1709.475,
+          "received_monotonic_s": 883244.4413275,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883244.44165
+    }
+  },
+  {
+    "snapshot": {
+      "readings": {
+        "time": {
+          "path": "/sim/time/elapsed-sec",
+          "value": 1710.583333,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1710.583333,
+          "received_monotonic_s": 883245.5374991,
+          "reachable": true,
+          "unit": ""
+        },
+        "ap1": {
+          "path": "/it-autoflight/output/ap1",
+          "value": false,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1710.558333,
+          "received_monotonic_s": 883245.5142222,
+          "reachable": true,
+          "unit": ""
+        },
+        "athr_active": {
+          "path": "/systems/fadec/athr/active",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1710.641667,
+          "received_monotonic_s": 883245.5891966,
+          "reachable": true,
+          "unit": ""
+        },
+        "altitude": {
+          "path": "/position/altitude-ft",
+          "value": 36107.154868,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1710.608333,
+          "received_monotonic_s": 883245.5658389,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 188.696276,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1710.658333,
+          "received_monotonic_s": 883245.6150618,
+          "reachable": true,
+          "unit": ""
+        },
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 32.601362,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1710.691667,
+          "received_monotonic_s": 883245.6415104,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 31.276248,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1710.716667,
+          "received_monotonic_s": 883245.6625858,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883245.662926
+    }
+  },
+  {
+    "snapshot": {
+      "readings": {
+        "time": {
+          "path": "/sim/time/elapsed-sec",
+          "value": 1711.791667,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1711.791667,
+          "received_monotonic_s": 883246.7549622,
+          "reachable": true,
+          "unit": ""
+        },
+        "ap1": {
+          "path": "/it-autoflight/output/ap1",
+          "value": false,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1711.85,
+          "received_monotonic_s": 883246.8112809,
+          "reachable": true,
+          "unit": ""
+        },
+        "athr_active": {
+          "path": "/systems/fadec/athr/active",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1711.825,
+          "received_monotonic_s": 883246.7810757,
+          "reachable": true,
+          "unit": ""
+        },
+        "altitude": {
+          "path": "/position/altitude-ft",
+          "value": 36145.379265,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1711.883333,
+          "received_monotonic_s": 883246.838796,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 188.451105,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1711.908333,
+          "received_monotonic_s": 883246.8691867,
+          "reachable": true,
+          "unit": ""
+        },
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 32.599299,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1711.941667,
+          "received_monotonic_s": 883246.8942837,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 28.570338,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1711.966667,
+          "received_monotonic_s": 883246.9241115,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883246.9243986
+    }
+  },
+  {
+    "snapshot": {
+      "readings": {
+        "time": {
+          "path": "/sim/time/elapsed-sec",
+          "value": 1713.041667,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1713.041667,
+          "received_monotonic_s": 883247.9956723,
+          "reachable": true,
+          "unit": ""
+        },
+        "ap1": {
+          "path": "/it-autoflight/output/ap1",
+          "value": false,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1713.066667,
+          "received_monotonic_s": 883248.0252637,
+          "reachable": true,
+          "unit": ""
+        },
+        "athr_active": {
+          "path": "/systems/fadec/athr/active",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1713.125,
+          "received_monotonic_s": 883248.0883133,
+          "reachable": true,
+          "unit": ""
+        },
+        "altitude": {
+          "path": "/position/altitude-ft",
+          "value": 36178.772657,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1713.1,
+          "received_monotonic_s": 883248.0590245,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 188.253144,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1713.158333,
+          "received_monotonic_s": 883248.1137552,
+          "reachable": true,
+          "unit": ""
+        },
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 32.59815,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1713.183333,
+          "received_monotonic_s": 883248.1411495,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 25.778269,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1713.216667,
+          "received_monotonic_s": 883248.1641229,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883248.1646946
+    }
+  },
+  {
+    "snapshot": {
+      "readings": {
+        "time": {
+          "path": "/sim/time/elapsed-sec",
+          "value": 1714.291667,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1714.291667,
+          "received_monotonic_s": 883249.2455293,
+          "reachable": true,
+          "unit": ""
+        },
+        "ap1": {
+          "path": "/it-autoflight/output/ap1",
+          "value": false,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1714.316667,
+          "received_monotonic_s": 883249.2722428,
+          "reachable": true,
+          "unit": ""
+        },
+        "athr_active": {
+          "path": "/systems/fadec/athr/active",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1714.341667,
+          "received_monotonic_s": 883249.2973318,
+          "reachable": true,
+          "unit": ""
+        },
+        "altitude": {
+          "path": "/position/altitude-ft",
+          "value": 36210.15102,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1714.366667,
+          "received_monotonic_s": 883249.3267292,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 188.137384,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1714.4,
+          "received_monotonic_s": 883249.3513244,
+          "reachable": true,
+          "unit": ""
+        },
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 32.59754,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1714.425,
+          "received_monotonic_s": 883249.3790903,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 22.907274,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1714.45,
+          "received_monotonic_s": 883249.404622,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883249.4049868
+    }
+  },
+  {
+    "snapshot": {
+      "readings": {
+        "time": {
+          "path": "/sim/time/elapsed-sec",
+          "value": 1715.541667,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1715.541667,
+          "received_monotonic_s": 883250.4991842,
+          "reachable": true,
+          "unit": ""
+        },
+        "ap1": {
+          "path": "/it-autoflight/output/ap1",
+          "value": false,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1715.516667,
+          "received_monotonic_s": 883250.4657804,
+          "reachable": true,
+          "unit": ""
+        },
+        "athr_active": {
+          "path": "/systems/fadec/athr/active",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1715.575,
+          "received_monotonic_s": 883250.5221211,
+          "reachable": true,
+          "unit": ""
+        },
+        "altitude": {
+          "path": "/position/altitude-ft",
+          "value": 36236.902637,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1715.591667,
+          "received_monotonic_s": 883250.5490414,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 188.109192,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1715.625,
+          "received_monotonic_s": 883250.5708881,
+          "reachable": true,
+          "unit": ""
+        },
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 32.597182,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1715.641667,
+          "received_monotonic_s": 883250.5934021,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 20.052551,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1715.666667,
+          "received_monotonic_s": 883250.6333952,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883250.6336891
+    }
+  },
+  {
+    "snapshot": {
+      "readings": {
+        "time": {
+          "path": "/sim/time/elapsed-sec",
+          "value": 1716.741667,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1716.741667,
+          "received_monotonic_s": 883251.6970469,
+          "reachable": true,
+          "unit": ""
+        },
+        "ap1": {
+          "path": "/it-autoflight/output/ap1",
+          "value": false,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1716.766667,
+          "received_monotonic_s": 883251.7197244,
+          "reachable": true,
+          "unit": ""
+        },
+        "athr_active": {
+          "path": "/systems/fadec/athr/active",
+          "value": 0.0,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1716.791667,
+          "received_monotonic_s": 883251.7481121,
+          "reachable": true,
+          "unit": ""
+        },
+        "altitude": {
+          "path": "/position/altitude-ft",
+          "value": 36259.789904,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1716.816667,
+          "received_monotonic_s": 883251.7712807,
+          "reachable": true,
+          "unit": ""
+        },
+        "speed": {
+          "path": "/velocities/airspeed-kt",
+          "value": 188.166398,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1716.841667,
+          "received_monotonic_s": 883251.8008581,
+          "reachable": true,
+          "unit": ""
+        },
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "value": 32.596921,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1716.875,
+          "received_monotonic_s": 883251.8234454,
+          "reachable": true,
+          "unit": ""
+        },
+        "vs": {
+          "path": "/velocities/vertical-speed-fps",
+          "value": 17.153411,
+          "valid": true,
+          "error": null,
+          "sim_time_s": 1716.9,
+          "received_monotonic_s": 883251.8518628,
+          "reachable": true,
+          "unit": ""
+        }
+      },
+      "connected": true,
+      "complete": true,
+      "received_monotonic_s": 883251.8521491
+    }
+  }
+]

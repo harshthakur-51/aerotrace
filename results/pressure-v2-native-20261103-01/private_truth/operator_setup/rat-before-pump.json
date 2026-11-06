@@ -1,0 +1,10 @@
+{
+  "path": "/systems/hydraulic/sources/rat/position",
+  "value": 0.0,
+  "valid": true,
+  "error": null,
+  "sim_time_s": 300.575,
+  "received_monotonic_s": 268396.7458289,
+  "reachable": true,
+  "unit": ""
+}

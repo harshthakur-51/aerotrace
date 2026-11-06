@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "run_id": "pressure-prospective-A-02",
+  "flight_group": "pressure-flight-20261106-A",
+  "profile": "pressure_supply",
+  "data_role": "final",
+  "observation_sha256": "c9df1f2ef495913ce61ac73704e1a0d77abbcf96186183c988645960e03ab71c",
+  "canonical_observations_sha256": "1965566ed063d5c3f8ceea8afa63bd2b20247462699b582a770b8261b9550b04"
+}

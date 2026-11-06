@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "aircraft-debugger"
+version = "0.0.1"
+description = "AeroTrace: inspectable causal diagnosis and replay for selected aircraft systems"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+plot = ["matplotlib>=3.8"]
+
+[tool.setuptools.packages.find]
+include = ["aircraft_debugger*"]
+
+[tool.setuptools.package-data]
+aircraft_debugger = ["assets/*.html"]

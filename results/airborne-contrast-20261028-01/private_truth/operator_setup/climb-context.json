@@ -1,0 +1,127 @@
+{
+  "readings": {
+    "altitude": {
+      "path": "/position/altitude-ft",
+      "value": 9679.153802,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 422.725,
+      "received_monotonic_s": 965806.2775003,
+      "reachable": true,
+      "unit": ""
+    },
+    "indicated": {
+      "path": "/instrumentation/altimeter/indicated-altitude-ft",
+      "value": 9478.655743,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 422.683333,
+      "received_monotonic_s": 965806.2345249,
+      "reachable": true,
+      "unit": ""
+    },
+    "speed": {
+      "path": "/velocities/airspeed-kt",
+      "value": 251.264924,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 422.7,
+      "received_monotonic_s": 965806.2562361,
+      "reachable": true,
+      "unit": ""
+    },
+    "vs": {
+      "path": "/velocities/vertical-speed-fps",
+      "value": 53.081498,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 422.741667,
+      "received_monotonic_s": 965806.3095354,
+      "reachable": true,
+      "unit": ""
+    },
+    "bank": {
+      "path": "/orientation/roll-deg",
+      "value": -0.062139,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 422.775,
+      "received_monotonic_s": 965806.3319043,
+      "reachable": true,
+      "unit": ""
+    },
+    "ap1": {
+      "path": "/it-autoflight/output/ap1",
+      "value": true,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 422.8,
+      "received_monotonic_s": 965806.3539898,
+      "reachable": true,
+      "unit": ""
+    },
+    "athr_active": {
+      "path": "/systems/fadec/athr/active",
+      "value": 1.0,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 422.825,
+      "received_monotonic_s": 965806.3809747,
+      "reachable": true,
+      "unit": ""
+    },
+    "fuel": {
+      "path": "/consumables/fuel/total-fuel-lbs",
+      "value": 10619.936804,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 422.85,
+      "received_monotonic_s": 965806.3987333,
+      "reachable": true,
+      "unit": ""
+    },
+    "flaps": {
+      "path": "/controls/flight/flaps",
+      "value": 0.0,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 422.866667,
+      "received_monotonic_s": 965806.4298013,
+      "reachable": true,
+      "unit": ""
+    },
+    "gear": {
+      "path": "/controls/gear/gear-down",
+      "value": true,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 422.9,
+      "received_monotonic_s": 965806.4489354,
+      "reachable": true,
+      "unit": ""
+    },
+    "speedbrake": {
+      "path": "/controls/flight/speedbrake",
+      "value": 0.0,
+      "valid": true,
+      "error": null,
+      "sim_time_s": 422.916667,
+      "received_monotonic_s": 965806.4697436,
+      "reachable": true,
+      "unit": ""
+    },
+    "speedbrake_arm": {
+      "path": "/controls/flight/speedbrake-arm",
+      "value": null,
+      "valid": false,
+      "error": "invalid_value",
+      "sim_time_s": null,
+      "received_monotonic_s": 965806.4881018,
+      "reachable": true,
+      "unit": ""
+    }
+  },
+  "connected": true,
+  "complete": false,
+  "received_monotonic_s": 965806.4885041
+}

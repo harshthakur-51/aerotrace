@@ -1,0 +1,18 @@
+{
+  "completed": true,
+  "condition": "Native ground, engines running, no faults commanded",
+  "airborne_validation": false,
+  "samples": 32,
+  "complete_polls": 32,
+  "advancing_sim_time": true,
+  "final_status": "no_selected_anomaly",
+  "final_candidates": [
+    "selected_reference"
+  ],
+  "live_offline_diagnosis_equal": true,
+  "live_offline_evidence_equal": true,
+  "fault_writes": 0,
+  "max_diagnosis_duration_s": 0.004300800035707653,
+  "max_poll_duration_s": 0.31615959998453036,
+  "observations_sha256": "561cbf820f5c90a1d278ac04c68e38e8f47e22e81cb1ce3c67abc582de5f67f4"
+}

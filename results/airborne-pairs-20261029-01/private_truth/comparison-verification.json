@@ -1,0 +1,85 @@
+{
+  "audit_schema_version": 1,
+  "created_utc": "2026-10-29T11:12:01.648453+00:00",
+  "purpose": "Independent offline comparison hash/source/public-prefix replay audit",
+  "checks": {
+    "source:aircraft_debugger/__init__.py": true,
+    "source:aircraft_debugger/airborne_evidence.py": true,
+    "source:aircraft_debugger/airborne_profile.py": true,
+    "source:aircraft_debugger/evidence.py": true,
+    "source:aircraft_debugger/observations.py": true,
+    "source:aircraft_debugger/flightgear.py": true,
+    "source:compare_paired.py": true,
+    "artifact:comparison.json": true,
+    "artifact:comparison.md": true,
+    "input:inputA": true,
+    "explicit_path:inputA": true,
+    "input:inputB": true,
+    "explicit_path:inputB": true,
+    "inputA_summary_exact": true,
+    "inputB_summary_exact": true,
+    "full_comparison_json_exact": true,
+    "markdown_exact": true,
+    "inference_prefixes_only": true,
+    "no_external_access_attempts": true,
+    "only_explicit_public_files_read": true,
+    "provenance_inputs_exact": true
+  },
+  "passed": true,
+  "failed_checks": [],
+  "sha256": {
+    "source:aircraft_debugger/__init__.py": "8b3988af59cc46fdbb7c4e8bccfa65a2aaf90e4882d3ba8c70c344e15f63d68a",
+    "source:aircraft_debugger/airborne_evidence.py": "690b73569789b8c2ef72532c3b58def8b604adad2c68c10bceb8e964ee2463f2",
+    "source:aircraft_debugger/airborne_profile.py": "fefe20b9ce275ccfd581749452ade96c522192216ebc189fd3801d083befc565",
+    "source:aircraft_debugger/evidence.py": "cd0c6ad86b66ccb15a3d1c3b446ea9208f0ea3b419d12ecb23beb91db542f519",
+    "source:aircraft_debugger/observations.py": "56d3acd38311403f340ad2ae8a733ebb00135ca290484d3ad95ef07e5689011c",
+    "source:aircraft_debugger/flightgear.py": "4e60e793ad30fdc5fa8d2b8d9d9157b16c1ab20fa99014df0252216325bdd443",
+    "source:compare_paired.py": "f3e8fb3d735d52fabc4675f02b07af343a9d28c05fc842e2ae3c60b99485e9ad",
+    "artifact:comparison.json": "d75fcc0e888794ed702dfa57e991e7c09fba9d8ad1042bc7bbc5f53c10bbe6e2",
+    "artifact:comparison.md": "463a0c3d1fccc66c90967007884ffe25829afe37aebb7b9b72e4689c6c7329c9",
+    "inputA": "cdb8e4f58eea8a6ab96521f0fee9e45ae38700ee1cfd84efe11e00dcea1ac045",
+    "inputB": "f763b14f2b8bdb6944c1657c7672b2ac7a4acd02d86dd10f5e79da6754e49be1"
+  },
+  "inference_calls": 161,
+  "files_read_during_comparison_only": [
+    "Z:\\aircraft-debugger\\results\\airborne-pairs-20261029-01\\grouped-recipe\\observations.jsonl",
+    "Z:\\aircraft-debugger\\results\\airborne-pairs-20261029-01\\matched-independent-recipe\\observations.jsonl"
+  ],
+  "external_access_blocked_during_each_inference": true,
+  "blocked_attempts": [],
+  "multiple_system_prefixes": {
+    "inputA": 51,
+    "inputB": 51
+  },
+  "candidate_set_variants": {
+    "inputA": [
+      [
+        {
+          "compatibility": "equally_compatible",
+          "hypothesis": "independent electrical/hydraulic faults"
+        },
+        {
+          "compatibility": "equally_compatible",
+          "hypothesis": "shared regional damage"
+        }
+      ]
+    ],
+    "inputB": [
+      [
+        {
+          "compatibility": "equally_compatible",
+          "hypothesis": "independent electrical/hydraulic faults"
+        },
+        {
+          "compatibility": "equally_compatible",
+          "hypothesis": "shared regional damage"
+        }
+      ]
+    ]
+  },
+  "limitations": [
+    "Audit verifies saved integrity and replay, not causal identifiability or real-aircraft fidelity.",
+    "Same candidate set for two matched native input recipes is an ambiguity control, not classification accuracy or independent statistical trials."
+  ],
+  "audit_script_sha256": "b7fc8b3c6df2e03db5c46f31ca0063d2fc2ecba8e0c2b43d56a4186d6f525d8d"
+}

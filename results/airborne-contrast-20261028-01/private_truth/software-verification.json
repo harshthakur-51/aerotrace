@@ -1,0 +1,15 @@
+{
+  "checks": 105,
+  "result": "passed",
+  "elapsed_s": 7.252,
+  "command": "python -B -m unittest discover -s tests -v",
+  "source_commit": "9794d81",
+  "test_log": "operator_setup/software-checks.log",
+  "test_log_sha256": "fbc96ae0f6529ea24a4024e47c1693b97acfd77e1645a98951e1b08b7bff27dd",
+  "interpretation": "Correctness/transport fixtures; not independent aircraft physics trials or diagnostic accuracy.",
+  "new_test_groups": {
+    "airborne_experiment": 17,
+    "airborne_evidence": 8,
+    "panel_deadline_identity": 2
+  }
+}

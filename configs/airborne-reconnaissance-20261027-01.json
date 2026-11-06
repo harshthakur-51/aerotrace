@@ -1,0 +1,18 @@
+{
+  "altitude_target_ft": 24000.0,
+  "altitude_tolerance_ft": 200.0,
+  "airspeed_target_kt": 170.0,
+  "airspeed_tolerance_kt": 10.0,
+  "minimum_height_agl_ft": 3000.0,
+  "maximum_abs_bank_deg": 5.0,
+  "maximum_abs_vertical_speed_fps": 5.0,
+  "qualification_duration_sim_s": 15.0,
+  "maximum_sim_gap_s": 3.0,
+  "maximum_local_gap_s": 3.0,
+  "maximum_reading_age_s": 2.0,
+  "maximum_poll_span_s": 2.0,
+  "maximum_timestamp_skew_s": 2.0,
+  "minimum_reference_voltage_v": 100.0,
+  "minimum_blue_quantity_raw": 7.9,
+  "minimum_blue_pressure_psi": 2500.0
+}

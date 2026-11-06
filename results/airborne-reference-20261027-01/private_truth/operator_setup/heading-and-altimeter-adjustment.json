@@ -1,0 +1,54 @@
+{
+  "before": {
+    "readings": {
+      "position": {
+        "path": "/position/altitude-ft",
+        "value": 35558.972156,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 1991.316667,
+        "received_monotonic_s": 883526.270017,
+        "reachable": true,
+        "unit": ""
+      },
+      "indicated": {
+        "path": "/instrumentation/altimeter/indicated-altitude-ft",
+        "value": 35007.655743,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 1991.283333,
+        "received_monotonic_s": 883526.2290079,
+        "reachable": true,
+        "unit": ""
+      },
+      "nav_heading": {
+        "path": "/it-autoflight/internal/heading",
+        "value": 47.558345,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 1991.3,
+        "received_monotonic_s": 883526.2476233,
+        "reachable": true,
+        "unit": ""
+      },
+      "alt_target": {
+        "path": "/it-autoflight/input/alt",
+        "value": 35000.0,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 1991.266667,
+        "received_monotonic_s": 883526.2110557,
+        "reachable": true,
+        "unit": ""
+      }
+    },
+    "connected": true,
+    "complete": true,
+    "received_monotonic_s": 883526.2704882
+  },
+  "script": "fmgc.Input.hdg.setValue(math.round(getprop(\"/it-autoflight/internal/heading\"))); fmgc.Input.lat.setValue(0); fmgc.Input.alt.setValue(34400); fcu.FCUController.ALTPull();",
+  "http_status": 200,
+  "response": "ok.",
+  "local": 883526.3812895,
+  "note": "Operator selected indicated altitude to approach the prospectively declared position-altitude target; no FDM/state/gauge writes."
+}

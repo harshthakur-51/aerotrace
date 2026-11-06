@@ -1,0 +1,14 @@
+[
+  {
+    "script": "fcu.FCUController.ATDisc(); fcu.FCUController.ALTPull();",
+    "status": 200,
+    "response": "ok.",
+    "local": 883403.0155719
+  },
+  {
+    "script": "if (!fmgc.Output.athr.getBoolValue()) { fcu.FCUController.ATHR(); }",
+    "status": 200,
+    "response": "ok.",
+    "local": 883403.6810935
+  }
+]

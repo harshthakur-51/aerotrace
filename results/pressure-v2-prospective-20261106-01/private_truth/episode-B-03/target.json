@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "run_id": "pressure-prospective-B-03",
+  "flight_group": "pressure-flight-20261106-B",
+  "profile": "joint_pressure_effects",
+  "data_role": "final",
+  "observation_sha256": "2fc8f1e58d9a6eacf3d0e0a14e585ae4c738bd1279bea1f9f78d3f53cb533a34",
+  "canonical_observations_sha256": "768e7ead683f225025250db588383a64037ca9f14f9ab6925efdd34d6da4e32d"
+}

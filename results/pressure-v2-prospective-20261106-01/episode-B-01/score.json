@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "run_id": "pressure-prospective-B-01",
+  "flight_group": "pressure-flight-20261106-B",
+  "data_role": "final",
+  "protocol_sha256": "8fca0e0623161425905f483e957c9a818e07b42d11f722f110f1d46c4bece93e",
+  "observation_sha256": "74f35a839323d611f76a255df5a16d1517fa43813f28d5f837e57be56ddd1b3d",
+  "profile": "reference",
+  "expected_compatible_ids": [
+    "selected_reference"
+  ],
+  "observed_compatible_ids": [
+    "selected_reference"
+  ],
+  "plausible_ids": [
+    "selected_reference"
+  ],
+  "diagnosis_status": "no_selected_anomaly",
+  "data_sufficiency": {
+    "status": "sufficient",
+    "unknown_facts": [],
+    "scope": "Supplied selected incident/epoch facts; current observed impact is assessed separately."
+  },
+  "model_fit": {
+    "status": "fits",
+    "compatible_candidate_count": 1,
+    "plausible_candidate_count": 1
+  },
+  "exact_bounded_profile_match": true,
+  "assessment": "matched_bounded_profile",
+  "expected_ids_not_compatible": [],
+  "extra_compatible_ids": [],
+  "current_impact": [],
+  "incident_impact": [],
+  "sample_count": 32,
+  "physical_cause_accuracy_measured": false,
+  "independent_trials_claimed": false,
+  "target_semantics": "Expected compatible configurations within the declared model, not unique physical cause ground truth"
+}

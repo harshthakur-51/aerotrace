@@ -1,0 +1,62 @@
+{
+  "generator_2": {
+    "path": "/systems/failures/electrical/gen-2",
+    "value": false,
+    "valid": true,
+    "error": null,
+    "sim_time_s": 528.883333,
+    "received_monotonic_s": 268625.0569041,
+    "reachable": true,
+    "unit": ""
+  },
+  "blue_leak": {
+    "path": "/systems/failures/hydraulic/blue-leak",
+    "value": false,
+    "valid": true,
+    "error": null,
+    "sim_time_s": 528.925,
+    "received_monotonic_s": 268625.0908111,
+    "reachable": true,
+    "unit": ""
+  },
+  "blue_pump": {
+    "path": "/systems/failures/hydraulic/blue-elec",
+    "value": false,
+    "valid": true,
+    "error": null,
+    "sim_time_s": 528.95,
+    "received_monotonic_s": 268625.1350687,
+    "reachable": true,
+    "unit": ""
+  },
+  "rat_position": {
+    "path": "/systems/hydraulic/sources/rat/position",
+    "value": 0.0,
+    "valid": true,
+    "error": null,
+    "sim_time_s": 529.016667,
+    "received_monotonic_s": 268625.1870528,
+    "reachable": true,
+    "unit": ""
+  },
+  "altitude": {
+    "path": "/position/altitude-ft",
+    "value": 10171.509421,
+    "valid": true,
+    "error": null,
+    "sim_time_s": 529.058333,
+    "received_monotonic_s": 268625.2273566,
+    "reachable": true,
+    "unit": ""
+  },
+  "airspeed": {
+    "path": "/velocities/airspeed-kt",
+    "value": 250.318938,
+    "valid": true,
+    "error": null,
+    "sim_time_s": 529.083333,
+    "received_monotonic_s": 268625.256099,
+    "reachable": true,
+    "unit": ""
+  }
+}

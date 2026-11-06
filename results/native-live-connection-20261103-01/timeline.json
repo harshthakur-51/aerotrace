@@ -1,0 +1,450 @@
+[
+  {
+    "sample_index": 0,
+    "status": "insufficient_observations",
+    "sim_time_s": 57.958333,
+    "diagnosis_duration_s": 0.0012509000371210277,
+    "poll_duration_s": 0.27015890000620857,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 0,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 1,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 58.458333,
+    "diagnosis_duration_s": 0.001208700006827712,
+    "poll_duration_s": 0.3008148000226356,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 1,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 2,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 58.941667,
+    "diagnosis_duration_s": 0.0013558000209741294,
+    "poll_duration_s": 0.28933639999013394,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 2,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 3,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 59.425,
+    "diagnosis_duration_s": 0.0018449000199325383,
+    "poll_duration_s": 0.25508720002835616,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 3,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 4,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 59.966667,
+    "diagnosis_duration_s": 0.00131720001809299,
+    "poll_duration_s": 0.3023725999519229,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 4,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 5,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 60.441667,
+    "diagnosis_duration_s": 0.0014052999904379249,
+    "poll_duration_s": 0.2990118999732658,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 5,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 6,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 60.933333,
+    "diagnosis_duration_s": 0.0015634000301361084,
+    "poll_duration_s": 0.2738272999995388,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 6,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 7,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 61.458333,
+    "diagnosis_duration_s": 0.0014792999718338251,
+    "poll_duration_s": 0.28580420004436746,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 7,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 8,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 61.958333,
+    "diagnosis_duration_s": 0.001594299974385649,
+    "poll_duration_s": 0.2886519000167027,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 8,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 9,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 62.458333,
+    "diagnosis_duration_s": 0.0016207000007852912,
+    "poll_duration_s": 0.267425199970603,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 9,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 10,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 62.933333,
+    "diagnosis_duration_s": 0.0014928999589756131,
+    "poll_duration_s": 0.29436589998658746,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 10,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 11,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 63.416667,
+    "diagnosis_duration_s": 0.0015291000017896295,
+    "poll_duration_s": 0.27043539995793253,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 11,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 12,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 63.95,
+    "diagnosis_duration_s": 0.002222499984782189,
+    "poll_duration_s": 0.28913900000043213,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 12,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 13,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 64.433333,
+    "diagnosis_duration_s": 0.0015959999873302877,
+    "poll_duration_s": 0.31615959998453036,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 13,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 14,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 64.941667,
+    "diagnosis_duration_s": 0.0016010000254027545,
+    "poll_duration_s": 0.25436120002996176,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 14,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 15,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 65.433333,
+    "diagnosis_duration_s": 0.0023590000346302986,
+    "poll_duration_s": 0.26749920001020655,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 15,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 16,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 65.925,
+    "diagnosis_duration_s": 0.0017963999998755753,
+    "poll_duration_s": 0.2754797999514267,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 16,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 17,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 66.45,
+    "diagnosis_duration_s": 0.0018508000066503882,
+    "poll_duration_s": 0.2764990999712609,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 17,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 18,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 66.975,
+    "diagnosis_duration_s": 0.00307740003336221,
+    "poll_duration_s": 0.29584429995156825,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 18,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 19,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 67.45,
+    "diagnosis_duration_s": 0.0017622000304982066,
+    "poll_duration_s": 0.27258360001724213,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 19,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 20,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 67.95,
+    "diagnosis_duration_s": 0.0017748999525792897,
+    "poll_duration_s": 0.2601868000347167,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 20,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 21,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 68.441667,
+    "diagnosis_duration_s": 0.0019967000116594136,
+    "poll_duration_s": 0.2776736000087112,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 21,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 22,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 68.991667,
+    "diagnosis_duration_s": 0.0019545999821275473,
+    "poll_duration_s": 0.2714882000000216,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 22,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 23,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 69.466667,
+    "diagnosis_duration_s": 0.002031500043813139,
+    "poll_duration_s": 0.29231930000241846,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 23,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 24,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 69.933333,
+    "diagnosis_duration_s": 0.002056600002106279,
+    "poll_duration_s": 0.254155200032983,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 24,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 25,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 70.433333,
+    "diagnosis_duration_s": 0.00227280001854524,
+    "poll_duration_s": 0.3140811999910511,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 25,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 26,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 70.941667,
+    "diagnosis_duration_s": 0.004300800035707653,
+    "poll_duration_s": 0.2962594999698922,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 26,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 27,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 71.441667,
+    "diagnosis_duration_s": 0.002230500045698136,
+    "poll_duration_s": 0.2847444999497384,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 27,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 28,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 71.958333,
+    "diagnosis_duration_s": 0.002097699965815991,
+    "poll_duration_s": 0.27295349998166785,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 28,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 29,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 72.433333,
+    "diagnosis_duration_s": 0.002052099967841059,
+    "poll_duration_s": 0.29696820001117885,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 29,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 30,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 72.983333,
+    "diagnosis_duration_s": 0.0025476000155322254,
+    "poll_duration_s": 0.25126729998737574,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 30,
+      "epoch": 0
+    }
+  },
+  {
+    "sample_index": 31,
+    "status": "no_selected_anomaly",
+    "sim_time_s": 73.441667,
+    "diagnosis_duration_s": 0.0025117999757640064,
+    "poll_duration_s": 0.28239499998744577,
+    "complete": true,
+    "quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 31,
+      "epoch": 0
+    }
+  }
+]

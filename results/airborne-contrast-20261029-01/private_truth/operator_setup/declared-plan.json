@@ -1,0 +1,38 @@
+{
+  "declared_date": "2026-10-29 Asia/Calcutta",
+  "case": "isolated_blue_leak",
+  "source_commit_before_run": "86f88e1e23dd28f3c66bb6546417b60e89856495",
+  "aircraft": "A320-200-CFM",
+  "configured_condition": "Native ground initialization followed by takeoff/climb; selected indicated altitude10000ft, selected calibrated speed250kt; observed position/context must qualify independently.",
+  "qualification_settings": "configs/airborne-qualification-settings.json",
+  "active_minimum_sim_s": 52,
+  "recovery_minimum_sim_s": 8,
+  "maximum_postfault_local_s": 120,
+  "prediction": [
+    "Blue raw quantity decreases; pressure initially retained, later declines below native inventory gate.",
+    "Electrical selected supplies remain near reference for the isolated leak.",
+    "Clearing invokes native quantity refill followed by pressure restoration.",
+    "Flight/automation response is an outcome, not a qualification filter after injection."
+  ],
+  "duration_reason": "Source-derived approximate model planning: pressure begins declining about28sim s; zero near48sim s; restoration about6sim s. Durations are experiment choices, not real-aircraft limits.",
+  "source_provenance": {
+    "Systems/a320-hydraulic.xml": {
+      "sha256": "28159f2e9dd7cc1736d6e8e19c33c366b7762a6febb354012fdb966d99418e47",
+      "url": "https://svn.code.sf.net/p/flightgear/fgaddon/!svn/rvr/20376/branches/release-2024.1/Aircraft/A320-family/Systems/a320-hydraulic.xml",
+      "archive": "native-source/Systems/a320-hydraulic.xml"
+    },
+    "Nasal/Systems/hydraulics.nas": {
+      "sha256": "149dedf56bbacd9403a09fd87ffb8c20f775083946165d4084e775daa1ea0015",
+      "url": "https://svn.code.sf.net/p/flightgear/fgaddon/!svn/rvr/20376/branches/release-2024.1/Aircraft/A320-family/Nasal/Systems/hydraulics.nas",
+      "archive": "native-source/Nasal/Systems/hydraulics.nas"
+    }
+  },
+  "limits": [
+    "Raw inventory units unresolved.",
+    "Native refill is artificial restoration, not repair.",
+    "No physical leak-rate or actuator-force validation.",
+    "Existing history has no separate pressure-degradation event; full public-prefix state/impact timeline and raw plot retained.",
+    "Supporting setup log is not a complete machine-input recorder."
+  ],
+  "operator_authorization": "Standing handover; owner reviewed previous stage and requested next stage. No D snapshot authorization."
+}

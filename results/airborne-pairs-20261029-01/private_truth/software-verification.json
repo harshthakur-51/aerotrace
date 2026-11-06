@@ -1,0 +1,9 @@
+{
+  "command": ".venv/Scripts/python.exe -B -m unittest discover -s tests -v",
+  "tests_passed": 111,
+  "duration_local_s": 7.469,
+  "source_commit": "3970f931e7d882e81a9285f4c56baf7d82a262a6",
+  "log": "operator_setup/software-tests.log",
+  "log_sha256": "6dc9cc17be9f5fa974af30dc116a3e2f0a0680968db49a466c408b3b2e30a96c",
+  "limits": "Software checks do not count as native trials or diagnostic accuracy. Controller behavior unchanged; only misleading expiry error text corrected before collection."
+}

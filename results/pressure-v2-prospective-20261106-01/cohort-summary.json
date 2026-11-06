@@ -1,0 +1,271 @@
+{
+  "protocol_sha256": "8fca0e0623161425905f483e957c9a818e07b42d11f722f110f1d46c4bece93e",
+  "planned_episodes": 6,
+  "completed_scored_episodes": 6,
+  "matched_bounded_profiles": 6,
+  "total_public_polls": 276,
+  "declared_flight_groups": [
+    "pressure-flight-20261106-A",
+    "pressure-flight-20261106-B"
+  ],
+  "recorded_flightgear_process_ids": [
+    4276,
+    39024
+  ],
+  "episodes": [
+    {
+      "run_id": "pressure-prospective-A-01",
+      "flight_group": "pressure-flight-20261106-A",
+      "profile": "reference",
+      "episode": "episode-A-01",
+      "outcome": "scored",
+      "flightgear_process_id": 4276,
+      "final_live_offline_equal": true,
+      "public_polls": 32,
+      "all_polls_complete": true,
+      "last_baseline": {
+        "altitude": 8134.389372,
+        "airspeed": 240.419502
+      },
+      "observed_minimum": {
+        "generator_2_voltage": 114.998933,
+        "ac_bus_1": 114.998933,
+        "ac_bus_2": 114.998933,
+        "blue_pressure": 3000.0,
+        "blue_quantity": 8.0
+      },
+      "observed_maximum": {
+        "generator_2_voltage": 115.000856,
+        "ac_bus_1": 115.000856,
+        "ac_bus_2": 115.000856,
+        "blue_pressure": 3000.0,
+        "blue_quantity": 8.0
+      },
+      "final_channels": {
+        "generator_2_voltage": 115.000298,
+        "ac_bus_1": 115.000286,
+        "ac_bus_2": 115.000286,
+        "blue_pressure": 3000.0,
+        "blue_quantity": 8.0
+      },
+      "compatible_ids": [
+        "selected_reference"
+      ],
+      "assessment": "matched_bounded_profile",
+      "exact_bounded_profile_match": true,
+      "native_cleanup_verified": true
+    },
+    {
+      "run_id": "pressure-prospective-A-02",
+      "flight_group": "pressure-flight-20261106-A",
+      "profile": "pressure_supply",
+      "episode": "episode-A-02",
+      "outcome": "scored",
+      "flightgear_process_id": 4276,
+      "final_live_offline_equal": true,
+      "public_polls": 53,
+      "all_polls_complete": true,
+      "last_baseline": {
+        "altitude": 8134.319711,
+        "airspeed": 240.411928
+      },
+      "observed_minimum": {
+        "generator_2_voltage": 114.99887,
+        "ac_bus_1": 114.99887,
+        "ac_bus_2": 114.99887,
+        "blue_pressure": 0.0,
+        "blue_quantity": 8.0
+      },
+      "observed_maximum": {
+        "generator_2_voltage": 115.000581,
+        "ac_bus_1": 115.000581,
+        "ac_bus_2": 115.000581,
+        "blue_pressure": 3000.0,
+        "blue_quantity": 8.0
+      },
+      "final_channels": {
+        "generator_2_voltage": 115.000066,
+        "ac_bus_1": 115.000066,
+        "ac_bus_2": 115.000066,
+        "blue_pressure": 3000.0,
+        "blue_quantity": 8.0
+      },
+      "compatible_ids": [
+        "blue_pressure_supply_loss"
+      ],
+      "assessment": "matched_bounded_profile",
+      "exact_bounded_profile_match": true,
+      "native_cleanup_verified": true
+    },
+    {
+      "run_id": "pressure-prospective-A-03",
+      "flight_group": "pressure-flight-20261106-A",
+      "profile": "joint_pressure_effects",
+      "episode": "episode-A-03",
+      "outcome": "scored",
+      "flightgear_process_id": 4276,
+      "final_live_offline_equal": true,
+      "public_polls": 53,
+      "all_polls_complete": true,
+      "last_baseline": {
+        "altitude": 8134.590591,
+        "airspeed": 240.412416
+      },
+      "observed_minimum": {
+        "generator_2_voltage": 0.0,
+        "ac_bus_1": 114.998874,
+        "ac_bus_2": 114.998884,
+        "blue_pressure": 0.0,
+        "blue_quantity": 8.0
+      },
+      "observed_maximum": {
+        "generator_2_voltage": 115.000543,
+        "ac_bus_1": 115.000626,
+        "ac_bus_2": 115.000626,
+        "blue_pressure": 3000.0,
+        "blue_quantity": 8.0
+      },
+      "final_channels": {
+        "generator_2_voltage": 114.999267,
+        "ac_bus_1": 115.000624,
+        "ac_bus_2": 115.000624,
+        "blue_pressure": 3000.0,
+        "blue_quantity": 8.0
+      },
+      "compatible_ids": [
+        "grouped_pressure_joint_event",
+        "independent_pressure_pair"
+      ],
+      "assessment": "matched_bounded_profile",
+      "exact_bounded_profile_match": true,
+      "native_cleanup_verified": true
+    },
+    {
+      "run_id": "pressure-prospective-B-01",
+      "flight_group": "pressure-flight-20261106-B",
+      "profile": "reference",
+      "episode": "episode-B-01",
+      "outcome": "scored",
+      "flightgear_process_id": 39024,
+      "final_live_offline_equal": true,
+      "public_polls": 32,
+      "all_polls_complete": true,
+      "last_baseline": {
+        "altitude": 6095.989608,
+        "airspeed": 230.545055
+      },
+      "observed_minimum": {
+        "generator_2_voltage": 114.998877,
+        "ac_bus_1": 114.998877,
+        "ac_bus_2": 114.998871,
+        "blue_pressure": 3000.0,
+        "blue_quantity": 8.0
+      },
+      "observed_maximum": {
+        "generator_2_voltage": 115.000889,
+        "ac_bus_1": 115.000889,
+        "ac_bus_2": 115.000889,
+        "blue_pressure": 3000.0,
+        "blue_quantity": 8.0
+      },
+      "final_channels": {
+        "generator_2_voltage": 115.000023,
+        "ac_bus_1": 115.000023,
+        "ac_bus_2": 115.000023,
+        "blue_pressure": 3000.0,
+        "blue_quantity": 8.0
+      },
+      "compatible_ids": [
+        "selected_reference"
+      ],
+      "assessment": "matched_bounded_profile",
+      "exact_bounded_profile_match": true,
+      "native_cleanup_verified": true
+    },
+    {
+      "run_id": "pressure-prospective-B-02",
+      "flight_group": "pressure-flight-20261106-B",
+      "profile": "pressure_supply",
+      "episode": "episode-B-02",
+      "outcome": "scored",
+      "flightgear_process_id": 39024,
+      "final_live_offline_equal": true,
+      "public_polls": 53,
+      "all_polls_complete": true,
+      "last_baseline": {
+        "altitude": 6095.7624,
+        "airspeed": 230.537876
+      },
+      "observed_minimum": {
+        "generator_2_voltage": 114.998859,
+        "ac_bus_1": 114.998859,
+        "ac_bus_2": 114.998859,
+        "blue_pressure": 0.0,
+        "blue_quantity": 8.0
+      },
+      "observed_maximum": {
+        "generator_2_voltage": 115.000531,
+        "ac_bus_1": 115.000531,
+        "ac_bus_2": 115.000531,
+        "blue_pressure": 3000.0,
+        "blue_quantity": 8.0
+      },
+      "final_channels": {
+        "generator_2_voltage": 115.000024,
+        "ac_bus_1": 115.000024,
+        "ac_bus_2": 115.000024,
+        "blue_pressure": 3000.0,
+        "blue_quantity": 8.0
+      },
+      "compatible_ids": [
+        "blue_pressure_supply_loss"
+      ],
+      "assessment": "matched_bounded_profile",
+      "exact_bounded_profile_match": true,
+      "native_cleanup_verified": true
+    },
+    {
+      "run_id": "pressure-prospective-B-03",
+      "flight_group": "pressure-flight-20261106-B",
+      "profile": "joint_pressure_effects",
+      "episode": "episode-B-03",
+      "outcome": "scored",
+      "flightgear_process_id": 39024,
+      "final_live_offline_equal": true,
+      "public_polls": 53,
+      "all_polls_complete": true,
+      "last_baseline": {
+        "altitude": 6095.791429,
+        "airspeed": 230.540257
+      },
+      "observed_minimum": {
+        "generator_2_voltage": 0.0,
+        "ac_bus_1": 114.999503,
+        "ac_bus_2": 114.999605,
+        "blue_pressure": 0.0,
+        "blue_quantity": 8.0
+      },
+      "observed_maximum": {
+        "generator_2_voltage": 115.000093,
+        "ac_bus_1": 115.000536,
+        "ac_bus_2": 115.000536,
+        "blue_pressure": 3000.0,
+        "blue_quantity": 8.0
+      },
+      "final_channels": {
+        "generator_2_voltage": 115.000013,
+        "ac_bus_1": 115.000536,
+        "ac_bus_2": 115.000536,
+        "blue_pressure": 3000.0,
+        "blue_quantity": 8.0
+      },
+      "compatible_ids": [
+        "grouped_pressure_joint_event",
+        "independent_pressure_pair"
+      ],
+      "assessment": "matched_bounded_profile",
+      "exact_bounded_profile_match": true,
+      "native_cleanup_verified": true
+    }
+  ]
+}

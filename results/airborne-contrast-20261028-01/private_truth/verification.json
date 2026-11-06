@@ -1,0 +1,1974 @@
+{
+  "audit_schema_version": 1,
+  "created_utc": "2026-10-28T15:39:29.748671+00:00",
+  "kind": "offline native generator episode integrity, timing and public-only evidence replay audit",
+  "run": "results/airborne-contrast-20261028-01",
+  "actions_performed": {
+    "simulator_requests": 0,
+    "simulator_writes": 0,
+    "source_or_recording_changes": 0,
+    "only_written_artifact": "work/airborne-session-20261028/episode-audit.json"
+  },
+  "integrity": {
+    "artifact_hashes": {
+      "public_observations": {
+        "actual": "37e040ef0c5c5ec37550345aedb2cf407289d977b3c5b6fa855966324ba7fd1a",
+        "expected": "37e040ef0c5c5ec37550345aedb2cf407289d977b3c5b6fa855966324ba7fd1a",
+        "matches": true
+      },
+      "private_qualification": {
+        "actual": "e9505d9a5a711e08994de84024be6c1a30530f4eba9bccd83a1aa60253df9d32",
+        "expected": "e9505d9a5a711e08994de84024be6c1a30530f4eba9bccd83a1aa60253df9d32",
+        "matches": true
+      },
+      "private_actions": {
+        "actual": "0f2850be33075252193875e6cf567077ca41166c5b139a9bad3621b78eedbf12",
+        "expected": "0f2850be33075252193875e6cf567077ca41166c5b139a9bad3621b78eedbf12",
+        "matches": true
+      },
+      "interpreted_settings": {
+        "actual": "ac34617fb187e26789db3398701562714cdce57f0078732ccacb37ee3aaa7c1e",
+        "expected": "ac34617fb187e26789db3398701562714cdce57f0078732ccacb37ee3aaa7c1e",
+        "matches": true
+      }
+    },
+    "archived_source_hash_matches": {
+      "aircraft_debugger/__init__.py": true,
+      "aircraft_debugger/airborne_experiment.py": true,
+      "aircraft_debugger/airborne_record.py": true,
+      "aircraft_debugger/airborne_profile.py": true,
+      "aircraft_debugger/airborne_admission.py": true,
+      "aircraft_debugger/observations.py": true,
+      "aircraft_debugger/flightgear.py": true,
+      "aircraft_debugger/sim_panel.py": true,
+      "configs/flightgear-assets.json": true,
+      "configs/flightgear-a320.fgfsrc": true
+    },
+    "active_source_matches_at_audit": {
+      "aircraft_debugger/__init__.py": true,
+      "aircraft_debugger/airborne_experiment.py": true,
+      "aircraft_debugger/airborne_record.py": true,
+      "aircraft_debugger/airborne_profile.py": true,
+      "aircraft_debugger/airborne_admission.py": true,
+      "aircraft_debugger/observations.py": true,
+      "aircraft_debugger/flightgear.py": true,
+      "aircraft_debugger/sim_panel.py": true,
+      "configs/flightgear-assets.json": true,
+      "configs/flightgear-a320.fgfsrc": true
+    },
+    "source_commit_before_run": "9794d813e5facea860a40eb221a692fb2c5e052b",
+    "source_commit_matches_expected": true,
+    "public_records": 34,
+    "private_qualification_records": 18,
+    "public_complete_records": 34,
+    "private_complete_records": 18,
+    "counts_match": true,
+    "strict_schema2_all_records_valid": true,
+    "sample_indices_contiguous": true,
+    "settings_equal_summary": true,
+    "all_qualification_private_keys_exact": true
+  },
+  "privacy": {
+    "strict_exact_twenty_channel_allowlist": true,
+    "private_property_paths_absent": true,
+    "private_case_labels_absent": true,
+    "private_metadata_keys_absent": true
+  },
+  "qualification_replay": {
+    "uses_verified_archived_modules": true,
+    "evaluations": 18,
+    "all_decisions_match_exactly": true,
+    "mismatched_sample_indices": [],
+    "last_replay_matches_summary": true,
+    "final_phase_label": "final_pre_intervention",
+    "last_window_progress_sim_s": 17.008332999999993,
+    "final_gate_qualified": true,
+    "read_age_at_original_evaluation_local_s": {
+      "count": 468,
+      "minimum": 0.00041999993845820427,
+      "maximum": 0.39534459996502846
+    },
+    "combined_public_private_skew_sim_s": {
+      "count": 18,
+      "minimum": 0.3499999999999659,
+      "maximum": 0.39999999999997726
+    },
+    "timing": {
+      "samples": 18,
+      "poll_span_local_s": {
+        "count": 18,
+        "minimum": 0.2726099999854341,
+        "maximum": 0.32436249998863786
+      },
+      "public_reading_age_at_poll_completion_local_s": {
+        "count": 360,
+        "minimum": 0.0002886999864131212,
+        "maximum": 0.2835782999172807
+      },
+      "timestamp_skew_including_observed_clock_sim_s": {
+        "count": 18,
+        "minimum": 0.24166700000000674,
+        "maximum": 0.2833329999999705
+      },
+      "poll_completion_gap_local_s": {
+        "count": 17,
+        "minimum": 0.9727189000695944,
+        "maximum": 1.0296463000122458
+      },
+      "elapsed_poll_completion_local_s": 17.038626199937426,
+      "minimum_channel_progress_sim_s": 17.008332999999993,
+      "clock_progress": {
+        "aircraft": {
+          "first_sim_s": 383.333333,
+          "last_sim_s": 400.35,
+          "elapsed_sim_s": 17.01666700000004,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 17,
+            "minimum": 0.9833329999999592,
+            "maximum": 1.025000000000034
+          }
+        },
+        "sim_time": {
+          "first_sim_s": 383.325,
+          "last_sim_s": 400.366667,
+          "elapsed_sim_s": 17.041667000000018,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 17,
+            "minimum": 0.983333000000016,
+            "maximum": 1.025000000000034
+          }
+        },
+        "paused": {
+          "first_sim_s": 383.341667,
+          "last_sim_s": 400.375,
+          "elapsed_sim_s": 17.033333000000027,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 17,
+            "minimum": 0.9750000000000227,
+            "maximum": 1.025000000000034
+          }
+        },
+        "altitude": {
+          "first_sim_s": 383.358333,
+          "last_sim_s": 400.391667,
+          "elapsed_sim_s": 17.033333999999968,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 17,
+            "minimum": 0.983333000000016,
+            "maximum": 1.016666999999984
+          }
+        },
+        "airspeed": {
+          "first_sim_s": 383.375,
+          "last_sim_s": 400.408333,
+          "elapsed_sim_s": 17.033333000000027,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 17,
+            "minimum": 0.9749999999999659,
+            "maximum": 1.025000000000034
+          }
+        },
+        "engine_1_n1": {
+          "first_sim_s": 383.391667,
+          "last_sim_s": 400.425,
+          "elapsed_sim_s": 17.033333000000027,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 17,
+            "minimum": 0.9749999999999659,
+            "maximum": 1.033333999999968
+          }
+        },
+        "engine_2_n1": {
+          "first_sim_s": 383.416667,
+          "last_sim_s": 400.441667,
+          "elapsed_sim_s": 17.024999999999977,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 17,
+            "minimum": 0.9750000000000227,
+            "maximum": 1.0333329999999705
+          }
+        },
+        "generator_2_voltage": {
+          "first_sim_s": 383.433333,
+          "last_sim_s": 400.45,
+          "elapsed_sim_s": 17.016666999999984,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 17,
+            "minimum": 0.9750000000000227,
+            "maximum": 1.033333999999968
+          }
+        },
+        "ac_bus_1": {
+          "first_sim_s": 383.441667,
+          "last_sim_s": 400.458333,
+          "elapsed_sim_s": 17.016665999999987,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 17,
+            "minimum": 0.9749999999999659,
+            "maximum": 1.0333330000000274
+          }
+        },
+        "ac_bus_2": {
+          "first_sim_s": 383.45,
+          "last_sim_s": 400.466667,
+          "elapsed_sim_s": 17.016666999999984,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 17,
+            "minimum": 0.9666669999999726,
+            "maximum": 1.041667000000018
+          }
+        },
+        "blue_pressure": {
+          "first_sim_s": 383.475,
+          "last_sim_s": 400.483333,
+          "elapsed_sim_s": 17.008332999999993,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 17,
+            "minimum": 0.9750000000000227,
+            "maximum": 1.0333329999999705
+          }
+        },
+        "blue_quantity": {
+          "first_sim_s": 383.483333,
+          "last_sim_s": 400.5,
+          "elapsed_sim_s": 17.016666999999984,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 17,
+            "minimum": 0.9750000000000227,
+            "maximum": 1.033333999999968
+          }
+        },
+        "main_gear_1_wow": {
+          "first_sim_s": 383.491667,
+          "last_sim_s": 400.516667,
+          "elapsed_sim_s": 17.024999999999977,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 17,
+            "minimum": 0.9749999999999659,
+            "maximum": 1.025000000000034
+          }
+        },
+        "main_gear_2_wow": {
+          "first_sim_s": 383.5,
+          "last_sim_s": 400.525,
+          "elapsed_sim_s": 17.024999999999977,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 17,
+            "minimum": 0.9749999999999659,
+            "maximum": 1.0333330000000274
+          }
+        },
+        "height_agl": {
+          "first_sim_s": 383.525,
+          "last_sim_s": 400.533333,
+          "elapsed_sim_s": 17.00833300000005,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 17,
+            "minimum": 0.966666000000032,
+            "maximum": 1.041667000000018
+          }
+        },
+        "vertical_speed": {
+          "first_sim_s": 383.541667,
+          "last_sim_s": 400.55,
+          "elapsed_sim_s": 17.008332999999993,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 17,
+            "minimum": 0.9666670000000295,
+            "maximum": 1.0499999999999545
+          }
+        },
+        "bank": {
+          "first_sim_s": 383.558333,
+          "last_sim_s": 400.566667,
+          "elapsed_sim_s": 17.00833399999999,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 17,
+            "minimum": 0.9666670000000295,
+            "maximum": 1.0333330000000274
+          }
+        },
+        "autopilot_1": {
+          "first_sim_s": 383.566667,
+          "last_sim_s": 400.575,
+          "elapsed_sim_s": 17.008332999999993,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 17,
+            "minimum": 0.9666669999999726,
+            "maximum": 1.033333999999968
+          }
+        },
+        "autopilot_2": {
+          "first_sim_s": 383.583333,
+          "last_sim_s": 400.608333,
+          "elapsed_sim_s": 17.025000000000034,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 17,
+            "minimum": 0.9749999999999659,
+            "maximum": 1.025000000000034
+          }
+        },
+        "autothrust": {
+          "first_sim_s": 383.6,
+          "last_sim_s": 400.633333,
+          "elapsed_sim_s": 17.03333299999997,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 17,
+            "minimum": 0.9666670000000295,
+            "maximum": 1.0333330000000274
+          }
+        },
+        "observed_clock": {
+          "first_sim_s": 383.325,
+          "last_sim_s": 400.366667,
+          "elapsed_sim_s": 17.041667000000018,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 17,
+            "minimum": 0.983333000000016,
+            "maximum": 1.025000000000034
+          }
+        }
+      }
+    },
+    "ranges": {
+      "aircraft": {
+        "path": "/sim/aircraft",
+        "unit": "",
+        "valid_samples": 18,
+        "values": [
+          "A320-200-CFM"
+        ]
+      },
+      "sim_time": {
+        "path": "/sim/time/elapsed-sec",
+        "unit": "s",
+        "valid_samples": 18,
+        "minimum": 383.325,
+        "maximum": 400.366667
+      },
+      "paused": {
+        "path": "/sim/freeze/master",
+        "unit": "",
+        "valid_samples": 18,
+        "values": [
+          false
+        ]
+      },
+      "altitude": {
+        "path": "/position/altitude-ft",
+        "unit": "ft",
+        "valid_samples": 18,
+        "minimum": 10171.267436,
+        "maximum": 10171.548255
+      },
+      "airspeed": {
+        "path": "/velocities/airspeed-kt",
+        "unit": "kt",
+        "valid_samples": 18,
+        "minimum": 250.313119,
+        "maximum": 250.319434
+      },
+      "engine_1_n1": {
+        "path": "/engines/engine[0]/n1-actual",
+        "unit": "%",
+        "valid_samples": 18,
+        "minimum": 54.779152,
+        "maximum": 54.880308
+      },
+      "engine_2_n1": {
+        "path": "/engines/engine[1]/n1-actual",
+        "unit": "%",
+        "valid_samples": 18,
+        "minimum": 54.779152,
+        "maximum": 54.880308
+      },
+      "generator_2_voltage": {
+        "path": "/systems/electrical/sources/idg-2/output-volt",
+        "unit": "V",
+        "valid_samples": 18,
+        "minimum": 114.998998,
+        "maximum": 115.000693
+      },
+      "ac_bus_1": {
+        "path": "/systems/electrical/bus/ac-1",
+        "unit": "V",
+        "valid_samples": 18,
+        "minimum": 114.998957,
+        "maximum": 115.000693
+      },
+      "ac_bus_2": {
+        "path": "/systems/electrical/bus/ac-2",
+        "unit": "V",
+        "valid_samples": 18,
+        "minimum": 114.998957,
+        "maximum": 115.000693
+      },
+      "blue_pressure": {
+        "path": "/systems/hydraulic/blue-psi",
+        "unit": "psi",
+        "valid_samples": 18,
+        "minimum": 3000.0,
+        "maximum": 3000.0
+      },
+      "blue_quantity": {
+        "path": "/systems/hydraulic/blue-qty",
+        "unit": "raw model quantity",
+        "valid_samples": 18,
+        "minimum": 8.0,
+        "maximum": 8.0
+      },
+      "main_gear_1_wow": {
+        "path": "/gear/gear[1]/wow",
+        "unit": "",
+        "valid_samples": 18,
+        "values": [
+          false
+        ]
+      },
+      "main_gear_2_wow": {
+        "path": "/gear/gear[2]/wow",
+        "unit": "",
+        "valid_samples": 18,
+        "values": [
+          false
+        ]
+      },
+      "height_agl": {
+        "path": "/position/altitude-agl-ft",
+        "unit": "ft",
+        "valid_samples": 18,
+        "minimum": 10172.402827,
+        "maximum": 10173.484028
+      },
+      "vertical_speed": {
+        "path": "/velocities/vertical-speed-fps",
+        "unit": "ft/s",
+        "valid_samples": 18,
+        "minimum": -0.062756,
+        "maximum": 0.049438
+      },
+      "bank": {
+        "path": "/orientation/roll-deg",
+        "unit": "deg",
+        "valid_samples": 18,
+        "minimum": -0.054116,
+        "maximum": -0.054078
+      },
+      "autopilot_1": {
+        "path": "/it-autoflight/output/ap1",
+        "unit": "",
+        "valid_samples": 18,
+        "values": [
+          true
+        ]
+      },
+      "autopilot_2": {
+        "path": "/it-autoflight/output/ap2",
+        "unit": "",
+        "valid_samples": 18,
+        "values": [
+          false
+        ]
+      },
+      "autothrust": {
+        "path": "/it-autoflight/output/athr",
+        "unit": "",
+        "valid_samples": 18,
+        "values": [
+          true
+        ]
+      }
+    },
+    "private_values": {
+      "startup_in_progress": {
+        "false": 18
+      },
+      "startup_mismatch_reason": {
+        "\"XX\"": 18
+      },
+      "engine_1_running": {
+        "true": 18
+      },
+      "engine_2_running": {
+        "true": 18
+      },
+      "generator_2_fault": {
+        "false": 18
+      },
+      "blue_leak_fault": {
+        "false": 18
+      }
+    }
+  },
+  "operator_action_audit": {
+    "attempt_count": 2,
+    "result_count": 2,
+    "only_generator_true_then_false_with_successful_results": true,
+    "cleanup_raw_false_readback_verified": true,
+    "cleanup_errors": [],
+    "pending_faults_unverified_clear": [],
+    "last_admission_earliest_reading_expiry_local_s": 966510.8466,
+    "enable_result_completed_local_s": 966509.3925802,
+    "enable_finished_before_last_admission_expiry": true,
+    "enable_to_disable_request_local_s": 9.45467170001939,
+    "enable_result_to_disable_request_local_s": 9.305551000055857,
+    "limits": "HTTP acknowledgements and verified flag reads are control provenance; physical response is checked separately in public voltages. Exact physical injection time lies within command/observation brackets; target8s is not exact exposure duration."
+  },
+  "full_recording": {
+    "status": "completed",
+    "completed": true,
+    "collection_completed": true,
+    "artifacts_complete": true,
+    "failure": null,
+    "all_public_readings_valid": true,
+    "timing": {
+      "samples": 34,
+      "poll_span_local_s": {
+        "count": 34,
+        "minimum": 0.2726099999854341,
+        "maximum": 0.32690260000526905
+      },
+      "public_reading_age_at_poll_completion_local_s": {
+        "count": 680,
+        "minimum": 0.0002886999864131212,
+        "maximum": 0.2840630999999121
+      },
+      "timestamp_skew_including_observed_clock_sim_s": {
+        "count": 34,
+        "minimum": 0.24166600000000926,
+        "maximum": 0.2916670000000181
+      },
+      "poll_completion_gap_local_s": {
+        "count": 33,
+        "minimum": 0.49103669996839017,
+        "maximum": 1.0352032999508083
+      },
+      "elapsed_poll_completion_local_s": 32.09956759994384,
+      "minimum_channel_progress_sim_s": 32.091665999999975,
+      "clock_progress": {
+        "aircraft": {
+          "first_sim_s": 383.333333,
+          "last_sim_s": 415.425,
+          "elapsed_sim_s": 32.09166700000003,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 33,
+            "minimum": 0.49166700000000674,
+            "maximum": 1.025000000000034
+          }
+        },
+        "sim_time": {
+          "first_sim_s": 383.325,
+          "last_sim_s": 415.441667,
+          "elapsed_sim_s": 32.11666700000001,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 33,
+            "minimum": 0.5,
+            "maximum": 1.025000000000034
+          }
+        },
+        "paused": {
+          "first_sim_s": 383.341667,
+          "last_sim_s": 415.45,
+          "elapsed_sim_s": 32.108333000000016,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 33,
+            "minimum": 0.483333000000016,
+            "maximum": 1.025000000000034
+          }
+        },
+        "altitude": {
+          "first_sim_s": 383.358333,
+          "last_sim_s": 415.475,
+          "elapsed_sim_s": 32.11666700000001,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 33,
+            "minimum": 0.5166670000000408,
+            "maximum": 1.0333330000000274
+          }
+        },
+        "airspeed": {
+          "first_sim_s": 383.375,
+          "last_sim_s": 415.483333,
+          "elapsed_sim_s": 32.108333000000016,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 33,
+            "minimum": 0.5,
+            "maximum": 1.025000000000034
+          }
+        },
+        "engine_1_n1": {
+          "first_sim_s": 383.391667,
+          "last_sim_s": 415.5,
+          "elapsed_sim_s": 32.108333000000016,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 33,
+            "minimum": 0.49166700000000674,
+            "maximum": 1.033333999999968
+          }
+        },
+        "engine_2_n1": {
+          "first_sim_s": 383.416667,
+          "last_sim_s": 415.508333,
+          "elapsed_sim_s": 32.091665999999975,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 33,
+            "minimum": 0.5,
+            "maximum": 1.0333329999999705
+          }
+        },
+        "generator_2_voltage": {
+          "first_sim_s": 383.433333,
+          "last_sim_s": 415.525,
+          "elapsed_sim_s": 32.09166699999997,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 33,
+            "minimum": 0.48333399999995663,
+            "maximum": 1.033333999999968
+          }
+        },
+        "ac_bus_1": {
+          "first_sim_s": 383.441667,
+          "last_sim_s": 415.541667,
+          "elapsed_sim_s": 32.10000000000002,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 33,
+            "minimum": 0.483333000000016,
+            "maximum": 1.0333330000000274
+          }
+        },
+        "ac_bus_2": {
+          "first_sim_s": 383.45,
+          "last_sim_s": 415.55,
+          "elapsed_sim_s": 32.10000000000002,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 33,
+            "minimum": 0.47500000000002274,
+            "maximum": 1.041667000000018
+          }
+        },
+        "blue_pressure": {
+          "first_sim_s": 383.475,
+          "last_sim_s": 415.566667,
+          "elapsed_sim_s": 32.09166699999997,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 33,
+            "minimum": 0.483333000000016,
+            "maximum": 1.0333329999999705
+          }
+        },
+        "blue_quantity": {
+          "first_sim_s": 383.483333,
+          "last_sim_s": 415.583333,
+          "elapsed_sim_s": 32.099999999999966,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 33,
+            "minimum": 0.46666699999997263,
+            "maximum": 1.033333999999968
+          }
+        },
+        "main_gear_1_wow": {
+          "first_sim_s": 383.491667,
+          "last_sim_s": 415.591667,
+          "elapsed_sim_s": 32.099999999999966,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 33,
+            "minimum": 0.4749999999999659,
+            "maximum": 1.025000000000034
+          }
+        },
+        "main_gear_2_wow": {
+          "first_sim_s": 383.5,
+          "last_sim_s": 415.616667,
+          "elapsed_sim_s": 32.11666700000001,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 33,
+            "minimum": 0.4749999999999659,
+            "maximum": 1.0333330000000274
+          }
+        },
+        "height_agl": {
+          "first_sim_s": 383.525,
+          "last_sim_s": 415.625,
+          "elapsed_sim_s": 32.10000000000002,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 33,
+            "minimum": 0.483333000000016,
+            "maximum": 1.041667000000018
+          }
+        },
+        "vertical_speed": {
+          "first_sim_s": 383.541667,
+          "last_sim_s": 415.633333,
+          "elapsed_sim_s": 32.091665999999975,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 33,
+            "minimum": 0.483333000000016,
+            "maximum": 1.0499999999999545
+          }
+        },
+        "bank": {
+          "first_sim_s": 383.558333,
+          "last_sim_s": 415.65,
+          "elapsed_sim_s": 32.09166699999997,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 33,
+            "minimum": 0.4916669999999499,
+            "maximum": 1.0333330000000274
+          }
+        },
+        "autopilot_1": {
+          "first_sim_s": 383.566667,
+          "last_sim_s": 415.666667,
+          "elapsed_sim_s": 32.10000000000002,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 33,
+            "minimum": 0.483333000000016,
+            "maximum": 1.0416669999999613
+          }
+        },
+        "autopilot_2": {
+          "first_sim_s": 383.583333,
+          "last_sim_s": 415.683333,
+          "elapsed_sim_s": 32.10000000000002,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 33,
+            "minimum": 0.483333000000016,
+            "maximum": 1.0416669999999613
+          }
+        },
+        "autothrust": {
+          "first_sim_s": 383.6,
+          "last_sim_s": 415.7,
+          "elapsed_sim_s": 32.099999999999966,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 33,
+            "minimum": 0.483333000000016,
+            "maximum": 1.0333330000000274
+          }
+        },
+        "observed_clock": {
+          "first_sim_s": 383.325,
+          "last_sim_s": 415.441667,
+          "elapsed_sim_s": 32.11666700000001,
+          "nonadvancing_steps": 0,
+          "gap_sim_s": {
+            "count": 33,
+            "minimum": 0.5,
+            "maximum": 1.025000000000034
+          }
+        }
+      }
+    },
+    "ranges": {
+      "aircraft": {
+        "path": "/sim/aircraft",
+        "unit": "",
+        "valid_samples": 34,
+        "values": [
+          "A320-200-CFM"
+        ]
+      },
+      "sim_time": {
+        "path": "/sim/time/elapsed-sec",
+        "unit": "s",
+        "valid_samples": 34,
+        "minimum": 383.325,
+        "maximum": 415.441667
+      },
+      "paused": {
+        "path": "/sim/freeze/master",
+        "unit": "",
+        "valid_samples": 34,
+        "values": [
+          false
+        ]
+      },
+      "altitude": {
+        "path": "/position/altitude-ft",
+        "unit": "ft",
+        "valid_samples": 34,
+        "minimum": 10171.265978,
+        "maximum": 10171.548434
+      },
+      "airspeed": {
+        "path": "/velocities/airspeed-kt",
+        "unit": "kt",
+        "valid_samples": 34,
+        "minimum": 250.313119,
+        "maximum": 250.320042
+      },
+      "engine_1_n1": {
+        "path": "/engines/engine[0]/n1-actual",
+        "unit": "%",
+        "valid_samples": 34,
+        "minimum": 54.763785,
+        "maximum": 54.880308
+      },
+      "engine_2_n1": {
+        "path": "/engines/engine[1]/n1-actual",
+        "unit": "%",
+        "valid_samples": 34,
+        "minimum": 54.763613,
+        "maximum": 54.880308
+      },
+      "generator_2_voltage": {
+        "path": "/systems/electrical/sources/idg-2/output-volt",
+        "unit": "V",
+        "valid_samples": 34,
+        "minimum": 0.0,
+        "maximum": 115.000693
+      },
+      "ac_bus_1": {
+        "path": "/systems/electrical/bus/ac-1",
+        "unit": "V",
+        "valid_samples": 34,
+        "minimum": 114.998957,
+        "maximum": 115.00079
+      },
+      "ac_bus_2": {
+        "path": "/systems/electrical/bus/ac-2",
+        "unit": "V",
+        "valid_samples": 34,
+        "minimum": 114.998957,
+        "maximum": 115.00079
+      },
+      "blue_pressure": {
+        "path": "/systems/hydraulic/blue-psi",
+        "unit": "psi",
+        "valid_samples": 34,
+        "minimum": 3000.0,
+        "maximum": 3000.0
+      },
+      "blue_quantity": {
+        "path": "/systems/hydraulic/blue-qty",
+        "unit": "raw model quantity",
+        "valid_samples": 34,
+        "minimum": 8.0,
+        "maximum": 8.0
+      },
+      "main_gear_1_wow": {
+        "path": "/gear/gear[1]/wow",
+        "unit": "",
+        "valid_samples": 34,
+        "values": [
+          false
+        ]
+      },
+      "main_gear_2_wow": {
+        "path": "/gear/gear[2]/wow",
+        "unit": "",
+        "valid_samples": 34,
+        "values": [
+          false
+        ]
+      },
+      "height_agl": {
+        "path": "/position/altitude-agl-ft",
+        "unit": "ft",
+        "valid_samples": 34,
+        "minimum": 10172.402827,
+        "maximum": 10173.484028
+      },
+      "vertical_speed": {
+        "path": "/velocities/vertical-speed-fps",
+        "unit": "ft/s",
+        "valid_samples": 34,
+        "minimum": -0.063847,
+        "maximum": 0.049651
+      },
+      "bank": {
+        "path": "/orientation/roll-deg",
+        "unit": "deg",
+        "valid_samples": 34,
+        "minimum": -0.054116,
+        "maximum": -0.054072
+      },
+      "autopilot_1": {
+        "path": "/it-autoflight/output/ap1",
+        "unit": "",
+        "valid_samples": 34,
+        "values": [
+          true
+        ]
+      },
+      "autopilot_2": {
+        "path": "/it-autoflight/output/ap2",
+        "unit": "",
+        "valid_samples": 34,
+        "values": [
+          false
+        ]
+      },
+      "autothrust": {
+        "path": "/it-autoflight/output/athr",
+        "unit": "",
+        "valid_samples": 34,
+        "values": [
+          true
+        ]
+      }
+    }
+  },
+  "phase_audits": [
+    {
+      "name": "active",
+      "first_sample_index": 18,
+      "last_sample_index": 27,
+      "target_sim_s": 8.0,
+      "observed_clock_progress_sim_s": 9.0,
+      "minimum_required_channel_progress_sim_s": 9.0,
+      "recorded_phase_elapsed_matches": true,
+      "recorded_minimum_progress_matches": true,
+      "recorded_completed": true,
+      "phase_wall_elapsed_local_s": 9.305403599981219,
+      "ranges": {
+        "aircraft": {
+          "path": "/sim/aircraft",
+          "unit": "",
+          "valid_samples": 10,
+          "values": [
+            "A320-200-CFM"
+          ]
+        },
+        "sim_time": {
+          "path": "/sim/time/elapsed-sec",
+          "unit": "s",
+          "valid_samples": 10,
+          "minimum": 400.941667,
+          "maximum": 409.941667
+        },
+        "paused": {
+          "path": "/sim/freeze/master",
+          "unit": "",
+          "valid_samples": 10,
+          "values": [
+            false
+          ]
+        },
+        "altitude": {
+          "path": "/position/altitude-ft",
+          "unit": "ft",
+          "valid_samples": 10,
+          "minimum": 10171.303881,
+          "maximum": 10171.548434
+        },
+        "airspeed": {
+          "path": "/velocities/airspeed-kt",
+          "unit": "kt",
+          "valid_samples": 10,
+          "minimum": 250.314969,
+          "maximum": 250.319674
+        },
+        "engine_1_n1": {
+          "path": "/engines/engine[0]/n1-actual",
+          "unit": "%",
+          "valid_samples": 10,
+          "minimum": 54.763785,
+          "maximum": 54.875992
+        },
+        "engine_2_n1": {
+          "path": "/engines/engine[1]/n1-actual",
+          "unit": "%",
+          "valid_samples": 10,
+          "minimum": 54.763613,
+          "maximum": 54.875042
+        },
+        "generator_2_voltage": {
+          "path": "/systems/electrical/sources/idg-2/output-volt",
+          "unit": "V",
+          "valid_samples": 10,
+          "minimum": 0.0,
+          "maximum": 0.0
+        },
+        "ac_bus_1": {
+          "path": "/systems/electrical/bus/ac-1",
+          "unit": "V",
+          "valid_samples": 10,
+          "minimum": 114.999841,
+          "maximum": 115.00079
+        },
+        "ac_bus_2": {
+          "path": "/systems/electrical/bus/ac-2",
+          "unit": "V",
+          "valid_samples": 10,
+          "minimum": 114.999841,
+          "maximum": 115.00079
+        },
+        "blue_pressure": {
+          "path": "/systems/hydraulic/blue-psi",
+          "unit": "psi",
+          "valid_samples": 10,
+          "minimum": 3000.0,
+          "maximum": 3000.0
+        },
+        "blue_quantity": {
+          "path": "/systems/hydraulic/blue-qty",
+          "unit": "raw model quantity",
+          "valid_samples": 10,
+          "minimum": 8.0,
+          "maximum": 8.0
+        },
+        "main_gear_1_wow": {
+          "path": "/gear/gear[1]/wow",
+          "unit": "",
+          "valid_samples": 10,
+          "values": [
+            false
+          ]
+        },
+        "main_gear_2_wow": {
+          "path": "/gear/gear[2]/wow",
+          "unit": "",
+          "valid_samples": 10,
+          "values": [
+            false
+          ]
+        },
+        "height_agl": {
+          "path": "/position/altitude-agl-ft",
+          "unit": "ft",
+          "valid_samples": 10,
+          "minimum": 10172.813258,
+          "maximum": 10173.170102
+        },
+        "vertical_speed": {
+          "path": "/velocities/vertical-speed-fps",
+          "unit": "ft/s",
+          "valid_samples": 10,
+          "minimum": -0.063847,
+          "maximum": 0.047194
+        },
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "unit": "deg",
+          "valid_samples": 10,
+          "minimum": -0.05411,
+          "maximum": -0.054083
+        },
+        "autopilot_1": {
+          "path": "/it-autoflight/output/ap1",
+          "unit": "",
+          "valid_samples": 10,
+          "values": [
+            true
+          ]
+        },
+        "autopilot_2": {
+          "path": "/it-autoflight/output/ap2",
+          "unit": "",
+          "valid_samples": 10,
+          "values": [
+            false
+          ]
+        },
+        "autothrust": {
+          "path": "/it-autoflight/output/athr",
+          "unit": "",
+          "valid_samples": 10,
+          "values": [
+            true
+          ]
+        }
+      },
+      "timing": {
+        "samples": 10,
+        "poll_span_local_s": {
+          "count": 10,
+          "minimum": 0.27358130004722625,
+          "maximum": 0.3029979000566527
+        },
+        "public_reading_age_at_poll_completion_local_s": {
+          "count": 200,
+          "minimum": 0.0005777999758720398,
+          "maximum": 0.2692306999815628
+        },
+        "timestamp_skew_including_observed_clock_sim_s": {
+          "count": 10,
+          "minimum": 0.24166600000000926,
+          "maximum": 0.266666999999984
+        },
+        "poll_completion_gap_local_s": {
+          "count": 9,
+          "minimum": 0.9709357999963686,
+          "maximum": 1.0184206999838352
+        },
+        "elapsed_poll_completion_local_s": 9.003435000078753,
+        "minimum_channel_progress_sim_s": 9.0,
+        "clock_progress": {
+          "aircraft": {
+            "first_sim_s": 400.933333,
+            "last_sim_s": 409.933333,
+            "elapsed_sim_s": 9.0,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 9,
+              "minimum": 0.983333000000016,
+              "maximum": 1.016666999999984
+            }
+          },
+          "sim_time": {
+            "first_sim_s": 400.941667,
+            "last_sim_s": 409.941667,
+            "elapsed_sim_s": 9.0,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 9,
+              "minimum": 0.9916660000000093,
+              "maximum": 1.016666999999984
+            }
+          },
+          "paused": {
+            "first_sim_s": 400.95,
+            "last_sim_s": 409.966667,
+            "elapsed_sim_s": 9.016666999999984,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 9,
+              "minimum": 0.9916660000000093,
+              "maximum": 1.0166659999999865
+            }
+          },
+          "altitude": {
+            "first_sim_s": 400.958333,
+            "last_sim_s": 409.958333,
+            "elapsed_sim_s": 9.0,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 9,
+              "minimum": 0.9749999999999659,
+              "maximum": 1.025000000000034
+            }
+          },
+          "airspeed": {
+            "first_sim_s": 400.975,
+            "last_sim_s": 409.983333,
+            "elapsed_sim_s": 9.008332999999993,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 9,
+              "minimum": 0.983333000000016,
+              "maximum": 1.016666999999984
+            }
+          },
+          "engine_1_n1": {
+            "first_sim_s": 401.0,
+            "last_sim_s": 410.0,
+            "elapsed_sim_s": 9.0,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 9,
+              "minimum": 0.983333000000016,
+              "maximum": 1.0249999999999773
+            }
+          },
+          "engine_2_n1": {
+            "first_sim_s": 401.008333,
+            "last_sim_s": 410.008333,
+            "elapsed_sim_s": 9.0,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 9,
+              "minimum": 0.983333000000016,
+              "maximum": 1.016666999999984
+            }
+          },
+          "generator_2_voltage": {
+            "first_sim_s": 401.025,
+            "last_sim_s": 410.033333,
+            "elapsed_sim_s": 9.00833300000005,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 9,
+              "minimum": 0.9916670000000067,
+              "maximum": 1.00833300000005
+            }
+          },
+          "ac_bus_1": {
+            "first_sim_s": 401.041667,
+            "last_sim_s": 410.05,
+            "elapsed_sim_s": 9.008332999999993,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 9,
+              "minimum": 0.9833329999999592,
+              "maximum": 1.0166670000000408
+            }
+          },
+          "ac_bus_2": {
+            "first_sim_s": 401.05,
+            "last_sim_s": 410.066667,
+            "elapsed_sim_s": 9.016666999999984,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 9,
+              "minimum": 0.983333000000016,
+              "maximum": 1.0249999999999773
+            }
+          },
+          "blue_pressure": {
+            "first_sim_s": 401.066667,
+            "last_sim_s": 410.075,
+            "elapsed_sim_s": 9.008332999999993,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 9,
+              "minimum": 0.983333000000016,
+              "maximum": 1.016666999999984
+            }
+          },
+          "blue_quantity": {
+            "first_sim_s": 401.083333,
+            "last_sim_s": 410.1,
+            "elapsed_sim_s": 9.01666700000004,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 9,
+              "minimum": 0.9666669999999726,
+              "maximum": 1.0333330000000274
+            }
+          },
+          "main_gear_1_wow": {
+            "first_sim_s": 401.1,
+            "last_sim_s": 410.108333,
+            "elapsed_sim_s": 9.008332999999993,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 9,
+              "minimum": 0.9749999999999659,
+              "maximum": 1.025000000000034
+            }
+          },
+          "main_gear_2_wow": {
+            "first_sim_s": 401.108333,
+            "last_sim_s": 410.116667,
+            "elapsed_sim_s": 9.00833399999999,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 9,
+              "minimum": 0.9583339999999794,
+              "maximum": 1.0333329999999705
+            }
+          },
+          "height_agl": {
+            "first_sim_s": 401.116667,
+            "last_sim_s": 410.125,
+            "elapsed_sim_s": 9.008332999999993,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 9,
+              "minimum": 0.9750000000000227,
+              "maximum": 1.0249999999999773
+            }
+          },
+          "vertical_speed": {
+            "first_sim_s": 401.133333,
+            "last_sim_s": 410.141667,
+            "elapsed_sim_s": 9.00833399999999,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 9,
+              "minimum": 0.9750000000000227,
+              "maximum": 1.0249999999999773
+            }
+          },
+          "bank": {
+            "first_sim_s": 401.15,
+            "last_sim_s": 410.158333,
+            "elapsed_sim_s": 9.00833300000005,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 9,
+              "minimum": 0.9749999999999659,
+              "maximum": 1.025000000000034
+            }
+          },
+          "autopilot_1": {
+            "first_sim_s": 401.158333,
+            "last_sim_s": 410.175,
+            "elapsed_sim_s": 9.016666999999984,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 9,
+              "minimum": 0.9666669999999726,
+              "maximum": 1.016666999999984
+            }
+          },
+          "autopilot_2": {
+            "first_sim_s": 401.175,
+            "last_sim_s": 410.191667,
+            "elapsed_sim_s": 9.016666999999984,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 9,
+              "minimum": 0.9583329999999819,
+              "maximum": 1.0249999999999773
+            }
+          },
+          "autothrust": {
+            "first_sim_s": 401.2,
+            "last_sim_s": 410.2,
+            "elapsed_sim_s": 9.0,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 9,
+              "minimum": 0.9750000000000227,
+              "maximum": 1.0249999999999773
+            }
+          },
+          "observed_clock": {
+            "first_sim_s": 400.941667,
+            "last_sim_s": 409.941667,
+            "elapsed_sim_s": 9.0,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 9,
+              "minimum": 0.9916660000000093,
+              "maximum": 1.016666999999984
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "recovery",
+      "first_sample_index": 28,
+      "last_sample_index": 33,
+      "target_sim_s": 5.0,
+      "observed_clock_progress_sim_s": 5.0,
+      "minimum_required_channel_progress_sim_s": 5.0,
+      "recorded_phase_elapsed_matches": true,
+      "recorded_minimum_progress_matches": true,
+      "recorded_completed": true,
+      "phase_wall_elapsed_local_s": 5.300474499934353,
+      "ranges": {
+        "aircraft": {
+          "path": "/sim/aircraft",
+          "unit": "",
+          "valid_samples": 6,
+          "values": [
+            "A320-200-CFM"
+          ]
+        },
+        "sim_time": {
+          "path": "/sim/time/elapsed-sec",
+          "unit": "s",
+          "valid_samples": 6,
+          "minimum": 410.441667,
+          "maximum": 415.441667
+        },
+        "paused": {
+          "path": "/sim/freeze/master",
+          "unit": "",
+          "valid_samples": 6,
+          "values": [
+            false
+          ]
+        },
+        "altitude": {
+          "path": "/position/altitude-ft",
+          "unit": "ft",
+          "valid_samples": 6,
+          "minimum": 10171.265978,
+          "maximum": 10171.376847
+        },
+        "airspeed": {
+          "path": "/velocities/airspeed-kt",
+          "unit": "kt",
+          "valid_samples": 6,
+          "minimum": 250.318116,
+          "maximum": 250.320042
+        },
+        "engine_1_n1": {
+          "path": "/engines/engine[0]/n1-actual",
+          "unit": "%",
+          "valid_samples": 6,
+          "minimum": 54.845215,
+          "maximum": 54.874344
+        },
+        "engine_2_n1": {
+          "path": "/engines/engine[1]/n1-actual",
+          "unit": "%",
+          "valid_samples": 6,
+          "minimum": 54.845215,
+          "maximum": 54.874402
+        },
+        "generator_2_voltage": {
+          "path": "/systems/electrical/sources/idg-2/output-volt",
+          "unit": "V",
+          "valid_samples": 6,
+          "minimum": 115.000067,
+          "maximum": 115.000229
+        },
+        "ac_bus_1": {
+          "path": "/systems/electrical/bus/ac-1",
+          "unit": "V",
+          "valid_samples": 6,
+          "minimum": 115.000789,
+          "maximum": 115.00079
+        },
+        "ac_bus_2": {
+          "path": "/systems/electrical/bus/ac-2",
+          "unit": "V",
+          "valid_samples": 6,
+          "minimum": 115.000789,
+          "maximum": 115.00079
+        },
+        "blue_pressure": {
+          "path": "/systems/hydraulic/blue-psi",
+          "unit": "psi",
+          "valid_samples": 6,
+          "minimum": 3000.0,
+          "maximum": 3000.0
+        },
+        "blue_quantity": {
+          "path": "/systems/hydraulic/blue-qty",
+          "unit": "raw model quantity",
+          "valid_samples": 6,
+          "minimum": 8.0,
+          "maximum": 8.0
+        },
+        "main_gear_1_wow": {
+          "path": "/gear/gear[1]/wow",
+          "unit": "",
+          "valid_samples": 6,
+          "values": [
+            false
+          ]
+        },
+        "main_gear_2_wow": {
+          "path": "/gear/gear[2]/wow",
+          "unit": "",
+          "valid_samples": 6,
+          "values": [
+            false
+          ]
+        },
+        "height_agl": {
+          "path": "/position/altitude-agl-ft",
+          "unit": "ft",
+          "valid_samples": 6,
+          "minimum": 10172.650128,
+          "maximum": 10172.946086
+        },
+        "vertical_speed": {
+          "path": "/velocities/vertical-speed-fps",
+          "unit": "ft/s",
+          "valid_samples": 6,
+          "minimum": -0.026864,
+          "maximum": 0.049651
+        },
+        "bank": {
+          "path": "/orientation/roll-deg",
+          "unit": "deg",
+          "valid_samples": 6,
+          "minimum": -0.054084,
+          "maximum": -0.054072
+        },
+        "autopilot_1": {
+          "path": "/it-autoflight/output/ap1",
+          "unit": "",
+          "valid_samples": 6,
+          "values": [
+            true
+          ]
+        },
+        "autopilot_2": {
+          "path": "/it-autoflight/output/ap2",
+          "unit": "",
+          "valid_samples": 6,
+          "values": [
+            false
+          ]
+        },
+        "autothrust": {
+          "path": "/it-autoflight/output/athr",
+          "unit": "",
+          "valid_samples": 6,
+          "values": [
+            true
+          ]
+        }
+      },
+      "timing": {
+        "samples": 6,
+        "poll_span_local_s": {
+          "count": 6,
+          "minimum": 0.27589849999640137,
+          "maximum": 0.32690260000526905
+        },
+        "public_reading_age_at_poll_completion_local_s": {
+          "count": 120,
+          "minimum": 0.0005505000008270144,
+          "maximum": 0.2840630999999121
+        },
+        "timestamp_skew_including_observed_clock_sim_s": {
+          "count": 6,
+          "minimum": 0.25,
+          "maximum": 0.2916670000000181
+        },
+        "poll_completion_gap_local_s": {
+          "count": 5,
+          "minimum": 0.9688032000558451,
+          "maximum": 1.0352032999508083
+        },
+        "elapsed_poll_completion_local_s": 5.002901799976826,
+        "minimum_channel_progress_sim_s": 5.0,
+        "clock_progress": {
+          "aircraft": {
+            "first_sim_s": 410.425,
+            "last_sim_s": 415.425,
+            "elapsed_sim_s": 5.0,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 5,
+              "minimum": 0.983333000000016,
+              "maximum": 1.0083339999999907
+            }
+          },
+          "sim_time": {
+            "first_sim_s": 410.441667,
+            "last_sim_s": 415.441667,
+            "elapsed_sim_s": 5.0,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 5,
+              "minimum": 0.9750000000000227,
+              "maximum": 1.016666999999984
+            }
+          },
+          "paused": {
+            "first_sim_s": 410.45,
+            "last_sim_s": 415.45,
+            "elapsed_sim_s": 5.0,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 5,
+              "minimum": 0.9749999999999659,
+              "maximum": 1.0166670000000408
+            }
+          },
+          "altitude": {
+            "first_sim_s": 410.475,
+            "last_sim_s": 415.475,
+            "elapsed_sim_s": 5.0,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 5,
+              "minimum": 0.9750000000000227,
+              "maximum": 1.0333330000000274
+            }
+          },
+          "airspeed": {
+            "first_sim_s": 410.483333,
+            "last_sim_s": 415.483333,
+            "elapsed_sim_s": 5.0,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 5,
+              "minimum": 0.9750000000000227,
+              "maximum": 1.0249999999999773
+            }
+          },
+          "engine_1_n1": {
+            "first_sim_s": 410.491667,
+            "last_sim_s": 415.5,
+            "elapsed_sim_s": 5.008332999999993,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 5,
+              "minimum": 0.9750000000000227,
+              "maximum": 1.0249999999999773
+            }
+          },
+          "engine_2_n1": {
+            "first_sim_s": 410.508333,
+            "last_sim_s": 415.508333,
+            "elapsed_sim_s": 5.0,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 5,
+              "minimum": 0.9750000000000227,
+              "maximum": 1.016666999999984
+            }
+          },
+          "generator_2_voltage": {
+            "first_sim_s": 410.516667,
+            "last_sim_s": 415.525,
+            "elapsed_sim_s": 5.008332999999993,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 5,
+              "minimum": 0.9749999999999659,
+              "maximum": 1.0166670000000408
+            }
+          },
+          "ac_bus_1": {
+            "first_sim_s": 410.533333,
+            "last_sim_s": 415.541667,
+            "elapsed_sim_s": 5.008333999999991,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 5,
+              "minimum": 0.9750000000000227,
+              "maximum": 1.0249999999999773
+            }
+          },
+          "ac_bus_2": {
+            "first_sim_s": 410.541667,
+            "last_sim_s": 415.55,
+            "elapsed_sim_s": 5.008332999999993,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 5,
+              "minimum": 0.983333000000016,
+              "maximum": 1.0249999999999773
+            }
+          },
+          "blue_pressure": {
+            "first_sim_s": 410.558333,
+            "last_sim_s": 415.566667,
+            "elapsed_sim_s": 5.008333999999991,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 5,
+              "minimum": 0.9750000000000227,
+              "maximum": 1.0166659999999865
+            }
+          },
+          "blue_quantity": {
+            "first_sim_s": 410.566667,
+            "last_sim_s": 415.583333,
+            "elapsed_sim_s": 5.0166659999999865,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 5,
+              "minimum": 0.983333000000016,
+              "maximum": 1.016666999999984
+            }
+          },
+          "main_gear_1_wow": {
+            "first_sim_s": 410.583333,
+            "last_sim_s": 415.591667,
+            "elapsed_sim_s": 5.008333999999991,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 5,
+              "minimum": 0.9833339999999566,
+              "maximum": 1.0166660000000434
+            }
+          },
+          "main_gear_2_wow": {
+            "first_sim_s": 410.591667,
+            "last_sim_s": 415.616667,
+            "elapsed_sim_s": 5.025000000000034,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 5,
+              "minimum": 0.9750000000000227,
+              "maximum": 1.0249999999999773
+            }
+          },
+          "height_agl": {
+            "first_sim_s": 410.608333,
+            "last_sim_s": 415.625,
+            "elapsed_sim_s": 5.016666999999984,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 5,
+              "minimum": 0.966666000000032,
+              "maximum": 1.0333329999999705
+            }
+          },
+          "vertical_speed": {
+            "first_sim_s": 410.625,
+            "last_sim_s": 415.633333,
+            "elapsed_sim_s": 5.008332999999993,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 5,
+              "minimum": 0.9666670000000295,
+              "maximum": 1.0333340000000248
+            }
+          },
+          "bank": {
+            "first_sim_s": 410.65,
+            "last_sim_s": 415.65,
+            "elapsed_sim_s": 5.0,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 5,
+              "minimum": 0.9583329999999819,
+              "maximum": 1.0333330000000274
+            }
+          },
+          "autopilot_1": {
+            "first_sim_s": 410.658333,
+            "last_sim_s": 415.666667,
+            "elapsed_sim_s": 5.008333999999991,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 5,
+              "minimum": 0.9750000000000227,
+              "maximum": 1.0416669999999613
+            }
+          },
+          "autopilot_2": {
+            "first_sim_s": 410.675,
+            "last_sim_s": 415.683333,
+            "elapsed_sim_s": 5.008332999999993,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 5,
+              "minimum": 0.9750000000000227,
+              "maximum": 1.0416669999999613
+            }
+          },
+          "autothrust": {
+            "first_sim_s": 410.683333,
+            "last_sim_s": 415.7,
+            "elapsed_sim_s": 5.016666999999984,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 5,
+              "minimum": 0.9666670000000295,
+              "maximum": 1.0333330000000274
+            }
+          },
+          "observed_clock": {
+            "first_sim_s": 410.441667,
+            "last_sim_s": 415.441667,
+            "elapsed_sim_s": 5.0,
+            "nonadvancing_steps": 0,
+            "gap_sim_s": {
+              "count": 5,
+              "minimum": 0.9750000000000227,
+              "maximum": 1.016666999999984
+            }
+          }
+        }
+      }
+    }
+  ],
+  "public_only_diagnostic_replay": {
+    "function": "aircraft_debugger.airborne_evidence.analyze_airborne_observations",
+    "input": "34 in-memory strict public schema2 observations only",
+    "no_file_or_socket_access_during_inference": true,
+    "blocked_events": [],
+    "analysis_source_provenance": {
+      "aircraft_debugger/airborne_evidence.py": {
+        "current_sha256": "690b73569789b8c2ef72532c3b58def8b604adad2c68c10bceb8e964ee2463f2",
+        "commit_sha256": "690b73569789b8c2ef72532c3b58def8b604adad2c68c10bceb8e964ee2463f2",
+        "current_matches_collection_commit": true
+      },
+      "aircraft_debugger/evidence.py": {
+        "current_sha256": "fefb7b6ba4c6e7cc739e508367932021dcfe28a8c9fe0766e8d46fc0ea00978f",
+        "commit_sha256": "fefb7b6ba4c6e7cc739e508367932021dcfe28a8c9fe0766e8d46fc0ea00978f",
+        "current_matches_collection_commit": true
+      },
+      "aircraft_debugger/airborne_profile.py": {
+        "current_sha256": "fefe20b9ce275ccfd581749452ade96c522192216ebc189fd3801d083befc565",
+        "commit_sha256": "fefe20b9ce275ccfd581749452ade96c522192216ebc189fd3801d083befc565",
+        "current_matches_collection_commit": true
+      },
+      "aircraft_debugger/observations.py": {
+        "current_sha256": "56d3acd38311403f340ad2ae8a733ebb00135ca290484d3ad95ef07e5689011c",
+        "commit_sha256": "56d3acd38311403f340ad2ae8a733ebb00135ca290484d3ad95ef07e5689011c",
+        "current_matches_collection_commit": true
+      },
+      "aircraft_debugger/flightgear.py": {
+        "current_sha256": "4e60e793ad30fdc5fa8d2b8d9d9157b16c1ab20fa99014df0252216325bdd443",
+        "commit_sha256": "4e60e793ad30fdc5fa8d2b8d9d9157b16c1ab20fa99014df0252216325bdd443",
+        "current_matches_collection_commit": true
+      }
+    },
+    "saved_report_sha256": "2a5a0404462b875ac4947256ee49e7236540a0dba85651788b85da9ac61d6cd1",
+    "saved_report_exactly_reproduced": true,
+    "ledger_kinds": [
+      "generator_2_source_unavailable",
+      "generator_output_restored"
+    ],
+    "ledger": [
+      {
+        "evidence_id": "E0001",
+        "kind": "generator_2_source_unavailable",
+        "epoch": 0,
+        "onset": {
+          "sample_index": 18,
+          "sim_time_s": 401.025,
+          "received_monotonic_s": 966509.5247723
+        },
+        "confirmation": {
+          "sample_index": 19,
+          "sim_time_s": 402.016667,
+          "received_monotonic_s": 966510.5165583
+        },
+        "channels": [
+          "generator_2_voltage"
+        ],
+        "details": "Low output persisted on two advancing readings after an observed energized reference; this is source-output evidence, not identification of a generator fault."
+      },
+      {
+        "evidence_id": "E0002",
+        "kind": "generator_output_restored",
+        "epoch": 0,
+        "onset": {
+          "sample_index": 28,
+          "sim_time_s": 410.516667,
+          "received_monotonic_s": 966519.0181739
+        },
+        "confirmation": {
+          "sample_index": 28,
+          "sim_time_s": 410.516667,
+          "received_monotonic_s": 966519.0181739
+        },
+        "channels": [
+          "generator_2_voltage"
+        ],
+        "details": "Output voltage returned to the illustrative energized range. This does not identify a repair."
+      }
+    ],
+    "final_selected_state": {
+      "generator_2": {
+        "status": "energized_output_observed",
+        "value_v": 115.000067,
+        "observed_at": {
+          "sample_index": 33,
+          "sim_time_s": 415.525,
+          "received_monotonic_s": 966524.0224936
+        },
+        "energized_reference": {
+          "value_v": 115.000107,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.433333,
+            "received_monotonic_s": 966491.9259002
+          }
+        },
+        "evidence_id": null
+      },
+      "ac_bus_2": {
+        "status": "supply_retained",
+        "value_v": 115.000789,
+        "observed_at": {
+          "sample_index": 33,
+          "sim_time_s": 415.55,
+          "received_monotonic_s": 966524.0481942
+        }
+      },
+      "blue_inventory": {
+        "status": "near_observed_reference",
+        "value_raw": 8.0,
+        "drop_from_reference_raw": 0.0,
+        "reference": {
+          "value_raw": 8.0,
+          "observed_at": {
+            "sample_index": 0,
+            "sim_time_s": 383.483333,
+            "received_monotonic_s": 966491.9781998
+          }
+        },
+        "observed_at": {
+          "sample_index": 33,
+          "sim_time_s": 415.583333,
+          "received_monotonic_s": 966524.0789363
+        },
+        "evidence_id": null
+      },
+      "blue_pressure": {
+        "status": "pressure_retained",
+        "value_psi": 3000.0,
+        "observed_at": {
+          "sample_index": 33,
+          "sim_time_s": 415.566667,
+          "received_monotonic_s": 966524.0667226
+        }
+      },
+      "data_quality": {
+        "usable": true,
+        "reasons": [],
+        "sample_index": 33,
+        "epoch": 0
+      }
+    },
+    "assessment": {
+      "category": "no_fault_observed",
+      "cause_identifiable": false,
+      "probabilities_computed": false,
+      "complete_current_assessment": true,
+      "selected_system_assessment_complete": true,
+      "airborne_context_complete": true,
+      "category_scope": "Selected generator/bus and blue quantity/pressure observations; not whole-aircraft health"
+    },
+    "context_retained": true,
+    "input_provenance": {
+      "canonical_observations_sha256": "9c64680d60dde965a8346ca523907cd5804bcd20fd3b7b90c0ec18b4c2684762",
+      "canonical_encoding": "UTF-8 JSON Lines; sorted keys, compact separators, ASCII escapes, LF endings",
+      "input_access": "Explicit public observations only; no manifests, private truth, sibling files or simulator state",
+      "observation_file_sha256": "37e040ef0c5c5ec37550345aedb2cf407289d977b3c5b6fa855966324ba7fd1a"
+    }
+  },
+  "limits": [
+    "One isolated native-model intervention under one declared10,000ft/250kt condition, not held-out diagnostic accuracy or general aircraft validation.",
+    "Active phase has10samples and9.0simseconds of minimum observed required-channel progression despite8s target; recovery has6samples and5.0simseconds.",
+    "Exact post-phase internal evaluation instants are not separately serialized per sample; offline timing uses recorded poll completion and phase bounds.",
+    "Generator source voltage loss with retained bus voltage does not identify the alternate supply route or establish whole-aircraft capability.",
+    "Autopilot1/autothrust can mask motion consequences; recorded engagement is not an assessment of manual controls or all automation modes.",
+    "No blue leak, grouped event, independent pair, engine shutdown or bus failure was exercised by this episode; broader airborne validation remains pending.",
+    "Final no_fault_observed means only selected generator/bus/blue observations are currently near reference; it does not erase historical source-loss evidence or certify health.",
+    "Fresh admission is needed before a later injection; this completed record is not permanent authorization or eligibility.",
+    "Expected runtime pins/source archives do not independently verify every running binary or native aircraft file."
+  ],
+  "passed": true,
+  "timing_bounds_verified": {
+    "all_public_channel_and_clock_timestamps_strictly_advance": true,
+    "all_public_channel_and_clock_gaps_within_bound": true,
+    "public_poll_span_within_bound": true,
+    "public_receipt_gaps_within_bound": true,
+    "public_skew_within_bound": true,
+    "qualification_read_age_within_bound": true,
+    "qualification_combined_skew_within_bound": true,
+    "phase_clock_and_minimum_progress_match_summary": true,
+    "phase_required_progress_reaches_declared_targets": true
+  }
+}

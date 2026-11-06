@@ -1,0 +1,2075 @@
+    0.70 [ALRT]:general    Ignoring user settings. Restoring defaults.
+    0.97 [ALRT]:view       Creating osgViewer::CompositeViewer
+    0.97 [ALRT]:general    affinity=none
+    0.97 [ALRT]:view       Calling composite_viewer->setUseConfigureAffinity() with flag=0
+Error [GENERAL |  | OpenXR-Loader] : ReadRuntimeDataFilesInRegistry - registry runtime path does not exist Z:\Meta Horizon\Support\oculus-runtime\oculus_openxr_64.json
+Error [GENERAL | xrEnumerateInstanceExtensionProperties | OpenXR-Loader] : RuntimeManifestFile::FindManifestFiles - failed to find active runtime file in registry
+Error [GENERAL | xrEnumerateInstanceExtensionProperties | OpenXR-Loader] : RuntimeInterface::LoadRuntimes - unknown error
+Error [GENERAL | xrEnumerateInstanceExtensionProperties | OpenXR-Loader] : RuntimeInterface::LoadRuntimes - failed to load a runtime
+Error [GENERAL | xrEnumerateInstanceExtensionProperties | OpenXR-Loader] : Failed to find default runtime with RuntimeInterface::LoadRuntime()
+Error [GENERAL | xrEnumerateInstanceExtensionProperties | OpenXR-Loader] : Failed querying extension properties
+    1.24 [WARN]:osg        osgXR: Failed to count OpenXR instance extensions: -51
+Error [GENERAL |  | OpenXR-Loader] : ReadRuntimeDataFilesInRegistry - registry runtime path does not exist Z:\Meta Horizon\Support\oculus-runtime\oculus_openxr_64.json
+Error [GENERAL | xrEnumerateInstanceExtensionProperties | OpenXR-Loader] : RuntimeManifestFile::FindManifestFiles - failed to find active runtime file in registry
+Error [GENERAL | xrEnumerateInstanceExtensionProperties | OpenXR-Loader] : RuntimeInterface::LoadRuntimes - unknown error
+Error [GENERAL | xrEnumerateInstanceExtensionProperties | OpenXR-Loader] : RuntimeInterface::LoadRuntimes - failed to load a runtime
+Error [GENERAL | xrEnumerateInstanceExtensionProperties | OpenXR-Loader] : Failed to find default runtime with RuntimeInterface::LoadRuntime()
+Error [GENERAL | xrEnumerateInstanceExtensionProperties | OpenXR-Loader] : Failed querying extension properties
+    1.24 [WARN]:osg        osgXR: Failed to count OpenXR instance extensions: -51
+    1.27 [WARN]:general    Enabling ATI/AMD viewport hack
+    1.30 [ALRT]:view       affinity=none
+   15.62 [WARN]:nasal      ERROR: Cannot add listener to tied property /sim[0]/freeze[0]/replay-state[0]
+   15.78 [WARN]:nasal      (EMEXEC) FrameNotification.frame_rate_worst = /sim/frame-rate-worst -> /sim/frame-rate-worst
+   15.78 [WARN]:nasal      (EMEXEC) FrameNotification.elapsed_seconds = /sim/time/elapsed-sec -> /sim/time/elapsed-sec
+   15.78 [WARN]:nasal      (EMEXEC) FrameNotification.frame_rate = /sim/frame-rate -> /sim/frame-rate
+   15.78 [WARN]:nasal      (EMEXEC) FrameNotification.eframe_rate = /sim/emexec/frame-rate -> /sim/emexec/frame-rate
+   17.67 [WARN]:nasal      ERROR: Cannot add listener to tied property /sim[0]/current-view[0]/heading-offset-deg[0]
+   17.80 [INFO]:nasal      ------------------------------------------------
+   17.80 [INFO]:nasal      Copyright (c) 2016-2026 Josh Davidson (Octal450)
+   17.80 [INFO]:nasal      ------------------------------------------------
+   18.52 [WARN]:nasal      ERROR: Cannot add listener to tied property /instrumentation[0]/mk-viii[0]/inputs[0]/discretes[0]/ta-tcf-inhibit[0]
+   18.52 [WARN]:nasal      ERROR: Cannot add listener to tied property /instrumentation[0]/altimeter[0]/setting-inhg[0]
+   18.52 [WARN]:nasal      ERROR: Cannot add listener to tied property /instrumentation[0]/altimeter[0]/setting-hpa[0]
+   18.58 [INFO]:nasal      System: Initializing A320-200-CFM
+   18.73 [INFO]:nasal      System: Version 2508
+   21.18 [WARN]:input      Unhandled HID consumer usage:1
+   21.18 [WARN]:input      Unhandled HID usage page:d with usage 5
+   21.18 [WARN]:input      Unhandled HID usage page:d with usage e
+   24.91 [WARN]:nasal      ERROR: Cannot add listener to tied property /autopilot[0]/route-manager[0]/departure[0]/runway[0]
+   24.91 [WARN]:nasal      ERROR: Cannot add listener to tied property /autopilot[0]/route-manager[0]/destination[0]/runway[0]
+   24.91 [WARN]:nasal      ERROR: Cannot add listener to tied property /autopilot[0]/route-manager[0]/departure[0]/runway[0]
+   24.91 [WARN]:nasal      ERROR: Cannot add listener to tied property /autopilot[0]/route-manager[0]/destination[0]/runway[0]
+   25.12 [WARN]:nasal      ERROR: Cannot add listener to tied property /autopilot[0]/route-manager[0]/departure[0]/runway[0]
+   25.12 [WARN]:nasal      ERROR: Cannot add listener to tied property /autopilot[0]/route-manager[0]/destination[0]/runway[0]
+   25.12 [WARN]:nasal      ERROR: Cannot add listener to tied property /autopilot[0]/route-manager[0]/departure[0]/runway[0]
+   25.12 [WARN]:nasal      ERROR: Cannot add listener to tied property /autopilot[0]/route-manager[0]/destination[0]/runway[0]
+   26.07 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 945.65ms max (9)
+   26.07 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+   26.07 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+   26.07 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+   26.07 [WARN]:nasal       -- Recipient                 A320 ECAM    0.17 ms
+   26.07 [WARN]:nasal       -- Recipient                  A320 PFD  361.27 ms
+   26.07 [WARN]:nasal       -- Recipient                  A320 PFD  366.57 ms
+   26.07 [WARN]:nasal       -- Recipient                 A320 E/WD   99.67 ms
+   26.07 [WARN]:nasal       -- Recipient                   A320 SD    0.27 ms
+   26.07 [WARN]:nasal       -- Recipient              A320 Battery    0.34 ms
+   26.07 [WARN]:nasal       -- Recipient              A320 Battery    0.18 ms
+   26.07 [WARN]:nasal       -- Recipient                 A320 IESI  116.78 ms
+   26.07 [WARN]:nasal       -- Recipient            A320 Libraries    0.37 ms
+   31.16 [ALRT]:flight     Failed to save initial FDM property state
+   37.74 [INFO]:nasal      Model load Eisenhower /ai/models/carrier[1]
+   37.91 [INFO]:nasal      Model load Nimitz /ai/models/carrier
+   39.30 [WARN]:osg        osgDB ac3d reader: detected surface with less than 3 vertices!
+   39.30 [WARN]:osg        osgDB ac3d reader: detected surface with less than 3 vertices!
+   39.30 [WARN]:osg        osgDB ac3d reader: detected surface with less than 3 vertices!
+   39.30 [WARN]:osg        osgDB ac3d reader: detected surface with less than 3 vertices!
+   39.30 [WARN]:osg        osgDB ac3d reader: detected surface with less than 3 vertices!
+   39.30 [WARN]:osg        osgDB ac3d reader: detected surface with less than 3 vertices!
+   39.30 [WARN]:osg        osgDB ac3d reader: detected surface with less than 3 vertices!
+   39.30 [WARN]:osg        osgDB ac3d reader: detected surface with less than 3 vertices!
+   39.30 [WARN]:osg        osgDB ac3d reader: detected surface with less than 3 vertices!
+   39.30 [WARN]:osg        osgDB ac3d reader: detected surface with less than 3 vertices!
+   39.30 [WARN]:osg        osgDB ac3d reader: detected surface with less than 3 vertices!
+   39.30 [WARN]:osg        osgDB ac3d reader: detected surface with less than 3 vertices!
+   39.30 [WARN]:osg        osgDB ac3d reader: detected surface with less than 3 vertices!
+   39.30 [WARN]:osg        osgDB ac3d reader: detected surface with less than 3 vertices!
+   39.30 [WARN]:osg        osgDB ac3d reader: detected surface with less than 3 vertices!
+   39.30 [WARN]:osg        osgDB ac3d reader: detected surface with less than 3 vertices!
+   39.38 [WARN]:osg        osgDB ac3d reader: detected surface with less than 3 vertices!
+   39.38 [WARN]:osg        osgDB ac3d reader: detected surface with less than 3 vertices!
+   39.38 [WARN]:osg        osgDB ac3d reader: detected surface with less than 3 vertices!
+   45.92 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 11.85ms max (9)
+   45.92 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+   45.92 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+   45.92 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+   45.92 [WARN]:nasal       -- Recipient                 A320 ECAM    0.01 ms
+   45.92 [WARN]:nasal       -- Recipient                  A320 PFD    0.15 ms
+   45.92 [WARN]:nasal       -- Recipient                  A320 PFD    0.09 ms
+   45.92 [WARN]:nasal       -- Recipient                 A320 E/WD    0.10 ms
+   45.92 [WARN]:nasal       -- Recipient                   A320 SD   11.22 ms
+   45.92 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+   45.92 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+   45.92 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+   45.92 [WARN]:nasal       -- Recipient            A320 Libraries    0.20 ms
+   45.92 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+   45.92 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+   60.23 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.45ms max (9)
+   60.23 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+   60.23 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+   60.23 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+   60.23 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+   60.23 [WARN]:nasal       -- Recipient                  A320 PFD    0.47 ms
+   60.23 [WARN]:nasal       -- Recipient                  A320 PFD    0.39 ms
+   60.23 [WARN]:nasal       -- Recipient                 A320 E/WD   12.01 ms
+   60.23 [WARN]:nasal       -- Recipient                   A320 SD    0.28 ms
+   60.23 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+   60.23 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+   60.23 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+   60.23 [WARN]:nasal       -- Recipient            A320 Libraries    0.23 ms
+   60.23 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+   60.23 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+   63.42 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 12.70ms max (9)
+   63.42 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+   63.42 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+   63.42 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+   63.42 [WARN]:nasal       -- Recipient                 A320 ECAM   12.66 ms
+   63.42 [WARN]:nasal       -- Recipient                  A320 PFD    0.01 ms
+   63.42 [WARN]:nasal       -- Recipient                  A320 PFD    0.00 ms
+   63.42 [WARN]:nasal       -- Recipient                 A320 E/WD    0.00 ms
+   63.42 [WARN]:nasal       -- Recipient                   A320 SD    0.00 ms
+   63.42 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+   63.42 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+   63.42 [WARN]:nasal       -- Recipient                 A320 IESI    0.00 ms
+   63.42 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+   63.42 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+   63.42 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+   65.67 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 15.23ms max (9)
+   65.67 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+   65.67 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+   65.67 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+   65.67 [WARN]:nasal       -- Recipient                 A320 ECAM    0.94 ms
+   65.67 [WARN]:nasal       -- Recipient                  A320 PFD    0.52 ms
+   65.67 [WARN]:nasal       -- Recipient                  A320 PFD    0.44 ms
+   65.67 [WARN]:nasal       -- Recipient                 A320 E/WD    0.37 ms
+   65.67 [WARN]:nasal       -- Recipient                   A320 SD    0.27 ms
+   65.67 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+   65.67 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+   65.67 [WARN]:nasal       -- Recipient                 A320 IESI    0.06 ms
+   65.67 [WARN]:nasal       -- Recipient            A320 Libraries   12.59 ms
+   65.67 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+   65.67 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+   67.99 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.30ms max (9)
+   67.99 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+   67.99 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+   67.99 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+   67.99 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+   67.99 [WARN]:nasal       -- Recipient                  A320 PFD   12.08 ms
+   67.99 [WARN]:nasal       -- Recipient                  A320 PFD    0.41 ms
+   67.99 [WARN]:nasal       -- Recipient                 A320 E/WD    0.26 ms
+   67.99 [WARN]:nasal       -- Recipient                   A320 SD    0.26 ms
+   67.99 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+   67.99 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+   67.99 [WARN]:nasal       -- Recipient                 A320 IESI    0.06 ms
+   67.99 [WARN]:nasal       -- Recipient            A320 Libraries    0.20 ms
+   67.99 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+   68.00 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+   71.75 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.97ms max (9)
+   71.76 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+   71.76 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+   71.76 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+   71.76 [WARN]:nasal       -- Recipient                 A320 ECAM    0.98 ms
+   71.76 [WARN]:nasal       -- Recipient                  A320 PFD   12.48 ms
+   71.76 [WARN]:nasal       -- Recipient                  A320 PFD    0.73 ms
+   71.76 [WARN]:nasal       -- Recipient                 A320 E/WD    0.27 ms
+   71.76 [WARN]:nasal       -- Recipient                   A320 SD    0.25 ms
+   71.76 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+   71.76 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+   71.76 [WARN]:nasal       -- Recipient                 A320 IESI    0.05 ms
+   71.76 [WARN]:nasal       -- Recipient            A320 Libraries    0.17 ms
+   71.76 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+   71.76 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+   79.33 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.39ms max (9)
+   79.33 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+   79.33 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+   79.33 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+   79.33 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+   79.33 [WARN]:nasal       -- Recipient                  A320 PFD   12.34 ms
+   79.33 [WARN]:nasal       -- Recipient                  A320 PFD    0.48 ms
+   79.33 [WARN]:nasal       -- Recipient                 A320 E/WD    0.19 ms
+   79.33 [WARN]:nasal       -- Recipient                   A320 SD    0.28 ms
+   79.33 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+   79.33 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+   79.33 [WARN]:nasal       -- Recipient                 A320 IESI    0.06 ms
+   79.34 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+   79.34 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+   79.34 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+   80.07 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 15.37ms max (9)
+   80.07 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+   80.07 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+   80.07 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+   80.07 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+   80.07 [WARN]:nasal       -- Recipient                  A320 PFD   13.98 ms
+   80.08 [WARN]:nasal       -- Recipient                  A320 PFD    0.51 ms
+   80.08 [WARN]:nasal       -- Recipient                 A320 E/WD    0.20 ms
+   80.08 [WARN]:nasal       -- Recipient                   A320 SD    0.32 ms
+   80.08 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+   80.08 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+   80.08 [WARN]:nasal       -- Recipient                 A320 IESI    0.07 ms
+   80.08 [WARN]:nasal       -- Recipient            A320 Libraries    0.26 ms
+   80.08 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+   80.08 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+   83.89 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.99ms max (9)
+   83.89 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+   83.89 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+   83.89 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+   83.89 [WARN]:nasal       -- Recipient                 A320 ECAM    0.94 ms
+   83.89 [WARN]:nasal       -- Recipient                  A320 PFD   11.77 ms
+   83.89 [WARN]:nasal       -- Recipient                  A320 PFD    0.59 ms
+   83.89 [WARN]:nasal       -- Recipient                 A320 E/WD    0.12 ms
+   83.89 [WARN]:nasal       -- Recipient                   A320 SD    0.30 ms
+   83.89 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+   83.89 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+   83.89 [WARN]:nasal       -- Recipient                 A320 IESI    0.05 ms
+   83.89 [WARN]:nasal       -- Recipient            A320 Libraries    0.17 ms
+   83.89 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+   83.89 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+   92.76 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.26ms max (9)
+   92.78 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+   92.78 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+   92.78 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+   92.78 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+   92.78 [WARN]:nasal       -- Recipient                  A320 PFD    0.66 ms
+   92.78 [WARN]:nasal       -- Recipient                  A320 PFD    0.63 ms
+   92.78 [WARN]:nasal       -- Recipient                 A320 E/WD   11.44 ms
+   92.78 [WARN]:nasal       -- Recipient                   A320 SD    0.28 ms
+   92.78 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+   92.78 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+   92.78 [WARN]:nasal       -- Recipient                 A320 IESI    0.05 ms
+   92.78 [WARN]:nasal       -- Recipient            A320 Libraries    0.17 ms
+   92.78 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+   92.78 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+   97.89 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.73ms max (9)
+   97.89 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+   97.89 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+   97.89 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+   97.89 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+   97.89 [WARN]:nasal       -- Recipient                  A320 PFD   12.35 ms
+   97.89 [WARN]:nasal       -- Recipient                  A320 PFD    0.57 ms
+   97.89 [WARN]:nasal       -- Recipient                 A320 E/WD    0.15 ms
+   97.89 [WARN]:nasal       -- Recipient                   A320 SD    0.26 ms
+   97.89 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+   97.89 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+   97.89 [WARN]:nasal       -- Recipient                 A320 IESI    0.11 ms
+   97.89 [WARN]:nasal       -- Recipient            A320 Libraries    0.26 ms
+   97.89 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+   97.89 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  101.43 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.32ms max (9)
+  101.43 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  101.43 [WARN]:nasal       -- Recipient           A320 Electrical   11.85 ms
+  101.43 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  101.43 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  101.43 [WARN]:nasal       -- Recipient                  A320 PFD    0.90 ms
+  101.43 [WARN]:nasal       -- Recipient                  A320 PFD    0.73 ms
+  101.43 [WARN]:nasal       -- Recipient                 A320 E/WD    0.13 ms
+  101.43 [WARN]:nasal       -- Recipient                   A320 SD    0.28 ms
+  101.43 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  101.43 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  101.43 [WARN]:nasal       -- Recipient                 A320 IESI    0.11 ms
+  101.43 [WARN]:nasal       -- Recipient            A320 Libraries    0.29 ms
+  101.43 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  101.43 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  102.20 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.21ms max (9)
+  102.20 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  102.20 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  102.20 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  102.21 [WARN]:nasal       -- Recipient                 A320 ECAM   12.18 ms
+  102.21 [WARN]:nasal       -- Recipient                  A320 PFD    0.83 ms
+  102.21 [WARN]:nasal       -- Recipient                  A320 PFD    0.68 ms
+  102.21 [WARN]:nasal       -- Recipient                 A320 E/WD    0.12 ms
+  102.21 [WARN]:nasal       -- Recipient                   A320 SD    0.26 ms
+  102.21 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  102.21 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  102.21 [WARN]:nasal       -- Recipient                 A320 IESI    0.10 ms
+  102.21 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  102.21 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  102.21 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  103.81 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.24ms max (9)
+  103.81 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  103.81 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  103.81 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  103.81 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  103.81 [WARN]:nasal       -- Recipient                  A320 PFD    0.90 ms
+  103.81 [WARN]:nasal       -- Recipient                  A320 PFD    0.84 ms
+  103.81 [WARN]:nasal       -- Recipient                 A320 E/WD   12.05 ms
+  103.81 [WARN]:nasal       -- Recipient                   A320 SD    0.28 ms
+  103.81 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  103.81 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  103.81 [WARN]:nasal       -- Recipient                 A320 IESI    0.12 ms
+  103.81 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  103.81 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  103.81 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  109.83 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 16.00ms max (9)
+  109.83 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  109.83 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  109.83 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  109.83 [WARN]:nasal       -- Recipient                 A320 ECAM    1.19 ms
+  109.83 [WARN]:nasal       -- Recipient                  A320 PFD    0.94 ms
+  109.83 [WARN]:nasal       -- Recipient                  A320 PFD   13.01 ms
+  109.83 [WARN]:nasal       -- Recipient                 A320 E/WD    0.23 ms
+  109.83 [WARN]:nasal       -- Recipient                   A320 SD    0.28 ms
+  109.83 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  109.83 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  109.83 [WARN]:nasal       -- Recipient                 A320 IESI    0.11 ms
+  109.83 [WARN]:nasal       -- Recipient            A320 Libraries    0.20 ms
+  109.83 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  109.83 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  110.76 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 15.66ms max (9)
+  110.76 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  110.76 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  110.76 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  110.76 [WARN]:nasal       -- Recipient                 A320 ECAM    0.86 ms
+  110.76 [WARN]:nasal       -- Recipient                  A320 PFD   13.15 ms
+  110.76 [WARN]:nasal       -- Recipient                  A320 PFD    0.91 ms
+  110.76 [WARN]:nasal       -- Recipient                 A320 E/WD    0.13 ms
+  110.76 [WARN]:nasal       -- Recipient                   A320 SD    0.27 ms
+  110.76 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  110.76 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  110.76 [WARN]:nasal       -- Recipient                 A320 IESI    0.12 ms
+  110.76 [WARN]:nasal       -- Recipient            A320 Libraries    0.18 ms
+  110.76 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  110.76 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  113.13 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.97ms max (9)
+  113.13 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  113.13 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  113.13 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  113.13 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  113.13 [WARN]:nasal       -- Recipient                  A320 PFD    0.86 ms
+  113.13 [WARN]:nasal       -- Recipient                  A320 PFD   12.54 ms
+  113.13 [WARN]:nasal       -- Recipient                 A320 E/WD    0.14 ms
+  113.13 [WARN]:nasal       -- Recipient                   A320 SD    0.27 ms
+  113.13 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  113.13 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  113.13 [WARN]:nasal       -- Recipient                 A320 IESI    0.13 ms
+  113.13 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  113.13 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  113.13 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  116.31 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.68ms max (9)
+  116.31 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  116.31 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  116.31 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  116.31 [WARN]:nasal       -- Recipient                 A320 ECAM   12.36 ms
+  116.31 [WARN]:nasal       -- Recipient                  A320 PFD    0.77 ms
+  116.31 [WARN]:nasal       -- Recipient                  A320 PFD    0.67 ms
+  116.31 [WARN]:nasal       -- Recipient                 A320 E/WD    0.20 ms
+  116.31 [WARN]:nasal       -- Recipient                   A320 SD    0.30 ms
+  116.31 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  116.31 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  116.31 [WARN]:nasal       -- Recipient                 A320 IESI    0.11 ms
+  116.31 [WARN]:nasal       -- Recipient            A320 Libraries    0.23 ms
+  116.31 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  116.31 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  117.15 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 15.49ms max (9)
+  117.15 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  117.15 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  117.15 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  117.15 [WARN]:nasal       -- Recipient                 A320 ECAM    0.85 ms
+  117.15 [WARN]:nasal       -- Recipient                  A320 PFD   13.11 ms
+  117.15 [WARN]:nasal       -- Recipient                  A320 PFD    0.76 ms
+  117.15 [WARN]:nasal       -- Recipient                 A320 E/WD    0.12 ms
+  117.15 [WARN]:nasal       -- Recipient                   A320 SD    0.26 ms
+  117.15 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  117.15 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  117.15 [WARN]:nasal       -- Recipient                 A320 IESI    0.13 ms
+  117.15 [WARN]:nasal       -- Recipient            A320 Libraries    0.21 ms
+  117.15 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  117.15 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  117.97 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.60ms max (9)
+  117.97 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  117.97 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  117.97 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  117.97 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  117.97 [WARN]:nasal       -- Recipient                  A320 PFD    0.69 ms
+  117.97 [WARN]:nasal       -- Recipient                  A320 PFD    0.63 ms
+  117.97 [WARN]:nasal       -- Recipient                 A320 E/WD   11.60 ms
+  117.97 [WARN]:nasal       -- Recipient                   A320 SD    0.30 ms
+  117.97 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  117.97 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  117.97 [WARN]:nasal       -- Recipient                 A320 IESI    0.14 ms
+  117.97 [WARN]:nasal       -- Recipient            A320 Libraries    0.21 ms
+  117.97 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  117.97 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  118.74 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.72ms max (9)
+  118.74 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  118.74 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  118.74 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  118.74 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  118.74 [WARN]:nasal       -- Recipient                  A320 PFD    0.86 ms
+  118.74 [WARN]:nasal       -- Recipient                  A320 PFD   12.04 ms
+  118.74 [WARN]:nasal       -- Recipient                 A320 E/WD    0.20 ms
+  118.74 [WARN]:nasal       -- Recipient                   A320 SD    0.27 ms
+  118.74 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  118.74 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  118.74 [WARN]:nasal       -- Recipient                 A320 IESI    0.10 ms
+  118.74 [WARN]:nasal       -- Recipient            A320 Libraries    0.21 ms
+  118.74 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  118.74 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  121.21 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 11.26ms max (9)
+  121.21 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  121.21 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  121.21 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  121.21 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  121.21 [WARN]:nasal       -- Recipient                  A320 PFD    0.00 ms
+  121.21 [WARN]:nasal       -- Recipient                  A320 PFD    0.00 ms
+  121.21 [WARN]:nasal       -- Recipient                 A320 E/WD   11.22 ms
+  121.21 [WARN]:nasal       -- Recipient                   A320 SD    0.01 ms
+  121.21 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+  121.21 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+  121.21 [WARN]:nasal       -- Recipient                 A320 IESI    0.00 ms
+  121.21 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  121.21 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  121.21 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  123.64 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.40ms max (9)
+  123.64 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  123.64 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  123.64 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  123.64 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  123.64 [WARN]:nasal       -- Recipient                  A320 PFD    0.71 ms
+  123.64 [WARN]:nasal       -- Recipient                  A320 PFD   11.91 ms
+  123.64 [WARN]:nasal       -- Recipient                 A320 E/WD    0.17 ms
+  123.64 [WARN]:nasal       -- Recipient                   A320 SD    0.25 ms
+  123.64 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  123.64 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  123.64 [WARN]:nasal       -- Recipient                 A320 IESI    0.10 ms
+  123.64 [WARN]:nasal       -- Recipient            A320 Libraries    0.21 ms
+  123.64 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  123.64 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  125.24 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 12.63ms max (9)
+  125.24 [WARN]:nasal       -- Recipient         FrameNotification    0.04 ms
+  125.24 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  125.24 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  125.24 [WARN]:nasal       -- Recipient                 A320 ECAM   12.54 ms
+  125.24 [WARN]:nasal       -- Recipient                  A320 PFD    0.01 ms
+  125.24 [WARN]:nasal       -- Recipient                  A320 PFD    0.00 ms
+  125.24 [WARN]:nasal       -- Recipient                 A320 E/WD    0.00 ms
+  125.24 [WARN]:nasal       -- Recipient                   A320 SD    0.00 ms
+  125.24 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+  125.24 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+  125.24 [WARN]:nasal       -- Recipient                 A320 IESI    0.00 ms
+  125.24 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  125.24 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  125.24 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  127.60 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.00ms max (9)
+  127.60 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  127.60 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  127.60 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  127.60 [WARN]:nasal       -- Recipient                 A320 ECAM   12.96 ms
+  127.60 [WARN]:nasal       -- Recipient                  A320 PFD    0.01 ms
+  127.60 [WARN]:nasal       -- Recipient                  A320 PFD    0.00 ms
+  127.60 [WARN]:nasal       -- Recipient                 A320 E/WD    0.00 ms
+  127.60 [WARN]:nasal       -- Recipient                   A320 SD    0.00 ms
+  127.60 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+  127.60 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+  127.60 [WARN]:nasal       -- Recipient                 A320 IESI    0.00 ms
+  127.60 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  127.60 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  127.60 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  129.12 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.07ms max (9)
+  129.12 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  129.12 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  129.12 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  129.12 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  129.12 [WARN]:nasal       -- Recipient                  A320 PFD    0.80 ms
+  129.12 [WARN]:nasal       -- Recipient                  A320 PFD   12.65 ms
+  129.12 [WARN]:nasal       -- Recipient                 A320 E/WD    0.19 ms
+  129.12 [WARN]:nasal       -- Recipient                   A320 SD    0.29 ms
+  129.12 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  129.12 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  129.12 [WARN]:nasal       -- Recipient                 A320 IESI    0.11 ms
+  129.12 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  129.12 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  129.12 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  130.70 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.63ms max (9)
+  130.70 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  130.70 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  130.70 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  130.70 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  130.70 [WARN]:nasal       -- Recipient                  A320 PFD    0.79 ms
+  130.70 [WARN]:nasal       -- Recipient                  A320 PFD   12.31 ms
+  130.70 [WARN]:nasal       -- Recipient                 A320 E/WD    0.16 ms
+  130.70 [WARN]:nasal       -- Recipient                   A320 SD    0.24 ms
+  130.70 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  130.70 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  130.70 [WARN]:nasal       -- Recipient                 A320 IESI    0.10 ms
+  130.70 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  130.70 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  130.70 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  132.36 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.33ms max (9)
+  132.36 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  132.36 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  132.36 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  132.36 [WARN]:nasal       -- Recipient                 A320 ECAM    1.00 ms
+  132.36 [WARN]:nasal       -- Recipient                  A320 PFD   12.04 ms
+  132.36 [WARN]:nasal       -- Recipient                  A320 PFD    0.76 ms
+  132.36 [WARN]:nasal       -- Recipient                 A320 E/WD    0.15 ms
+  132.36 [WARN]:nasal       -- Recipient                   A320 SD    0.25 ms
+  132.36 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  132.36 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  132.36 [WARN]:nasal       -- Recipient                 A320 IESI    0.10 ms
+  132.36 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  132.36 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  132.36 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  133.19 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.59ms max (9)
+  133.19 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  133.19 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  133.19 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  133.19 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  133.19 [WARN]:nasal       -- Recipient                  A320 PFD    0.72 ms
+  133.19 [WARN]:nasal       -- Recipient                  A320 PFD    0.61 ms
+  133.19 [WARN]:nasal       -- Recipient                 A320 E/WD    0.14 ms
+  133.19 [WARN]:nasal       -- Recipient                   A320 SD    0.25 ms
+  133.19 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  133.19 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  133.19 [WARN]:nasal       -- Recipient                 A320 IESI   11.84 ms
+  133.19 [WARN]:nasal       -- Recipient            A320 Libraries    0.01 ms
+  133.19 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  133.19 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  134.78 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.79ms max (9)
+  134.78 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  134.78 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  134.78 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  134.78 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  134.78 [WARN]:nasal       -- Recipient                  A320 PFD    0.80 ms
+  134.78 [WARN]:nasal       -- Recipient                  A320 PFD   12.44 ms
+  134.78 [WARN]:nasal       -- Recipient                 A320 E/WD    0.17 ms
+  134.78 [WARN]:nasal       -- Recipient                   A320 SD    0.23 ms
+  134.78 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  134.78 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  134.78 [WARN]:nasal       -- Recipient                 A320 IESI    0.13 ms
+  134.78 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  134.78 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  134.78 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  136.42 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 15.03ms max (9)
+  136.42 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  136.42 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  136.42 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  136.42 [WARN]:nasal       -- Recipient                 A320 ECAM    1.05 ms
+  136.42 [WARN]:nasal       -- Recipient                  A320 PFD    0.76 ms
+  136.42 [WARN]:nasal       -- Recipient                  A320 PFD    0.70 ms
+  136.42 [WARN]:nasal       -- Recipient                 A320 E/WD   12.08 ms
+  136.42 [WARN]:nasal       -- Recipient                   A320 SD    0.28 ms
+  136.42 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  136.42 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  136.42 [WARN]:nasal       -- Recipient                 A320 IESI    0.11 ms
+  136.42 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  136.42 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  136.42 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  143.14 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.16ms max (9)
+  143.14 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  143.14 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  143.14 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  143.14 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  143.14 [WARN]:nasal       -- Recipient                  A320 PFD    0.79 ms
+  143.14 [WARN]:nasal       -- Recipient                  A320 PFD    0.64 ms
+  143.14 [WARN]:nasal       -- Recipient                 A320 E/WD   12.32 ms
+  143.14 [WARN]:nasal       -- Recipient                   A320 SD    0.23 ms
+  143.14 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  143.14 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  143.14 [WARN]:nasal       -- Recipient                 A320 IESI    0.16 ms
+  143.14 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  143.14 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  143.14 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  147.32 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.55ms max (9)
+  147.32 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  147.32 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  147.32 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  147.32 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  147.32 [WARN]:nasal       -- Recipient                  A320 PFD    0.74 ms
+  147.32 [WARN]:nasal       -- Recipient                  A320 PFD   12.02 ms
+  147.32 [WARN]:nasal       -- Recipient                 A320 E/WD    0.16 ms
+  147.32 [WARN]:nasal       -- Recipient                   A320 SD    0.28 ms
+  147.32 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  147.32 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  147.32 [WARN]:nasal       -- Recipient                 A320 IESI    0.11 ms
+  147.32 [WARN]:nasal       -- Recipient            A320 Libraries    0.22 ms
+  147.32 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  147.32 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  152.40 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.04ms max (9)
+  152.40 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  152.40 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  152.40 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  152.40 [WARN]:nasal       -- Recipient                 A320 ECAM   13.00 ms
+  152.40 [WARN]:nasal       -- Recipient                  A320 PFD    0.01 ms
+  152.40 [WARN]:nasal       -- Recipient                  A320 PFD    0.00 ms
+  152.40 [WARN]:nasal       -- Recipient                 A320 E/WD    0.00 ms
+  152.40 [WARN]:nasal       -- Recipient                   A320 SD    0.00 ms
+  152.40 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+  152.40 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+  152.40 [WARN]:nasal       -- Recipient                 A320 IESI    0.00 ms
+  152.40 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  152.40 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  152.40 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  159.17 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.32ms max (9)
+  159.17 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  159.17 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  159.17 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  159.17 [WARN]:nasal       -- Recipient                 A320 ECAM    0.88 ms
+  159.17 [WARN]:nasal       -- Recipient                  A320 PFD    0.75 ms
+  159.17 [WARN]:nasal       -- Recipient                  A320 PFD    0.63 ms
+  159.17 [WARN]:nasal       -- Recipient                 A320 E/WD    0.13 ms
+  159.17 [WARN]:nasal       -- Recipient                   A320 SD   11.51 ms
+  159.17 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  159.17 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  159.17 [WARN]:nasal       -- Recipient                 A320 IESI    0.17 ms
+  159.17 [WARN]:nasal       -- Recipient            A320 Libraries    0.22 ms
+  159.17 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  159.17 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  160.02 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.15ms max (9)
+  160.02 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  160.02 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  160.02 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  160.02 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  160.02 [WARN]:nasal       -- Recipient                  A320 PFD    0.65 ms
+  160.02 [WARN]:nasal       -- Recipient                  A320 PFD   11.83 ms
+  160.02 [WARN]:nasal       -- Recipient                 A320 E/WD    0.14 ms
+  160.02 [WARN]:nasal       -- Recipient                   A320 SD    0.23 ms
+  160.02 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  160.02 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  160.02 [WARN]:nasal       -- Recipient                 A320 IESI    0.09 ms
+  160.02 [WARN]:nasal       -- Recipient            A320 Libraries    0.18 ms
+  160.02 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  160.02 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  160.89 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.22ms max (9)
+  160.89 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  160.89 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  160.89 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  160.89 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  160.89 [WARN]:nasal       -- Recipient                  A320 PFD    0.67 ms
+  160.89 [WARN]:nasal       -- Recipient                  A320 PFD    0.56 ms
+  160.89 [WARN]:nasal       -- Recipient                 A320 E/WD   11.38 ms
+  160.89 [WARN]:nasal       -- Recipient                   A320 SD    0.28 ms
+  160.89 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  160.89 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  160.89 [WARN]:nasal       -- Recipient                 A320 IESI    0.10 ms
+  160.89 [WARN]:nasal       -- Recipient            A320 Libraries    0.20 ms
+  160.89 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  160.89 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  163.47 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.22ms max (9)
+  163.48 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  163.48 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  163.48 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  163.48 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  163.48 [WARN]:nasal       -- Recipient                  A320 PFD    0.75 ms
+  163.48 [WARN]:nasal       -- Recipient                  A320 PFD    0.57 ms
+  163.48 [WARN]:nasal       -- Recipient                 A320 E/WD    0.13 ms
+  163.48 [WARN]:nasal       -- Recipient                   A320 SD   11.62 ms
+  163.48 [WARN]:nasal       -- Recipient              A320 Battery    0.02 ms
+  163.48 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  163.48 [WARN]:nasal       -- Recipient                 A320 IESI    0.11 ms
+  163.48 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  163.48 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  163.48 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  165.20 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 12.44ms max (9)
+  165.20 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  165.20 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  165.20 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  165.20 [WARN]:nasal       -- Recipient                 A320 ECAM   12.40 ms
+  165.20 [WARN]:nasal       -- Recipient                  A320 PFD    0.01 ms
+  165.20 [WARN]:nasal       -- Recipient                  A320 PFD    0.00 ms
+  165.20 [WARN]:nasal       -- Recipient                 A320 E/WD    0.00 ms
+  165.20 [WARN]:nasal       -- Recipient                   A320 SD    0.00 ms
+  165.20 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+  165.20 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+  165.20 [WARN]:nasal       -- Recipient                 A320 IESI    0.00 ms
+  165.20 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  165.20 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  165.20 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  170.30 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.86ms max (9)
+  170.30 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  170.30 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  170.30 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  170.30 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  170.30 [WARN]:nasal       -- Recipient                  A320 PFD    0.68 ms
+  170.30 [WARN]:nasal       -- Recipient                  A320 PFD   12.66 ms
+  170.30 [WARN]:nasal       -- Recipient                 A320 E/WD    0.14 ms
+  170.30 [WARN]:nasal       -- Recipient                   A320 SD    0.25 ms
+  170.30 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  170.30 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  170.30 [WARN]:nasal       -- Recipient                 A320 IESI    0.10 ms
+  170.30 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  170.30 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  170.30 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  171.16 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.82ms max (9)
+  171.16 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  171.16 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  171.16 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  171.16 [WARN]:nasal       -- Recipient                 A320 ECAM   11.91 ms
+  171.16 [WARN]:nasal       -- Recipient                  A320 PFD    0.73 ms
+  171.16 [WARN]:nasal       -- Recipient                  A320 PFD    0.65 ms
+  171.16 [WARN]:nasal       -- Recipient                 A320 E/WD    0.15 ms
+  171.16 [WARN]:nasal       -- Recipient                   A320 SD    0.24 ms
+  171.16 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  171.16 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  171.16 [WARN]:nasal       -- Recipient                 A320 IESI    0.09 ms
+  171.16 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  171.16 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  171.16 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  172.03 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.51ms max (9)
+  172.03 [WARN]:nasal       -- Recipient         FrameNotification   12.67 ms
+  172.03 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  172.03 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  172.03 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  172.03 [WARN]:nasal       -- Recipient                  A320 PFD    0.77 ms
+  172.03 [WARN]:nasal       -- Recipient                  A320 PFD    0.56 ms
+  172.03 [WARN]:nasal       -- Recipient                 A320 E/WD    0.16 ms
+  172.03 [WARN]:nasal       -- Recipient                   A320 SD    0.23 ms
+  172.03 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  172.03 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  172.03 [WARN]:nasal       -- Recipient                 A320 IESI    0.09 ms
+  172.03 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  172.03 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  172.03 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  173.71 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.47ms max (9)
+  173.71 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  173.71 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  173.71 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  173.71 [WARN]:nasal       -- Recipient                 A320 ECAM    0.98 ms
+  173.71 [WARN]:nasal       -- Recipient                  A320 PFD   12.10 ms
+  173.71 [WARN]:nasal       -- Recipient                  A320 PFD    0.54 ms
+  173.71 [WARN]:nasal       -- Recipient                 A320 E/WD    0.23 ms
+  173.71 [WARN]:nasal       -- Recipient                   A320 SD    0.27 ms
+  173.71 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  173.71 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  173.71 [WARN]:nasal       -- Recipient                 A320 IESI    0.10 ms
+  173.71 [WARN]:nasal       -- Recipient            A320 Libraries    0.21 ms
+  173.71 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  173.71 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  184.87 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.69ms max (9)
+  184.87 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  184.87 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  184.87 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  184.87 [WARN]:nasal       -- Recipient                 A320 ECAM    0.88 ms
+  184.87 [WARN]:nasal       -- Recipient                  A320 PFD   12.75 ms
+  184.87 [WARN]:nasal       -- Recipient                  A320 PFD    0.54 ms
+  184.87 [WARN]:nasal       -- Recipient                 A320 E/WD    0.15 ms
+  184.87 [WARN]:nasal       -- Recipient                   A320 SD    0.23 ms
+  184.87 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  184.87 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  184.87 [WARN]:nasal       -- Recipient                 A320 IESI    0.09 ms
+  184.87 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  184.87 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  184.87 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  191.78 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.30ms max (9)
+  191.78 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  191.78 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  191.78 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  191.78 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  191.78 [WARN]:nasal       -- Recipient                  A320 PFD   12.10 ms
+  191.78 [WARN]:nasal       -- Recipient                  A320 PFD    0.63 ms
+  191.78 [WARN]:nasal       -- Recipient                 A320 E/WD    0.15 ms
+  191.78 [WARN]:nasal       -- Recipient                   A320 SD    0.26 ms
+  191.78 [WARN]:nasal       -- Recipient              A320 Battery    0.02 ms
+  191.78 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  191.78 [WARN]:nasal       -- Recipient                 A320 IESI    0.11 ms
+  191.78 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  191.78 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  191.78 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  192.60 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 15.24ms max (9)
+  192.60 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  192.60 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  192.60 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  192.60 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  192.60 [WARN]:nasal       -- Recipient                  A320 PFD    0.68 ms
+  192.60 [WARN]:nasal       -- Recipient                  A320 PFD    0.56 ms
+  192.60 [WARN]:nasal       -- Recipient                 A320 E/WD    0.18 ms
+  192.60 [WARN]:nasal       -- Recipient                   A320 SD    0.32 ms
+  192.60 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  192.60 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  192.60 [WARN]:nasal       -- Recipient                 A320 IESI    0.10 ms
+  192.60 [WARN]:nasal       -- Recipient            A320 Libraries   13.37 ms
+  192.60 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  192.60 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  193.45 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.45ms max (9)
+  193.45 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  193.46 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  193.46 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  193.46 [WARN]:nasal       -- Recipient                 A320 ECAM    0.81 ms
+  193.46 [WARN]:nasal       -- Recipient                  A320 PFD    0.64 ms
+  193.46 [WARN]:nasal       -- Recipient                  A320 PFD    0.53 ms
+  193.46 [WARN]:nasal       -- Recipient                 A320 E/WD    0.17 ms
+  193.46 [WARN]:nasal       -- Recipient                   A320 SD   11.16 ms
+  193.46 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  193.46 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  193.46 [WARN]:nasal       -- Recipient                 A320 IESI    0.10 ms
+  193.46 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  193.46 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  193.46 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  196.00 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.39ms max (9)
+  196.00 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  196.00 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  196.00 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  196.00 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  196.00 [WARN]:nasal       -- Recipient                  A320 PFD    0.65 ms
+  196.00 [WARN]:nasal       -- Recipient                  A320 PFD   12.14 ms
+  196.00 [WARN]:nasal       -- Recipient                 A320 E/WD    0.20 ms
+  196.00 [WARN]:nasal       -- Recipient                   A320 SD    0.26 ms
+  196.00 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  196.00 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  196.00 [WARN]:nasal       -- Recipient                 A320 IESI    0.11 ms
+  196.00 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  196.00 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  196.00 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  200.22 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 12.83ms max (9)
+  200.22 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  200.22 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  200.22 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  200.22 [WARN]:nasal       -- Recipient                 A320 ECAM   12.78 ms
+  200.22 [WARN]:nasal       -- Recipient                  A320 PFD    0.01 ms
+  200.22 [WARN]:nasal       -- Recipient                  A320 PFD    0.00 ms
+  200.22 [WARN]:nasal       -- Recipient                 A320 E/WD    0.00 ms
+  200.22 [WARN]:nasal       -- Recipient                   A320 SD    0.00 ms
+  200.22 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+  200.22 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+  200.22 [WARN]:nasal       -- Recipient                 A320 IESI    0.00 ms
+  200.22 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  200.22 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  200.22 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  201.07 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.74ms max (9)
+  201.07 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  201.07 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  201.07 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  201.07 [WARN]:nasal       -- Recipient                 A320 ECAM   13.09 ms
+  201.07 [WARN]:nasal       -- Recipient                  A320 PFD    0.66 ms
+  201.07 [WARN]:nasal       -- Recipient                  A320 PFD    0.50 ms
+  201.07 [WARN]:nasal       -- Recipient                 A320 E/WD    0.13 ms
+  201.07 [WARN]:nasal       -- Recipient                   A320 SD    0.23 ms
+  201.07 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  201.07 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  201.07 [WARN]:nasal       -- Recipient                 A320 IESI    0.10 ms
+  201.07 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  201.07 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  201.07 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  204.44 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 12.46ms max (9)
+  204.44 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  204.44 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  204.44 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  204.44 [WARN]:nasal       -- Recipient                 A320 ECAM   12.42 ms
+  204.44 [WARN]:nasal       -- Recipient                  A320 PFD    0.01 ms
+  204.44 [WARN]:nasal       -- Recipient                  A320 PFD    0.00 ms
+  204.44 [WARN]:nasal       -- Recipient                 A320 E/WD    0.00 ms
+  204.44 [WARN]:nasal       -- Recipient                   A320 SD    0.00 ms
+  204.44 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+  204.44 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+  204.44 [WARN]:nasal       -- Recipient                 A320 IESI    0.00 ms
+  204.44 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  204.44 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  204.44 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  205.31 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 15.10ms max (9)
+  205.31 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  205.31 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  205.31 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  205.31 [WARN]:nasal       -- Recipient                 A320 ECAM   13.40 ms
+  205.31 [WARN]:nasal       -- Recipient                  A320 PFD    0.67 ms
+  205.31 [WARN]:nasal       -- Recipient                  A320 PFD    0.51 ms
+  205.31 [WARN]:nasal       -- Recipient                 A320 E/WD    0.14 ms
+  205.31 [WARN]:nasal       -- Recipient                   A320 SD    0.24 ms
+  205.31 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  205.31 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  205.31 [WARN]:nasal       -- Recipient                 A320 IESI    0.09 ms
+  205.31 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  205.31 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  205.31 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  206.12 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.16ms max (9)
+  206.12 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  206.12 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  206.12 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  206.12 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  206.13 [WARN]:nasal       -- Recipient                  A320 PFD    0.72 ms
+  206.13 [WARN]:nasal       -- Recipient                  A320 PFD   11.90 ms
+  206.13 [WARN]:nasal       -- Recipient                 A320 E/WD    0.17 ms
+  206.13 [WARN]:nasal       -- Recipient                   A320 SD    0.25 ms
+  206.13 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  206.13 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  206.13 [WARN]:nasal       -- Recipient                 A320 IESI    0.09 ms
+  206.13 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  206.13 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  206.13 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  208.59 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.74ms max (9)
+  208.59 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  208.59 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  208.59 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  208.59 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  208.59 [WARN]:nasal       -- Recipient                  A320 PFD   12.70 ms
+  208.59 [WARN]:nasal       -- Recipient                  A320 PFD    0.52 ms
+  208.59 [WARN]:nasal       -- Recipient                 A320 E/WD    0.14 ms
+  208.59 [WARN]:nasal       -- Recipient                   A320 SD    0.23 ms
+  208.59 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  208.59 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  208.59 [WARN]:nasal       -- Recipient                 A320 IESI    0.10 ms
+  208.59 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  208.59 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  208.59 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  211.13 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.72ms max (9)
+  211.13 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  211.13 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  211.13 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  211.13 [WARN]:nasal       -- Recipient                 A320 ECAM    0.92 ms
+  211.13 [WARN]:nasal       -- Recipient                  A320 PFD    0.66 ms
+  211.13 [WARN]:nasal       -- Recipient                  A320 PFD    0.54 ms
+  211.13 [WARN]:nasal       -- Recipient                 A320 E/WD    0.13 ms
+  211.13 [WARN]:nasal       -- Recipient                   A320 SD   11.95 ms
+  211.13 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  211.13 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  211.13 [WARN]:nasal       -- Recipient                 A320 IESI    0.12 ms
+  211.13 [WARN]:nasal       -- Recipient            A320 Libraries    0.35 ms
+  211.13 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  211.13 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  213.65 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.53ms max (9)
+  213.65 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  213.65 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  213.65 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  213.65 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  213.65 [WARN]:nasal       -- Recipient                  A320 PFD    0.74 ms
+  213.65 [WARN]:nasal       -- Recipient                  A320 PFD   12.09 ms
+  213.65 [WARN]:nasal       -- Recipient                 A320 E/WD    0.14 ms
+  213.65 [WARN]:nasal       -- Recipient                   A320 SD    0.26 ms
+  213.65 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  213.65 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  213.65 [WARN]:nasal       -- Recipient                 A320 IESI    0.09 ms
+  213.65 [WARN]:nasal       -- Recipient            A320 Libraries    0.18 ms
+  213.65 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  213.65 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  215.32 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.75ms max (9)
+  215.32 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  215.32 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  215.32 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  215.32 [WARN]:nasal       -- Recipient                 A320 ECAM    1.06 ms
+  215.32 [WARN]:nasal       -- Recipient                  A320 PFD   12.41 ms
+  215.32 [WARN]:nasal       -- Recipient                  A320 PFD    0.59 ms
+  215.32 [WARN]:nasal       -- Recipient                 A320 E/WD    0.12 ms
+  215.32 [WARN]:nasal       -- Recipient                   A320 SD    0.23 ms
+  215.32 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  215.32 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  215.32 [WARN]:nasal       -- Recipient                 A320 IESI    0.09 ms
+  215.32 [WARN]:nasal       -- Recipient            A320 Libraries    0.19 ms
+  215.32 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  215.32 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  217.85 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.45ms max (9)
+  217.86 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  217.86 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  217.86 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  217.86 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  217.86 [WARN]:nasal       -- Recipient                  A320 PFD    0.62 ms
+  217.86 [WARN]:nasal       -- Recipient                  A320 PFD    0.60 ms
+  217.86 [WARN]:nasal       -- Recipient                 A320 E/WD    0.14 ms
+  217.86 [WARN]:nasal       -- Recipient                   A320 SD    0.34 ms
+  217.86 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  217.86 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  217.86 [WARN]:nasal       -- Recipient                 A320 IESI   12.47 ms
+  217.86 [WARN]:nasal       -- Recipient            A320 Libraries    0.24 ms
+  217.86 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  217.86 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  220.40 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.94ms max (9)
+  220.40 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  220.40 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  220.40 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  220.40 [WARN]:nasal       -- Recipient                 A320 ECAM    1.12 ms
+  220.40 [WARN]:nasal       -- Recipient                  A320 PFD   12.76 ms
+  220.40 [WARN]:nasal       -- Recipient                  A320 PFD    0.56 ms
+  220.40 [WARN]:nasal       -- Recipient                 A320 E/WD    0.13 ms
+  220.40 [WARN]:nasal       -- Recipient                   A320 SD    0.23 ms
+  220.40 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  220.40 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  220.40 [WARN]:nasal       -- Recipient                 A320 IESI    0.09 ms
+  220.40 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  220.40 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  220.40 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  230.53 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.30ms max (9)
+  230.53 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  230.53 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  230.53 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  230.53 [WARN]:nasal       -- Recipient                 A320 ECAM    0.97 ms
+  230.53 [WARN]:nasal       -- Recipient                  A320 PFD    0.70 ms
+  230.53 [WARN]:nasal       -- Recipient                  A320 PFD    0.59 ms
+  230.53 [WARN]:nasal       -- Recipient                 A320 E/WD    0.14 ms
+  230.53 [WARN]:nasal       -- Recipient                   A320 SD   11.55 ms
+  230.54 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  230.54 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  230.54 [WARN]:nasal       -- Recipient                 A320 IESI    0.11 ms
+  230.54 [WARN]:nasal       -- Recipient            A320 Libraries    0.20 ms
+  230.54 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  230.54 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  233.06 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 12.89ms max (9)
+  233.06 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  233.06 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  233.06 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  233.06 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  233.06 [WARN]:nasal       -- Recipient                  A320 PFD    0.63 ms
+  233.06 [WARN]:nasal       -- Recipient                  A320 PFD   11.51 ms
+  233.06 [WARN]:nasal       -- Recipient                 A320 E/WD    0.15 ms
+  233.06 [WARN]:nasal       -- Recipient                   A320 SD    0.24 ms
+  233.06 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  233.06 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  233.06 [WARN]:nasal       -- Recipient                 A320 IESI    0.12 ms
+  233.06 [WARN]:nasal       -- Recipient            A320 Libraries    0.20 ms
+  233.06 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  233.06 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  234.72 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.36ms max (9)
+  234.72 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  234.72 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  234.72 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  234.72 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  234.72 [WARN]:nasal       -- Recipient                  A320 PFD   12.09 ms
+  234.72 [WARN]:nasal       -- Recipient                  A320 PFD    0.61 ms
+  234.72 [WARN]:nasal       -- Recipient                 A320 E/WD    0.13 ms
+  234.72 [WARN]:nasal       -- Recipient                   A320 SD    0.23 ms
+  234.72 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  234.72 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  234.72 [WARN]:nasal       -- Recipient                 A320 IESI    0.09 ms
+  234.72 [WARN]:nasal       -- Recipient            A320 Libraries    0.17 ms
+  234.72 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  234.72 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  239.68 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.25ms max (9)
+  239.68 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  239.68 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  239.68 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  239.68 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  239.68 [WARN]:nasal       -- Recipient                  A320 PFD    0.85 ms
+  239.68 [WARN]:nasal       -- Recipient                  A320 PFD    0.70 ms
+  239.68 [WARN]:nasal       -- Recipient                 A320 E/WD   12.03 ms
+  239.68 [WARN]:nasal       -- Recipient                   A320 SD    0.31 ms
+  239.68 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  239.68 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  239.68 [WARN]:nasal       -- Recipient                 A320 IESI    0.12 ms
+  239.68 [WARN]:nasal       -- Recipient            A320 Libraries    0.20 ms
+  239.68 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  239.68 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  241.34 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.54ms max (9)
+  241.34 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  241.34 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  241.34 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.02 ms
+  241.34 [WARN]:nasal       -- Recipient                 A320 ECAM   12.25 ms
+  241.34 [WARN]:nasal       -- Recipient                  A320 PFD    0.82 ms
+  241.34 [WARN]:nasal       -- Recipient                  A320 PFD    0.70 ms
+  241.34 [WARN]:nasal       -- Recipient                 A320 E/WD    0.20 ms
+  241.34 [WARN]:nasal       -- Recipient                   A320 SD    0.24 ms
+  241.34 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  241.34 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  241.34 [WARN]:nasal       -- Recipient                 A320 IESI    0.10 ms
+  241.34 [WARN]:nasal       -- Recipient            A320 Libraries    0.19 ms
+  241.34 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  241.34 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  242.09 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.63ms max (9)
+  242.09 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  242.10 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  242.10 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  242.10 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  242.10 [WARN]:nasal       -- Recipient                  A320 PFD    0.79 ms
+  242.10 [WARN]:nasal       -- Recipient                  A320 PFD    0.66 ms
+  242.10 [WARN]:nasal       -- Recipient                 A320 E/WD    0.27 ms
+  242.10 [WARN]:nasal       -- Recipient                   A320 SD   12.72 ms
+  242.10 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  242.10 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  242.10 [WARN]:nasal       -- Recipient                 A320 IESI    0.14 ms
+  242.10 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  242.10 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  242.10 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  244.44 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.04ms max (9)
+  244.44 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  244.45 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  244.45 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  244.45 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  244.45 [WARN]:nasal       -- Recipient                  A320 PFD    0.78 ms
+  244.45 [WARN]:nasal       -- Recipient                  A320 PFD    0.61 ms
+  244.45 [WARN]:nasal       -- Recipient                 A320 E/WD    0.26 ms
+  244.45 [WARN]:nasal       -- Recipient                   A320 SD    0.24 ms
+  244.45 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  244.45 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  244.45 [WARN]:nasal       -- Recipient                 A320 IESI    0.12 ms
+  244.45 [WARN]:nasal       -- Recipient            A320 Libraries   11.99 ms
+  244.45 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  244.45 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  245.23 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.84ms max (9)
+  245.23 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  245.23 [WARN]:nasal       -- Recipient           A320 Electrical    0.07 ms
+  245.23 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  245.23 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  245.23 [WARN]:nasal       -- Recipient                  A320 PFD    0.67 ms
+  245.23 [WARN]:nasal       -- Recipient                  A320 PFD    0.80 ms
+  245.23 [WARN]:nasal       -- Recipient                 A320 E/WD   11.69 ms
+  245.23 [WARN]:nasal       -- Recipient                   A320 SD    0.27 ms
+  245.23 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  245.23 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  245.23 [WARN]:nasal       -- Recipient                 A320 IESI    0.11 ms
+  245.23 [WARN]:nasal       -- Recipient            A320 Libraries    0.22 ms
+  245.23 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  245.23 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  246.05 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 15.63ms max (9)
+  246.05 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  246.05 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  246.05 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  246.05 [WARN]:nasal       -- Recipient                 A320 ECAM    0.88 ms
+  246.05 [WARN]:nasal       -- Recipient                  A320 PFD   12.82 ms
+  246.05 [WARN]:nasal       -- Recipient                  A320 PFD    0.93 ms
+  246.05 [WARN]:nasal       -- Recipient                 A320 E/WD    0.35 ms
+  246.05 [WARN]:nasal       -- Recipient                   A320 SD    0.33 ms
+  246.05 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  246.05 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  246.05 [WARN]:nasal       -- Recipient                 A320 IESI    0.10 ms
+  246.05 [WARN]:nasal       -- Recipient            A320 Libraries    0.18 ms
+  246.05 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  246.05 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  246.82 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.89ms max (9)
+  246.82 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  246.82 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  246.82 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  246.82 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  246.82 [WARN]:nasal       -- Recipient                  A320 PFD    0.69 ms
+  246.82 [WARN]:nasal       -- Recipient                  A320 PFD   12.35 ms
+  246.82 [WARN]:nasal       -- Recipient                 A320 E/WD    0.38 ms
+  246.82 [WARN]:nasal       -- Recipient                   A320 SD    0.31 ms
+  246.82 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  246.82 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  246.82 [WARN]:nasal       -- Recipient                 A320 IESI    0.12 ms
+  246.82 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  246.82 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  246.82 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  251.64 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.71ms max (9)
+  251.64 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  251.64 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  251.64 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  251.64 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  251.64 [WARN]:nasal       -- Recipient                  A320 PFD   12.37 ms
+  251.64 [WARN]:nasal       -- Recipient                  A320 PFD    0.64 ms
+  251.64 [WARN]:nasal       -- Recipient                 A320 E/WD    0.28 ms
+  251.64 [WARN]:nasal       -- Recipient                   A320 SD    0.27 ms
+  251.64 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  251.64 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  251.64 [WARN]:nasal       -- Recipient                 A320 IESI    0.11 ms
+  251.64 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  251.64 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  251.64 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  252.42 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.00ms max (9)
+  252.42 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  252.42 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  252.42 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  252.42 [WARN]:nasal       -- Recipient                 A320 ECAM   12.11 ms
+  252.42 [WARN]:nasal       -- Recipient                  A320 PFD    0.70 ms
+  252.42 [WARN]:nasal       -- Recipient                  A320 PFD    0.58 ms
+  252.42 [WARN]:nasal       -- Recipient                 A320 E/WD    0.24 ms
+  252.42 [WARN]:nasal       -- Recipient                   A320 SD    0.24 ms
+  252.42 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  252.42 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  252.42 [WARN]:nasal       -- Recipient                 A320 IESI    0.09 ms
+  252.42 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  252.42 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  252.42 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  254.01 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 15.11ms max (9)
+  254.01 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  254.01 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  254.01 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  254.01 [WARN]:nasal       -- Recipient                 A320 ECAM    0.01 ms
+  254.01 [WARN]:nasal       -- Recipient                  A320 PFD    0.79 ms
+  254.01 [WARN]:nasal       -- Recipient                  A320 PFD    0.64 ms
+  254.01 [WARN]:nasal       -- Recipient                 A320 E/WD    0.23 ms
+  254.01 [WARN]:nasal       -- Recipient                   A320 SD   13.09 ms
+  254.01 [WARN]:nasal       -- Recipient              A320 Battery    0.02 ms
+  254.01 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  254.01 [WARN]:nasal       -- Recipient                 A320 IESI    0.12 ms
+  254.01 [WARN]:nasal       -- Recipient            A320 Libraries    0.20 ms
+  254.01 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  254.01 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  254.78 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 15.78ms max (9)
+  254.78 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  254.78 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  254.78 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  254.78 [WARN]:nasal       -- Recipient                 A320 ECAM   13.72 ms
+  254.78 [WARN]:nasal       -- Recipient                  A320 PFD    0.75 ms
+  254.78 [WARN]:nasal       -- Recipient                  A320 PFD    0.60 ms
+  254.78 [WARN]:nasal       -- Recipient                 A320 E/WD    0.17 ms
+  254.78 [WARN]:nasal       -- Recipient                   A320 SD    0.24 ms
+  254.78 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  254.78 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  254.78 [WARN]:nasal       -- Recipient                 A320 IESI    0.09 ms
+  254.78 [WARN]:nasal       -- Recipient            A320 Libraries    0.18 ms
+  254.78 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  254.78 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  258.76 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 15.11ms max (9)
+  258.76 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  258.76 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  258.76 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  258.76 [WARN]:nasal       -- Recipient                 A320 ECAM   12.98 ms
+  258.76 [WARN]:nasal       -- Recipient                  A320 PFD    0.68 ms
+  258.76 [WARN]:nasal       -- Recipient                  A320 PFD    0.53 ms
+  258.76 [WARN]:nasal       -- Recipient                 A320 E/WD    0.32 ms
+  258.76 [WARN]:nasal       -- Recipient                   A320 SD    0.27 ms
+  258.76 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  258.76 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  258.76 [WARN]:nasal       -- Recipient                 A320 IESI    0.11 ms
+  258.76 [WARN]:nasal       -- Recipient            A320 Libraries    0.18 ms
+  258.76 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  258.76 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  259.55 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.13ms max (9)
+  259.55 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  259.55 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  259.55 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  259.55 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  259.55 [WARN]:nasal       -- Recipient                  A320 PFD   11.79 ms
+  259.56 [WARN]:nasal       -- Recipient                  A320 PFD    0.49 ms
+  259.56 [WARN]:nasal       -- Recipient                 A320 E/WD    0.24 ms
+  259.56 [WARN]:nasal       -- Recipient                   A320 SD    0.25 ms
+  259.56 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  259.56 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  259.56 [WARN]:nasal       -- Recipient                 A320 IESI    0.12 ms
+  259.56 [WARN]:nasal       -- Recipient            A320 Libraries    0.20 ms
+  259.56 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  259.56 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  263.62 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.30ms max (9)
+  263.62 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  263.62 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  263.62 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  263.62 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  263.62 [WARN]:nasal       -- Recipient                  A320 PFD    0.64 ms
+  263.62 [WARN]:nasal       -- Recipient                  A320 PFD    0.46 ms
+  263.62 [WARN]:nasal       -- Recipient                 A320 E/WD    0.22 ms
+  263.62 [WARN]:nasal       -- Recipient                   A320 SD    0.25 ms
+  263.62 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  263.62 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  263.62 [WARN]:nasal       -- Recipient                 A320 IESI    0.09 ms
+  263.62 [WARN]:nasal       -- Recipient            A320 Libraries   11.60 ms
+  263.62 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  263.62 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  265.25 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.36ms max (9)
+  265.25 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  265.25 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  265.25 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  265.25 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  265.25 [WARN]:nasal       -- Recipient                  A320 PFD   12.38 ms
+  265.25 [WARN]:nasal       -- Recipient                  A320 PFD    0.48 ms
+  265.25 [WARN]:nasal       -- Recipient                 A320 E/WD    0.14 ms
+  265.25 [WARN]:nasal       -- Recipient                   A320 SD    0.24 ms
+  265.25 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  265.25 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  265.25 [WARN]:nasal       -- Recipient                 A320 IESI    0.09 ms
+  265.25 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  265.25 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  265.25 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  266.04 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.45ms max (9)
+  266.05 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  266.05 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  266.05 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  266.05 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  266.05 [WARN]:nasal       -- Recipient                  A320 PFD   12.21 ms
+  266.05 [WARN]:nasal       -- Recipient                  A320 PFD    0.67 ms
+  266.05 [WARN]:nasal       -- Recipient                 A320 E/WD    0.17 ms
+  266.05 [WARN]:nasal       -- Recipient                   A320 SD    0.27 ms
+  266.05 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  266.05 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  266.05 [WARN]:nasal       -- Recipient                 A320 IESI    0.09 ms
+  266.05 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  266.05 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  266.05 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  271.86 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.04ms max (9)
+  271.86 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  271.86 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  271.86 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  271.86 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  271.86 [WARN]:nasal       -- Recipient                  A320 PFD    0.57 ms
+  271.86 [WARN]:nasal       -- Recipient                  A320 PFD    0.46 ms
+  271.86 [WARN]:nasal       -- Recipient                 A320 E/WD    0.19 ms
+  271.86 [WARN]:nasal       -- Recipient                   A320 SD   11.67 ms
+  271.86 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  271.86 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  271.86 [WARN]:nasal       -- Recipient                 A320 IESI    0.12 ms
+  271.86 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  271.86 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  271.86 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  275.96 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.23ms max (9)
+  275.96 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  275.96 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  275.96 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  275.96 [WARN]:nasal       -- Recipient                 A320 ECAM   13.19 ms
+  275.96 [WARN]:nasal       -- Recipient                  A320 PFD    0.01 ms
+  275.96 [WARN]:nasal       -- Recipient                  A320 PFD    0.00 ms
+  275.96 [WARN]:nasal       -- Recipient                 A320 E/WD    0.00 ms
+  275.96 [WARN]:nasal       -- Recipient                   A320 SD    0.00 ms
+  275.96 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+  275.96 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+  275.96 [WARN]:nasal       -- Recipient                 A320 IESI    0.00 ms
+  275.96 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  275.96 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  275.96 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  280.90 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 12.91ms max (9)
+  280.90 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  280.90 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  280.90 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  280.90 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  280.90 [WARN]:nasal       -- Recipient                  A320 PFD    0.53 ms
+  280.90 [WARN]:nasal       -- Recipient                  A320 PFD    0.44 ms
+  280.90 [WARN]:nasal       -- Recipient                 A320 E/WD    0.14 ms
+  280.91 [WARN]:nasal       -- Recipient                   A320 SD   11.70 ms
+  280.91 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  280.91 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  280.91 [WARN]:nasal       -- Recipient                 A320 IESI    0.07 ms
+  280.91 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  280.91 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  280.91 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  286.67 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.47ms max (9)
+  286.67 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  286.67 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  286.67 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  286.67 [WARN]:nasal       -- Recipient                 A320 ECAM   13.00 ms
+  286.67 [WARN]:nasal       -- Recipient                  A320 PFD    0.56 ms
+  286.67 [WARN]:nasal       -- Recipient                  A320 PFD    0.45 ms
+  286.67 [WARN]:nasal       -- Recipient                 A320 E/WD    0.13 ms
+  286.67 [WARN]:nasal       -- Recipient                   A320 SD    0.25 ms
+  286.67 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  286.67 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  286.67 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  286.67 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  286.67 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  286.67 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  294.33 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.76ms max (9)
+  294.33 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  294.33 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  294.33 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  294.33 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  294.33 [WARN]:nasal       -- Recipient                  A320 PFD    0.54 ms
+  294.33 [WARN]:nasal       -- Recipient                  A320 PFD   12.56 ms
+  294.33 [WARN]:nasal       -- Recipient                 A320 E/WD    0.14 ms
+  294.33 [WARN]:nasal       -- Recipient                   A320 SD    0.24 ms
+  294.33 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  294.33 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  294.33 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  294.33 [WARN]:nasal       -- Recipient            A320 Libraries    0.20 ms
+  294.33 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  294.33 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  296.88 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.35ms max (9)
+  296.88 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  296.88 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  296.88 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  296.88 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  296.88 [WARN]:nasal       -- Recipient                  A320 PFD    0.56 ms
+  296.88 [WARN]:nasal       -- Recipient                  A320 PFD    0.51 ms
+  296.88 [WARN]:nasal       -- Recipient                 A320 E/WD    0.15 ms
+  296.88 [WARN]:nasal       -- Recipient                   A320 SD   12.03 ms
+  296.88 [WARN]:nasal       -- Recipient              A320 Battery    0.02 ms
+  296.88 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  296.88 [WARN]:nasal       -- Recipient                 A320 IESI    0.06 ms
+  296.88 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  296.88 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  296.88 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  298.59 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 12.83ms max (9)
+  298.59 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  298.59 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  298.59 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  298.59 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  298.59 [WARN]:nasal       -- Recipient                  A320 PFD    0.49 ms
+  298.59 [WARN]:nasal       -- Recipient                  A320 PFD    0.45 ms
+  298.59 [WARN]:nasal       -- Recipient                 A320 E/WD    0.12 ms
+  298.59 [WARN]:nasal       -- Recipient                   A320 SD   11.49 ms
+  298.59 [WARN]:nasal       -- Recipient              A320 Battery    0.02 ms
+  298.59 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  298.59 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  298.59 [WARN]:nasal       -- Recipient            A320 Libraries    0.20 ms
+  298.59 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  298.59 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  299.47 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 15.62ms max (9)
+  299.47 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  299.47 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  299.47 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  299.47 [WARN]:nasal       -- Recipient                 A320 ECAM   14.04 ms
+  299.47 [WARN]:nasal       -- Recipient                  A320 PFD    0.47 ms
+  299.47 [WARN]:nasal       -- Recipient                  A320 PFD    0.38 ms
+  299.47 [WARN]:nasal       -- Recipient                 A320 E/WD    0.11 ms
+  299.47 [WARN]:nasal       -- Recipient                   A320 SD    0.26 ms
+  299.47 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  299.47 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  299.47 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  299.47 [WARN]:nasal       -- Recipient            A320 Libraries    0.28 ms
+  299.47 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  299.47 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  301.18 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.93ms max (9)
+  301.18 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  301.18 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  301.18 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  301.18 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  301.18 [WARN]:nasal       -- Recipient                  A320 PFD   12.74 ms
+  301.18 [WARN]:nasal       -- Recipient                  A320 PFD    0.58 ms
+  301.18 [WARN]:nasal       -- Recipient                 A320 E/WD    0.12 ms
+  301.18 [WARN]:nasal       -- Recipient                   A320 SD    0.23 ms
+  301.18 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  301.18 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  301.18 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  301.18 [WARN]:nasal       -- Recipient            A320 Libraries    0.20 ms
+  301.18 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  301.18 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  302.02 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 12.96ms max (9)
+  302.02 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  302.02 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  302.02 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  302.02 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  302.02 [WARN]:nasal       -- Recipient                  A320 PFD   12.13 ms
+  302.02 [WARN]:nasal       -- Recipient                  A320 PFD    0.43 ms
+  302.02 [WARN]:nasal       -- Recipient                 A320 E/WD    0.12 ms
+  302.02 [WARN]:nasal       -- Recipient                   A320 SD    0.22 ms
+  302.02 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  302.02 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  302.02 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  302.02 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  302.02 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  302.02 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  302.87 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 15.53ms max (9)
+  302.87 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  302.87 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  302.87 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  302.87 [WARN]:nasal       -- Recipient                 A320 ECAM    0.90 ms
+  302.87 [WARN]:nasal       -- Recipient                  A320 PFD    0.50 ms
+  302.87 [WARN]:nasal       -- Recipient                  A320 PFD   13.66 ms
+  302.87 [WARN]:nasal       -- Recipient                 A320 E/WD    0.15 ms
+  302.87 [WARN]:nasal       -- Recipient                   A320 SD    0.24 ms
+  302.87 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  302.87 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  302.87 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  302.87 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  302.87 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  302.87 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  309.72 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 12.86ms max (9)
+  309.72 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  309.72 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  309.72 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  309.72 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  309.72 [WARN]:nasal       -- Recipient                  A320 PFD    0.49 ms
+  309.72 [WARN]:nasal       -- Recipient                  A320 PFD    0.51 ms
+  309.72 [WARN]:nasal       -- Recipient                 A320 E/WD   11.31 ms
+  309.72 [WARN]:nasal       -- Recipient                   A320 SD    0.27 ms
+  309.72 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  309.72 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  309.72 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  309.72 [WARN]:nasal       -- Recipient            A320 Libraries    0.20 ms
+  309.72 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  309.72 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  310.58 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.70ms max (9)
+  310.58 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  310.58 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  310.58 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  310.58 [WARN]:nasal       -- Recipient                 A320 ECAM   13.19 ms
+  310.58 [WARN]:nasal       -- Recipient                  A320 PFD    0.52 ms
+  310.58 [WARN]:nasal       -- Recipient                  A320 PFD    0.35 ms
+  310.58 [WARN]:nasal       -- Recipient                 A320 E/WD    0.12 ms
+  310.58 [WARN]:nasal       -- Recipient                   A320 SD    0.24 ms
+  310.58 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  310.58 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  310.58 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  310.59 [WARN]:nasal       -- Recipient            A320 Libraries    0.20 ms
+  310.59 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  310.59 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  313.20 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 12.64ms max (9)
+  313.20 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  313.20 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  313.20 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  313.20 [WARN]:nasal       -- Recipient                 A320 ECAM   12.60 ms
+  313.20 [WARN]:nasal       -- Recipient                  A320 PFD    0.01 ms
+  313.20 [WARN]:nasal       -- Recipient                  A320 PFD    0.00 ms
+  313.20 [WARN]:nasal       -- Recipient                 A320 E/WD    0.00 ms
+  313.20 [WARN]:nasal       -- Recipient                   A320 SD    0.00 ms
+  313.20 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+  313.20 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+  313.20 [WARN]:nasal       -- Recipient                 A320 IESI    0.00 ms
+  313.20 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  313.20 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  313.20 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  315.81 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.70ms max (9)
+  315.81 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  315.81 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  315.81 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  315.81 [WARN]:nasal       -- Recipient                 A320 ECAM   12.42 ms
+  315.81 [WARN]:nasal       -- Recipient                  A320 PFD    0.49 ms
+  315.81 [WARN]:nasal       -- Recipient                  A320 PFD    0.37 ms
+  315.81 [WARN]:nasal       -- Recipient                 A320 E/WD    0.13 ms
+  315.81 [WARN]:nasal       -- Recipient                   A320 SD    0.23 ms
+  315.81 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  315.81 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  315.81 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  315.81 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  315.81 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  315.81 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  317.50 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 12.50ms max (9)
+  317.50 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  317.50 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  317.50 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  317.50 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  317.50 [WARN]:nasal       -- Recipient                  A320 PFD    0.63 ms
+  317.50 [WARN]:nasal       -- Recipient                  A320 PFD    0.48 ms
+  317.50 [WARN]:nasal       -- Recipient                 A320 E/WD    0.12 ms
+  317.50 [WARN]:nasal       -- Recipient                   A320 SD    0.25 ms
+  317.50 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  317.50 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  317.50 [WARN]:nasal       -- Recipient                 A320 IESI   10.99 ms
+  317.50 [WARN]:nasal       -- Recipient            A320 Libraries    0.01 ms
+  317.50 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  317.50 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  320.99 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.73ms max (9)
+  320.99 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  320.99 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  320.99 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.06 ms
+  320.99 [WARN]:nasal       -- Recipient                 A320 ECAM   12.15 ms
+  320.99 [WARN]:nasal       -- Recipient                  A320 PFD    0.50 ms
+  320.99 [WARN]:nasal       -- Recipient                  A320 PFD    0.40 ms
+  320.99 [WARN]:nasal       -- Recipient                 A320 E/WD    0.13 ms
+  320.99 [WARN]:nasal       -- Recipient                   A320 SD    0.23 ms
+  320.99 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  320.99 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  320.99 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  320.99 [WARN]:nasal       -- Recipient            A320 Libraries    0.19 ms
+  320.99 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  320.99 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  322.67 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.00ms max (9)
+  322.67 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  322.67 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  322.67 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  322.67 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  322.67 [WARN]:nasal       -- Recipient                  A320 PFD    0.47 ms
+  322.67 [WARN]:nasal       -- Recipient                  A320 PFD    0.37 ms
+  322.67 [WARN]:nasal       -- Recipient                 A320 E/WD   11.61 ms
+  322.67 [WARN]:nasal       -- Recipient                   A320 SD    0.26 ms
+  322.67 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  322.67 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  322.67 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  322.67 [WARN]:nasal       -- Recipient            A320 Libraries    0.21 ms
+  322.67 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  322.67 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  325.27 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.20ms max (9)
+  325.27 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  325.27 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  325.27 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  325.27 [WARN]:nasal       -- Recipient                 A320 ECAM   12.57 ms
+  325.27 [WARN]:nasal       -- Recipient                  A320 PFD    0.61 ms
+  325.27 [WARN]:nasal       -- Recipient                  A320 PFD    0.39 ms
+  325.27 [WARN]:nasal       -- Recipient                 A320 E/WD    0.12 ms
+  325.27 [WARN]:nasal       -- Recipient                   A320 SD    0.24 ms
+  325.27 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  325.28 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  325.28 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  325.28 [WARN]:nasal       -- Recipient            A320 Libraries    0.20 ms
+  325.28 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  325.28 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  327.86 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 12.77ms max (9)
+  327.86 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  327.86 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  327.86 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  327.86 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  327.86 [WARN]:nasal       -- Recipient                  A320 PFD    0.42 ms
+  327.86 [WARN]:nasal       -- Recipient                  A320 PFD    0.38 ms
+  327.86 [WARN]:nasal       -- Recipient                 A320 E/WD    0.12 ms
+  327.86 [WARN]:nasal       -- Recipient                   A320 SD   11.54 ms
+  327.86 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  327.86 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  327.86 [WARN]:nasal       -- Recipient                 A320 IESI    0.05 ms
+  327.86 [WARN]:nasal       -- Recipient            A320 Libraries    0.22 ms
+  327.86 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  327.86 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  332.14 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 12.56ms max (9)
+  332.15 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  332.15 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  332.15 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  332.15 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  332.15 [WARN]:nasal       -- Recipient                  A320 PFD    0.44 ms
+  332.15 [WARN]:nasal       -- Recipient                  A320 PFD    0.37 ms
+  332.15 [WARN]:nasal       -- Recipient                 A320 E/WD    0.12 ms
+  332.15 [WARN]:nasal       -- Recipient                   A320 SD    0.27 ms
+  332.15 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  332.15 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  332.15 [WARN]:nasal       -- Recipient                 A320 IESI   11.32 ms
+  332.15 [WARN]:nasal       -- Recipient            A320 Libraries    0.01 ms
+  332.15 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  332.15 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  339.97 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 15.63ms max (9)
+  339.97 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  339.97 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  339.97 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  339.97 [WARN]:nasal       -- Recipient                 A320 ECAM    1.16 ms
+  339.97 [WARN]:nasal       -- Recipient                  A320 PFD    0.51 ms
+  339.97 [WARN]:nasal       -- Recipient                  A320 PFD   13.20 ms
+  339.97 [WARN]:nasal       -- Recipient                 A320 E/WD    0.24 ms
+  339.97 [WARN]:nasal       -- Recipient                   A320 SD    0.27 ms
+  339.97 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  339.97 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  339.97 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  339.97 [WARN]:nasal       -- Recipient            A320 Libraries    0.18 ms
+  339.97 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  339.97 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  340.85 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.97ms max (9)
+  340.85 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  340.85 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  340.85 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  340.85 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  340.85 [WARN]:nasal       -- Recipient                  A320 PFD   12.93 ms
+  340.85 [WARN]:nasal       -- Recipient                  A320 PFD    0.38 ms
+  340.85 [WARN]:nasal       -- Recipient                 A320 E/WD    0.13 ms
+  340.85 [WARN]:nasal       -- Recipient                   A320 SD    0.25 ms
+  340.85 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  340.85 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  340.85 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  340.85 [WARN]:nasal       -- Recipient            A320 Libraries    0.22 ms
+  340.85 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  340.85 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  343.40 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.49ms max (9)
+  343.40 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  343.41 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  343.41 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  343.41 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  343.41 [WARN]:nasal       -- Recipient                  A320 PFD    0.69 ms
+  343.41 [WARN]:nasal       -- Recipient                  A320 PFD    0.38 ms
+  343.41 [WARN]:nasal       -- Recipient                 A320 E/WD    0.12 ms
+  343.41 [WARN]:nasal       -- Recipient                   A320 SD   12.01 ms
+  343.41 [WARN]:nasal       -- Recipient              A320 Battery    0.02 ms
+  343.41 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  343.41 [WARN]:nasal       -- Recipient                 A320 IESI    0.05 ms
+  343.41 [WARN]:nasal       -- Recipient            A320 Libraries    0.21 ms
+  343.41 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  343.41 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  347.73 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 12.87ms max (9)
+  347.73 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  347.73 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  347.73 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  347.73 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  347.73 [WARN]:nasal       -- Recipient                  A320 PFD    0.45 ms
+  347.73 [WARN]:nasal       -- Recipient                  A320 PFD   11.90 ms
+  347.73 [WARN]:nasal       -- Recipient                 A320 E/WD    0.20 ms
+  347.73 [WARN]:nasal       -- Recipient                   A320 SD    0.26 ms
+  347.73 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  347.73 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  347.73 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  347.73 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  347.73 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  347.73 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  352.02 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.22ms max (9)
+  352.02 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  352.02 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  352.02 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  352.02 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  352.02 [WARN]:nasal       -- Recipient                  A320 PFD    0.45 ms
+  352.02 [WARN]:nasal       -- Recipient                  A320 PFD    0.36 ms
+  352.02 [WARN]:nasal       -- Recipient                 A320 E/WD    0.12 ms
+  352.02 [WARN]:nasal       -- Recipient                   A320 SD   11.92 ms
+  352.02 [WARN]:nasal       -- Recipient              A320 Battery    0.02 ms
+  352.02 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  352.02 [WARN]:nasal       -- Recipient                 A320 IESI    0.05 ms
+  352.02 [WARN]:nasal       -- Recipient            A320 Libraries    0.28 ms
+  352.02 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  352.02 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  357.19 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 12.96ms max (9)
+  357.19 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  357.19 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  357.19 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  357.19 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  357.19 [WARN]:nasal       -- Recipient                  A320 PFD    0.51 ms
+  357.19 [WARN]:nasal       -- Recipient                  A320 PFD    0.42 ms
+  357.19 [WARN]:nasal       -- Recipient                 A320 E/WD   11.69 ms
+  357.19 [WARN]:nasal       -- Recipient                   A320 SD    0.26 ms
+  357.19 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  357.19 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  357.20 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  357.20 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  357.20 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  357.20 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  358.04 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.34ms max (9)
+  358.04 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  358.04 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  358.04 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  358.04 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  358.04 [WARN]:nasal       -- Recipient                  A320 PFD   12.12 ms
+  358.04 [WARN]:nasal       -- Recipient                  A320 PFD    0.57 ms
+  358.04 [WARN]:nasal       -- Recipient                 A320 E/WD    0.14 ms
+  358.04 [WARN]:nasal       -- Recipient                   A320 SD    0.25 ms
+  358.04 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  358.04 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  358.04 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  358.04 [WARN]:nasal       -- Recipient            A320 Libraries    0.19 ms
+  358.04 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  358.04 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  358.90 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.55ms max (9)
+  358.90 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  358.90 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  358.90 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  358.90 [WARN]:nasal       -- Recipient                 A320 ECAM   12.18 ms
+  358.90 [WARN]:nasal       -- Recipient                  A320 PFD    0.44 ms
+  358.90 [WARN]:nasal       -- Recipient                  A320 PFD    0.33 ms
+  358.90 [WARN]:nasal       -- Recipient                 A320 E/WD    0.12 ms
+  358.90 [WARN]:nasal       -- Recipient                   A320 SD    0.23 ms
+  358.90 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  358.90 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  358.90 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  358.90 [WARN]:nasal       -- Recipient            A320 Libraries    0.19 ms
+  358.90 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  358.90 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  363.29 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 15.06ms max (9)
+  363.29 [WARN]:nasal       -- Recipient         FrameNotification    0.07 ms
+  363.29 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  363.29 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  363.29 [WARN]:nasal       -- Recipient                 A320 ECAM    1.11 ms
+  363.29 [WARN]:nasal       -- Recipient                  A320 PFD    0.62 ms
+  363.29 [WARN]:nasal       -- Recipient                  A320 PFD    0.40 ms
+  363.29 [WARN]:nasal       -- Recipient                 A320 E/WD    0.26 ms
+  363.29 [WARN]:nasal       -- Recipient                   A320 SD    0.27 ms
+  363.29 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  363.29 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  363.29 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  363.29 [WARN]:nasal       -- Recipient            A320 Libraries   12.26 ms
+  363.29 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  363.30 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  365.01 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 12.71ms max (9)
+  365.01 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  365.01 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  365.01 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  365.01 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  365.01 [WARN]:nasal       -- Recipient                  A320 PFD    0.48 ms
+  365.01 [WARN]:nasal       -- Recipient                  A320 PFD    0.46 ms
+  365.01 [WARN]:nasal       -- Recipient                 A320 E/WD   11.21 ms
+  365.01 [WARN]:nasal       -- Recipient                   A320 SD    0.24 ms
+  365.01 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  365.01 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  365.01 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  365.01 [WARN]:nasal       -- Recipient            A320 Libraries    0.26 ms
+  365.01 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  365.01 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  365.88 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 12.93ms max (9)
+  365.88 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  365.88 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  365.88 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  365.88 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  365.88 [WARN]:nasal       -- Recipient                  A320 PFD   12.03 ms
+  365.88 [WARN]:nasal       -- Recipient                  A320 PFD    0.40 ms
+  365.88 [WARN]:nasal       -- Recipient                 A320 E/WD    0.16 ms
+  365.88 [WARN]:nasal       -- Recipient                   A320 SD    0.26 ms
+  365.88 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  365.88 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  365.88 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  365.88 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  365.88 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  365.88 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  368.50 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 12.53ms max (9)
+  368.50 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  368.50 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  368.50 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  368.50 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  368.50 [WARN]:nasal       -- Recipient                  A320 PFD    0.44 ms
+  368.50 [WARN]:nasal       -- Recipient                  A320 PFD   11.58 ms
+  368.50 [WARN]:nasal       -- Recipient                 A320 E/WD    0.17 ms
+  368.50 [WARN]:nasal       -- Recipient                   A320 SD    0.25 ms
+  368.50 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  368.50 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  368.50 [WARN]:nasal       -- Recipient                 A320 IESI    0.05 ms
+  368.50 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  368.50 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  368.50 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  369.36 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.06ms max (9)
+  369.36 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  369.36 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  369.36 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  369.36 [WARN]:nasal       -- Recipient                 A320 ECAM   13.02 ms
+  369.36 [WARN]:nasal       -- Recipient                  A320 PFD    0.01 ms
+  369.36 [WARN]:nasal       -- Recipient                  A320 PFD    0.00 ms
+  369.36 [WARN]:nasal       -- Recipient                 A320 E/WD    0.00 ms
+  369.36 [WARN]:nasal       -- Recipient                   A320 SD    0.00 ms
+  369.36 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+  369.36 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+  369.36 [WARN]:nasal       -- Recipient                 A320 IESI    0.00 ms
+  369.36 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  369.36 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  369.36 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  371.94 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.84ms max (9)
+  371.94 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  371.94 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  371.94 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  371.94 [WARN]:nasal       -- Recipient                 A320 ECAM    1.00 ms
+  371.94 [WARN]:nasal       -- Recipient                  A320 PFD   11.79 ms
+  371.94 [WARN]:nasal       -- Recipient                  A320 PFD    0.41 ms
+  371.94 [WARN]:nasal       -- Recipient                 A320 E/WD    0.13 ms
+  371.94 [WARN]:nasal       -- Recipient                   A320 SD    0.24 ms
+  371.94 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  371.94 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  371.94 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  371.94 [WARN]:nasal       -- Recipient            A320 Libraries    0.19 ms
+  371.94 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  371.94 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  372.79 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.39ms max (9)
+  372.79 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  372.79 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  372.79 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  372.79 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  372.79 [WARN]:nasal       -- Recipient                  A320 PFD    0.51 ms
+  372.79 [WARN]:nasal       -- Recipient                  A320 PFD    0.52 ms
+  372.79 [WARN]:nasal       -- Recipient                 A320 E/WD    0.17 ms
+  372.79 [WARN]:nasal       -- Recipient                   A320 SD   11.85 ms
+  372.80 [WARN]:nasal       -- Recipient              A320 Battery    0.02 ms
+  372.80 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  372.80 [WARN]:nasal       -- Recipient                 A320 IESI    0.06 ms
+  372.80 [WARN]:nasal       -- Recipient            A320 Libraries    0.25 ms
+  372.80 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  372.80 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  373.66 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.09ms max (9)
+  373.66 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  373.66 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  373.66 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  373.66 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  373.66 [WARN]:nasal       -- Recipient                  A320 PFD    0.50 ms
+  373.66 [WARN]:nasal       -- Recipient                  A320 PFD    0.37 ms
+  373.66 [WARN]:nasal       -- Recipient                 A320 E/WD    0.16 ms
+  373.66 [WARN]:nasal       -- Recipient                   A320 SD    0.24 ms
+  373.66 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  373.66 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  373.66 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  373.66 [WARN]:nasal       -- Recipient            A320 Libraries   11.73 ms
+  373.66 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.01 ms
+  373.66 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  374.53 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.51ms max (9)
+  374.53 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  374.53 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  374.53 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  374.53 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  374.53 [WARN]:nasal       -- Recipient                  A320 PFD    0.44 ms
+  374.53 [WARN]:nasal       -- Recipient                  A320 PFD    0.41 ms
+  374.53 [WARN]:nasal       -- Recipient                 A320 E/WD    0.23 ms
+  374.53 [WARN]:nasal       -- Recipient                   A320 SD   12.18 ms
+  374.53 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  374.53 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  374.53 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  374.53 [WARN]:nasal       -- Recipient            A320 Libraries    0.18 ms
+  374.53 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  374.53 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  376.26 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.79ms max (9)
+  376.26 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  376.26 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  376.26 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  376.26 [WARN]:nasal       -- Recipient                 A320 ECAM    0.83 ms
+  376.26 [WARN]:nasal       -- Recipient                  A320 PFD    0.49 ms
+  376.26 [WARN]:nasal       -- Recipient                  A320 PFD    0.38 ms
+  376.26 [WARN]:nasal       -- Recipient                 A320 E/WD    0.12 ms
+  376.26 [WARN]:nasal       -- Recipient                   A320 SD   11.64 ms
+  376.26 [WARN]:nasal       -- Recipient              A320 Battery    0.02 ms
+  376.26 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  376.26 [WARN]:nasal       -- Recipient                 A320 IESI    0.05 ms
+  376.26 [WARN]:nasal       -- Recipient            A320 Libraries    0.24 ms
+  376.26 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  376.26 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  378.00 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 12.88ms max (9)
+  378.00 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  378.00 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  378.00 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  378.00 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  378.00 [WARN]:nasal       -- Recipient                  A320 PFD    0.50 ms
+  378.00 [WARN]:nasal       -- Recipient                  A320 PFD    0.35 ms
+  378.01 [WARN]:nasal       -- Recipient                 A320 E/WD    0.13 ms
+  378.01 [WARN]:nasal       -- Recipient                   A320 SD   11.83 ms
+  378.01 [WARN]:nasal       -- Recipient              A320 Battery    0.02 ms
+  378.01 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  378.01 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  378.01 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  378.01 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  378.01 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  378.83 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 12.78ms max (9)
+  378.83 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  378.83 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  378.83 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  378.83 [WARN]:nasal       -- Recipient                 A320 ECAM   12.73 ms
+  378.83 [WARN]:nasal       -- Recipient                  A320 PFD    0.01 ms
+  378.83 [WARN]:nasal       -- Recipient                  A320 PFD    0.00 ms
+  378.83 [WARN]:nasal       -- Recipient                 A320 E/WD    0.00 ms
+  378.84 [WARN]:nasal       -- Recipient                   A320 SD    0.00 ms
+  378.84 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+  378.84 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+  378.84 [WARN]:nasal       -- Recipient                 A320 IESI    0.00 ms
+  378.84 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  378.84 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  378.84 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  382.27 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 12.50ms max (9)
+  382.27 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  382.27 [WARN]:nasal       -- Recipient           A320 Electrical    0.00 ms
+  382.27 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  382.27 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  382.27 [WARN]:nasal       -- Recipient                  A320 PFD    0.44 ms
+  382.27 [WARN]:nasal       -- Recipient                  A320 PFD   11.60 ms
+  382.27 [WARN]:nasal       -- Recipient                 A320 E/WD    0.15 ms
+  382.27 [WARN]:nasal       -- Recipient                   A320 SD    0.23 ms
+  382.27 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  382.27 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  382.27 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  382.27 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  382.27 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  382.27 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  385.71 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.57ms max (9)
+  385.71 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  385.71 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  385.71 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  385.71 [WARN]:nasal       -- Recipient                 A320 ECAM    0.85 ms
+  385.71 [WARN]:nasal       -- Recipient                  A320 PFD   11.78 ms
+  385.71 [WARN]:nasal       -- Recipient                  A320 PFD    0.46 ms
+  385.71 [WARN]:nasal       -- Recipient                 A320 E/WD    0.14 ms
+  385.71 [WARN]:nasal       -- Recipient                   A320 SD    0.26 ms
+  385.71 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  385.71 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  385.71 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  385.71 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  385.71 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  385.71 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  386.59 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 15.65ms max (9)
+  386.59 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  386.59 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  386.59 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  386.59 [WARN]:nasal       -- Recipient                 A320 ECAM   14.25 ms
+  386.59 [WARN]:nasal       -- Recipient                  A320 PFD    0.45 ms
+  386.59 [WARN]:nasal       -- Recipient                  A320 PFD    0.35 ms
+  386.59 [WARN]:nasal       -- Recipient                 A320 E/WD    0.12 ms
+  386.59 [WARN]:nasal       -- Recipient                   A320 SD    0.24 ms
+  386.59 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  386.59 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  386.59 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  386.59 [WARN]:nasal       -- Recipient            A320 Libraries    0.18 ms
+  386.59 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  386.59 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  388.26 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.30ms max (9)
+  388.26 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  388.26 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  388.26 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  388.26 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  388.26 [WARN]:nasal       -- Recipient                  A320 PFD    0.50 ms
+  388.26 [WARN]:nasal       -- Recipient                  A320 PFD    0.40 ms
+  388.26 [WARN]:nasal       -- Recipient                 A320 E/WD    0.12 ms
+  388.26 [WARN]:nasal       -- Recipient                   A320 SD    0.25 ms
+  388.26 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  388.26 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  388.26 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  388.26 [WARN]:nasal       -- Recipient            A320 Libraries   11.96 ms
+  388.26 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  388.26 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  389.13 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.34ms max (9)
+  389.13 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  389.13 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  389.13 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  389.13 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  389.13 [WARN]:nasal       -- Recipient                  A320 PFD    0.47 ms
+  389.13 [WARN]:nasal       -- Recipient                  A320 PFD   12.24 ms
+  389.13 [WARN]:nasal       -- Recipient                 A320 E/WD    0.15 ms
+  389.13 [WARN]:nasal       -- Recipient                   A320 SD    0.24 ms
+  389.13 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  389.13 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  389.13 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  389.13 [WARN]:nasal       -- Recipient            A320 Libraries    0.17 ms
+  389.13 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  389.13 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  390.86 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.21ms max (9)
+  390.86 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  390.86 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  390.86 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  390.86 [WARN]:nasal       -- Recipient                 A320 ECAM    1.08 ms
+  390.86 [WARN]:nasal       -- Recipient                  A320 PFD    0.46 ms
+  390.86 [WARN]:nasal       -- Recipient                  A320 PFD    0.37 ms
+  390.86 [WARN]:nasal       -- Recipient                 A320 E/WD    0.13 ms
+  390.86 [WARN]:nasal       -- Recipient                   A320 SD    0.25 ms
+  390.86 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  390.86 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  390.86 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  390.86 [WARN]:nasal       -- Recipient            A320 Libraries   11.84 ms
+  390.86 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  390.86 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  391.73 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.21ms max (9)
+  391.73 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  391.73 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  391.73 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  391.73 [WARN]:nasal       -- Recipient                 A320 ECAM    1.01 ms
+  391.73 [WARN]:nasal       -- Recipient                  A320 PFD   12.30 ms
+  391.73 [WARN]:nasal       -- Recipient                  A320 PFD    0.44 ms
+  391.73 [WARN]:nasal       -- Recipient                 A320 E/WD    0.13 ms
+  391.73 [WARN]:nasal       -- Recipient                   A320 SD    0.25 ms
+  391.73 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  391.73 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  391.73 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  391.73 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  391.73 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  391.73 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  394.30 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 12.44ms max (9)
+  394.30 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  394.30 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  394.30 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  394.30 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  394.30 [WARN]:nasal       -- Recipient                  A320 PFD    0.48 ms
+  394.30 [WARN]:nasal       -- Recipient                  A320 PFD   11.34 ms
+  394.30 [WARN]:nasal       -- Recipient                 A320 E/WD    0.14 ms
+  394.30 [WARN]:nasal       -- Recipient                   A320 SD    0.23 ms
+  394.30 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  394.30 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  394.30 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  394.30 [WARN]:nasal       -- Recipient            A320 Libraries    0.19 ms
+  394.30 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  394.30 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  396.90 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 15.33ms max (9)
+  396.90 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  396.90 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  396.90 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  396.90 [WARN]:nasal       -- Recipient                 A320 ECAM    1.06 ms
+  396.90 [WARN]:nasal       -- Recipient                  A320 PFD    0.46 ms
+  396.90 [WARN]:nasal       -- Recipient                  A320 PFD    0.37 ms
+  396.90 [WARN]:nasal       -- Recipient                 A320 E/WD    0.12 ms
+  396.90 [WARN]:nasal       -- Recipient                   A320 SD    0.23 ms
+  396.90 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  396.90 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  396.90 [WARN]:nasal       -- Recipient                 A320 IESI   12.79 ms
+  396.90 [WARN]:nasal       -- Recipient            A320 Libraries    0.26 ms
+  396.90 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  396.90 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  398.62 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.65ms max (9)
+  398.62 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  398.62 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  398.62 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  398.62 [WARN]:nasal       -- Recipient                 A320 ECAM    0.01 ms
+  398.62 [WARN]:nasal       -- Recipient                  A320 PFD   12.60 ms
+  398.62 [WARN]:nasal       -- Recipient                  A320 PFD    0.43 ms
+  398.62 [WARN]:nasal       -- Recipient                 A320 E/WD    0.12 ms
+  398.62 [WARN]:nasal       -- Recipient                   A320 SD    0.23 ms
+  398.62 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  398.62 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  398.62 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  398.62 [WARN]:nasal       -- Recipient            A320 Libraries    0.20 ms
+  398.62 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  398.62 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  401.18 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 15.24ms max (9)
+  401.18 [WARN]:nasal       -- Recipient         FrameNotification    0.00 ms
+  401.18 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  401.18 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  401.18 [WARN]:nasal       -- Recipient                 A320 ECAM    1.01 ms
+  401.18 [WARN]:nasal       -- Recipient                  A320 PFD   13.26 ms
+  401.18 [WARN]:nasal       -- Recipient                  A320 PFD    0.38 ms
+  401.18 [WARN]:nasal       -- Recipient                 A320 E/WD    0.11 ms
+  401.18 [WARN]:nasal       -- Recipient                   A320 SD    0.22 ms
+  401.18 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  401.18 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  401.18 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  401.18 [WARN]:nasal       -- Recipient            A320 Libraries    0.18 ms
+  401.18 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  401.18 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  406.29 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 14.02ms max (9)
+  406.29 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  406.29 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  406.29 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  406.29 [WARN]:nasal       -- Recipient                 A320 ECAM    0.93 ms
+  406.29 [WARN]:nasal       -- Recipient                  A320 PFD    0.50 ms
+  406.29 [WARN]:nasal       -- Recipient                  A320 PFD   12.09 ms
+  406.29 [WARN]:nasal       -- Recipient                 A320 E/WD    0.14 ms
+  406.29 [WARN]:nasal       -- Recipient                   A320 SD    0.25 ms
+  406.29 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  406.29 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  406.29 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  406.29 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  406.29 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  406.29 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  412.40 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 13.11ms max (9)
+  412.40 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  412.40 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  412.40 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.00 ms
+  412.40 [WARN]:nasal       -- Recipient                 A320 ECAM    0.00 ms
+  412.40 [WARN]:nasal       -- Recipient                  A320 PFD    0.45 ms
+  412.40 [WARN]:nasal       -- Recipient                  A320 PFD   12.12 ms
+  412.40 [WARN]:nasal       -- Recipient                 A320 E/WD    0.24 ms
+  412.40 [WARN]:nasal       -- Recipient                   A320 SD    0.23 ms
+  412.40 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  412.40 [WARN]:nasal       -- Recipient              A320 Battery    0.01 ms
+  412.40 [WARN]:nasal       -- Recipient                 A320 IESI    0.04 ms
+  412.40 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  412.40 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  412.40 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms
+  413.27 [WARN]:nasal      Overrun: GlobalTransmitter ['FrameNotification'] 12.45ms max (9)
+  413.27 [WARN]:nasal       -- Recipient         FrameNotification    0.01 ms
+  413.27 [WARN]:nasal       -- Recipient           A320 Electrical    0.01 ms
+  413.27 [WARN]:nasal       -- Recipient            A320 Hydraulic    0.01 ms
+  413.27 [WARN]:nasal       -- Recipient                 A320 ECAM   12.41 ms
+  413.27 [WARN]:nasal       -- Recipient                  A320 PFD    0.01 ms
+  413.27 [WARN]:nasal       -- Recipient                  A320 PFD    0.00 ms
+  413.27 [WARN]:nasal       -- Recipient                 A320 E/WD    0.00 ms
+  413.27 [WARN]:nasal       -- Recipient                   A320 SD    0.00 ms
+  413.27 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+  413.27 [WARN]:nasal       -- Recipient              A320 Battery    0.00 ms
+  413.27 [WARN]:nasal       -- Recipient                 A320 IESI    0.00 ms
+  413.27 [WARN]:nasal       -- Recipient            A320 Libraries    0.00 ms
+  413.27 [WARN]:nasal       -- Recipient        Eisenhower.ANSPN46    0.00 ms
+  413.27 [WARN]:nasal       -- Recipient            Nimitz.ANSPN46    0.00 ms

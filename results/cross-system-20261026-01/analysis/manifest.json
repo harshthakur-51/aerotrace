@@ -1,0 +1,15 @@
+{
+  "method": "observation_only_compatibility_rules",
+  "inputs": [
+    "episode-001/observations.jsonl",
+    "episode-002/observations.jsonl",
+    "episode-003/observations.jsonl",
+    "episode-004/observations.jsonl",
+    "episode-005/observations.jsonl"
+  ],
+  "source_sha256": {
+    "aircraft_debugger/evidence.py": "fefb7b6ba4c6e7cc739e508367932021dcfe28a8c9fe0766e8d46fc0ea00978f",
+    "aircraft_debugger/observations.py": "56d3acd38311403f340ad2ae8a733ebb00135ca290484d3ad95ef07e5689011c"
+  },
+  "not_accuracy_evaluation": true
+}

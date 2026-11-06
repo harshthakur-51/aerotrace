@@ -1,0 +1,37 @@
+{
+  "purpose": "AeroTrace public-input causal replay; private truth is never diagnostic evidence",
+  "observation_file_sha256": "48029a11e9f6252ac410c2bd3c4da21d2d71e202dfaf872af090fee114653b86",
+  "samples": 33,
+  "mode": "temporal",
+  "source_commit_before_run": "fa2e3082ba785094f9dda1047909aa2fade65f6f",
+  "source_sha256": {
+    "aircraft_debugger/__init__.py": "8b3988af59cc46fdbb7c4e8bccfa65a2aaf90e4882d3ba8c70c344e15f63d68a",
+    "aircraft_debugger/diagnosis.py": "4cd3dc942ccf7dac7f2d0390a545c12ee81c1beedb15c1713da2cdac2fd090f0",
+    "aircraft_debugger/diagnostic_features.py": "1745401ca2de2cff72cd8cb9b381e86feae14aceac548388d326009da35ac43a",
+    "aircraft_debugger/hypotheses.py": "51ca2215048796615a90dc4786b2df6af7f65c16d9321b5ea941b4be14b5d659",
+    "aircraft_debugger/airborne_evidence.py": "690b73569789b8c2ef72532c3b58def8b604adad2c68c10bceb8e964ee2463f2",
+    "aircraft_debugger/airborne_profile.py": "fefe20b9ce275ccfd581749452ade96c522192216ebc189fd3801d083befc565",
+    "aircraft_debugger/evidence.py": "cd0c6ad86b66ccb15a3d1c3b446ea9208f0ea3b419d12ecb23beb91db542f519",
+    "aircraft_debugger/observations.py": "56d3acd38311403f340ad2ae8a733ebb00135ca290484d3ad95ef07e5689011c",
+    "aircraft_debugger/flightgear.py": "4e60e793ad30fdc5fa8d2b8d9d9157b16c1ab20fa99014df0252216325bdd443"
+  },
+  "executed_source_archives": {
+    "aircraft_debugger/__init__.py": "executed-source/aircraft_debugger/__init__.py",
+    "aircraft_debugger/diagnosis.py": "executed-source/aircraft_debugger/diagnosis.py",
+    "aircraft_debugger/diagnostic_features.py": "executed-source/aircraft_debugger/diagnostic_features.py",
+    "aircraft_debugger/hypotheses.py": "executed-source/aircraft_debugger/hypotheses.py",
+    "aircraft_debugger/airborne_evidence.py": "executed-source/aircraft_debugger/airborne_evidence.py",
+    "aircraft_debugger/airborne_profile.py": "executed-source/aircraft_debugger/airborne_profile.py",
+    "aircraft_debugger/evidence.py": "executed-source/aircraft_debugger/evidence.py",
+    "aircraft_debugger/observations.py": "executed-source/aircraft_debugger/observations.py",
+    "aircraft_debugger/flightgear.py": "executed-source/aircraft_debugger/flightgear.py"
+  },
+  "artifact_sha256": {
+    "report.json": "49daa4a206f48b2437c6be8fe40aa3b8f778a7a3281edf74779ea79f5df3d069",
+    "report.md": "9587aed5f722fe9463abe75a71f48009fda671502cc4f9857dd6713ce02161d7",
+    "timeline.json": "ab002fea4afbc5fe2dd8e9d58916c70269884ed2970874ffc8e14c5ab0e7a447",
+    "model.json": "a71b4228fe25c1ae20df41def1637302fb1ba3aaa124ee7b3a4e3738f3305d89"
+  },
+  "complete_replay_computation_local_s": 0.1692262999713421,
+  "timing_scope": "Entire offline prefix replay on this machine; not per-update streaming latency or a performance benchmark"
+}

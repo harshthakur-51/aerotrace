@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "aircraft": "A320-200-CFM",
+  "flightgear_version": "2024.1.7",
+  "catalog_revision": 20376,
+  "observation_contract": "selected model properties; not validated aircraft sensors",
+  "sample_interval_target_s": 1.0,
+  "polls_are_atomic": false,
+  "episodes": [
+    {
+      "episode_id": "episode-001",
+      "observations": "episode-001/observations.jsonl",
+      "samples": 13,
+      "sha256": "3a3721e2a5a492a8f89b53b0c7f91de96ca9dccf294e7192e3ad872d48d1784a"
+    },
+    {
+      "episode_id": "episode-002",
+      "observations": "episode-002/observations.jsonl",
+      "samples": 13,
+      "sha256": "befc61fbfd712be381d1e64d8d8fa2bff49ccfbe27c7fa188f76b945118c55b1"
+    },
+    {
+      "episode_id": "episode-003",
+      "observations": "episode-003/observations.jsonl",
+      "samples": 13,
+      "sha256": "099a86b77304eb7982b74bd4d422face96fb94d8b14fecc6f0915239070f70f0"
+    },
+    {
+      "episode_id": "episode-004",
+      "observations": "episode-004/observations.jsonl",
+      "samples": 13,
+      "sha256": "4281b432b384b93133ddecad246707d5d2c3258df39cc0dd1878c3b33e087262"
+    },
+    {
+      "episode_id": "episode-005",
+      "observations": "episode-005/observations.jsonl",
+      "samples": 13,
+      "sha256": "30ead9d0a647b52528a3dcedd97823e764a7381ee41bd6b4638f05d77b89c6e4"
+    }
+  ],
+  "source_commit_before_run": "086ca00c7011a55edbdcd06353578aa517643ae2",
+  "source_sha256": {
+    "aircraft_debugger/cross_system.py": "d772d5f9f62d3f980c8624f3e0bd6dc6b0081bc0230bb8f4f8e8891f1309700f",
+    "aircraft_debugger/observations.py": "56d3acd38311403f340ad2ae8a733ebb00135ca290484d3ad95ef07e5689011c",
+    "aircraft_debugger/flightgear.py": "4e60e793ad30fdc5fa8d2b8d9d9157b16c1ab20fa99014df0252216325bdd443",
+    "aircraft_debugger/sim_panel.py": "57188dbde4ddb8521848ae3c94775166610478efc80bbfa43a30adeb5123c981",
+    "configs/flightgear-a320.fgfsrc": "f7ec4819856240b8e55e94e9a87f3b60e6ae53aa96e24b394f3b6f010eb3e851",
+    "configs/flightgear-assets.json": "4b06fddfa7844dd5d9a1d33bbcf4aac5ab00aabe17c4789528dee5bf5ac9df5a"
+  },
+  "executed_controller_archive": "private_truth/executed-source/cross_system.py",
+  "executed_source_archives": {
+    "aircraft_debugger/cross_system.py": "private_truth/executed-source/cross_system.py",
+    "aircraft_debugger/sim_panel.py": "private_truth/executed-source/sim_panel.py"
+  }
+}

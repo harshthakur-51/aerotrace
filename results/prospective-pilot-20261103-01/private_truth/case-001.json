@@ -1,0 +1,49 @@
+{
+  "run_id": "prospective-A-001",
+  "flight_group": "prospective-flight-20261103-A",
+  "profile": "reference",
+  "native_case": "selected_reference",
+  "protocol_sha256": "b6f6f9b178befd343b7a4dc88de99ab130e9e8a1488898585bbff075567619b9",
+  "source_hash_check": true,
+  "role": "held out for sealed bounded-profile pilot; not real-aircraft cause accuracy",
+  "collection_completed": true,
+  "scoring": {
+    "schema_version": 1,
+    "run_id": "prospective-A-001",
+    "flight_group": "prospective-flight-20261103-A",
+    "data_role": "final",
+    "protocol_sha256": "b6f6f9b178befd343b7a4dc88de99ab130e9e8a1488898585bbff075567619b9",
+    "observation_sha256": "2b27b9fe0346bd242c1c468202544822e2c3d835aa20f333b6366202e9202e8a",
+    "profile": "reference",
+    "expected_compatible_ids": [
+      "selected_reference"
+    ],
+    "observed_compatible_ids": [
+      "selected_reference"
+    ],
+    "plausible_ids": [
+      "selected_reference"
+    ],
+    "diagnosis_status": "no_selected_anomaly",
+    "data_sufficiency": {
+      "status": "sufficient",
+      "unknown_facts": [],
+      "scope": "Supplied selected incident/epoch facts; current observed impact is assessed separately."
+    },
+    "model_fit": {
+      "status": "fits",
+      "compatible_candidate_count": 1,
+      "plausible_candidate_count": 1
+    },
+    "exact_bounded_profile_match": true,
+    "assessment": "matched_bounded_profile",
+    "expected_ids_not_compatible": [],
+    "extra_compatible_ids": [],
+    "current_impact": [],
+    "incident_impact": [],
+    "sample_count": 31,
+    "physical_cause_accuracy_measured": false,
+    "independent_trials_claimed": false,
+    "target_semantics": "Expected compatible configurations within the declared model, not unique physical cause ground truth"
+  }
+}

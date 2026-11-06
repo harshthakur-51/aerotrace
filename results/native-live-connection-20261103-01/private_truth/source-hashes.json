@@ -1,0 +1,17 @@
+{
+  "aircraft_debugger/__init__.py": "8b3988af59cc46fdbb7c4e8bccfa65a2aaf90e4882d3ba8c70c344e15f63d68a",
+  "aircraft_debugger/diagnosis.py": "4cd3dc942ccf7dac7f2d0390a545c12ee81c1beedb15c1713da2cdac2fd090f0",
+  "aircraft_debugger/diagnostic_features.py": "1745401ca2de2cff72cd8cb9b381e86feae14aceac548388d326009da35ac43a",
+  "aircraft_debugger/hypotheses.py": "51ca2215048796615a90dc4786b2df6af7f65c16d9321b5ea941b4be14b5d659",
+  "aircraft_debugger/airborne_evidence.py": "690b73569789b8c2ef72532c3b58def8b604adad2c68c10bceb8e964ee2463f2",
+  "aircraft_debugger/airborne_profile.py": "fefe20b9ce275ccfd581749452ade96c522192216ebc189fd3801d083befc565",
+  "aircraft_debugger/evidence.py": "cd0c6ad86b66ccb15a3d1c3b446ea9208f0ea3b419d12ecb23beb91db542f519",
+  "aircraft_debugger/observations.py": "56d3acd38311403f340ad2ae8a733ebb00135ca290484d3ad95ef07e5689011c",
+  "aircraft_debugger/flightgear.py": "4e60e793ad30fdc5fa8d2b8d9d9157b16c1ab20fa99014df0252216325bdd443",
+  "aircraft_debugger/diagnostic_session.py": "9467a8c90617ee1ce7ba3e3517129c36b7bddd2613f397705a4b1fac7e621c31",
+  "aircraft_debugger/sim_panel.py": "f114b98e7b2fdeb6cad2de8f0c9d4e58d97af06c6e07eff9153ad6803e1daa10",
+  "aircraft_debugger/assets/sim-panel.html": "84dd9346538a97f7466d353158caa1da3cb456760080ab53e1d697d79eaff3fb",
+  "configs/flightgear-a320.fgfsrc": "f7ec4819856240b8e55e94e9a87f3b60e6ae53aa96e24b394f3b6f010eb3e851",
+  "configs/flightgear-assets.json": "4b06fddfa7844dd5d9a1d33bbcf4aac5ab00aabe17c4789528dee5bf5ac9df5a",
+  "work/verify-native-live.py": "0021d3831246022b7de9180e2a7fc55db55d525b6153653099c8eae3b6ad681d"
+}

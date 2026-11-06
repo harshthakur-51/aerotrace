@@ -1,0 +1,81 @@
+{
+  "scope": "Private setup/control/evaluator provenance; never diagnostic input",
+  "authorization": "Owner handed native launch and flight setup to the agent; the first generator-2 fault was announced before qualification and injection on 28 October 2026.",
+  "capture_limits": "Supporting logs, not a complete machine/input recorder. No HTTP screenshot was used in the successful fault recording.",
+  "attempt_history": [
+    "First helper stopped before takeoff because a numeric native five-second-airborne flag was initially requested as Boolean; the abort pause was logged.",
+    "First completed native takeoff/climb later ended in fgfs.exe access violation 0xc0000005 while an HTTP screenshot request was outstanding. Cause unproven; no fault had been injected.",
+    "Fresh retry used native control functions, reached the declared 10,000 ft / 250 kt condition and then recorded the single generator-2 fault episode.",
+    "An initial standard gear-down mirror request did not establish native gear state. The retry used source-audited controls.gearDown; final native actuator readbacks were 0.",
+    "Windows capture after refreshed window selection failed: FrameArrived timed out, then window capture timed out. No captured cockpit image confirms this stage."
+  ],
+  "operator_parameters": "The 160 kt rotation trigger and normalized -0.18 elevator request are original simulator setup choices, not aircraft performance/rotation-speed values or a validated flight law. Native autopilot engagement/protection conditions were not bypassed.",
+  "runtime_logs": "work/flightgear/launch-logs/20261028-airborne-cockpit.* and 20261028-airborne-retry.* remain local scratch; the captured Windows crash event is archived here.",
+  "checkpoint_state": "Master and clock paused after verified native recovery; generator-2 and blue-leak flags false. Fresh admission remains required next time.",
+  "files": {
+    "checkpoint-pause.json": {
+      "original_sha256": "0f3f64205d6ef931600ae5585b04327abb3884990f6efe08a8fa4981df8cc65d",
+      "archived_sha256": "0f3f64205d6ef931600ae5585b04327abb3884990f6efe08a8fa4981df8cc65d",
+      "transform": "Exact bytes copied."
+    },
+    "climb-context.json": {
+      "original_sha256": "268a3f911c73dafa56dd88c255d4f3eb1a3083d74555894c38ecb039a1bdd606",
+      "archived_sha256": "268a3f911c73dafa56dd88c255d4f3eb1a3083d74555894c38ecb039a1bdd606",
+      "transform": "Exact bytes copied."
+    },
+    "flight-setup-02.jsonl": {
+      "original_sha256": "38df9214833e651ef3bc458a29fd52633456daabc09412a8e4140c4d278e83b5",
+      "archived_sha256": "38df9214833e651ef3bc458a29fd52633456daabc09412a8e4140c4d278e83b5",
+      "transform": "Exact bytes copied."
+    },
+    "flight-setup-03.jsonl": {
+      "original_sha256": "4b530ec47b081b89212616502993ec86f62fa609c1cc200d7e523b6d84545928",
+      "archived_sha256": "4b530ec47b081b89212616502993ec86f62fa609c1cc200d7e523b6d84545928",
+      "transform": "Exact bytes copied."
+    },
+    "flight-setup.jsonl": {
+      "original_sha256": "50899548399e244e68d7b40a834095b05d5d91beafe2559879ca4eb6b7440b26",
+      "archived_sha256": "50899548399e244e68d7b40a834095b05d5d91beafe2559879ca4eb6b7440b26",
+      "transform": "Exact bytes copied."
+    },
+    "ground-initialization.json": {
+      "original_sha256": "a761b64a1a27280231d9d1d25e89765a08a1d4d6cddcab1489afa4b12b3e852c",
+      "archived_sha256": "a761b64a1a27280231d9d1d25e89765a08a1d4d6cddcab1489afa4b12b3e852c",
+      "transform": "Exact bytes copied."
+    },
+    "native-crash-event.json": {
+      "original_sha256": "ec6e0afb7cf1c314447f7906f59e6e3e4d596b475a46d707a631e7ae8cca2257",
+      "archived_sha256": "81f95ad10252cb009233d07e61b4a9fe41f5a84ec30001254d583b9c4d090e7f",
+      "transform": "Canonical JSON encoding of captured Windows event; original byte digest retained below."
+    },
+    "preflight-context.json": {
+      "original_sha256": "6b6e16ae05eb812a6a4d91f674ad3b692fab485622d9f3c3a8fc3871e1bf72aa",
+      "archived_sha256": "6b6e16ae05eb812a6a4d91f674ad3b692fab485622d9f3c3a8fc3871e1bf72aa",
+      "transform": "Exact bytes copied."
+    },
+    "prepare_flight-01.py": {
+      "original_sha256": "083ca7385afa1eaec2409da3ae675bf50f72bf824c3b586d678806fb644dba2e",
+      "archived_sha256": "083ca7385afa1eaec2409da3ae675bf50f72bf824c3b586d678806fb644dba2e",
+      "transform": "Exact bytes copied."
+    },
+    "prepare_flight-02.py": {
+      "original_sha256": "31f814d896304aed46b2957d6fd3c381f0fd01192055f5774313185a370cfbb8",
+      "archived_sha256": "31f814d896304aed46b2957d6fd3c381f0fd01192055f5774313185a370cfbb8",
+      "transform": "Exact bytes copied."
+    },
+    "prepare_flight.py": {
+      "original_sha256": "5910153d3d24ff731e4da0de802da2edd1030006b66dec57e550aec3c64fb404",
+      "archived_sha256": "5910153d3d24ff731e4da0de802da2edd1030006b66dec57e550aec3c64fb404",
+      "transform": "Exact bytes copied."
+    },
+    "ready-inspection.json": {
+      "original_sha256": "979c0e7fa240b77d368116ce9fa33a955e5068918c499ce860847ff5e4ee9329",
+      "archived_sha256": "979c0e7fa240b77d368116ce9fa33a955e5068918c499ce860847ff5e4ee9329",
+      "transform": "Exact bytes copied."
+    },
+    "software-checks.log": {
+      "archived_sha256": "fbc96ae0f6529ea24a4024e47c1693b97acfd77e1645a98951e1b08b7bff27dd",
+      "transform": "Exact bytes; PowerShell test-output encoding retained."
+    }
+  }
+}

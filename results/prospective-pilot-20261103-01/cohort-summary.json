@@ -1,0 +1,52 @@
+{
+  "protocol_sha256": "b6f6f9b178befd343b7a4dc88de99ab130e9e8a1488898585bbff075567619b9",
+  "predeclared_cases": 4,
+  "completed_cases": 4,
+  "bounded_profile_matches": 4,
+  "cases": [
+    {
+      "run_id": "prospective-A-001",
+      "profile": "reference",
+      "samples": 31,
+      "assessment": "matched_bounded_profile",
+      "candidate_ids": [
+        "selected_reference"
+      ]
+    },
+    {
+      "run_id": "prospective-A-002",
+      "profile": "source_path",
+      "samples": 33,
+      "assessment": "matched_bounded_profile",
+      "candidate_ids": [
+        "generator_2_source_path_fault"
+      ]
+    },
+    {
+      "run_id": "prospective-A-003",
+      "profile": "blue_inventory",
+      "samples": 80,
+      "assessment": "matched_bounded_profile",
+      "candidate_ids": [
+        "blue_inventory_loss"
+      ]
+    },
+    {
+      "run_id": "prospective-A-004",
+      "profile": "joint_selected_effects",
+      "samples": 81,
+      "assessment": "matched_bounded_profile",
+      "candidate_ids": [
+        "grouped_joint_event",
+        "independent_pair"
+      ]
+    }
+  ],
+  "public_polls": 225,
+  "declared_flight_groups": 1,
+  "independent_trials_claimed": false,
+  "physical_cause_accuracy_measured": false,
+  "temporal_changed_prefixes": 0,
+  "source_commit_for_descriptive_role_fix": "960e39c98aa91e515d3d58a4cc0caab5af1f81b6",
+  "software_tests": 179
+}

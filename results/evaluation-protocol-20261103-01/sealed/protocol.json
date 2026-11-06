@@ -1,0 +1,317 @@
+{
+  "schema_version": 1,
+  "protocol_type": "bounded_candidate_profile_v1",
+  "model": {
+    "schema_version": 1,
+    "model_id": "aerotrace-two-mechanism-compatibility-v1",
+    "method": "dependency_predictions_and_optional_temporal_consistency",
+    "provenance": {
+      "implementation": "aircraft_debugger/hypotheses.py",
+      "mechanism_mapping": "docs/A320-MECHANISM-MAP.md",
+      "observability": "docs/OBSERVABILITY.md",
+      "classification": "Project-authored finite compatibility model; no external physical validation or probability calibration"
+    },
+    "roots": [
+      "generator_2_source_path_fault",
+      "blue_fluid_loss_mechanism"
+    ],
+    "facts": {
+      "generator_source_anomaly": {
+        "label": "Generator 2 source-output anomaly",
+        "channels": [
+          "generator_2_voltage"
+        ]
+      },
+      "blue_inventory_loss": {
+        "label": "Blue inventory loss relative to an observed reference",
+        "channels": [
+          "blue_quantity"
+        ]
+      },
+      "bus_supply_loss": {
+        "label": "Monitored bus-2 supply loss/degradation",
+        "channels": [
+          "ac_bus_2"
+        ]
+      },
+      "blue_pressure_loss": {
+        "label": "Blue pressure below the selected retained range",
+        "channels": [
+          "blue_pressure"
+        ]
+      }
+    },
+    "nodes": [
+      {
+        "id": "generator_2_source_path_fault",
+        "kind": "hypothesized_mechanism"
+      },
+      {
+        "id": "blue_fluid_loss_mechanism",
+        "kind": "hypothesized_mechanism"
+      },
+      {
+        "id": "generator_source_anomaly",
+        "kind": "observable_effect"
+      },
+      {
+        "id": "blue_inventory_loss",
+        "kind": "observable_effect"
+      },
+      {
+        "id": "bus_supply_loss",
+        "kind": "observable_effect"
+      },
+      {
+        "id": "blue_pressure_loss",
+        "kind": "observable_effect"
+      }
+    ],
+    "edges": [
+      {
+        "from": "generator_2_source_path_fault",
+        "to": "generator_source_anomaly",
+        "necessity": "required",
+        "reason": "The selected source-path mechanism predicts abnormal generator-2 output."
+      },
+      {
+        "from": "generator_source_anomaly",
+        "to": "bus_supply_loss",
+        "necessity": "conditional",
+        "reason": "Downstream supply can be lost if alternate supply is unavailable; retained bus voltage is compatible and does not identify its supply route."
+      },
+      {
+        "from": "blue_fluid_loss_mechanism",
+        "to": "blue_inventory_loss",
+        "necessity": "required",
+        "reason": "The selected fluid-loss analogue predicts inventory decline from an observed reference."
+      },
+      {
+        "from": "blue_inventory_loss",
+        "to": "blue_pressure_loss",
+        "necessity": "conditional",
+        "reason": "Pressure can degrade as inventory/supply becomes insufficient; early retained pressure and subsequent restoration lag are allowed. No exact delay is assumed."
+      }
+    ],
+    "candidates": [
+      {
+        "id": "selected_reference",
+        "label": "No selected mechanism currently required",
+        "roots": [],
+        "kind": "reference",
+        "scope_note": "Selected-observation reference, not whole-aircraft health."
+      },
+      {
+        "id": "generator_2_source_path_fault",
+        "label": "Generator 2 source-path fault",
+        "roots": [
+          "generator_2_source_path_fault"
+        ],
+        "kind": "single_mechanism",
+        "scope_note": "One compatible source-path mechanism does not identify a generator component, engine/drive fault, switching state or repair."
+      },
+      {
+        "id": "blue_inventory_loss",
+        "label": "Blue fluid-inventory-loss analogue",
+        "roots": [
+          "blue_fluid_loss_mechanism"
+        ],
+        "kind": "single_mechanism",
+        "scope_note": "A supported fluid-loss analogue, not unique identification of an external leak or validated lost volume."
+      },
+      {
+        "id": "independent_pair",
+        "label": "Independent source-path and blue inventory-loss mechanisms",
+        "roots": [
+          "generator_2_source_path_fault",
+          "blue_fluid_loss_mechanism"
+        ],
+        "kind": "multiple_initiators",
+        "scope_note": "Independent initiating mechanisms are a candidate history; component-command recipes do not establish statistical independence."
+      },
+      {
+        "id": "grouped_joint_event",
+        "label": "One grouped event affecting both selected mechanisms",
+        "roots": [
+          "generator_2_source_path_fault",
+          "blue_fluid_loss_mechanism"
+        ],
+        "kind": "conditional_shared_initiator",
+        "scope_note": "Conditional co-exposure hypothesis only. Native damage geometry, debris and common physical origin are unverified."
+      }
+    ],
+    "temporal_constraints": [
+      {
+        "id": "inventory_before_pressure",
+        "root": "blue_fluid_loss_mechanism",
+        "reason": "For this selected depletion mechanism, observed inventory loss should not be definitely later than related pressure degradation. Overlapping/unknown onset intervals remain unresolved."
+      }
+    ],
+    "assumptions": [
+      "Predictions apply to the supplied selected incident/epoch, not all aircraft systems or unobserved prehistory.",
+      "Within this finite catalogue, an effect unreachable from a candidate's roots is not explained by that candidate; a usable contrary observation rejects it.",
+      "Required effect absence is evaluated as observed absence in the current feature scope; candidates are reevaluated as evidence evolves, not permanently eliminated.",
+      "Conditional edges allow both retained and degraded downstream output; missing measurements never count as contradiction.",
+      "The independent and grouped candidates have identical observable signatures and temporal rules. No prior, complexity preference or initiating-event count breaks their tie.",
+      "Detector thresholds belong to the reused evidence layer, not this hypothesis model; no native depletion rates or fixed delays are fitted here."
+    ]
+  },
+  "detector_thresholds": {
+    "generator_unavailable_below_v": 20.0,
+    "energized_reference_at_least_v": 100.0,
+    "bus_retained_at_least_v": 100.0,
+    "blue_pressure_retained_at_least_psi": 2500.0,
+    "blue_quantity_drop_raw": 0.5,
+    "blue_quantity_onset_drop_raw": 0.1,
+    "blue_quantity_recovery_tolerance_raw": 0.1,
+    "generator_confirmation_readings": 2,
+    "quantity_minimum_progressing_readings": 2,
+    "maximum_reading_age_local_s": 2.0
+  },
+  "profile_targets": {
+    "reference": [
+      "selected_reference"
+    ],
+    "source_path": [
+      "generator_2_source_path_fault"
+    ],
+    "blue_inventory": [
+      "blue_inventory_loss"
+    ],
+    "joint_selected_effects": [
+      "independent_pair",
+      "grouped_joint_event"
+    ]
+  },
+  "inference_source_sha256": {
+    "aircraft_debugger/__init__.py": "8b3988af59cc46fdbb7c4e8bccfa65a2aaf90e4882d3ba8c70c344e15f63d68a",
+    "aircraft_debugger/diagnosis.py": "4cd3dc942ccf7dac7f2d0390a545c12ee81c1beedb15c1713da2cdac2fd090f0",
+    "aircraft_debugger/diagnostic_features.py": "1745401ca2de2cff72cd8cb9b381e86feae14aceac548388d326009da35ac43a",
+    "aircraft_debugger/hypotheses.py": "51ca2215048796615a90dc4786b2df6af7f65c16d9321b5ea941b4be14b5d659",
+    "aircraft_debugger/airborne_evidence.py": "690b73569789b8c2ef72532c3b58def8b604adad2c68c10bceb8e964ee2463f2",
+    "aircraft_debugger/airborne_profile.py": "fefe20b9ce275ccfd581749452ade96c522192216ebc189fd3801d083befc565",
+    "aircraft_debugger/evidence.py": "cd0c6ad86b66ccb15a3d1c3b446ea9208f0ea3b419d12ecb23beb91db542f519",
+    "aircraft_debugger/observations.py": "56d3acd38311403f340ad2ae8a733ebb00135ca290484d3ad95ef07e5689011c",
+    "aircraft_debugger/flightgear.py": "4e60e793ad30fdc5fa8d2b8d9d9157b16c1ab20fa99014df0252216325bdd443"
+  },
+  "scorer_sha256": "68cdd8139d27c2ddd905c379f7551812f76b9acf6514d780283765fe84878c3e",
+  "development_runs": [
+    {
+      "run_id": "results/airborne-contrast-20261028-01",
+      "flight_group": "known-20261028-operator-sessions",
+      "observation_sha256": "37e040ef0c5c5ec37550345aedb2cf407289d977b3c5b6fa855966324ba7fd1a",
+      "canonical_observations_sha256": "9c64680d60dde965a8346ca523907cd5804bcd20fd3b7b90c0ec18b4c2684762"
+    },
+    {
+      "run_id": "results/airborne-contrast-20261029-01",
+      "flight_group": "known-20261029-operator-sessions",
+      "observation_sha256": "3be5cd709dd54bb8a32d7bb9c39a2e9a274ab81c63a670e8fa1ee52ff5ec5873",
+      "canonical_observations_sha256": "673a2c29b169df45fb8d8a0f74c06257a172925d949ddab6ea20a938af2f80aa"
+    },
+    {
+      "run_id": "results/airborne-live-20261103-01",
+      "flight_group": "known-20261103-operator-sessions",
+      "observation_sha256": "851e70dbaf6519422a579444aa6087c60cce20883fef356a58f3460cf5635054",
+      "canonical_observations_sha256": "c409f1202ac73401cafc1be324fa3f9262ba5abe7cd39b8b30920f62634feb35"
+    },
+    {
+      "run_id": "results/airborne-pairs-20261029-01/grouped-recipe",
+      "flight_group": "known-20261029-operator-sessions",
+      "observation_sha256": "cdb8e4f58eea8a6ab96521f0fee9e45ae38700ee1cfd84efe11e00dcea1ac045",
+      "canonical_observations_sha256": "ca81164ec38bef5a8dbe99d3d10071d940468bcb07e00be0045a522ef40b931c"
+    },
+    {
+      "run_id": "results/airborne-pairs-20261029-01/matched-independent-recipe",
+      "flight_group": "known-20261029-operator-sessions",
+      "observation_sha256": "f763b14f2b8bdb6944c1657c7672b2ac7a4acd02d86dd10f5e79da6754e49be1",
+      "canonical_observations_sha256": "1ef14efd5912efc8779a11c319a3b7a452f1a678c7c15fe9174b92c12f4a1c81"
+    },
+    {
+      "run_id": "results/airborne-reconnaissance-20261027-01",
+      "flight_group": "known-20261027-operator-sessions",
+      "observation_sha256": "73a559c1805f1d3cd3bb46c30437aa3535b2acda4a12e9509667fea79d2bd8af",
+      "canonical_observations_sha256": "f3f5fe47d47ce7ea0df09db034e270f786fc000fd2006de5dd9270315cfa11cf"
+    },
+    {
+      "run_id": "results/airborne-reference-20261027-01",
+      "flight_group": "known-20261027-operator-sessions",
+      "observation_sha256": "e39e3ae970a9ba66c90561cc081ed9ef28f8879d0a20c2ff90a1639fa4bb078c",
+      "canonical_observations_sha256": "0e5a216497c3572a8b31ea19a298bfdca4f32b77ff194cc3260ac05b6a3e2093"
+    },
+    {
+      "run_id": "results/cross-system-20261026-01/episode-001",
+      "flight_group": "known-20261026-operator-sessions",
+      "observation_sha256": "3a3721e2a5a492a8f89b53b0c7f91de96ca9dccf294e7192e3ad872d48d1784a",
+      "canonical_observations_sha256": "09dede0b06b61866f8eac5ee5f04bc0cd2920588b91948b5f00fadfe91543de3"
+    },
+    {
+      "run_id": "results/cross-system-20261026-01/episode-002",
+      "flight_group": "known-20261026-operator-sessions",
+      "observation_sha256": "befc61fbfd712be381d1e64d8d8fa2bff49ccfbe27c7fa188f76b945118c55b1",
+      "canonical_observations_sha256": "fc6416e7b18319794107ec686c3bd75538cc8651a433165f2f2d0e1df9edea7d"
+    },
+    {
+      "run_id": "results/cross-system-20261026-01/episode-003",
+      "flight_group": "known-20261026-operator-sessions",
+      "observation_sha256": "099a86b77304eb7982b74bd4d422face96fb94d8b14fecc6f0915239070f70f0",
+      "canonical_observations_sha256": "83e9e03e582de53c31ea06ec06816456e917e63cc1c042ef11198c18ae18c066"
+    },
+    {
+      "run_id": "results/cross-system-20261026-01/episode-004",
+      "flight_group": "known-20261026-operator-sessions",
+      "observation_sha256": "4281b432b384b93133ddecad246707d5d2c3258df39cc0dd1878c3b33e087262",
+      "canonical_observations_sha256": "bb4a21ab03b8053731672b7d925bbb6a5604c9cb5cdcc9de04670e7358179ce7"
+    },
+    {
+      "run_id": "results/cross-system-20261026-01/episode-005",
+      "flight_group": "known-20261026-operator-sessions",
+      "observation_sha256": "30ead9d0a647b52528a3dcedd97823e764a7381ee41bd6b4638f05d77b89c6e4",
+      "canonical_observations_sha256": "c347bef63329f4190cb4a6d6b9f93619213becabff7e128bac48a015bfa6c9ca"
+    },
+    {
+      "run_id": "results/native-live-connection-20261103-01",
+      "flight_group": "known-20261103-operator-sessions",
+      "observation_sha256": "561cbf820f5c90a1d278ac04c68e38e8f47e22e81cb1ce3c67abc582de5f67f4",
+      "canonical_observations_sha256": "f355ce556525146f734c6b08afbfc05991c493ec8ddd059659ddad9e7deaa95e"
+    }
+  ],
+  "development_flight_groups": [
+    "known-20261026-operator-sessions",
+    "known-20261027-operator-sessions",
+    "known-20261028-operator-sessions",
+    "known-20261029-operator-sessions",
+    "known-20261103-operator-sessions"
+  ],
+  "planned_final_runs": [
+    {
+      "run_id": "prospective-A-001",
+      "flight_group": "prospective-flight-20261103-A",
+      "profile": "reference"
+    },
+    {
+      "run_id": "prospective-A-002",
+      "flight_group": "prospective-flight-20261103-A",
+      "profile": "source_path"
+    },
+    {
+      "run_id": "prospective-A-003",
+      "flight_group": "prospective-flight-20261103-A",
+      "profile": "blue_inventory"
+    },
+    {
+      "run_id": "prospective-A-004",
+      "flight_group": "prospective-flight-20261103-A",
+      "profile": "joint_selected_effects"
+    }
+  ],
+  "target_semantics": "Expected compatible configurations within the declared model, not unique physical cause ground truth",
+  "final_evaluation_requires_new_whole_run_and_flight_group": true,
+  "independence_guaranteed": false,
+  "rules": [
+    "No model/scorer tuning on final runs; changes require a new protocol and new final data",
+    "Unknown observations remain explicit; do not silently remove insufficient runs",
+    "Joint recipes require both observationally equivalent histories, never a unique initiating label",
+    "Flight groups are operator declarations; metadata alone cannot establish experimental independence"
+  ],
+  "protocol_sha256": "b6f6f9b178befd343b7a4dc88de99ab130e9e8a1488898585bbff075567619b9"
+}

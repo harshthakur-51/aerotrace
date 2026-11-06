@@ -1,0 +1,22 @@
+{
+  "generator_2": {
+    "path": "/systems/failures/electrical/gen-2",
+    "value": false,
+    "valid": true,
+    "error": null,
+    "sim_time_s": 833.991667,
+    "received_monotonic_s": 266278.8985401,
+    "reachable": true,
+    "unit": ""
+  },
+  "blue_leak": {
+    "path": "/systems/failures/hydraulic/blue-leak",
+    "value": false,
+    "valid": true,
+    "error": null,
+    "sim_time_s": 834.016667,
+    "received_monotonic_s": 266278.9316924,
+    "reachable": true,
+    "unit": ""
+  }
+}

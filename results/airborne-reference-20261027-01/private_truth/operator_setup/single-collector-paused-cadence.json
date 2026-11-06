@@ -1,0 +1,20 @@
+[
+  {
+    "public_span_s": 0.3159839999862015,
+    "combined_s": 0.43583159998524934,
+    "complete_public": true,
+    "complete_private": true
+  },
+  {
+    "public_span_s": 0.3365067000268027,
+    "combined_s": 0.4501191000454128,
+    "complete_public": true,
+    "complete_private": true
+  },
+  {
+    "public_span_s": 0.3427781999344006,
+    "combined_s": 0.4631818999769166,
+    "complete_public": true,
+    "complete_private": true
+  }
+]

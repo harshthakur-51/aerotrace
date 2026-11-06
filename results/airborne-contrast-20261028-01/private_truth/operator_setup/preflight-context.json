@@ -1,0 +1,154 @@
+{
+  "script": "controls.gearDown(-1); controls.gearDown(0);",
+  "http_status": 200,
+  "response": "ok.",
+  "local_monotonic_s": 965968.4922887,
+  "source": "Nasal/controls-override.nas:109-137; Systems/a320-fcs.xml:975-984. Initial helper requested standard gear-down mirror; this native request/readback is authoritative setup evidence.",
+  "readback": {
+    "readings": {
+      "altitude": {
+        "path": "/position/altitude-ft",
+        "value": 10171.450776,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 585.025,
+        "received_monotonic_s": 965968.5870577,
+        "reachable": true,
+        "unit": ""
+      },
+      "speed": {
+        "path": "/velocities/airspeed-kt",
+        "value": 250.312778,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 585.008333,
+        "received_monotonic_s": 965968.5612073,
+        "reachable": true,
+        "unit": ""
+      },
+      "vs": {
+        "path": "/velocities/vertical-speed-fps",
+        "value": -0.061487,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 585.058333,
+        "received_monotonic_s": 965968.6132967,
+        "reachable": true,
+        "unit": ""
+      },
+      "bank": {
+        "path": "/orientation/roll-deg",
+        "value": -0.053989,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 585.083333,
+        "received_monotonic_s": 965968.6308385,
+        "reachable": true,
+        "unit": ""
+      },
+      "gearlever": {
+        "path": "/controls/gear/lever-cockpit",
+        "value": 0.0,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 585.1,
+        "received_monotonic_s": 965968.6599037,
+        "reachable": true,
+        "unit": ""
+      },
+      "nose": {
+        "path": "/gear/unit[0]/pos-norm",
+        "value": null,
+        "valid": false,
+        "error": "missing_property",
+        "sim_time_s": null,
+        "received_monotonic_s": 965968.6774383,
+        "reachable": true,
+        "unit": ""
+      },
+      "left": {
+        "path": "/gear/unit[1]/pos-norm",
+        "value": null,
+        "valid": false,
+        "error": "missing_property",
+        "sim_time_s": null,
+        "received_monotonic_s": 965968.6966407,
+        "reachable": true,
+        "unit": ""
+      },
+      "right": {
+        "path": "/gear/unit[2]/pos-norm",
+        "value": null,
+        "valid": false,
+        "error": "missing_property",
+        "sim_time_s": null,
+        "received_monotonic_s": 965968.7127232,
+        "reachable": true,
+        "unit": ""
+      },
+      "flaps": {
+        "path": "/controls/flight/flaps",
+        "value": 0.0,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 585.183333,
+        "received_monotonic_s": 965968.7390127,
+        "reachable": true,
+        "unit": ""
+      },
+      "speedbrake": {
+        "path": "/controls/flight/speedbrake",
+        "value": 0.0,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 585.208333,
+        "received_monotonic_s": 965968.7573041,
+        "reachable": true,
+        "unit": ""
+      },
+      "speedbrake_armed": {
+        "path": "/controls/flight/speedbrake-arm",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 585.225,
+        "received_monotonic_s": 965968.7785153,
+        "reachable": true,
+        "unit": ""
+      },
+      "fuel_lbs": {
+        "path": "/consumables/fuel/total-fuel-lbs",
+        "value": 10283.19303,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 585.241667,
+        "received_monotonic_s": 965968.7944497,
+        "reachable": true,
+        "unit": ""
+      },
+      "gen2fault": {
+        "path": "/systems/failures/electrical/gen-2",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 585.258333,
+        "received_monotonic_s": 965968.8221681,
+        "reachable": true,
+        "unit": ""
+      },
+      "bluefault": {
+        "path": "/systems/failures/hydraulic/blue-leak",
+        "value": false,
+        "valid": true,
+        "error": null,
+        "sim_time_s": 585.291667,
+        "received_monotonic_s": 965968.8415212,
+        "reachable": true,
+        "unit": ""
+      }
+    },
+    "connected": true,
+    "complete": false,
+    "received_monotonic_s": 965968.8418798
+  }
+}

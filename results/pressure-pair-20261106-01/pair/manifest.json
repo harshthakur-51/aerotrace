@@ -1,0 +1,154 @@
+{
+  "manifest_schema_version": 1,
+  "observation_schema_version": 2,
+  "observation_profile": "a320-stable-airborne-v1",
+  "observations": "observations.jsonl",
+  "sha256": "1992ff7aca57a2a7c53c422eedaf87bb5a74a4b63d0f3301c96243f6b1f9c0cc",
+  "samples": 53,
+  "polls_are_atomic": false,
+  "partial_collection": false,
+  "channels": {
+    "aircraft": {
+      "path": "/sim/aircraft",
+      "kind": "string",
+      "unit": ""
+    },
+    "sim_time": {
+      "path": "/sim/time/elapsed-sec",
+      "kind": "number",
+      "unit": "s"
+    },
+    "paused": {
+      "path": "/sim/freeze/master",
+      "kind": "bool",
+      "unit": ""
+    },
+    "altitude": {
+      "path": "/position/altitude-ft",
+      "kind": "number",
+      "unit": "ft"
+    },
+    "airspeed": {
+      "path": "/velocities/airspeed-kt",
+      "kind": "number",
+      "unit": "kt"
+    },
+    "engine_1_n1": {
+      "path": "/engines/engine[0]/n1-actual",
+      "kind": "number",
+      "unit": "%"
+    },
+    "engine_2_n1": {
+      "path": "/engines/engine[1]/n1-actual",
+      "kind": "number",
+      "unit": "%"
+    },
+    "generator_2_voltage": {
+      "path": "/systems/electrical/sources/idg-2/output-volt",
+      "kind": "number",
+      "unit": "V"
+    },
+    "ac_bus_1": {
+      "path": "/systems/electrical/bus/ac-1",
+      "kind": "number",
+      "unit": "V"
+    },
+    "ac_bus_2": {
+      "path": "/systems/electrical/bus/ac-2",
+      "kind": "number",
+      "unit": "V"
+    },
+    "blue_pressure": {
+      "path": "/systems/hydraulic/blue-psi",
+      "kind": "number",
+      "unit": "psi"
+    },
+    "blue_quantity": {
+      "path": "/systems/hydraulic/blue-qty",
+      "kind": "number",
+      "unit": "raw model quantity"
+    },
+    "main_gear_1_wow": {
+      "path": "/gear/gear[1]/wow",
+      "kind": "bool",
+      "unit": ""
+    },
+    "main_gear_2_wow": {
+      "path": "/gear/gear[2]/wow",
+      "kind": "bool",
+      "unit": ""
+    },
+    "height_agl": {
+      "path": "/position/altitude-agl-ft",
+      "kind": "number",
+      "unit": "ft"
+    },
+    "vertical_speed": {
+      "path": "/velocities/vertical-speed-fps",
+      "kind": "number",
+      "unit": "ft/s"
+    },
+    "bank": {
+      "path": "/orientation/roll-deg",
+      "kind": "number",
+      "unit": "deg"
+    },
+    "autopilot_1": {
+      "path": "/it-autoflight/output/ap1",
+      "kind": "bool",
+      "unit": ""
+    },
+    "autopilot_2": {
+      "path": "/it-autoflight/output/ap2",
+      "kind": "bool",
+      "unit": ""
+    },
+    "autothrust": {
+      "path": "/it-autoflight/output/athr",
+      "kind": "bool",
+      "unit": ""
+    }
+  },
+  "qualification_checks": "private_truth/qualification.jsonl",
+  "qualification_checks_sha256": "653ae432cd414eb1d889a8a9608c50a46391859b3e96577c7e614fcca5ef19c9",
+  "operator_actions": "private_truth/actions.jsonl",
+  "operator_actions_sha256": "0fb59d18b1a8849b5e25736187a947298b95dfd783600d64e4dd5c40cff5fc04",
+  "qualification_settings": "private_truth/settings.json",
+  "qualification_settings_sha256": "ac34617fb187e26789db3398701562714cdce57f0078732ccacb37ee3aaa7c1e",
+  "source_commit_before_run": "4f82b7c5121672bce75ef0efc9689652a398675f",
+  "source_sha256": {
+    "aircraft_debugger/__init__.py": "8b3988af59cc46fdbb7c4e8bccfa65a2aaf90e4882d3ba8c70c344e15f63d68a",
+    "aircraft_debugger/airborne_experiment.py": "772d0900aa105a5048032a29433688ab0f128d6f6b0331552ac8d46a5e69e91b",
+    "aircraft_debugger/airborne_record.py": "9ae4b20244e1e4fd03136ee1b334945854b1f4be5f8c98fa2d00efb3aeedf494",
+    "aircraft_debugger/airborne_profile.py": "fefe20b9ce275ccfd581749452ade96c522192216ebc189fd3801d083befc565",
+    "aircraft_debugger/airborne_admission.py": "d8ef3b541e4dded15d7597f5c4aa7abd00abe1735bef87bd539ed07752a245ab",
+    "aircraft_debugger/observations.py": "56d3acd38311403f340ad2ae8a733ebb00135ca290484d3ad95ef07e5689011c",
+    "aircraft_debugger/flightgear.py": "4e60e793ad30fdc5fa8d2b8d9d9157b16c1ab20fa99014df0252216325bdd443",
+    "aircraft_debugger/sim_panel.py": "35e498fac009696858b85e6d07bdc09a917dd3c259f705155ac0d63b919c9eaa",
+    "aircraft_debugger/diagnostic_session.py": "73dd777f3b995fe513621d873b5b8db6b514d02766c060db85947d557aab974a",
+    "aircraft_debugger/diagnostic_features.py": "1745401ca2de2cff72cd8cb9b381e86feae14aceac548388d326009da35ac43a",
+    "aircraft_debugger/hypotheses.py": "b194a9ffb0b4597e2727fa1fe0eed7fa6e7b0afd16744e95c35e7b778369504d",
+    "aircraft_debugger/airborne_evidence.py": "690b73569789b8c2ef72532c3b58def8b604adad2c68c10bceb8e964ee2463f2",
+    "aircraft_debugger/evidence.py": "cd0c6ad86b66ccb15a3d1c3b446ea9208f0ea3b419d12ecb23beb91db542f519",
+    "configs/flightgear-assets.json": "4b06fddfa7844dd5d9a1d33bbcf4aac5ab00aabe17c4789528dee5bf5ac9df5a",
+    "configs/flightgear-a320.fgfsrc": "f7ec4819856240b8e55e94e9a87f3b60e6ae53aa96e24b394f3b6f010eb3e851"
+  },
+  "executed_source_archives": {
+    "aircraft_debugger/__init__.py": "private_truth/executed-source/aircraft_debugger/__init__.py",
+    "aircraft_debugger/airborne_experiment.py": "private_truth/executed-source/aircraft_debugger/airborne_experiment.py",
+    "aircraft_debugger/airborne_record.py": "private_truth/executed-source/aircraft_debugger/airborne_record.py",
+    "aircraft_debugger/airborne_profile.py": "private_truth/executed-source/aircraft_debugger/airborne_profile.py",
+    "aircraft_debugger/airborne_admission.py": "private_truth/executed-source/aircraft_debugger/airborne_admission.py",
+    "aircraft_debugger/observations.py": "private_truth/executed-source/aircraft_debugger/observations.py",
+    "aircraft_debugger/flightgear.py": "private_truth/executed-source/aircraft_debugger/flightgear.py",
+    "aircraft_debugger/sim_panel.py": "private_truth/executed-source/aircraft_debugger/sim_panel.py",
+    "aircraft_debugger/diagnostic_session.py": "private_truth/executed-source/aircraft_debugger/diagnostic_session.py",
+    "aircraft_debugger/diagnostic_features.py": "private_truth/executed-source/aircraft_debugger/diagnostic_features.py",
+    "aircraft_debugger/hypotheses.py": "private_truth/executed-source/aircraft_debugger/hypotheses.py",
+    "aircraft_debugger/airborne_evidence.py": "private_truth/executed-source/aircraft_debugger/airborne_evidence.py",
+    "aircraft_debugger/evidence.py": "private_truth/executed-source/aircraft_debugger/evidence.py",
+    "configs/flightgear-assets.json": "private_truth/executed-source/configs/flightgear-assets.json",
+    "configs/flightgear-a320.fgfsrc": "private_truth/executed-source/configs/flightgear-a320.fgfsrc"
+  },
+  "runtime_pins_are_expected_configuration_not_live_build_verification": true
+}

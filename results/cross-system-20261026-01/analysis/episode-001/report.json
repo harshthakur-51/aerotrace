@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "method": "observation_only_compatibility_rules",
+  "sample_count": 13,
+  "thresholds": {
+    "generator_unavailable_below_v": 20.0,
+    "energized_reference_at_least_v": 100.0,
+    "bus_retained_at_least_v": 100.0,
+    "blue_pressure_retained_at_least_psi": 2500.0,
+    "blue_quantity_drop_raw": 0.5,
+    "blue_quantity_onset_drop_raw": 0.1,
+    "blue_quantity_recovery_tolerance_raw": 0.1,
+    "generator_confirmation_readings": 2,
+    "quantity_minimum_progressing_readings": 2,
+    "maximum_reading_age_local_s": 2.0
+  },
+  "threshold_provenance": "aircraft_debugger/evidence.py: project-specific illustrative detector choices",
+  "threshold_units": {
+    "v": "volts",
+    "psi": "pounds per square inch",
+    "raw": "unverified native quantity units",
+    "s": "seconds",
+    "readings": "count"
+  },
+  "ledger": [],
+  "current_state": {
+    "generator_2": {
+      "status": "energized_output_observed",
+      "value_v": 115.0,
+      "observed_at": {
+        "sample_index": 12,
+        "sim_time_s": 179.025,
+        "received_monotonic_s": 797120.4787461
+      },
+      "energized_reference": {
+        "value_v": 115.0,
+        "observed_at": {
+          "sample_index": 0,
+          "sim_time_s": 167.016667,
+          "received_monotonic_s": 797108.4667361
+        }
+      },
+      "evidence_id": null
+    },
+    "ac_bus_2": {
+      "status": "supply_retained",
+      "value_v": 115.0,
+      "observed_at": {
+        "sample_index": 12,
+        "sim_time_s": 179.066667,
+        "received_monotonic_s": 797120.5177776
+      }
+    },
+    "blue_inventory": {
+      "status": "near_observed_reference",
+      "value_raw": 8.0,
+      "drop_from_reference_raw": 0.0,
+      "reference": {
+        "value_raw": 8.0,
+        "observed_at": {
+          "sample_index": 0,
+          "sim_time_s": 167.091667,
+          "received_monotonic_s": 797108.5412066
+        }
+      },
+      "observed_at": {
+        "sample_index": 12,
+        "sim_time_s": 179.1,
+        "received_monotonic_s": 797120.5546728
+      },
+      "evidence_id": null
+    },
+    "blue_pressure": {
+      "status": "pressure_retained",
+      "value_psi": 3000.0,
+      "observed_at": {
+        "sample_index": 12,
+        "sim_time_s": 179.083333,
+        "received_monotonic_s": 797120.5355848
+      }
+    },
+    "data_quality": {
+      "usable": true,
+      "reasons": [],
+      "sample_index": 12,
+      "epoch": 0
+    }
+  },
+  "assessment": {
+    "category": "no_fault_observed",
+    "cause_identifiable": false,
+    "probabilities_computed": false,
+    "complete_current_assessment": true
+  },
+  "explanations": [
+    {
+      "hypothesis": "no selected anomaly currently observed",
+      "compatibility": "compatible",
+      "supporting_evidence_ids": [],
+      "reason": "The selected channels are currently near their references. This is not a whole-aircraft health claim."
+    }
+  ],
+  "impact": [],
+  "limitations": [
+    "Thresholds are illustrative native-model detector choices; provenance: aircraft_debugger/evidence.py. They are not physical laws or aircraft warning limits.",
+    "A stable or energized observed reference does not establish that the whole aircraft is healthy.",
+    "Internal simulator properties have not been validated as realistic aircraft sensors.",
+    "Readings are non-atomic. Simulator seconds and local monotonic seconds are distinct clocks and are never subtracted from each other.",
+    "Current means the final recorded sample, not a live assessment at the wall-clock time when this historical file is replayed.",
+    "Event onset means the first observed qualifying change, not the exact physical failure time; confirmation can occur later.",
+    "Closely timed electrical and hydraulic observations do not identify a shared initiating cause. Independent faults remain equally compatible.",
+    "The two multi-system explanations are a limited comparison, not an exhaustive set of causes. No evidence here establishes fire or an uncontained engine failure.",
+    "Retained bus voltage or hydraulic pressure does not establish full remaining capability, flightworthiness, or safe flight.",
+    "Upward hydraulic quantity changes can reflect the native model's automatic restoration. They do not prove repair or physical fluid recovery."
+  ]
+}

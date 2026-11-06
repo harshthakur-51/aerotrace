@@ -1,0 +1,67 @@
+[
+  {
+    "run_id": "results/airborne-contrast-20261028-01",
+    "flight_group": "known-20261028-operator-sessions",
+    "observations": "results/airborne-contrast-20261028-01/observations.jsonl"
+  },
+  {
+    "run_id": "results/airborne-contrast-20261029-01",
+    "flight_group": "known-20261029-operator-sessions",
+    "observations": "results/airborne-contrast-20261029-01/observations.jsonl"
+  },
+  {
+    "run_id": "results/airborne-live-20261103-01",
+    "flight_group": "known-20261103-operator-sessions",
+    "observations": "results/airborne-live-20261103-01/observations.jsonl"
+  },
+  {
+    "run_id": "results/airborne-pairs-20261029-01/grouped-recipe",
+    "flight_group": "known-20261029-operator-sessions",
+    "observations": "results/airborne-pairs-20261029-01/grouped-recipe/observations.jsonl"
+  },
+  {
+    "run_id": "results/airborne-pairs-20261029-01/matched-independent-recipe",
+    "flight_group": "known-20261029-operator-sessions",
+    "observations": "results/airborne-pairs-20261029-01/matched-independent-recipe/observations.jsonl"
+  },
+  {
+    "run_id": "results/airborne-reconnaissance-20261027-01",
+    "flight_group": "known-20261027-operator-sessions",
+    "observations": "results/airborne-reconnaissance-20261027-01/observations.jsonl"
+  },
+  {
+    "run_id": "results/airborne-reference-20261027-01",
+    "flight_group": "known-20261027-operator-sessions",
+    "observations": "results/airborne-reference-20261027-01/observations.jsonl"
+  },
+  {
+    "run_id": "results/cross-system-20261026-01/episode-001",
+    "flight_group": "known-20261026-operator-sessions",
+    "observations": "results/cross-system-20261026-01/episode-001/observations.jsonl"
+  },
+  {
+    "run_id": "results/cross-system-20261026-01/episode-002",
+    "flight_group": "known-20261026-operator-sessions",
+    "observations": "results/cross-system-20261026-01/episode-002/observations.jsonl"
+  },
+  {
+    "run_id": "results/cross-system-20261026-01/episode-003",
+    "flight_group": "known-20261026-operator-sessions",
+    "observations": "results/cross-system-20261026-01/episode-003/observations.jsonl"
+  },
+  {
+    "run_id": "results/cross-system-20261026-01/episode-004",
+    "flight_group": "known-20261026-operator-sessions",
+    "observations": "results/cross-system-20261026-01/episode-004/observations.jsonl"
+  },
+  {
+    "run_id": "results/cross-system-20261026-01/episode-005",
+    "flight_group": "known-20261026-operator-sessions",
+    "observations": "results/cross-system-20261026-01/episode-005/observations.jsonl"
+  },
+  {
+    "run_id": "results/native-live-connection-20261103-01",
+    "flight_group": "known-20261103-operator-sessions",
+    "observations": "results/native-live-connection-20261103-01/observations.jsonl"
+  }
+]

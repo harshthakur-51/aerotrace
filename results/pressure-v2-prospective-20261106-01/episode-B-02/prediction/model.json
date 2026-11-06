@@ -1,0 +1,196 @@
+{
+  "schema_version": 1,
+  "model_id": "aerotrace-three-mechanism-compatibility-v2",
+  "method": "dependency_predictions_and_optional_temporal_consistency",
+  "provenance": {
+    "implementation": "aircraft_debugger/hypotheses.py",
+    "mechanism_mapping": "docs/PRESSURE-SUPPLY-MECHANISM.md",
+    "observability": "docs/OBSERVABILITY.md",
+    "classification": "Project-authored finite compatibility model; no external physical validation or probability calibration"
+  },
+  "roots": [
+    "generator_2_source_path_fault",
+    "blue_fluid_loss_mechanism",
+    "blue_pressure_supply_loss"
+  ],
+  "facts": {
+    "generator_source_anomaly": {
+      "label": "Generator 2 source-output anomaly",
+      "channels": [
+        "generator_2_voltage"
+      ]
+    },
+    "blue_inventory_loss": {
+      "label": "Reported Blue reservoir quantity decline",
+      "channels": [
+        "blue_quantity"
+      ]
+    },
+    "bus_supply_loss": {
+      "label": "Monitored bus-2 supply loss/degradation",
+      "channels": [
+        "ac_bus_2"
+      ]
+    },
+    "blue_pressure_loss": {
+      "label": "Blue pressure below the selected retained range",
+      "channels": [
+        "blue_pressure"
+      ]
+    }
+  },
+  "nodes": [
+    {
+      "id": "generator_2_source_path_fault",
+      "kind": "hypothesized_mechanism"
+    },
+    {
+      "id": "blue_fluid_loss_mechanism",
+      "kind": "hypothesized_mechanism"
+    },
+    {
+      "id": "blue_pressure_supply_loss",
+      "kind": "hypothesized_mechanism"
+    },
+    {
+      "id": "generator_source_anomaly",
+      "kind": "observable_effect"
+    },
+    {
+      "id": "blue_inventory_loss",
+      "kind": "observable_effect"
+    },
+    {
+      "id": "bus_supply_loss",
+      "kind": "observable_effect"
+    },
+    {
+      "id": "blue_pressure_loss",
+      "kind": "observable_effect"
+    }
+  ],
+  "edges": [
+    {
+      "from": "generator_2_source_path_fault",
+      "to": "generator_source_anomaly",
+      "necessity": "required",
+      "reason": "The selected source-path mechanism predicts abnormal generator-2 output."
+    },
+    {
+      "from": "generator_source_anomaly",
+      "to": "bus_supply_loss",
+      "necessity": "conditional",
+      "reason": "Downstream supply can be lost if alternate supply is unavailable; retained bus voltage is compatible and does not identify its supply route."
+    },
+    {
+      "from": "blue_fluid_loss_mechanism",
+      "to": "blue_inventory_loss",
+      "necessity": "required",
+      "reason": "The selected fluid-loss analogue predicts inventory decline from an observed reference."
+    },
+    {
+      "from": "blue_inventory_loss",
+      "to": "blue_pressure_loss",
+      "necessity": "conditional",
+      "reason": "Pressure can degrade as inventory/supply becomes insufficient; early retained pressure and subsequent restoration lag are allowed. No exact delay is assumed."
+    },
+    {
+      "from": "blue_pressure_supply_loss",
+      "to": "blue_pressure_loss",
+      "necessity": "required",
+      "reason": "The represented net blue pressure-supply-path loss predicts degraded pressure without requiring inventory loss; alternate supply and component identity are not observed."
+    }
+  ],
+  "candidates": [
+    {
+      "id": "selected_reference",
+      "label": "No selected mechanism currently required",
+      "roots": [],
+      "kind": "reference",
+      "scope_note": "Selected-observation reference, not whole-aircraft health."
+    },
+    {
+      "id": "generator_2_source_path_fault",
+      "label": "Generator 2 source-path fault",
+      "roots": [
+        "generator_2_source_path_fault"
+      ],
+      "kind": "single_mechanism",
+      "scope_note": "One compatible source-path mechanism does not identify a generator component, engine/drive fault, switching state or repair."
+    },
+    {
+      "id": "blue_inventory_loss",
+      "label": "Blue fluid-inventory-loss analogue",
+      "roots": [
+        "blue_fluid_loss_mechanism"
+      ],
+      "kind": "single_mechanism",
+      "scope_note": "A supported fluid-loss analogue, not unique identification of an external leak or validated lost volume."
+    },
+    {
+      "id": "independent_pair",
+      "label": "Independent source-path and blue inventory-loss mechanisms",
+      "roots": [
+        "generator_2_source_path_fault",
+        "blue_fluid_loss_mechanism"
+      ],
+      "kind": "multiple_initiators",
+      "scope_note": "Independent initiating mechanisms are a candidate history; component-command recipes do not establish statistical independence."
+    },
+    {
+      "id": "grouped_joint_event",
+      "label": "One grouped event affecting both selected mechanisms",
+      "roots": [
+        "generator_2_source_path_fault",
+        "blue_fluid_loss_mechanism"
+      ],
+      "kind": "conditional_shared_initiator",
+      "scope_note": "Conditional co-exposure hypothesis only. Native damage geometry, debris and common physical origin are unverified."
+    },
+    {
+      "id": "blue_pressure_supply_loss",
+      "label": "Blue pressure-supply-path loss",
+      "roots": [
+        "blue_pressure_supply_loss"
+      ],
+      "kind": "single_mechanism",
+      "scope_note": "Bounded pressure-supply configuration, not unique identification of an electric pump, switching state, sensor or physical common origin. Inventory-loss alternatives remain separate."
+    },
+    {
+      "id": "independent_pressure_pair",
+      "label": "Independent source-path and blue pressure-supply losses",
+      "roots": [
+        "generator_2_source_path_fault",
+        "blue_pressure_supply_loss"
+      ],
+      "kind": "multiple_initiators",
+      "scope_note": "Bounded pressure-supply configuration, not unique identification of an electric pump, switching state, sensor or physical common origin. Inventory-loss alternatives remain separate."
+    },
+    {
+      "id": "grouped_pressure_joint_event",
+      "label": "One grouped event affecting source and blue pressure supply",
+      "roots": [
+        "generator_2_source_path_fault",
+        "blue_pressure_supply_loss"
+      ],
+      "kind": "conditional_shared_initiator",
+      "scope_note": "Bounded pressure-supply configuration, not unique identification of an electric pump, switching state, sensor or physical common origin. Inventory-loss alternatives remain separate."
+    }
+  ],
+  "temporal_constraints": [
+    {
+      "id": "inventory_before_pressure",
+      "root": "blue_fluid_loss_mechanism",
+      "reason": "For this selected depletion mechanism, observed inventory loss should not be definitely later than related pressure degradation. Overlapping/unknown onset intervals remain unresolved."
+    }
+  ],
+  "assumptions": [
+    "Predictions apply to the supplied selected incident/epoch, not all aircraft systems or unobserved prehistory.",
+    "Within this finite catalogue, an effect unreachable from a candidate's roots is not explained by that candidate; a usable contrary observation rejects it.",
+    "Required effect absence is evaluated as observed absence in the current feature scope; candidates are reevaluated as evidence evolves, not permanently eliminated.",
+    "Conditional edges allow both retained and degraded downstream output; missing measurements never count as contradiction.",
+    "The independent and grouped candidates have identical observable signatures and temporal rules. No prior, complexity preference or initiating-event count breaks their tie.",
+    "Detector thresholds belong to the reused evidence layer, not this hypothesis model; no native depletion rates or fixed delays are fitted here.",
+    "The pressure extension covers a pressure-supply-only configuration and its source-path pair. Inventory-plus-supply and triple-root histories are not represented; this is not an exhaustive fault catalogue."
+  ]
+}

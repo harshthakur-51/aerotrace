@@ -1,0 +1,96 @@
+{
+  "kind": "controlled native-model experiment; private truth, not diagnostic input",
+  "created_utc": "2026-10-29T08:39:38.263273+00:00",
+  "case": "isolated_blue_leak",
+  "requested_faults": [
+    "blue_leak"
+  ],
+  "physical_regional_damage_simulated": false,
+  "status": "completed",
+  "completed": true,
+  "artifacts_complete": true,
+  "collection_completed": true,
+  "samples": 81,
+  "phases": [
+    {
+      "name": "active",
+      "first_sample_index": 18,
+      "started_monotonic_s": 52162.5897031,
+      "duration_target_sim_s": 52.0,
+      "completed": true,
+      "first_sim_time_s": 283.233333,
+      "last_sim_time_s": 335.258333,
+      "elapsed_sim_s": 52.02499999999998,
+      "minimum_required_channel_elapsed_sim_s": 52.00833300000005,
+      "end_sample_index_exclusive": 71,
+      "ended_monotonic_s": 52214.9423014
+    },
+    {
+      "name": "recovery",
+      "first_sample_index": 71,
+      "started_monotonic_s": 52215.1257974,
+      "duration_target_sim_s": 8.0,
+      "completed": true,
+      "first_sim_time_s": 335.766667,
+      "last_sim_time_s": 344.758333,
+      "elapsed_sim_s": 8.99166600000001,
+      "minimum_required_channel_elapsed_sim_s": 8.983333000000016,
+      "end_sample_index_exclusive": 81,
+      "ended_monotonic_s": 52224.4517014
+    }
+  ],
+  "cleanup_errors": [],
+  "failure": null,
+  "last_gate": {
+    "profile_id": "a320-stable-airborne-v1",
+    "purpose": "experiment_baseline_eligibility_only",
+    "qualified": true,
+    "eligible_current_sample": true,
+    "reasons": [],
+    "window_elapsed_sim_s": 17.0,
+    "window_start": {
+      "sample_index": 0,
+      "sim_time_s": 265.641667,
+      "received_monotonic_s": 52145.2908576
+    },
+    "window_end": {
+      "sample_index": 17,
+      "sim_time_s": 282.666667,
+      "received_monotonic_s": 52162.3223744
+    }
+  },
+  "settings": {
+    "altitude_target_ft": 10000.0,
+    "altitude_tolerance_ft": 200.0,
+    "airspeed_target_kt": 250.0,
+    "airspeed_tolerance_kt": 10.0,
+    "minimum_height_agl_ft": 3000.0,
+    "maximum_abs_bank_deg": 5.0,
+    "maximum_abs_vertical_speed_fps": 5.0,
+    "qualification_duration_sim_s": 15.0,
+    "maximum_sim_gap_s": 3.0,
+    "maximum_local_gap_s": 3.0,
+    "maximum_reading_age_s": 2.0,
+    "maximum_poll_span_s": 2.0,
+    "maximum_timestamp_skew_s": 2.0,
+    "minimum_reference_voltage_v": 100.0,
+    "minimum_blue_quantity_raw": 7.9,
+    "minimum_blue_pressure_psi": 2500.0
+  },
+  "active_duration_target_sim_s": 52.0,
+  "recovery_duration_target_sim_s": 8.0,
+  "interval_target_local_s": 1.0,
+  "qualification_maximum_local_s": 45.0,
+  "postfault_maximum_local_s": 120.0,
+  "limits": [
+    "One declared operating condition; no whole-aircraft or real-aircraft validation",
+    "Autopilot or backup supplies may mask motion or bus consequences",
+    "Clearing a blue leak may refill native quantity; it is not physical repair",
+    "Shared and independent paired recipes request identical supported component flags",
+    "Exclusive collector/control ownership is an operational prerequisite, not an interprocess guarantee",
+    "No probabilistic diagnosis or causal identification is computed"
+  ],
+  "baseline_end_sample_index_exclusive": 18,
+  "pending_faults_unverified_clear": [],
+  "elapsed_local_s": 79.4503351999956
+}

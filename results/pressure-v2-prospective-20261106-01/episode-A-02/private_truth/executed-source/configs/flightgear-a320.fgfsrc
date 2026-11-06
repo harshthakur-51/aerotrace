@@ -1,0 +1,21 @@
+# Aircraft Debugger: local A320 cockpit and property connection.
+# Set FG_HOME, TEMP and TMP to the project's work folders before running.
+--fg-root=Z:/aircraft-debugger/work/flightgear/base/fgdata_2024_1
+--fg-aircraft=Z:/aircraft-debugger/work/flightgear/aircraft
+--download-dir=Z:/aircraft-debugger/work/flightgear/downloads
+--aircraft=A320-200-CFM
+--state=takeoff
+--airport=PHNL
+--runway=08L
+--timeofday=noon
+--geometry=1280x800
+--disable-fullscreen
+--no-default-config
+--ignore-autosave
+--disable-terrasync
+--disable-real-weather-fetch
+--disable-ai-traffic
+--enable-auto-coordination
+--httpd=127.0.0.1:8088
+--prop:/controls/gear/brake-parking=1
+--log-level=warn

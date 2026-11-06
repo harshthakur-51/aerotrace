@@ -1,0 +1,25 @@
+{
+  "authorization": "Explicit owner handover, 27 October 2026: agent chooses launch and native flight conditions; notify before faults.",
+  "interventions": "Native control/FCU/throttle/clock requests only. No simulator failure inputs, measured outputs, positions, velocities or attitude were overwritten.",
+  "coverage": "Captured operator JSON logs support the setup; this is not a complete event recorder. The first master-pause false request was console-logged only and is described here retrospectively. Control polling and normal-control recovery occurred before final admission; further heading/indicated-altitude target changes occurred in early unqualified collection.",
+  "reference_config": "configs/airborne-stable-cruise-20261027-01.json",
+  "operator_log_sha256": {
+    "ap-after-recovery.json": "d2b0ffb0fc4cb102aa81fdc6b7562a0da84ac754b0911af36af3c03c3643f36a",
+    "ap-engagement-observation.json": "33515561e45b0ad31c13e0ad4a6d74486a15a3214c1fb81c011174ccab0c1a12",
+    "checkpoint-pause.json": "9aa76034ad6f9e5d79cd34cae599beea0a3ea8423521143b62b2561e5e18ffb5",
+    "clock-and-ap-observation.json": "7083e1de4d232029cb6421f027cdeb9cda58b33ca62e8fd15e24365cc56b0bc0",
+    "heading-and-altimeter-adjustment.json": "e1e68fe9ab72cee7661edb623e54ac466524934e9ba78bfe16144faf34e486ac",
+    "native-descent-and-athr-reset.json": "5dcdcc10c50e7e2acafb4da851a52e2ddf79e145ceff74a480b6a4f90ef34f01",
+    "native-fcu-configuration.json": "9090332da377c72f638dbf157c3a157a5fe74da11c6d23f18e66fa7bfa746900",
+    "normal-control-recovery-02.json": "f328268ba20766dc2beb7d69b57114d3b494bcf9dd057f159196aac6c8e5810f",
+    "normal-control-recovery.json": "69ab0cc892e8c13b1c847ef2e371dd076be9b1647f7aa7fb0484f4dd29288788",
+    "single-collector-paused-cadence.json": "ecab2606cef081848f518a0f4f0a494948e40a3d788cee3dd58829c8a91ce675",
+    "takeover-pause.json": "5e5b57b490f4aeea18fd121e90163458ecadb2a1925c29c5c83c9762cd7e7041"
+  },
+  "conditions": "Existing owner-started native flight reused. Position-altitude target 35,000 ft; calibrated-airspeed target 220 kt. The Flight Control Unit selected indicated altitude was corrected to 34,400 ft after observing the indicated/position offset. No acceptance bands changed.",
+  "future_injection": "Notify the owner first; unpause master and clock, stop the competing poller, and re-establish fresh admission with a prepared airborne controller.",
+  "additional_artifact_sha256": {
+    "cockpit-paused.png": "69be68e66de6586787f06780240c4b79f224b3f85ee2219df9a592e4c983ce8f"
+  },
+  "snapshot_limits": "Post-qualification snapshot, not the qualifying window. Scenery-loaded was true at checkpoint pause; this does not independently validate the terrain surface. Native cockpit also displayed fuel/spoiler advisories; qualification covers selected reference checks only, not whole-aircraft health."
+}

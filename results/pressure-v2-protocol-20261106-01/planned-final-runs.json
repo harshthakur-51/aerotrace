@@ -1,0 +1,32 @@
+[
+  {
+    "run_id": "pressure-prospective-A-01",
+    "flight_group": "pressure-flight-20261106-A",
+    "profile": "reference"
+  },
+  {
+    "run_id": "pressure-prospective-A-02",
+    "flight_group": "pressure-flight-20261106-A",
+    "profile": "pressure_supply"
+  },
+  {
+    "run_id": "pressure-prospective-A-03",
+    "flight_group": "pressure-flight-20261106-A",
+    "profile": "joint_pressure_effects"
+  },
+  {
+    "run_id": "pressure-prospective-B-01",
+    "flight_group": "pressure-flight-20261106-B",
+    "profile": "reference"
+  },
+  {
+    "run_id": "pressure-prospective-B-02",
+    "flight_group": "pressure-flight-20261106-B",
+    "profile": "pressure_supply"
+  },
+  {
+    "run_id": "pressure-prospective-B-03",
+    "flight_group": "pressure-flight-20261106-B",
+    "profile": "joint_pressure_effects"
+  }
+]
