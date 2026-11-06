@@ -27,6 +27,6 @@ The version 2 model compares eight configurations built from three selected mech
 
 Version 3 adds Engine 2 power loss and local Yellow engine-driven pump supply loss. Its extended profile records core speed, fuel flow, pump outputs, transfer and Yellow line pressure. The graph connects engine drive to both dependent sources. An observed backup supply can preserve line pressure after the primary pump loses output. [Drive-loss study and measurement ablations](ENGINE-DRIVE-STUDY.md)
 
-Version 4 generates every set of the five mechanism classes. The v1.1 offline history replay fits 1,081 onset histories to measured first responses and optional delay bounds. It keeps alternatives when multiple paths can explain the same evidence. [Five-fault sequence study](FAULT-SEQUENCE-STUDY.md)
+Version 4 generates every set of the five mechanism classes. The history replay fits 1,081 onset histories to measured first responses and optional delay bounds. It keeps alternatives when multiple paths can explain the same evidence. Version 1.2 shares one pilot formatter across the terminal, report and opt-in browser view. An observed ground-power origin affects the displayed timestamps. Sequence constraints still use the measured simulator clock. [Five-fault sequence study](FAULT-SEQUENCE-STUDY.md)
 
 [Engineering report](ENGINEERING-REPORT.md) · [Reproduction guide](REPRODUCING.md)

@@ -20,7 +20,7 @@ class SessionLimitReached(RuntimeError):
 
 
 class DiagnosisSession:
-    def __init__(self, *, temporal=True, max_records=1200, model=None):
+    def __init__(self, *, temporal=True, max_records=1200, model=None, pilot=False, response_bounds=None):
         if type(temporal) is not bool:
             raise ValueError("temporal must be Boolean")
         if type(max_records) is not int or not 1 <= max_records <= 1200:
@@ -29,9 +29,18 @@ class DiagnosisSession:
         self.max_records = max_records
         self._selected_records = []
         self._model = default_model() if model is None else copy.deepcopy(model)
+        self._pilot_orders = None
+        if pilot:
+            from .sequence_reasoning import _catalogue_orders, _response_bounds
+
+            if self._model["model_id"] != V4_MODEL_ID or not temporal:
+                raise ValueError("The pilot view requires the temporal v4 model")
+            self._pilot_orders = _catalogue_orders(self._model)
+            self._pilot_bounds = _response_bounds(response_bounds, self._model)
         self._propulsion = uses_propulsion_profile(self._model)
         self._airborne_context = _ContextHistory(propulsion=self._propulsion)
-        self._history = FeatureHistory(propulsion=self._propulsion, generated=self._model["model_id"] == V4_MODEL_ID)
+        self._history = FeatureHistory(propulsion=self._propulsion, generated=self._model["model_id"] == V4_MODEL_ID,
+                                       sequence=pilot)
         self._timeline = []
         self._version = None
 
@@ -68,10 +77,16 @@ class DiagnosisSession:
         self._timeline.append({"sample_index": frame["sample_index"],
             "sim_time_s": frame["sim_time_s"], "status": result["status"],
             "candidate_ids": result["candidate_ids"]})
-        return copy.deepcopy({"implemented": True, "result": result,
+        payload = {"implemented": True, "result": result,
             "evidence": frame["facts"], "temporal_relations": frame["temporal_relations"],
             "current_impact": frame["current_impact"], "observed_impact": frame["observed_impact"],
             "current_quality": frame["current_quality"], "model": self._model,
             "timeline": self._timeline,
             "session": {"record_count": self.count, "max_records": self.max_records,
-                "history_policy": "Retain every accepted public poll; stop inference at limit without truncation."}})
+                "history_policy": "Retain every accepted public poll; stop inference at limit without truncation."}}
+        if self._pilot_orders is not None:
+            from .sequence_reasoning import pilot_text_for_epoch
+
+            payload["pilot_display"] = pilot_text_for_epoch(self._history.sequence_frame(), self._model,
+                                                            self._pilot_orders, self._pilot_bounds)
+        return copy.deepcopy(payload)

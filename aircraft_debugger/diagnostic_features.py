@@ -19,6 +19,7 @@ from .airborne_evidence import analyze_airborne_observations
 from .airborne_profile import validate_airborne_observation, validate_propulsion_observation
 from .evidence import THRESHOLDS, analyze_observations
 from .observations import ObservationFormatError, validate_observation
+from .pilot_display import GroundPowerClock
 from .propulsion_features import (
     PROPULSION_FACTS, PROPULSION_IMPACTS, add_propulsion_evidence, retained_drive_relations, yellow_supply_relation,
 )
@@ -218,13 +219,15 @@ class FeatureHistory:
     rebuilding earlier feature frames on every live update; no thresholds change.
     """
 
-    def __init__(self, *, propulsion=False, generated=False):
+    def __init__(self, *, propulsion=False, generated=False, sequence=False):
         self.propulsion = propulsion or generated
         self.generated = generated
         self.channels = {name: spec[1] for name, spec in _SPECS.items()}
         if self.propulsion:
             self.channels.update({name: channel for name, (channel, _) in PROPULSION_FACTS.items()})
         self.epoch_history = []
+        self.sequence_snapshots = [] if sequence else None
+        self.power_clock = GroundPowerClock() if sequence else None
         self.incident = None
         self.epoch = None
         self.incident_counter = 0
@@ -238,6 +241,8 @@ class FeatureHistory:
 
     def advance(self, row: dict, report: dict) -> dict:
         snapshot = self.snapshot(row, report)
+        if self.sequence_snapshots is not None:
+            self.retain_sequence_snapshot(row, snapshot)
         if snapshot["epoch"] != self.epoch:
             self.epoch, self.epoch_history, self.incident, self.normal_run = snapshot["epoch"], [], None, 0
         previous = self.epoch_history[-1] if self.epoch_history else None
@@ -288,9 +293,33 @@ class FeatureHistory:
             relations.update(retained_drive_relations(window))
         return facts, relations
 
+    def retain_sequence_snapshot(self, row, snapshot):
+        if self.power_clock.epoch != snapshot["epoch"]:
+            self.sequence_snapshots.clear()
+        self.power_clock.observe(row, snapshot["epoch"])
+        readings = row["readings"]
+        if not self.sequence_snapshots and "external_power_output" in readings:
+            # A startup-inclusive capture sets the display clock on the
+            # ground. Its cold aircraft readings are outside airborne fit.
+            gear = [readings.get(name, {}) for name in ("main_gear_1_wow", "main_gear_2_wow")]
+            height = readings.get("height_agl", {})
+            if (not all(point.get("valid") and point["value"] is False for point in gear)
+                    or not height.get("valid") or height["value"] <= 0):
+                return
+        self.sequence_snapshots.append(snapshot)
+
+    def sequence_frame(self):
+        if not self.sequence_snapshots:
+            return None
+        window = self.sequence_snapshots
+        facts, relations = self.window_evidence(window, whole_epoch=True)
+        return {"epoch": window[0]["epoch"], "first_sample_index": window[0]["sample_index"],
+                "last_sample_index": window[-1]["sample_index"], "power_on_sim_s": self.power_clock.origin,
+                "facts": facts, "temporal_relations": relations}
+
 
 def build_feature_frames(records: Iterable[dict], *, propulsion: bool = False, generated: bool = False,
-                         whole_epoch: bool = False) -> dict:
+                         whole_epoch: bool = False, sequence_prefixes: bool = False) -> dict:
     """Validate public input and return per-prefix incident features plus its report.
 
     The only input is the supplied observations. A new clock epoch clears incident
@@ -320,31 +349,25 @@ def build_feature_frames(records: Iterable[dict], *, propulsion: bool = False, g
             raise ObservationFormatError("Mixed observation schemas are not permitted")
         validator(row)
 
-    history = FeatureHistory(propulsion=propulsion, generated=generated)
+    history = FeatureHistory(propulsion=propulsion, generated=generated, sequence=whole_epoch or sequence_prefixes)
     frames = []
-    epoch_snapshots = []
     report = None
-
-    def close_epoch():
-        facts, relations = history.window_evidence(epoch_snapshots, whole_epoch=True)
-        frames.append({"epoch": epoch_snapshots[0]["epoch"],
-                       "first_sample_index": epoch_snapshots[0]["sample_index"],
-                       "last_sample_index": epoch_snapshots[-1]["sample_index"],
-                       "facts": facts, "temporal_relations": relations})
 
     for end, row in enumerate(rows, 1):
         report = (analyze_observations(rows[:end]) if version == 1
                   else analyze_airborne_observations(rows[:end], propulsion=propulsion))
         if not whole_epoch:
-            frames.append(history.advance(row, report))
+            frame = history.advance(row, report)
+            if sequence_prefixes:
+                frame["sequence_epoch"] = history.sequence_frame()
+            frames.append(frame)
             continue
         snapshot = history.snapshot(row, report)
-        if epoch_snapshots and epoch_snapshots[-1]["epoch"] != snapshot["epoch"]:
-            close_epoch()
-            epoch_snapshots.clear()
-        epoch_snapshots.append(snapshot)
-    if whole_epoch:
-        close_epoch()
+        if history.sequence_snapshots and history.power_clock.epoch != snapshot["epoch"]:
+            frames.append(history.sequence_frame())
+        history.retain_sequence_snapshot(row, snapshot)
+    if whole_epoch and history.sequence_snapshots:
+        frames.append(history.sequence_frame())
     return {"frames": frames, "observation_report": report}
 
 

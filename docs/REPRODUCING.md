@@ -2,13 +2,13 @@
 
 Run these commands from the repository root with Python 3.11 or later. The recorded workflows use the standard library and the included data.
 
-## Compare onset orders in v1.1
+## Compare onset orders in the pilot view
 
 ```sh
-python -B -m aircraft_debugger.sequence_reasoning --observations results/timed-pair-20261106-01/observations.jsonl --response-bounds configs/sequence-pair-response-bounds.json --output work/v1.1-staggered-replay
+python -B -m aircraft_debugger.sequence_reasoning --observations results/timed-pair-20261106-01/observations.jsonl --response-bounds configs/sequence-pair-response-bounds.json --output work/v1.2-staggered-replay
 ```
 
-Open `report.md` in the output directory for the effect brackets and remaining histories. The JSON report records the compatibility decision for all 1,081 histories plus the reference. For the local Generator 2 and Blue pump pair, generator-first is the sole order that fits the declared response limits. This capture leaves propulsion alternatives unconfirmed. [Sequence study](FAULT-SEQUENCE-STUDY.md)
+The terminal and `report.md` show the v1.2 pilot display. The JSON report records the effect brackets and compatibility decision for all 1,081 histories plus the reference. For the local Generator 2 and Blue pump pair, generator-first is the sole order that fits the declared response limits. This capture leaves propulsion alternatives unconfirmed. [Sequence study](FAULT-SEQUENCE-STUDY.md)
 
 ## Inspect the native paired recording
 

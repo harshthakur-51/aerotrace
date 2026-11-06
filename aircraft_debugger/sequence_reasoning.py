@@ -16,6 +16,7 @@ from .diagnostic_features import build_feature_frames
 from .hypotheses import _predictions, evaluate_hypotheses, generated_model
 from .observations import _unique_object
 from .onset_orders import ordered_onsets
+from .pilot_display import render_pilot_display
 
 
 _LOCAL_WITNESSES = {
@@ -174,10 +175,7 @@ def _catalogue_orders(model):
     return orders_by_set
 
 
-def analyze_sequences(records, *, response_bounds=None):
-    """Evaluate every onset history using public observations and optional bounds."""
-    model = generated_model()
-    bounds = _response_bounds(response_bounds, model)
+def _sequence_rows(records):
     rows = list(records)
     first = rows[0] if rows else None
     source_schema = first.get("schema_version") if isinstance(first, dict) else None
@@ -186,6 +184,19 @@ def analyze_sequences(records, *, response_bounds=None):
         # measured value and let the existing quality checks mark them unknown.
         rows = [{**validate_airborne_observation(row), "schema_version": 3,
                  "observation_profile": PROPULSION_PROFILE_ID, "complete": False} for row in rows]
+    return source_schema, rows
+
+
+def pilot_text_for_epoch(frame, model, orders_by_set, bounds):
+    epoch = _fit_epoch(frame, model, bounds, orders_by_set) if frame is not None else None
+    return render_pilot_display(epoch)
+
+
+def analyze_sequences(records, *, response_bounds=None):
+    """Evaluate every onset history using public observations and optional bounds."""
+    model = generated_model()
+    bounds = _response_bounds(response_bounds, model)
+    source_schema, rows = _sequence_rows(records)
     frames = build_feature_frames(rows, generated=True, whole_epoch=True)["frames"]
     orders_by_set = _catalogue_orders(model)
     return {
@@ -202,56 +213,11 @@ def analyze_sequences(records, *, response_bounds=None):
     }
 
 
-def _markdown(report):
-    catalogue = report["catalogue"]
-    lines = [
-        "# AeroTrace onset history replay", "",
-        f"Evaluated {catalogue['nonempty_onset_histories']:,} nonempty histories across "
-        f"{catalogue['multi_fault_sets']} multi-fault sets and five isolated mechanisms, "
-        "plus the reference history, in each clock epoch.", "",
-    ]
-    for epoch in report["epochs"]:
-        lines.extend([f"## Epoch {epoch['epoch']}", "",
-                      f"Public samples {epoch['first_sample_index']} to {epoch['last_sample_index']}.", ""])
-        observed = [(name, fact["onset_interval"]) for name, fact in epoch["facts"].items() if fact["state"] == "observed"]
-        if observed:
-            lines.extend(["| Observed effect | Last usable nominal time (simulator seconds) | First qualifying anomaly (simulator seconds) |",
-                          "| --- | ---: | ---: |"])
-            for name, onset in observed:
-                lower = onset["lower_sim_time_s"]
-                covered = f"{lower:.2f}" if lower is not None and onset["covered_through_confirmation"] else "Unresolved"
-                lines.append(f"| {report['fact_labels'][name]} | {covered} | {onset['upper_sim_time_s']:.2f} |")
-            lines.append("")
-        lines.extend(["| Mechanism set still possible | Compatible orders | Unconfirmed orders | Dependency checks supported |",
-                      "| --- | ---: | ---: | ---: |"])
-        possible = [item for item in epoch["mechanism_sets"]
-                    if item["history_counts"]["compatible"] or item["history_counts"]["unconfirmed"]]
-        for item in possible:
-            counts = item["history_counts"]
-            support = item["dependency_evidence_support"]
-            score = f"{support['percent']}% ({support['supported_checks']}/{support['total_checks']})"
-            lines.append(f"| {item['label']} | {counts['compatible']} | {counts['unconfirmed']} | {score} |")
-        if not possible:
-            lines.append("| No possible mechanism sets under this model | 0 | 0 | |")
-        counts = epoch["history_counts"]
-        lines.extend(["", f"{counts['excluded_by_dependency']:,} excluded by dependency checks. "
-                      f"{counts['excluded_by_timing']:,} excluded by timing or a local-source witness.", ""])
-        labels = {item["roots"][0]: item["label"] for item in epoch["mechanism_sets"] if len(item["roots"]) == 1}
-        examples = [item for item in epoch["histories"] if item["status"] in ("compatible", "unconfirmed")
-                    and item["mechanism_set"] in epoch["minimal_possible_mechanism_sets"]]
-        if examples:
-            lines.extend(["Smallest remaining explanations", ""])
-            for item in examples[:10]:
-                order = " → ".join(" + ".join(labels[root] for root in group) for group in item["onset_groups"])
-                lines.append(f"- {order or 'Selected reference'} ({item['status']})")
-            if len(examples) > 10:
-                lines.append(f"- {len(examples) - 10:,} further orders in the JSON report.")
-            lines.append("")
-    lines.extend(["## Model conditions", ""])
-    lines.extend(f"- {item}" for item in report["scope"])
-    lines.extend(["", "The JSON report contains the paths, observation brackets, missing evidence and rejection reasons.",
-                  "Its response bounds are the assumptions used for this replay. The percentage measures dependency evidence coverage."])
-    return "\n".join(lines) + "\n"
+def _pilot_views(report):
+    epochs = report["epochs"]
+    if len(epochs) <= 1:
+        return [render_pilot_display(epochs[0] if epochs else None)]
+    return [f"Clock epoch {epoch['epoch']}\n\n{render_pilot_display(epoch)}" for epoch in epochs]
 
 
 def _replay_sources():
@@ -282,12 +248,14 @@ def main():
             raise ValueError("Public input or replay source changed during replay")
         report["observation_file_sha256"] = hashlib.sha256(original).hexdigest()
         report["executed_source_sha256"] = {name: hashlib.sha256(body).hexdigest() for name, body in sources.items()}
+        views = _pilot_views(report)
         args.output.mkdir(parents=True, exist_ok=False)
         _write_json(args.output / "report.json", report)
-        (args.output / "report.md").write_text(_markdown(report), encoding="utf-8", newline="\n")
+        markdown = "\n\n".join(f"```text\n{view}\n```" for view in views)
+        (args.output / "report.md").write_text(markdown + "\n", encoding="utf-8", newline="\n")
     except (OSError, ValueError) as error:
         parser.exit(1, f"AeroTrace sequence replay failed: {error}\n")
-    print(f"Evaluated {report['catalogue']['nonempty_onset_histories']:,} histories plus reference per epoch. {args.output.resolve()}")
+    print("\n\n".join(views))
 
 
 if __name__ == "__main__":

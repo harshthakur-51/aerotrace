@@ -29,10 +29,10 @@ import time
 from typing import Callable
 from urllib.parse import quote
 
-from .airborne_profile import PROPULSION_CHANNELS, PROPULSION_PROFILE_ID, write_airborne_observation
+from .airborne_profile import PILOT_CHANNELS, PROPULSION_CHANNELS, PROPULSION_PROFILE_ID, write_airborne_observation
 from .flightgear import FlightGearClient
 from .hypotheses import MODEL_VERSIONS, model_for_version, uses_propulsion_profile
-from .observations import CHANNELS, write_observation
+from .observations import CHANNELS, _unique_object, write_observation
 from .diagnostic_session import DiagnosisSession, SessionLimitReached
 
 
@@ -59,7 +59,7 @@ def validate_command(payload: object, *, fault_paths=FAULT_PATHS) -> tuple[str, 
 
 class PanelState:
     def __init__(self, client: FlightGearClient, interval_s: float = 0.5, *, diagnosis_limit: int = 1200, temporal: bool = True,
-                 recording: Path | None = None, model=None, fault_paths=None):
+                 recording: Path | None = None, model=None, fault_paths=None, pilot=False, response_bounds=None):
         self.client = client
         self.interval_s = interval_s
         self.token = secrets.token_urlsafe(32)
@@ -67,7 +67,10 @@ class PanelState:
         self._command_lock = threading.Lock()
         self._fault_paths = dict(FAULT_PATHS if fault_paths is None else fault_paths)
         self._propulsion = model is not None and uses_propulsion_profile(model)
+        self._pilot = pilot
         self._channels = PROPULSION_CHANNELS if self._propulsion else CHANNELS
+        if pilot:
+            self._channels = PILOT_CHANNELS
         self._stop = threading.Event()
         self._thread: threading.Thread | None = None
         self._snapshot: dict | None = None
@@ -77,7 +80,8 @@ class PanelState:
         self._previous_sim_time: float | None = None
         # These are this panel's command acknowledgements, not simulator sensors.
         self._operator_commands: dict[str, dict] = {}
-        self._diagnostic_session = DiagnosisSession(max_records=diagnosis_limit, temporal=temporal, model=model)
+        self._diagnostic_session = DiagnosisSession(max_records=diagnosis_limit, temporal=temporal, model=model,
+                                                    pilot=pilot, response_bounds=response_bounds)
         self._diagnosis = {"implemented": True, "availability": "waiting", "message": "Waiting for the first public poll."}
         self._diagnosis_failed = False
         self._sample_index = 0
@@ -206,6 +210,7 @@ class PanelState:
                 "operator_commands": copy.deepcopy(self._operator_commands),
                 "recording": copy.deepcopy(self._recording),
                 "mode": "live",
+                "pilot_view": self._pilot,
                 "diagnosis": {**copy.deepcopy(self._diagnosis), "wall_clock_stale": oldest_age is not None and oldest_age > 2.0},
             }
 
@@ -409,18 +414,37 @@ def main() -> None:
     parser.add_argument("--mode", choices=("temporal", "atemporal"), default="temporal", help="Causal replay constraint mode")
     parser.add_argument("--diagnosis-limit", type=int, default=1200, help="Live public poll limit (1-1200); inference stops explicitly at the limit")
     parser.add_argument("--recording", type=Path, help="New public JSONL file for live polls; existing files are refused")
-    parser.add_argument("--model", choices=MODEL_VERSIONS, default="v1")
+    parser.add_argument("--model", choices=MODEL_VERSIONS, help="Default v1, or v4 with --pilot")
+    parser.add_argument("--pilot", action="store_true", help="Show the pilot sequence display")
+    parser.add_argument("--response-bounds", type=Path, help="Optional delay bounds for --pilot")
     args = parser.parse_args()
-    active_model = model_for_version(args.model)
+    active_model = model_for_version(args.model or ("v4" if args.pilot else "v1"))
+    if args.pilot and (args.model not in (None, "v4") or args.mode != "temporal"):
+        parser.error("--pilot requires the temporal v4 model")
+    if args.response_bounds and not args.pilot:
+        parser.error("--response-bounds requires --pilot")
+    bounds = None
+    if args.response_bounds:
+        from .sequence_reasoning import _response_bounds
+
+        try:
+            bounds = json.loads(args.response_bounds.read_text(encoding="utf-8"), object_pairs_hook=_unique_object)
+            if not isinstance(bounds, dict):
+                raise ValueError("Response bounds must contain a JSON object")
+            bounds = _response_bounds(bounds, active_model)
+        except (OSError, ValueError) as error:
+            parser.error(str(error))
     if args.replay and args.recording:
         parser.error("--recording is for live mode; recorded replay is read-only")
     if args.replay:
         from .airborne_profile import iter_profile_observations
         from .replay_panel import ReplayPanelState
-        panel = ReplayPanelState(iter_profile_observations(args.replay), temporal=args.mode == "temporal", model=active_model)
+        panel = ReplayPanelState(iter_profile_observations(args.replay), temporal=args.mode == "temporal",
+                                 model=active_model, pilot=args.pilot, response_bounds=bounds)
     else:
         panel = PanelState(FlightGearClient(port=args.flightgear_port, timeout_s=1.0), diagnosis_limit=args.diagnosis_limit,
-                           temporal=args.mode == "temporal", recording=args.recording, model=active_model)
+                           temporal=args.mode == "temporal", recording=args.recording, model=active_model,
+                           pilot=args.pilot, response_bounds=bounds)
     try:
         server = make_server(panel, args.port)
     except BaseException:

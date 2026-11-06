@@ -32,13 +32,48 @@ intervention times and simulator failure flags are separate.
 python -B -m aircraft_debugger.sequence_reasoning --observations results/timed-pair-20261106-01/observations.jsonl --response-bounds configs/sequence-pair-response-bounds.json --output work/staggered-history-replay
 ```
 
-Open `report.md` for the measurements and remaining explanations. The JSON report
+The terminal and `report.md` show the pilot view. The JSON report
 lists every history, its status, dependency paths, missing evidence and any
 contradicting observations or deadlines. The same command works without a
 response bounds file. In that mode elapsed response times may be any
 nonnegative duration. Timing generally leaves more histories possible.
-The version 4 live panel still presents mechanism-set evidence and observed
-impact. The order comparison runs offline over a full clock epoch.
+The regular version 4 panel presents mechanism-set evidence and observed
+impact. Pilot mode shows the order comparison from the available prefix.
+
+## Pilot output
+
+```sh
+python -B -m aircraft_debugger.sim_panel --pilot --replay results/engine-drive-20261106-01/engine-auto/observations.jsonl --port 8769
+```
+
+Omit `--replay` to observe the connected FlightGear A320. Start the panel before
+ground power is applied and use `--recording` with a new JSON Lines file to preserve
+the startup and flight observations. The live panel retains its 1,200-poll
+diagnosis limit. `--response-bounds` applies the same optional delay assumptions
+as the offline sequence replay.
+
+The clock starts at the first observed external-power contactor output after
+consecutive qualified ground readings with the alternating current buses
+unpowered. The power marker is local to its simulator clock epoch. Reconnection
+keeps the initial origin. Startup-inclusive schema 3 recordings carry the
+optional external-power output reading. Their sequence fit begins airborne.
+Earlier recordings and recordings that begin with power already present show
+`--:--:--`. The timestamp marks the first qualifying observed event in whole
+hours, minutes and seconds elapsed since the observed ground-power origin.
+
+The cause lines describe possible modeled mechanisms. A plus sign joins
+mechanisms in one explanation. Numbered groups are competing explanations.
+C:U counts compatible and unconfirmed onset histories across the catalogue.
+Evidence support is the percentage of applicable dependency checks backed by
+observations for each displayed explanation.
+
+The labels use A320 component abbreviations from the pinned FlightGear
+Electronic Centralized Aircraft Monitor (ECAM) model. ENG means engine,
+GEN generator, ELEC electrical, AC alternating current, HYD hydraulic,
+B Blue, Y Yellow, SYS system, RSVR reservoir, QTY quantity, LO PR low pressure,
+and EXT PWR external power. N2 is the high-pressure core spool speed.
+A relative reservoir quantity decrease is displayed as `HYD B RSVR QTY DECREASE`.
+[Pinned ECAM terminology](https://svn.code.sf.net/p/flightgear/fgaddon/!svn/rvr/20376/branches/release-2024.1/Aircraft/A320-family/Nasal/ECAM/ECAM-messages.nas)
 
 | Mechanism | Ground rule used by the model |
 | --- | --- |

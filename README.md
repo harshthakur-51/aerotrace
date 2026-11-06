@@ -6,15 +6,15 @@ AeroTrace reads FlightGear telemetry and explains which causal configurations fi
 
 [Engineering report (PDF)](output/pdf/AeroTrace-Engineering-Report.pdf) · [Architecture](docs/ARCHITECTURE.md) · [Reproduce the results](docs/REPRODUCING.md) · [Connect FlightGear](docs/LIVE-SIMULATOR.md)
 
-## Replay the five-fault study in v1.1
+## Open the v1.2 pilot view
 
 From the repository root with Python 3.11 or later, run the Engine 2 example using the included recording.
 
 ```sh
-python -B -m aircraft_debugger.sequence_reasoning --observations results/engine-drive-20261106-01/engine-auto/observations.jsonl --output work/v1.1-engine-replay
+python -B -m aircraft_debugger.sim_panel --pilot --replay results/engine-drive-20261106-01/engine-auto/observations.jsonl --port 8769
 ```
 
-Open `work/v1.1-engine-replay/report.md` to see how one loss of engine drive explains both a generator and a hydraulic pump dropping out. The report also shows which additional faults could have been masked. The [sequence study](docs/FAULT-SEQUENCE-STUDY.md) includes a staggered pair where the measured timing rules out two onset orders under the declared response limits.
+Open [the local pilot view](http://127.0.0.1:8769) and advance to the last sample. The display groups the recorded events under the shared Engine 2 power-loss explanation using A320 component abbreviations. It shows compatible and unconfirmed histories as C:U and gives an evidence support percentage for each displayed explanation. This archived flight begins airborne, so the ground-power timestamps show `--:--:--`. [Pilot view and sequence study](docs/FAULT-SEQUENCE-STUDY.md#pilot-output)
 
 ## What the experiments showed
 
@@ -30,7 +30,7 @@ The figure shows a recorded airborne A320 simulation. Generator 2 output reached
 | **Engine 2 drive-loss study** | All **4** planned contrasts matched their expected candidates. Generator and Yellow pump outputs fell in both failure patterns. Fuel flow and core speed distinguished the engine loss from the separate source failures. |
 | **Five-fault sequence study** | The offline debugger tests **1,081** onset histories across **26** multi-fault sets and five isolated mechanisms using the same dependency graph. The software exercise retained the expected history in every synthetic case. Native replays show where timing narrows the order and where faults stay masked. |
 | **Local update cost** | After airborne context reuse, the 95th-percentile update was **80 ms** over a synthetic 1,200-poll fixture, compared with **490 ms** before. Host background load differed between runs. These times cover local processing and snapshot copying. |
-| **Software verification** | **217** automated tests cover the observation contract, causal inference, replay, evaluation and operator controls. |
+| **Software verification** | **220** automated tests cover the observation contract, causal inference, pilot display, replay, evaluation and operator controls. |
 
 [Engine drive results](results/engine-drive-20261106-01/REPORT.md) · [Prospective evaluation](results/pressure-v2-prospective-20261106-01/REPORT.md) · [Timed fault study](docs/TEMPORAL-STUDY.md) · [Quantity stress test](results/quantity-indication-stress-20261106-01/README.md) · [Load measurements](results/pressure-v2-load-optimized-20261106-01/REPORT.md)
 

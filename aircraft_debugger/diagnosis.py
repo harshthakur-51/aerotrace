@@ -198,7 +198,8 @@ def _markdown(report: dict) -> str:
 def _sources() -> dict[str, bytes]:
     root = Path(__file__).resolve().parents[1]
     names = ["__init__", "diagnosis", "diagnostic_features", "hypotheses", "airborne_evidence",
-             "airborne_profile", "evidence", "observations", "flightgear", "propulsion_features", "candidate_support"]
+             "airborne_profile", "evidence", "observations", "flightgear", "propulsion_features", "candidate_support",
+             "pilot_display"]
     return {f"aircraft_debugger/{name}.py": (root / "aircraft_debugger" / f"{name}.py").read_bytes() for name in names}
 
 

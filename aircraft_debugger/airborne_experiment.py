@@ -69,7 +69,7 @@ def _archive_sources(output: Path) -> dict:
         "aircraft_debugger/candidate_support.py", "aircraft_debugger/assets/sim-panel.html",
         "aircraft_debugger/diagnostic_session.py", "aircraft_debugger/diagnostic_features.py",
         "aircraft_debugger/hypotheses.py", "aircraft_debugger/airborne_evidence.py", "aircraft_debugger/propulsion_features.py",
-        "aircraft_debugger/evidence.py",
+        "aircraft_debugger/evidence.py", "aircraft_debugger/pilot_display.py",
         "configs/flightgear-assets.json", "configs/flightgear-a320.fgfsrc",
     )
     hashes, archives = {}, {}

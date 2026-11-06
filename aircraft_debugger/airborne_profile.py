@@ -62,6 +62,16 @@ PROPULSION_CHANNELS = {
 }
 _AIRBORNE_SPECS = dict(AIRBORNE_CHANNELS)
 _PROPULSION_SPECS = dict(PROPULSION_CHANNELS)
+PILOT_CHANNELS = {
+    # Keep the origin readings adjacent in the poll. FlightGear services
+    # these property requests on successive frames, even with parallel reads.
+    "external_power_output": PropertySpec("/systems/electrical/relay/ext-epc/output", unit="V"),
+    **{name: PROPULSION_CHANNELS[name] for name in (
+        "sim_time", "paused", "aircraft", "main_gear_1_wow", "main_gear_2_wow", "ac_bus_1", "ac_bus_2",
+    )},
+    **PROPULSION_CHANNELS,
+}
+_PILOT_SPECS = dict(PILOT_CHANNELS)
 _AIRBORNE_FIELDS = _RECORD_FIELDS | {"observation_profile"}
 
 
@@ -116,7 +126,9 @@ def validate_airborne_observation(record: object) -> dict:
 
 def validate_propulsion_observation(record: object) -> dict:
     """Validate the explicit extended airborne profile, including every extra reading."""
-    return _validate_profile(record, 3, PROPULSION_PROFILE_ID, _PROPULSION_SPECS)
+    readings = record.get("readings") if isinstance(record, dict) else None
+    specs = _PILOT_SPECS if isinstance(readings, dict) and "external_power_output" in readings else _PROPULSION_SPECS
+    return _validate_profile(record, 3, PROPULSION_PROFILE_ID, specs)
 
 
 def _validate_profile(record, version, profile_id, specs):
