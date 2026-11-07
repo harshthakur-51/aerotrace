@@ -109,8 +109,11 @@ The evaluations measure agreement with predeclared candidate sets at selected co
 
 ## License
 
-Original AeroTrace work is licensed under the [Apache License 2.0](LICENSE).
+Original AeroTrace work is licensed under the [MIT License](LICENSE).
 Copyright 2026 Harsh Thakur.
+
+MIT was selected for straightforward research, portfolio and commercial reuse
+with copyright and license notices retained.
 
 Archived FlightGear/A320 model source retains its GNU General Public License
 version 2 terms. See [third-party notices](THIRD_PARTY_NOTICES.md) for the

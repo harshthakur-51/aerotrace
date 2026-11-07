@@ -1,6 +1,6 @@
 # Third-party notices
 
-The Apache License 2.0 grant covers original AeroTrace work. Third-party
+The MIT License grant covers original AeroTrace work. Third-party
 materials retain their respective copyright notices and license terms.
 
 The following archived simulator-source directories contain files from the
