@@ -13,27 +13,29 @@ from .hypotheses import V4_MODEL_ID, default_model, evaluate_hypotheses, uses_pr
 
 
 class ReplayPanelState:
-    def __init__(self, records, *, temporal=True, model=None, pilot=False, response_bounds=None):
+    def __init__(self, records, *, temporal=True, model=None, pilot=False, investigation=False,
+                 response_bounds=None):
         self.token = secrets.token_urlsafe(32)
         self._lock = threading.Lock()
         self._records = copy.deepcopy(list(records))
         self._model = default_model() if model is None else copy.deepcopy(model)
         generated = self._model["model_id"] == V4_MODEL_ID
         rows = self._records
-        self._pilot_views = None
-        if pilot:
-            from .sequence_reasoning import _catalogue_orders, _response_bounds, _sequence_rows, pilot_text_for_epoch
+        self._pilot = pilot
+        self._investigation = investigation
+        self._orders = None
+        self._sequence_cache = None
+        if pilot or investigation:
+            from .sequence_reasoning import _catalogue_orders, _response_bounds, _sequence_rows
 
             if not generated or not temporal:
-                raise ValueError("The pilot view requires the temporal v4 model")
+                raise ValueError("The sequence view requires the temporal v4 model")
             _, rows = _sequence_rows(rows)
-            bounds = _response_bounds(response_bounds, self._model)
-            orders = _catalogue_orders(self._model)
+            self._bounds = _response_bounds(response_bounds, self._model)
+            self._orders = _catalogue_orders(self._model)
         self._frames = build_feature_frames(rows, propulsion=uses_propulsion_profile(self._model),
-                                            generated=generated, sequence_prefixes=pilot)["frames"]
-        if pilot:
-            self._pilot_views = [pilot_text_for_epoch(frame.pop("sequence_epoch"), self._model, orders, bounds)
-                                 for frame in self._frames]
+                                            generated=generated, sequence_prefixes=pilot or investigation,
+                                            investigation=investigation)["frames"]
         if not self._frames:
             raise ValueError("Replay needs at least one public observation")
         self._diagnoses = [evaluate_hypotheses(frame, temporal=temporal, model=self._model)
@@ -55,6 +57,7 @@ class ReplayPanelState:
     def get_state(self):
         with self._lock:
             position = self._position
+            sequence = self._sequence_payload(position)
         frame = self._frames[position]
         row = self._records[position]
         state = {
@@ -71,7 +74,19 @@ class ReplayPanelState:
                     "status": d["status"], "candidate_ids": d["candidate_ids"]}
                     for d in self._diagnoses[:position + 1]]},
         }
-        if self._pilot_views is not None:
+        if self._pilot:
             state["pilot_view"] = True
-            state["diagnosis"]["pilot_display"] = self._pilot_views[position]
+        state["diagnosis"].update(sequence)
         return copy.deepcopy(state)
+
+    def _sequence_payload(self, position):
+        if self._orders is None:
+            return {}
+        if self._sequence_cache is None or self._sequence_cache[0] != position:
+            from .sequence_reasoning import sequence_view_for_epoch
+
+            frame = self._frames[position]["sequence_epoch"]
+            payload = sequence_view_for_epoch(frame, self._model, self._orders, self._bounds,
+                                              pilot=self._pilot, investigation=self._investigation)
+            self._sequence_cache = (position, payload)
+        return self._sequence_cache[1]

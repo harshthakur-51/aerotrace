@@ -21,7 +21,8 @@ from .evidence import THRESHOLDS, analyze_observations
 from .observations import ObservationFormatError, validate_observation
 from .pilot_display import GroundPowerClock
 from .propulsion_features import (
-    PROPULSION_FACTS, PROPULSION_IMPACTS, add_propulsion_evidence, retained_drive_relations, yellow_supply_relation,
+    MAXIMUM_READING_SKEW_SIM_S, PROPULSION_FACTS, PROPULSION_IMPACTS, add_propulsion_evidence,
+    retained_drive_relations, yellow_supply_relation,
 )
 
 
@@ -194,6 +195,21 @@ def _relation(facts: dict) -> dict:
     return result
 
 
+def _blue_quantity_at_pressure_loss(window, facts):
+    onset = facts["blue_pressure_loss"]["onset_interval"]
+    if onset is None:
+        return None
+    sample = next((item for item in window if item["sample_index"] == onset["upper_sample_index"]), None)
+    if sample is None:
+        return None
+    pressure = sample["points"]["blue_pressure_loss"]
+    quantity = sample["points"]["blue_inventory_loss"]
+    if not pressure or not quantity or abs(pressure["sim_time_s"] - quantity["sim_time_s"]) > MAXIMUM_READING_SKEW_SIM_S:
+        return None
+    return {"pressure": pressure, "indicated_quantity": quantity,
+            "quantity_reference": sample["states"]["blue_inventory"].get("reference")}
+
+
 def _impact(facts: dict) -> list[dict]:
     descriptions = {
         "generator_source_anomaly": ("electrical", "Generator-2 source-output degradation was observed in this incident.",
@@ -308,18 +324,27 @@ class FeatureHistory:
                 return
         self.sequence_snapshots.append(snapshot)
 
-    def sequence_frame(self):
+    def sequence_frame(self, *, investigation=False):
         if not self.sequence_snapshots:
             return None
         window = self.sequence_snapshots
         facts, relations = self.window_evidence(window, whole_epoch=True)
-        return {"epoch": window[0]["epoch"], "first_sample_index": window[0]["sample_index"],
-                "last_sample_index": window[-1]["sample_index"], "power_on_sim_s": self.power_clock.origin,
-                "facts": facts, "temporal_relations": relations}
+        frame = {"epoch": window[0]["epoch"], "first_sample_index": window[0]["sample_index"],
+                 "last_sample_index": window[-1]["sample_index"], "power_on_sim_s": self.power_clock.origin,
+                 "facts": facts, "temporal_relations": relations}
+        if investigation:
+            latest = window[-1]
+            frame["investigation_context"] = {
+                "usable_channels": [point["channel"] for point in latest["points"].values() if point is not None],
+                "availability_sample_index": latest["sample_index"],
+                "blue_quantity_at_pressure_loss": _blue_quantity_at_pressure_loss(window, facts),
+            }
+        return frame
 
 
 def build_feature_frames(records: Iterable[dict], *, propulsion: bool = False, generated: bool = False,
-                         whole_epoch: bool = False, sequence_prefixes: bool = False) -> dict:
+                         whole_epoch: bool = False, sequence_prefixes: bool = False,
+                         investigation: bool = False) -> dict:
     """Validate public input and return per-prefix incident features plus its report.
 
     The only input is the supplied observations. A new clock epoch clears incident
@@ -359,15 +384,15 @@ def build_feature_frames(records: Iterable[dict], *, propulsion: bool = False, g
         if not whole_epoch:
             frame = history.advance(row, report)
             if sequence_prefixes:
-                frame["sequence_epoch"] = history.sequence_frame()
+                frame["sequence_epoch"] = history.sequence_frame(investigation=investigation)
             frames.append(frame)
             continue
         snapshot = history.snapshot(row, report)
         if history.sequence_snapshots and history.power_clock.epoch != snapshot["epoch"]:
-            frames.append(history.sequence_frame())
+            frames.append(history.sequence_frame(investigation=investigation))
         history.retain_sequence_snapshot(row, snapshot)
     if whole_epoch and history.sequence_snapshots:
-        frames.append(history.sequence_frame())
+        frames.append(history.sequence_frame(investigation=investigation))
     return {"frames": frames, "observation_report": report}
 
 

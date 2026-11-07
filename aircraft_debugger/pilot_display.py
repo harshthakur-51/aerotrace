@@ -20,6 +20,16 @@ _CAUSES = {
     "blue_pressure_supply_loss": "HYD B PRESSURE SUPPLY LOSS",
     "blue_fluid_loss_mechanism": "HYD B FLUID INVENTORY LOSS",
 }
+_MEASUREMENTS = {
+    "engine_2_n2": "ENG 2 N2",
+    "engine_2_fuel_flow": "ENG 2 FUEL FLOW",
+    "generator_2_voltage": "ELEC GEN 2 VOLTAGE",
+    "ac_bus_2": "ELEC AC BUS 2 VOLTAGE",
+    "blue_quantity": "HYD B RSVR QTY",
+    "blue_pressure": "HYD B SYS PR",
+    "yellow_edp_pressure": "HYD Y ENG 2 PUMP PR",
+    "yellow_pressure": "HYD Y SYS PR",
+}
 
 
 class GroundPowerClock:
@@ -76,7 +86,7 @@ def _timestamp(event_time, origin):
     return f"{hours:02d}:{minutes:02d}:{seconds:02d}"
 
 
-def render_pilot_display(epoch):
+def render_pilot_display(epoch, *, include_investigation=False):
     if epoch is None:
         return "AEROTRACE\n\nAwaiting airborne observations."
     events = sorted(
@@ -93,7 +103,7 @@ def render_pilot_display(epoch):
     if not events:
         unknown = any(fact["state"] == "unknown" for fact in epoch["facts"].values())
         lines.append("Selected event evidence incomplete" if unknown else "No selected anomaly observed")
-    lines.extend(("", "CAUSE"))
+    lines.extend(("", "POSSIBLE EXPLANATIONS" if include_investigation else "CAUSE"))
     minimal = set(epoch["minimal_possible_mechanism_sets"])
     choices = [item for item in epoch["mechanism_sets"] if item["id"] in minimal]
     scores = []
@@ -104,12 +114,46 @@ def render_pilot_display(epoch):
         prefix = f"{index}. " if len(choices) > 1 else ""
         lines.append(prefix + causes[0])
         lines.extend(("   " if prefix else "") + "+ " + cause for cause in causes[1:])
-        percent = choice["dependency_evidence_support"]["percent"]
+        support = choice["dependency_evidence_support"]
+        percent = support["percent"]
         score = "--" if percent is None else f"{percent}%"
+        if include_investigation and percent is not None:
+            score = f"{support['supported_checks']}/{support['total_checks']} checks ({score})"
         scores.append(f"{index}: {score}" if prefix else score)
     if not choices:
         lines.append("Unresolved")
     counts = epoch["history_counts"]
     lines.extend(("", f"{'C:U':<20}{counts['compatible']}:{counts['unconfirmed']}",
-                  f"{'Evidence support':<20}{'  '.join(scores) or '--'}"))
+                  f"{'Model-check support' if include_investigation else 'Evidence support':<20}{'  '.join(scores) or '--'}"))
+    if include_investigation and "investigation" in epoch:
+        lines.extend(_investigation_lines(epoch["investigation"]))
     return "\n".join(lines)
+
+
+def _investigation_lines(investigation):
+    evidence = investigation["evidence_selection"]
+    lines = ["", "WHAT TO INVESTIGATE NEXT"]
+    if evidence["recommended_measurements"]:
+        channels = evidence["recommended_measurements"][0]["channels"]
+        lines.append("Review " + " / ".join(_MEASUREMENTS[channel] for channel in channels))
+    elif evidence["unavailable_discriminators"]:
+        channels = dict.fromkeys(channel for item in evidence["unavailable_discriminators"]
+                                 for channel in item["channels"])
+        lines.append("Incident readings needed for " + " / ".join(_MEASUREMENTS[channel] for channel in channels))
+        lines.append("The current capture cannot resolve the competing sets.")
+    elif evidence["candidate_count"] > 1:
+        lines.append("No modelled reading separates the remaining sets.")
+    if investigation["observed_abnormalities"]:
+        for item in investigation["masking"]["potentially_masked_mechanisms"]:
+            status = ("Possibly masked" if any(candidate["status"] == "potentially_masked"
+                                               for candidate in item["candidate_sets"]) else "Evidence missing")
+            lines.append(f"{status:<18}{_CAUSES[item['mechanism']]}")
+    common = investigation["common_cause"]
+    if common["model_mismatch"]["status"] == "no_joint_model_fit":
+        lines.append("Selected model has no joint fit.")
+    elif any(cluster["unmodelled_common_cause_possible"] for cluster in common["clusters"]):
+        lines.append("Common disturbance vs separate failures unresolved.")
+    if len(lines) == 2:
+        lines.append("No additional passive measurement ranked.")
+    lines.extend(("", "Model-check support counts matched checks for each displayed set."))
+    return lines

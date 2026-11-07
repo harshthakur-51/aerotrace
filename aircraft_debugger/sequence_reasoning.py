@@ -14,6 +14,7 @@ from .candidate_support import evidence_support
 from .diagnosis import _sources, _write_json
 from .diagnostic_features import build_feature_frames
 from .hypotheses import _predictions, evaluate_hypotheses, generated_model
+from .investigation import investigate_epoch
 from .observations import _unique_object
 from .onset_orders import ordered_onsets
 from .pilot_display import render_pilot_display
@@ -187,18 +188,39 @@ def _sequence_rows(records):
     return source_schema, rows
 
 
-def pilot_text_for_epoch(frame, model, orders_by_set, bounds):
-    epoch = _fit_epoch(frame, model, bounds, orders_by_set) if frame is not None else None
-    return render_pilot_display(epoch)
+def fit_investigated_epoch(frame, model, bounds, orders_by_set, *, query=None):
+    epoch = _fit_epoch(frame, model, bounds, orders_by_set)
+    epoch["investigation"] = investigate_epoch(epoch, model, _timing_conflict, query=query)
+    return epoch
 
 
-def analyze_sequences(records, *, response_bounds=None):
+def sequence_view_for_epoch(frame, model, orders_by_set, bounds, *, pilot, investigation):
+    payload = {}
+    epoch = None
+    if frame is not None:
+        if investigation:
+            epoch = fit_investigated_epoch(frame, model, bounds, orders_by_set)
+            payload["investigation"] = epoch["investigation"]
+        elif pilot:
+            epoch = _fit_epoch(frame, model, bounds, orders_by_set)
+    if pilot:
+        payload["pilot_display"] = render_pilot_display(epoch, include_investigation=investigation)
+    return payload
+
+
+def analyze_sequences(records, *, response_bounds=None, investigation=True, counterfactual=None):
     """Evaluate every onset history using public observations and optional bounds."""
+    if counterfactual is not None and not investigation:
+        raise ValueError("Counterfactual queries require investigation")
     model = generated_model()
     bounds = _response_bounds(response_bounds, model)
     source_schema, rows = _sequence_rows(records)
-    frames = build_feature_frames(rows, generated=True, whole_epoch=True)["frames"]
+    frames = build_feature_frames(rows, generated=True, whole_epoch=True, investigation=investigation)["frames"]
     orders_by_set = _catalogue_orders(model)
+    if investigation:
+        epochs = [fit_investigated_epoch(frame, model, bounds, orders_by_set, query=counterfactual) for frame in frames]
+    else:
+        epochs = [_fit_epoch(frame, model, bounds, orders_by_set) for frame in frames]
     return {
         "schema_version": 1, "model_id": model["model_id"], "method": "required_paths_and_onset_constraints",
         "input_observation_schema": source_schema, "observation_count": len(rows),
@@ -209,20 +231,21 @@ def analyze_sequences(records, *, response_bounds=None):
         "scope": list(_SCOPE), "model_assumptions": model["assumptions"],
         "fact_labels": {name: spec["label"] for name, spec in model["facts"].items()},
         "physical_cause_identifiable": False, "probabilities_computed": False,
-        "epochs": [_fit_epoch(frame, model, bounds, orders_by_set) for frame in frames],
+        "epochs": epochs,
     }
 
 
 def _pilot_views(report):
     epochs = report["epochs"]
     if len(epochs) <= 1:
-        return [render_pilot_display(epochs[0] if epochs else None)]
-    return [f"Clock epoch {epoch['epoch']}\n\n{render_pilot_display(epoch)}" for epoch in epochs]
+        return [render_pilot_display(epochs[0] if epochs else None, include_investigation=True)]
+    return [f"Clock epoch {epoch['epoch']}\n\n{render_pilot_display(epoch, include_investigation=True)}"
+            for epoch in epochs]
 
 
 def _replay_sources():
     sources = _sources()
-    for filename in ("sequence_reasoning.py", "onset_orders.py"):
+    for filename in ("sequence_reasoning.py", "onset_orders.py", "investigation.py", "common_cause.py"):
         sources[f"aircraft_debugger/{filename}"] = Path(__file__).with_name(filename).read_bytes()
     return sources
 
@@ -231,6 +254,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--observations", required=True, type=Path, help="Public airborne observations JSONL")
     parser.add_argument("--response-bounds", type=Path, help="Optional mechanism-to-effect delay bounds JSON")
+    roots = generated_model()["roots"]
+    parser.add_argument("--exclude", action="append", choices=roots, default=[], help="Counterfactual excluding this root")
+    parser.add_argument("--require", action="append", choices=roots, default=[], help="Counterfactual requiring this root")
+    parser.add_argument("--only", action="append", choices=roots, help="Counterfactual restricted to exactly these roots")
     parser.add_argument("--output", required=True, type=Path, help="New directory for the replay report")
     args = parser.parse_args()
     if args.output.exists():
@@ -243,7 +270,9 @@ def main():
             bounds = json.loads(args.response_bounds.read_text(encoding="utf-8"), object_pairs_hook=_unique_object)
             if not isinstance(bounds, dict):
                 raise ValueError("The response bounds file must contain a JSON object")
-        report = analyze_sequences(iter_profile_observations(args.observations), response_bounds=bounds)
+        query = {"require": args.require, "exclude": args.exclude, "only": args.only}
+        report = analyze_sequences(iter_profile_observations(args.observations), response_bounds=bounds,
+                                   counterfactual=query if any(query.values()) else None)
         if args.observations.read_bytes() != original or _replay_sources() != sources:
             raise ValueError("Public input or replay source changed during replay")
         report["observation_file_sha256"] = hashlib.sha256(original).hexdigest()

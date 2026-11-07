@@ -20,7 +20,12 @@ pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}#candidatePanels 
 <section class="section" id="propulsionSection" hidden><h2>Engine drive &amp; Yellow supply</h2><div class="grid" id="propulsion"></div><p class="sub" id="yellowSupplyCheck"></p></section>
 </div>
 <section id="replayControls" class="notice" hidden><h2>Recorded flight replay</h2><p class="sub">Move through public observations. Each verdict uses only the history up to the selected sample. Simulator controls are disabled.</p><label for="replayPosition">Replay position <strong id="replayLabel"></strong></label><input id="replayPosition" type="range" min="0" value="0" style="width:100%"><p id="replayError" class="warn" role="status"></p></section>
-<section class="section" id="causalInspector"><h2>Causal evidence inspector</h2><p id="diagnosisSummary" role="status">Waiting for diagnosis</p><p class="sub" id="diagnosisScope"></p><div id="impacts"></div><figure id="causalDiagram"><figcaption class="sub">Incident effects and modeled propagation. Solid links are required predictions; dashed links are conditional. Mechanism roots remain hypotheses.</figcaption><div id="causalGraph"></div></figure><div id="candidatePanels"></div><details><summary>Observed facts and temporal evidence</summary><pre id="facts"></pre></details><details><summary>Executable dependency model</summary><div id="modelEdges"></div></details><details><summary>Diagnosis timeline up to selected sample</summary><div id="timeline"></div></details></section>
+<section class="section" id="causalInspector"><h2>Causal evidence inspector</h2><p id="diagnosisSummary" role="status">Waiting for diagnosis</p><p class="sub" id="diagnosisScope"></p><div id="impacts"></div>
+<section id="investigationPanel" class="notice" aria-label="Causal investigation" hidden>
+<h2>Causal investigation</h2><p class="sub" id="investigationScope"></p><div id="investigationSummary"></div>
+<details><summary>Candidate predictions, measurement partitions and counterfactual evidence</summary><pre id="investigationFacts"></pre></details>
+</section>
+<figure id="causalDiagram"><figcaption class="sub">Incident effects and modeled propagation. Solid links are required predictions; dashed links are conditional. Mechanism roots remain hypotheses.</figcaption><div id="causalGraph"></div></figure><div id="candidatePanels"></div><details><summary>Observed facts and temporal evidence</summary><pre id="facts"></pre></details><details><summary>Executable dependency model</summary><div id="modelEdges"></div></details><details><summary>Diagnosis timeline up to selected sample</summary><div id="timeline"></div></details></section>
 <section class="section" id="operatorControls"><h2>Operator fault controls</h2><p class="sub source-warning">These change native FlightGear A320 fault flags. This operator information is separate from observed telemetry; it is not diagnostic evidence. Use the cockpit to assess the aircraft response.</p><div class="controls">
 <div class="control"><h3>Generator 2 failure</h3><p class="sub">Fail the second engine-driven generator. Bus voltage may remain available through other supplies.</p><div class="buttons"><button class="inject" data-fault="generator_2" data-enabled="true">Inject failure</button><button data-fault="generator_2" data-enabled="false">Clear fault flag</button></div><p class="sub" id="command-generator_2">No command issued by this panel.</p></div>
 <div class="control"><h3>Blue hydraulic leak</h3><p class="sub">Enable the model's native blue-system leak. Quantity and pressure response depend on the model's current state.</p><div class="buttons"><button class="inject" data-fault="blue_leak" data-enabled="true">Inject leak</button><button data-fault="blue_leak" data-enabled="false">Clear fault flag</button></div><p class="sub" id="command-blue_leak">No command issued by this panel.</p></div></div>
@@ -64,6 +69,48 @@ const human=s=>String(s).replaceAll('_',' ');
 function element(tag,text){const el=document.createElement(tag);el.textContent=text;return el;}
 function describe(item){if(typeof item==='string')return item;const reason=item.reason||item.observation||item.description||item.label||'';const prediction=item.fact?`${human(item.fact)}${item.expected?': '+human(item.expected):''}`:'';const measurements=(item.channels||item.available_measurements||[]).join(', ');const path=item.nodes?item.nodes.map(human).join(' | '):'';const refs=(item.evidence||[]).map(r=>r.channel!==undefined?`${r.channel}, sample ${r.sample_index}: ${r.value??'unknown'} ${r.unit||''}`:JSON.stringify(r)).join('; ');return [prediction,path,reason,measurements,refs].filter(Boolean).join(' | ')||JSON.stringify(item);}
 function block(title,items){const box=document.createElement('div');box.append(element('h3',title));if(!items?.length){box.append(element('p','None recorded.'));return box;}const ul=document.createElement('ul');for(const item of items)ul.append(element('li',describe(item)));box.append(ul);return box;}
+function renderInvestigation(investigation, model, stale) {
+    $('investigationPanel').hidden = !investigation;
+    if (!investigation) {
+        $('investigationSummary').replaceChildren();
+        $('investigationFacts').textContent = '';
+        return;
+    }
+    const {masking, evidence_selection: evidence, common_cause: common} = investigation;
+    const names = new Map(model.candidates.map(candidate => [candidate.id, candidate.label]));
+    const label = id => names.get(id) || human(id);
+    const minimal = masking.minimal_possible_explanations.map(id => {
+        const fit = masking.candidate_observability.find(candidate => candidate.id === id);
+        return `${label(id)} (${fit.status})`;
+    });
+    const masked = investigation.observed_abnormalities.length
+        ? masking.potentially_masked_mechanisms.map(item =>
+            `${label(item.mechanism)}. ${item.limitation}`)
+        : [];
+    const measurement = (item, unavailable) =>
+        `${item.label} (${item.channels.join(', ')}). At least ${item.minimum_eliminated_if_conclusive} of ${evidence.candidate_count} sets eliminated by a conclusive result.${unavailable ? ' Incident evidence unavailable.' : ''}`;
+    const next = evidence.recommended_measurements.map(item => measurement(item, stale));
+    if (!next.length && evidence.candidate_count > 1) next.push('No currently actionable measurement separates the sets in this capture.');
+    next.push(...evidence.unavailable_discriminators.map(item => measurement(item, true)));
+    const unresolved = common.clusters
+        .filter(cluster => cluster.status !== 'known_shared_path_fits')
+        .map(cluster => `${cluster.effects.map(id => model.facts[id].label).join(' / ')}. ${cluster.reason}`);
+    if (common.model_mismatch.status === 'no_joint_model_fit') {
+        unresolved.unshift('The selected observations have no joint catalogue fit. See failed checks below.');
+    }
+    if (evidence.currently_indistinguishable_groups.length) {
+        unresolved.push('Some sets predict the same readings among the available measurements.');
+    }
+    $('investigationScope').textContent = 'Uses the available history of this clock epoch. Counts compare model explanations and do not estimate physical cause likelihood.';
+    $('investigationSummary').replaceChildren(
+        block('What we know', investigation.observed_abnormalities.map(item => item.label)),
+        block('What may explain it', minimal.length ? minimal : ['No joint explanation available.']),
+        block('Potentially masked mechanisms', masked),
+        block('What to investigate next', next),
+        block('Unresolved distinctions', unresolved),
+    );
+    $('investigationFacts').textContent = JSON.stringify(investigation, null, 2);
+}
 function renderCausalGraph(model,facts){
 const ns='http://www.w3.org/2000/svg';const make=(tag,attrs={})=>{const node=document.createElementNS(ns,tag);for(const [key,value] of Object.entries(attrs))node.setAttribute(key,value);return node;};
 const depth=new Map(model.roots.map(id=>[id,0]));for(let i=0;i<model.nodes.length;i++)for(const edge of model.edges)if(depth.has(edge.from))depth.set(edge.to,Math.max(depth.get(edge.to)||0,depth.get(edge.from)+1));
@@ -88,7 +135,9 @@ if(pilot){
     if($('pilotReadout').textContent!==text)$('pilotReadout').textContent=text;
     return;
 }
-const payload=state.diagnosis;if(!payload?.result){$('diagnosisSummary').textContent=payload?.message||'Diagnosis unavailable';$('candidatePanels').replaceChildren();$('diagnosisScope').textContent='';for(const id of ['impacts','facts','modelEdges','timeline','causalGraph'])$(id).replaceChildren();return;}
+const payload=state.diagnosis;
+renderInvestigation(payload?.investigation, payload?.model, payload?.wall_clock_stale);
+if(!payload?.result){$('diagnosisSummary').textContent=payload?.message||'Diagnosis unavailable';$('candidatePanels').replaceChildren();$('diagnosisScope').textContent='';for(const id of ['impacts','facts','modelEdges','timeline','causalGraph'])$(id).replaceChildren();return;}
 $('modelScopeNote').textContent=`${payload.model.candidates.length} candidate configurations cover ${payload.model.roots.length} selected mechanism classes. Native verification and operating-condition limits are documented separately. Compatibility is not a probability or unique physical cause. Equivalent initiating histories remain tied. This is an engineering prototype, not real-aircraft validation.`;const d=payload.result;$('diagnosisSummary').textContent=`${human(d.status)} | ${d.mode} | data ${d.data_sufficiency.status} | model ${human(d.model_fit.status)} | ambiguity ${human(d.ambiguity.status)}`;
 $('diagnosisScope').textContent=`Sample ${d.sample_index}, simulator time ${d.sim_time_s??'unknown'} s. Scope: ${human(d.scope.kind)}; samples ${d.scope.start_sample_index} to ${d.scope.end_sample_index}. ${d.scope.closed?'Incident closed; diagnosis retains its evidence after recovery.':''}`;
 if(d.minimal_candidate_ids?.length){
@@ -98,7 +147,7 @@ if(d.minimal_candidate_ids?.length){
 }
 $('impacts').replaceChildren(block('Current confirmed impact',payload.current_impact),block('Confirmed impact in incident history',payload.observed_impact),block('Useful missing evidence and unresolved distinctions',d.missing_evidence));
 const openCandidates=new Set([...$('candidatePanels').querySelectorAll('details[open]')].map(e=>e.dataset.candidate));const panels=d.candidates.map(c=>{const detail=document.createElement('details');detail.dataset.candidate=c.id;detail.open=openCandidates.has(c.id);const support = payload.evidence_support?.[c.id];
-const percent = support?.percent == null ? '' : ` | evidence support ${support.percent}%`;
+const percent = support?.percent == null ? '' : ` | model-check support ${support.percent}%`;
 detail.append(element('summary', `${c.label} | ${c.status}${percent}`), element('p', c.scope_note));
 if (support?.percent != null) {
     detail.append(element('p', `${support.supported_checks} of ${support.total_checks} model checks supported. This percentage measures evidence coverage. Physical cause confidence remains unresolved.`));

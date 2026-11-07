@@ -1,0 +1,627 @@
+{
+  "source_commit": "6fb84fb6851d8130e74dec1379d30e9873cf3f04",
+  "checks": [
+    {
+      "check": "native-engine accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "native-engine expected minimal sets",
+      "passed": true
+    },
+    {
+      "check": "native-engine withheld engine_2_n2/engine_2_fuel_flow accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "native-engine withholding cannot eliminate an existing fit engine_2_n2/engine_2_fuel_flow",
+      "passed": true
+    },
+    {
+      "check": "native-engine absent channels never actionable engine_2_n2/engine_2_fuel_flow",
+      "passed": true
+    },
+    {
+      "check": "native-engine withheld generator_2_voltage accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "native-engine withholding cannot eliminate an existing fit generator_2_voltage",
+      "passed": true
+    },
+    {
+      "check": "native-engine absent channels never actionable generator_2_voltage",
+      "passed": true
+    },
+    {
+      "check": "native-engine withheld yellow_edp_pressure accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "native-engine withholding cannot eliminate an existing fit yellow_edp_pressure",
+      "passed": true
+    },
+    {
+      "check": "native-engine absent channels never actionable yellow_edp_pressure",
+      "passed": true
+    },
+    {
+      "check": "native-engine withheld blue_quantity accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "native-engine withholding cannot eliminate an existing fit blue_quantity",
+      "passed": true
+    },
+    {
+      "check": "native-engine absent channels never actionable blue_quantity",
+      "passed": true
+    },
+    {
+      "check": "native-engine withheld blue_pressure accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "native-engine withholding cannot eliminate an existing fit blue_pressure",
+      "passed": true
+    },
+    {
+      "check": "native-engine absent channels never actionable blue_pressure",
+      "passed": true
+    },
+    {
+      "check": "native-engine gap accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "native-engine observation gap preserves original root sets",
+      "passed": true
+    },
+    {
+      "check": "native-engine nominal-prefix accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "native-engine nominal prefix",
+      "passed": true
+    },
+    {
+      "check": "native-engine nominal prefix has no abnormal effects",
+      "passed": true
+    },
+    {
+      "check": "native-engine original bytes preserved",
+      "passed": true
+    },
+    {
+      "check": "native-independent-pair accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "native-independent-pair expected minimal sets",
+      "passed": true
+    },
+    {
+      "check": "native-independent-pair withheld engine_2_n2/engine_2_fuel_flow accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "native-independent-pair withholding cannot eliminate an existing fit engine_2_n2/engine_2_fuel_flow",
+      "passed": true
+    },
+    {
+      "check": "native-independent-pair absent channels never actionable engine_2_n2/engine_2_fuel_flow",
+      "passed": true
+    },
+    {
+      "check": "native-independent-pair withheld generator_2_voltage accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "native-independent-pair withholding cannot eliminate an existing fit generator_2_voltage",
+      "passed": true
+    },
+    {
+      "check": "native-independent-pair absent channels never actionable generator_2_voltage",
+      "passed": true
+    },
+    {
+      "check": "native-independent-pair withheld yellow_edp_pressure accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "native-independent-pair withholding cannot eliminate an existing fit yellow_edp_pressure",
+      "passed": true
+    },
+    {
+      "check": "native-independent-pair absent channels never actionable yellow_edp_pressure",
+      "passed": true
+    },
+    {
+      "check": "native-independent-pair withheld blue_quantity accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "native-independent-pair withholding cannot eliminate an existing fit blue_quantity",
+      "passed": true
+    },
+    {
+      "check": "native-independent-pair absent channels never actionable blue_quantity",
+      "passed": true
+    },
+    {
+      "check": "native-independent-pair withheld blue_pressure accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "native-independent-pair withholding cannot eliminate an existing fit blue_pressure",
+      "passed": true
+    },
+    {
+      "check": "native-independent-pair absent channels never actionable blue_pressure",
+      "passed": true
+    },
+    {
+      "check": "native-independent-pair gap accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "native-independent-pair observation gap preserves original root sets",
+      "passed": true
+    },
+    {
+      "check": "native-independent-pair nominal-prefix accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "native-independent-pair nominal prefix",
+      "passed": true
+    },
+    {
+      "check": "native-independent-pair nominal prefix has no abnormal effects",
+      "passed": true
+    },
+    {
+      "check": "native-independent-pair original bytes preserved",
+      "passed": true
+    },
+    {
+      "check": "native-local-yellow accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "native-local-yellow expected minimal sets",
+      "passed": true
+    },
+    {
+      "check": "native-local-yellow withheld engine_2_n2/engine_2_fuel_flow accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "native-local-yellow withholding cannot eliminate an existing fit engine_2_n2/engine_2_fuel_flow",
+      "passed": true
+    },
+    {
+      "check": "native-local-yellow absent channels never actionable engine_2_n2/engine_2_fuel_flow",
+      "passed": true
+    },
+    {
+      "check": "native-local-yellow withheld generator_2_voltage accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "native-local-yellow withholding cannot eliminate an existing fit generator_2_voltage",
+      "passed": true
+    },
+    {
+      "check": "native-local-yellow absent channels never actionable generator_2_voltage",
+      "passed": true
+    },
+    {
+      "check": "native-local-yellow withheld yellow_edp_pressure accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "native-local-yellow withholding cannot eliminate an existing fit yellow_edp_pressure",
+      "passed": true
+    },
+    {
+      "check": "native-local-yellow absent channels never actionable yellow_edp_pressure",
+      "passed": true
+    },
+    {
+      "check": "native-local-yellow withheld blue_quantity accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "native-local-yellow withholding cannot eliminate an existing fit blue_quantity",
+      "passed": true
+    },
+    {
+      "check": "native-local-yellow absent channels never actionable blue_quantity",
+      "passed": true
+    },
+    {
+      "check": "native-local-yellow withheld blue_pressure accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "native-local-yellow withholding cannot eliminate an existing fit blue_pressure",
+      "passed": true
+    },
+    {
+      "check": "native-local-yellow absent channels never actionable blue_pressure",
+      "passed": true
+    },
+    {
+      "check": "native-local-yellow gap accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "native-local-yellow observation gap preserves original root sets",
+      "passed": true
+    },
+    {
+      "check": "native-local-yellow nominal-prefix accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "native-local-yellow nominal prefix",
+      "passed": true
+    },
+    {
+      "check": "native-local-yellow nominal prefix has no abnormal effects",
+      "passed": true
+    },
+    {
+      "check": "native-local-yellow original bytes preserved",
+      "passed": true
+    },
+    {
+      "check": "fresh-independent-pair accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "fresh-independent-pair expected minimal sets",
+      "passed": true
+    },
+    {
+      "check": "fresh-independent-pair withheld engine_2_n2/engine_2_fuel_flow accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "fresh-independent-pair withholding cannot eliminate an existing fit engine_2_n2/engine_2_fuel_flow",
+      "passed": true
+    },
+    {
+      "check": "fresh-independent-pair absent channels never actionable engine_2_n2/engine_2_fuel_flow",
+      "passed": true
+    },
+    {
+      "check": "fresh-independent-pair withheld generator_2_voltage accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "fresh-independent-pair withholding cannot eliminate an existing fit generator_2_voltage",
+      "passed": true
+    },
+    {
+      "check": "fresh-independent-pair absent channels never actionable generator_2_voltage",
+      "passed": true
+    },
+    {
+      "check": "fresh-independent-pair withheld yellow_edp_pressure accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "fresh-independent-pair withholding cannot eliminate an existing fit yellow_edp_pressure",
+      "passed": true
+    },
+    {
+      "check": "fresh-independent-pair absent channels never actionable yellow_edp_pressure",
+      "passed": true
+    },
+    {
+      "check": "fresh-independent-pair withheld blue_quantity accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "fresh-independent-pair withholding cannot eliminate an existing fit blue_quantity",
+      "passed": true
+    },
+    {
+      "check": "fresh-independent-pair absent channels never actionable blue_quantity",
+      "passed": true
+    },
+    {
+      "check": "fresh-independent-pair withheld blue_pressure accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "fresh-independent-pair withholding cannot eliminate an existing fit blue_pressure",
+      "passed": true
+    },
+    {
+      "check": "fresh-independent-pair absent channels never actionable blue_pressure",
+      "passed": true
+    },
+    {
+      "check": "fresh-independent-pair gap accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "fresh-independent-pair observation gap preserves original root sets",
+      "passed": true
+    },
+    {
+      "check": "fresh-independent-pair nominal-prefix accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "fresh-independent-pair nominal prefix",
+      "passed": true
+    },
+    {
+      "check": "fresh-independent-pair nominal prefix has no abnormal effects",
+      "passed": true
+    },
+    {
+      "check": "fresh-independent-pair original bytes preserved",
+      "passed": true
+    },
+    {
+      "check": "stress-01 accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "stress-01 original stress-history counts",
+      "passed": true
+    },
+    {
+      "check": "stress-01 combined counterfactual restrictions",
+      "passed": true
+    },
+    {
+      "check": "stress-02 accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "stress-02 original stress-history counts",
+      "passed": true
+    },
+    {
+      "check": "stress-02 combined counterfactual restrictions",
+      "passed": true
+    },
+    {
+      "check": "stress-02 earlier local generator cannot be rewritten",
+      "passed": true
+    },
+    {
+      "check": "stress-03 accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "stress-03 original stress-history counts",
+      "passed": true
+    },
+    {
+      "check": "stress-03 combined counterfactual restrictions",
+      "passed": true
+    },
+    {
+      "check": "stress-04 accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "stress-04 original stress-history counts",
+      "passed": true
+    },
+    {
+      "check": "stress-04 combined counterfactual restrictions",
+      "passed": true
+    },
+    {
+      "check": "stress-05 accounts for every catalogue history",
+      "passed": true
+    },
+    {
+      "check": "stress-05 original stress-history counts",
+      "passed": true
+    },
+    {
+      "check": "stress-05 combined counterfactual restrictions",
+      "passed": true
+    },
+    {
+      "check": "stress-05 additional Blue pressure root remains possible",
+      "passed": true
+    },
+    {
+      "check": "stress-05 no invented discriminator",
+      "passed": true
+    }
+  ],
+  "samples": [
+    {
+      "case": "native-engine",
+      "input_sha256": "51972c0f8523641e43ddc5a4bbf196d2560b61c5ea27e3113f9e16dc6b8d929b",
+      "counts": {
+        "compatible": 20,
+        "unconfirmed": 0,
+        "excluded_by_dependency": 1062,
+        "excluded_by_timing": 0
+      },
+      "minimal": [
+        "engine_2_power_loss"
+      ],
+      "root_sets": 4,
+      "possibly_masked": [
+        "generator_2_source_path_fault",
+        "yellow_engine_driven_pump_supply_loss"
+      ],
+      "common": [
+        "known_shared_path_fits",
+        "known_shared_path_fits"
+      ]
+    },
+    {
+      "case": "native-independent-pair",
+      "input_sha256": "a8ea5ee29d22d2de60502467dbd607b6d5635e7246b67f1d78e22bda0d5d57ca",
+      "counts": {
+        "compatible": 3,
+        "unconfirmed": 0,
+        "excluded_by_dependency": 1079,
+        "excluded_by_timing": 0
+      },
+      "minimal": [
+        "generator_2_source_path_fault+yellow_engine_driven_pump_supply_loss"
+      ],
+      "root_sets": 1,
+      "possibly_masked": [],
+      "common": [
+        "shared_origin_unresolved"
+      ]
+    },
+    {
+      "case": "native-local-yellow",
+      "input_sha256": "60c46477f57024b5e8556b3b97b04d0f0a0fed405ac5da47bd0a495f9f734f3e",
+      "counts": {
+        "compatible": 1,
+        "unconfirmed": 0,
+        "excluded_by_dependency": 1081,
+        "excluded_by_timing": 0
+      },
+      "minimal": [
+        "yellow_engine_driven_pump_supply_loss"
+      ],
+      "root_sets": 1,
+      "possibly_masked": [],
+      "common": []
+    },
+    {
+      "case": "fresh-independent-pair",
+      "input_sha256": "d795d302a761e422587fcb8a7b136f7aad0b26992c015fad7a43edae5340c92d",
+      "counts": {
+        "compatible": 3,
+        "unconfirmed": 0,
+        "excluded_by_dependency": 1079,
+        "excluded_by_timing": 0
+      },
+      "minimal": [
+        "generator_2_source_path_fault+yellow_engine_driven_pump_supply_loss"
+      ],
+      "root_sets": 1,
+      "possibly_masked": [],
+      "common": [
+        "shared_origin_unresolved"
+      ]
+    },
+    {
+      "case": "stress-01",
+      "counts": {
+        "compatible": 42,
+        "unconfirmed": 0,
+        "excluded_by_dependency": 978,
+        "excluded_by_timing": 62
+      },
+      "minimal": [
+        "blue_pressure_supply_loss+engine_2_power_loss"
+      ],
+      "root_sets": 4,
+      "possibly_masked": [
+        "generator_2_source_path_fault",
+        "yellow_engine_driven_pump_supply_loss"
+      ],
+      "common": [
+        "known_shared_path_fits",
+        "known_shared_path_fits",
+        "known_shared_path_fits"
+      ]
+    },
+    {
+      "case": "stress-02",
+      "counts": {
+        "compatible": 20,
+        "unconfirmed": 0,
+        "excluded_by_dependency": 378,
+        "excluded_by_timing": 684
+      },
+      "minimal": [
+        "generator_2_source_path_fault+blue_fluid_loss_mechanism+engine_2_power_loss"
+      ],
+      "root_sets": 4,
+      "possibly_masked": [
+        "blue_pressure_supply_loss",
+        "yellow_engine_driven_pump_supply_loss"
+      ],
+      "common": [
+        "known_shared_path_fits",
+        "known_shared_path_fits",
+        "known_shared_path_fits",
+        "known_shared_path_fits"
+      ]
+    },
+    {
+      "case": "stress-03",
+      "counts": {
+        "compatible": 3,
+        "unconfirmed": 0,
+        "excluded_by_dependency": 541,
+        "excluded_by_timing": 538
+      },
+      "minimal": [
+        "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss"
+      ],
+      "root_sets": 1,
+      "possibly_masked": [],
+      "common": [
+        "shared_origin_unresolved",
+        "known_shared_path_fits"
+      ]
+    },
+    {
+      "case": "stress-04",
+      "counts": {
+        "compatible": 0,
+        "unconfirmed": 87,
+        "excluded_by_dependency": 303,
+        "excluded_by_timing": 692
+      },
+      "minimal": [
+        "blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss",
+        "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+yellow_engine_driven_pump_supply_loss"
+      ],
+      "root_sets": 5,
+      "possibly_masked": [
+        "generator_2_source_path_fault",
+        "yellow_engine_driven_pump_supply_loss",
+        "engine_2_power_loss"
+      ],
+      "common": [
+        "known_shared_path_fits"
+      ]
+    },
+    {
+      "case": "stress-05",
+      "counts": {
+        "compatible": 88,
+        "unconfirmed": 0,
+        "excluded_by_dependency": 994,
+        "excluded_by_timing": 0
+      },
+      "minimal": [
+        "generator_2_source_path_fault+blue_fluid_loss_mechanism+yellow_engine_driven_pump_supply_loss"
+      ],
+      "root_sets": 2,
+      "possibly_masked": [
+        "blue_pressure_supply_loss"
+      ],
+      "common": [
+        "shared_origin_unresolved"
+      ]
+    }
+  ],
+  "passed": 110,
+  "total": 110
+}

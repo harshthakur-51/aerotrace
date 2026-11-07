@@ -9,6 +9,11 @@ flowchart LR
     Facts --> Model[Candidate compatibility]
     Facts --> Impact[Current and historical impact]
     Model --> Viewer[Live panel or recorded replay]
+    Model --> Investigation[Counterfactuals and masked mechanisms]
+    Facts --> Investigation
+    Investigation --> Next[Passive measurement partitions]
+    Investigation --> Viewer
+    Next --> Viewer
     Impact --> Viewer
     Model --> Score[Sealed evaluation]
     Target[Predeclared expected candidate sets] --> Score
@@ -28,5 +33,19 @@ The version 2 model compares eight configurations built from three selected mech
 Version 3 adds Engine 2 power loss and local Yellow engine-driven pump supply loss. Its extended profile records core speed, fuel flow, pump outputs, transfer and Yellow line pressure. The graph connects engine drive to both dependent sources. An observed backup supply can preserve line pressure after the primary pump loses output. [Drive-loss study and measurement ablations](ENGINE-DRIVE-STUDY.md)
 
 Version 4 generates every set of the five mechanism classes. The history replay fits 1,081 onset histories to measured first responses and optional delay bounds. It keeps alternatives when multiple paths can explain the same evidence. Version 1.2 shares one pilot formatter across the terminal, report and opt-in browser view. An observed ground-power origin affects the displayed timestamps. Sequence constraints still use the measured simulator clock. [Five-fault sequence study](FAULT-SEQUENCE-STUDY.md)
+
+Release v1.3 adds an observation-only investigation to this same fit.
+[Counterfactual and masking analysis](../aircraft_debugger/investigation.py)
+restricts the fitted catalogue and compares candidate predictions for
+additional measurements. Conditional predictions survive both conclusive
+outcomes. Missing channels and historical gaps remain separate from usable
+passive observations.
+
+[Common-cause screening](../aircraft_debugger/common_cause.py) tests existing
+shared dependency paths and feasible onset groups before surfacing a shared
+origin as an unresolved possibility. It retains independent alternatives
+and joint-fit residuals. The three simulator second screening span is a
+project heuristic, and the graph contains no physical exposure model.
+[Investigation method and reproducible evaluation](CAUSAL-INVESTIGATION.md)
 
 [Engineering report](ENGINEERING-REPORT.md) · [Reproduction guide](REPRODUCING.md)

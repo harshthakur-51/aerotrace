@@ -1,0 +1,1598 @@
+{
+  "baseline_commit": "9101b111de790c50ac0af777d01c99284d88d43e",
+  "protocol_sha256": "536d20fe8e03639b83ae4fba702f470d20f2ecf91404d01cdd6e471a79ff8e4e",
+  "python": "3.13.14",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "repetitions": 3,
+  "executed_source_sha256": {
+    "v1.2": {
+      "aircraft_debugger/__init__.py": "83de87536227557e0fcd7aced5711916bd219cd466375ef64eb05b5a81b28f23",
+      "aircraft_debugger/__main__.py": "0a9439fea1316071c85174732ebc58ab16ad9a6c44c99408daf866b353a4aafd",
+      "aircraft_debugger/airborne_admission.py": "9ffd7b384a88631cdc2b844ac3ec340bd9dfe8608ef9119c875cc6f1535acf9b",
+      "aircraft_debugger/airborne_evidence.py": "fa7c985c040d72a10f1315e0fb26c05c456c284ee7cfb2476c8e387d1e9d31d8",
+      "aircraft_debugger/airborne_experiment.py": "3c35641936a18b80d0f4b68c1603fbdf3fbe35415d33fb366c90fc4b8b3b861f",
+      "aircraft_debugger/airborne_profile.py": "bb74b3c901bb862c2cd665c00257d0eab7cd85b6588a3226f7c83f1340e5f3ac",
+      "aircraft_debugger/airborne_record.py": "9ae4b20244e1e4fd03136ee1b334945854b1f4be5f8c98fa2d00efb3aeedf494",
+      "aircraft_debugger/assets/sim-panel.html": "ac073ed75115da829735b99bdbbd36c899125eabded138930ec44063a7eeb09c",
+      "aircraft_debugger/audit.py": "647f71e3495b92c1f423ebfd5100836823644140bb547415390320850bc672bd",
+      "aircraft_debugger/candidate_support.py": "a16dae541f25ba1c1151dbf99e29341d6dcf2110c5eef666ad51d5490d814840",
+      "aircraft_debugger/comparison.py": "f3c5c86420efd4a5a470b56285a585ff9d7ec87dec2faa0cc7d24ea7979a5526",
+      "aircraft_debugger/cross_system.py": "a5605babc713cb6907ac36991ddcf9c588a74afaa1bde850d8aedbb6258ee39e",
+      "aircraft_debugger/diagnosis.py": "1c81177a5eab03fe22a46b08640e1b4b25b682254adb12b1b5028c07595a0618",
+      "aircraft_debugger/diagnostic_features.py": "43f6fb59698e6e9abefe67f5a6b15bdaf37b3e58e32ba085a18632b4f72ef01e",
+      "aircraft_debugger/diagnostic_session.py": "e67930f36fe690e558ece1e10d2c087930835cdc14a62ea5cec8b9758672f410",
+      "aircraft_debugger/evaluation.py": "0aec7b25f2794d6ba305b4249bf656a6f721b37a6d2c8b833d72db99110016d9",
+      "aircraft_debugger/evidence.py": "cd0c6ad86b66ccb15a3d1c3b446ea9208f0ea3b419d12ecb23beb91db542f519",
+      "aircraft_debugger/experiment.py": "67d55615fe678fd3fdb710a190c65f087ea45a49e3efe427ebf90dbc2a6abea4",
+      "aircraft_debugger/flightgear.py": "4e60e793ad30fdc5fa8d2b8d9d9157b16c1ab20fa99014df0252216325bdd443",
+      "aircraft_debugger/hypotheses.py": "a208aa3fb117a3fedfacaf9cd5e259c9305ae8f5ec7ec2f127210713b74d8f7c",
+      "aircraft_debugger/model.py": "82adfd1e11dfde14884437b637cbd1cdcb9c5b968877170c2387410d8b3e40ee",
+      "aircraft_debugger/observations.py": "56d3acd38311403f340ad2ae8a733ebb00135ca290484d3ad95ef07e5689011c",
+      "aircraft_debugger/onset_orders.py": "82959811c563a0378e2ef48a43a1eca992eafc88435278b92b496e88ba76b13b",
+      "aircraft_debugger/pilot_display.py": "125f9cddf947688c74fa8bcd14c1fba4971be96361ebf6b1744ee4f2f8324ef6",
+      "aircraft_debugger/plant.py": "f916b9b0cc622e3871b05ad8b73ede7e617828628db907df888682133b83e448",
+      "aircraft_debugger/propulsion_features.py": "21699c050c509487a112fd54ab7888970eed584a9c33ebda10867f8666aa3738",
+      "aircraft_debugger/propulsion_study.py": "80b62d336875e8096751034129be3dba85e26af1cc77780a85b7863a579c947b",
+      "aircraft_debugger/replay_panel.py": "e63761977e48869cecefad61cdb8de01b8262934608357b05b217b76dad9e3bf",
+      "aircraft_debugger/sequence_plan.py": "5880185b3e6875f533a1d13c35401d1687bf705c314a42548921211c1a5680ba",
+      "aircraft_debugger/sequence_reasoning.py": "8485bfd37be2bfa4fb6365a270f6263d3c3ee6b14dd100140ebbcf2382d3b72e",
+      "aircraft_debugger/sim_panel.py": "29e673cd6adc82a0bc2e7ab8460f8da247598335be21221fd6ebade7cfc80c8c",
+      "aircraft_debugger/temporal_analysis.py": "ebb7eff86a7019c097405a4d26e2a6d1eb24bd875de283f62e051469835da242"
+    },
+    "v1.3": {
+      "aircraft_debugger/__init__.py": "82e7f0b0dacba5ee8e2c4025d6be05af7b9cbde3bfcc4880a3a68eb6e9a003ee",
+      "aircraft_debugger/__main__.py": "0a9439fea1316071c85174732ebc58ab16ad9a6c44c99408daf866b353a4aafd",
+      "aircraft_debugger/airborne_admission.py": "9ffd7b384a88631cdc2b844ac3ec340bd9dfe8608ef9119c875cc6f1535acf9b",
+      "aircraft_debugger/airborne_evidence.py": "fa7c985c040d72a10f1315e0fb26c05c456c284ee7cfb2476c8e387d1e9d31d8",
+      "aircraft_debugger/airborne_experiment.py": "3c35641936a18b80d0f4b68c1603fbdf3fbe35415d33fb366c90fc4b8b3b861f",
+      "aircraft_debugger/airborne_profile.py": "bb74b3c901bb862c2cd665c00257d0eab7cd85b6588a3226f7c83f1340e5f3ac",
+      "aircraft_debugger/airborne_record.py": "9ae4b20244e1e4fd03136ee1b334945854b1f4be5f8c98fa2d00efb3aeedf494",
+      "aircraft_debugger/assets/sim-panel.html": "dd35b683ae5ba1c6050a5b0c8cbe5ad54db7f1fdd36805ab541c4e994f56e417",
+      "aircraft_debugger/audit.py": "647f71e3495b92c1f423ebfd5100836823644140bb547415390320850bc672bd",
+      "aircraft_debugger/candidate_support.py": "a16dae541f25ba1c1151dbf99e29341d6dcf2110c5eef666ad51d5490d814840",
+      "aircraft_debugger/common_cause.py": "9fabd871e1041cfe91fe11e6ce0aea4e6e5b1c07d4c9127b98afb4e7cd4613da",
+      "aircraft_debugger/comparison.py": "f3c5c86420efd4a5a470b56285a585ff9d7ec87dec2faa0cc7d24ea7979a5526",
+      "aircraft_debugger/cross_system.py": "a5605babc713cb6907ac36991ddcf9c588a74afaa1bde850d8aedbb6258ee39e",
+      "aircraft_debugger/diagnosis.py": "1c81177a5eab03fe22a46b08640e1b4b25b682254adb12b1b5028c07595a0618",
+      "aircraft_debugger/diagnostic_features.py": "ffc17a6daf064b68e49ab9d22a36c53734e5f59b8f7e90676dbcbef76dd9992e",
+      "aircraft_debugger/diagnostic_session.py": "0a6641c696be1db723e963d708efdf936583e095393cdade5953dec2d12a32d1",
+      "aircraft_debugger/evaluation.py": "0aec7b25f2794d6ba305b4249bf656a6f721b37a6d2c8b833d72db99110016d9",
+      "aircraft_debugger/evidence.py": "cd0c6ad86b66ccb15a3d1c3b446ea9208f0ea3b419d12ecb23beb91db542f519",
+      "aircraft_debugger/experiment.py": "67d55615fe678fd3fdb710a190c65f087ea45a49e3efe427ebf90dbc2a6abea4",
+      "aircraft_debugger/flightgear.py": "4e60e793ad30fdc5fa8d2b8d9d9157b16c1ab20fa99014df0252216325bdd443",
+      "aircraft_debugger/hypotheses.py": "a208aa3fb117a3fedfacaf9cd5e259c9305ae8f5ec7ec2f127210713b74d8f7c",
+      "aircraft_debugger/investigation.py": "343da0b60a90444a636b6074cda2ec98ec0c6dbe4478c65ffc03eb04ea7ee99f",
+      "aircraft_debugger/model.py": "82adfd1e11dfde14884437b637cbd1cdcb9c5b968877170c2387410d8b3e40ee",
+      "aircraft_debugger/observations.py": "56d3acd38311403f340ad2ae8a733ebb00135ca290484d3ad95ef07e5689011c",
+      "aircraft_debugger/onset_orders.py": "82959811c563a0378e2ef48a43a1eca992eafc88435278b92b496e88ba76b13b",
+      "aircraft_debugger/pilot_display.py": "0025a2467e28d97d6819757b9d9a1c12c3155bf30f23723e661145422a42cd4f",
+      "aircraft_debugger/plant.py": "f916b9b0cc622e3871b05ad8b73ede7e617828628db907df888682133b83e448",
+      "aircraft_debugger/propulsion_features.py": "21699c050c509487a112fd54ab7888970eed584a9c33ebda10867f8666aa3738",
+      "aircraft_debugger/propulsion_study.py": "80b62d336875e8096751034129be3dba85e26af1cc77780a85b7863a579c947b",
+      "aircraft_debugger/replay_panel.py": "8c04a8053aa36a700aac6e5f589b9f55a05af529e6105c41d258ac1e30419781",
+      "aircraft_debugger/sequence_plan.py": "5880185b3e6875f533a1d13c35401d1687bf705c314a42548921211c1a5680ba",
+      "aircraft_debugger/sequence_reasoning.py": "a02ba5d749f7593e16f7def2ce5551396d039df0d450f64be82ab76a255b62de",
+      "aircraft_debugger/sim_panel.py": "6dfedfb377352a0d51b90fed8771df75584697c2e60e0d9c00f4b6ede27b1a4b",
+      "aircraft_debugger/temporal_analysis.py": "ebb7eff86a7019c097405a4d26e2a6d1eb24bd875de283f62e051469835da242"
+    }
+  },
+  "evaluation_script_sha256": "5ed543f865703b1fb706d5497b1aa12fae86d3382deba90593f2bfe7f7c18ebb",
+  "timing_scope": "analyze_sequences on preloaded rows, median wall time, alternating version order",
+  "memory_scope": "peak traced Python allocations in a separate run, excluding preloaded rows",
+  "cases": [
+    {
+      "case": "D01",
+      "group": "development",
+      "truth": [
+        "engine_2_power_loss",
+        "blue_pressure_supply_loss"
+      ],
+      "independent_control": false,
+      "identical_public_input": true,
+      "identical_original_fit": true,
+      "restore_experiments": [],
+      "v1.2": {
+        "input_sha256": "5edb4d8b01af6e555034b28839be12ef91c976ba85943eb4e728487bc355af8f",
+        "fit_sha256": "0d13ba3708dd8ba35b17083cba96903d8d91a65a2f21556a907da9db57748ba3",
+        "samples": 120,
+        "median_wall_s": 2.1629437999799848,
+        "python_peak_bytes": 4680003,
+        "history_counts": {
+          "compatible": 42,
+          "unconfirmed": 0,
+          "excluded_by_dependency": 978,
+          "excluded_by_timing": 62
+        },
+        "surviving_sets": {
+          "blue_pressure_supply_loss+engine_2_power_loss": [
+            "blue_pressure_supply_loss",
+            "engine_2_power_loss"
+          ],
+          "generator_2_source_path_fault+blue_pressure_supply_loss+engine_2_power_loss": [
+            "generator_2_source_path_fault",
+            "blue_pressure_supply_loss",
+            "engine_2_power_loss"
+          ],
+          "blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss": [
+            "blue_pressure_supply_loss",
+            "engine_2_power_loss",
+            "yellow_engine_driven_pump_supply_loss"
+          ],
+          "generator_2_source_path_fault+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss": [
+            "generator_2_source_path_fault",
+            "blue_pressure_supply_loss",
+            "engine_2_power_loss",
+            "yellow_engine_driven_pump_supply_loss"
+          ]
+        },
+        "minimal_possible_sets": [
+          "blue_pressure_supply_loss+engine_2_power_loss"
+        ],
+        "physical_cause_identifiable": false,
+        "true_set_retained": true,
+        "true_set_minimal": true
+      },
+      "v1.3": {
+        "input_sha256": "5edb4d8b01af6e555034b28839be12ef91c976ba85943eb4e728487bc355af8f",
+        "fit_sha256": "0d13ba3708dd8ba35b17083cba96903d8d91a65a2f21556a907da9db57748ba3",
+        "samples": 120,
+        "median_wall_s": 2.131864399998449,
+        "python_peak_bytes": 4680003,
+        "history_counts": {
+          "compatible": 42,
+          "unconfirmed": 0,
+          "excluded_by_dependency": 978,
+          "excluded_by_timing": 62
+        },
+        "surviving_sets": {
+          "blue_pressure_supply_loss+engine_2_power_loss": [
+            "blue_pressure_supply_loss",
+            "engine_2_power_loss"
+          ],
+          "generator_2_source_path_fault+blue_pressure_supply_loss+engine_2_power_loss": [
+            "generator_2_source_path_fault",
+            "blue_pressure_supply_loss",
+            "engine_2_power_loss"
+          ],
+          "blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss": [
+            "blue_pressure_supply_loss",
+            "engine_2_power_loss",
+            "yellow_engine_driven_pump_supply_loss"
+          ],
+          "generator_2_source_path_fault+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss": [
+            "generator_2_source_path_fault",
+            "blue_pressure_supply_loss",
+            "engine_2_power_loss",
+            "yellow_engine_driven_pump_supply_loss"
+          ]
+        },
+        "minimal_possible_sets": [
+          "blue_pressure_supply_loss+engine_2_power_loss"
+        ],
+        "physical_cause_identifiable": false,
+        "observed": [
+          "generator_source_anomaly",
+          "blue_pressure_loss",
+          "engine_2_fuel_flow_loss",
+          "engine_2_core_speed_loss",
+          "yellow_edp_output_loss",
+          "yellow_line_pressure_loss"
+        ],
+        "evidence": {
+          "status": "no_modelled_passive_discriminator",
+          "candidate_count": 4,
+          "recommended_measurements": [],
+          "unavailable_discriminators": [],
+          "equivalent_prediction_groups": [
+            [
+              "blue_pressure_supply_loss+engine_2_power_loss",
+              "generator_2_source_path_fault+blue_pressure_supply_loss+engine_2_power_loss",
+              "blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss",
+              "generator_2_source_path_fault+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss"
+            ]
+          ],
+          "currently_indistinguishable_groups": [
+            [
+              "blue_pressure_supply_loss+engine_2_power_loss",
+              "generator_2_source_path_fault+blue_pressure_supply_loss+engine_2_power_loss",
+              "blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss",
+              "generator_2_source_path_fault+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss"
+            ]
+          ],
+          "ranking": "Fewest remaining root sets in the worst conclusive outcome, then the best outcome, then fact ID.",
+          "scope": "Hypothetical usable evidence for the same incident window. A fresh later reading cannot fill a historical gap. Predictions concern the presence of an effect, without a new timestamp. An unknown result eliminates nothing."
+        },
+        "possibly_masked": [
+          "generator_2_source_path_fault",
+          "yellow_engine_driven_pump_supply_loss"
+        ],
+        "cluster_statuses": [
+          "known_shared_path_fits",
+          "known_shared_path_fits",
+          "known_shared_path_fits"
+        ],
+        "unmodelled_common_cause_possibilities": 0,
+        "physical_initiators_claimed": 0,
+        "model_mismatch": "joint_fit_retained",
+        "unexplained_observations": [],
+        "counterfactual_checks": {
+          "agreed": 37,
+          "total": 37
+        },
+        "true_set_retained": true,
+        "true_set_minimal": true
+      }
+    },
+    {
+      "case": "D02",
+      "group": "development",
+      "truth": [
+        "generator_2_source_path_fault",
+        "blue_fluid_loss_mechanism",
+        "engine_2_power_loss"
+      ],
+      "independent_control": false,
+      "identical_public_input": true,
+      "identical_original_fit": true,
+      "restore_experiments": [],
+      "v1.3": {
+        "input_sha256": "895b78e2bbdbf5c3280555dd5eb9adc1131d95178d29ff1dc5dd75e136ac3d78",
+        "fit_sha256": "6b77c4737a736667547d384d39339f0edf7f637d02ea1796a777f41015edbeaa",
+        "samples": 120,
+        "median_wall_s": 2.1468556999461725,
+        "python_peak_bytes": 4773559,
+        "history_counts": {
+          "compatible": 20,
+          "unconfirmed": 0,
+          "excluded_by_dependency": 378,
+          "excluded_by_timing": 684
+        },
+        "surviving_sets": {
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+engine_2_power_loss": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism",
+            "engine_2_power_loss"
+          ],
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism",
+            "blue_pressure_supply_loss",
+            "engine_2_power_loss"
+          ],
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+engine_2_power_loss+yellow_engine_driven_pump_supply_loss": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism",
+            "engine_2_power_loss",
+            "yellow_engine_driven_pump_supply_loss"
+          ],
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism",
+            "blue_pressure_supply_loss",
+            "engine_2_power_loss",
+            "yellow_engine_driven_pump_supply_loss"
+          ]
+        },
+        "minimal_possible_sets": [
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+engine_2_power_loss"
+        ],
+        "physical_cause_identifiable": false,
+        "observed": [
+          "generator_source_anomaly",
+          "blue_inventory_loss",
+          "bus_supply_loss",
+          "blue_pressure_loss",
+          "engine_2_fuel_flow_loss",
+          "engine_2_core_speed_loss",
+          "yellow_edp_output_loss",
+          "yellow_line_pressure_loss"
+        ],
+        "evidence": {
+          "status": "no_modelled_passive_discriminator",
+          "candidate_count": 4,
+          "recommended_measurements": [],
+          "unavailable_discriminators": [],
+          "equivalent_prediction_groups": [
+            [
+              "generator_2_source_path_fault+blue_fluid_loss_mechanism+engine_2_power_loss",
+              "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss",
+              "generator_2_source_path_fault+blue_fluid_loss_mechanism+engine_2_power_loss+yellow_engine_driven_pump_supply_loss",
+              "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss"
+            ]
+          ],
+          "currently_indistinguishable_groups": [
+            [
+              "generator_2_source_path_fault+blue_fluid_loss_mechanism+engine_2_power_loss",
+              "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss",
+              "generator_2_source_path_fault+blue_fluid_loss_mechanism+engine_2_power_loss+yellow_engine_driven_pump_supply_loss",
+              "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss"
+            ]
+          ],
+          "ranking": "Fewest remaining root sets in the worst conclusive outcome, then the best outcome, then fact ID.",
+          "scope": "Hypothetical usable evidence for the same incident window. A fresh later reading cannot fill a historical gap. Predictions concern the presence of an effect, without a new timestamp. An unknown result eliminates nothing."
+        },
+        "possibly_masked": [
+          "blue_pressure_supply_loss",
+          "yellow_engine_driven_pump_supply_loss"
+        ],
+        "cluster_statuses": [
+          "known_shared_path_fits",
+          "known_shared_path_fits",
+          "known_shared_path_fits",
+          "known_shared_path_fits"
+        ],
+        "unmodelled_common_cause_possibilities": 0,
+        "physical_initiators_claimed": 0,
+        "model_mismatch": "joint_fit_retained",
+        "unexplained_observations": [],
+        "counterfactual_checks": {
+          "agreed": 37,
+          "total": 37
+        },
+        "true_set_retained": true,
+        "true_set_minimal": true
+      },
+      "v1.2": {
+        "input_sha256": "895b78e2bbdbf5c3280555dd5eb9adc1131d95178d29ff1dc5dd75e136ac3d78",
+        "fit_sha256": "6b77c4737a736667547d384d39339f0edf7f637d02ea1796a777f41015edbeaa",
+        "samples": 120,
+        "median_wall_s": 2.1662012001033872,
+        "python_peak_bytes": 4773559,
+        "history_counts": {
+          "compatible": 20,
+          "unconfirmed": 0,
+          "excluded_by_dependency": 378,
+          "excluded_by_timing": 684
+        },
+        "surviving_sets": {
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+engine_2_power_loss": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism",
+            "engine_2_power_loss"
+          ],
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism",
+            "blue_pressure_supply_loss",
+            "engine_2_power_loss"
+          ],
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+engine_2_power_loss+yellow_engine_driven_pump_supply_loss": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism",
+            "engine_2_power_loss",
+            "yellow_engine_driven_pump_supply_loss"
+          ],
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism",
+            "blue_pressure_supply_loss",
+            "engine_2_power_loss",
+            "yellow_engine_driven_pump_supply_loss"
+          ]
+        },
+        "minimal_possible_sets": [
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+engine_2_power_loss"
+        ],
+        "physical_cause_identifiable": false,
+        "true_set_retained": true,
+        "true_set_minimal": true
+      }
+    },
+    {
+      "case": "D03",
+      "group": "development",
+      "truth": [
+        "generator_2_source_path_fault",
+        "yellow_engine_driven_pump_supply_loss",
+        "blue_pressure_supply_loss",
+        "blue_fluid_loss_mechanism",
+        "engine_2_power_loss"
+      ],
+      "independent_control": false,
+      "identical_public_input": true,
+      "identical_original_fit": true,
+      "restore_experiments": [],
+      "v1.2": {
+        "input_sha256": "b7b73caada0b8df4f4d058c5c2ad96d5be0aa910f11317626b17d6b60775752f",
+        "fit_sha256": "ddfca1c5184621611202dd3ec7482475aad02a218626d2d7965aada0ebc3461c",
+        "samples": 120,
+        "median_wall_s": 2.1769905000692233,
+        "python_peak_bytes": 4773575,
+        "history_counts": {
+          "compatible": 3,
+          "unconfirmed": 0,
+          "excluded_by_dependency": 541,
+          "excluded_by_timing": 538
+        },
+        "surviving_sets": {
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism",
+            "blue_pressure_supply_loss",
+            "engine_2_power_loss",
+            "yellow_engine_driven_pump_supply_loss"
+          ]
+        },
+        "minimal_possible_sets": [
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss"
+        ],
+        "physical_cause_identifiable": false,
+        "true_set_retained": true,
+        "true_set_minimal": true
+      },
+      "v1.3": {
+        "input_sha256": "b7b73caada0b8df4f4d058c5c2ad96d5be0aa910f11317626b17d6b60775752f",
+        "fit_sha256": "ddfca1c5184621611202dd3ec7482475aad02a218626d2d7965aada0ebc3461c",
+        "samples": 120,
+        "median_wall_s": 2.1995804000180215,
+        "python_peak_bytes": 4773575,
+        "history_counts": {
+          "compatible": 3,
+          "unconfirmed": 0,
+          "excluded_by_dependency": 541,
+          "excluded_by_timing": 538
+        },
+        "surviving_sets": {
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism",
+            "blue_pressure_supply_loss",
+            "engine_2_power_loss",
+            "yellow_engine_driven_pump_supply_loss"
+          ]
+        },
+        "minimal_possible_sets": [
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss"
+        ],
+        "physical_cause_identifiable": false,
+        "observed": [
+          "generator_source_anomaly",
+          "blue_inventory_loss",
+          "bus_supply_loss",
+          "blue_pressure_loss",
+          "engine_2_fuel_flow_loss",
+          "engine_2_core_speed_loss",
+          "yellow_edp_output_loss",
+          "yellow_line_pressure_loss"
+        ],
+        "evidence": {
+          "status": "no_competing_root_sets",
+          "candidate_count": 1,
+          "recommended_measurements": [],
+          "unavailable_discriminators": [],
+          "equivalent_prediction_groups": [],
+          "currently_indistinguishable_groups": [],
+          "ranking": "Fewest remaining root sets in the worst conclusive outcome, then the best outcome, then fact ID.",
+          "scope": "Hypothetical usable evidence for the same incident window. A fresh later reading cannot fill a historical gap. Predictions concern the presence of an effect, without a new timestamp. An unknown result eliminates nothing."
+        },
+        "possibly_masked": [],
+        "cluster_statuses": [
+          "shared_origin_unresolved",
+          "known_shared_path_fits"
+        ],
+        "unmodelled_common_cause_possibilities": 1,
+        "physical_initiators_claimed": 0,
+        "model_mismatch": "joint_fit_retained",
+        "unexplained_observations": [],
+        "counterfactual_checks": {
+          "agreed": 37,
+          "total": 37
+        },
+        "true_set_retained": true,
+        "true_set_minimal": true
+      }
+    },
+    {
+      "case": "D04",
+      "group": "development",
+      "truth": [
+        "engine_2_power_loss",
+        "blue_pressure_supply_loss",
+        "generator_2_source_path_fault",
+        "yellow_engine_driven_pump_supply_loss",
+        "blue_fluid_loss_mechanism"
+      ],
+      "independent_control": false,
+      "identical_public_input": true,
+      "identical_original_fit": true,
+      "restore_experiments": [],
+      "v1.3": {
+        "input_sha256": "03bcbe7c27edac961f16eafb05cb791bee9d5407ee93666092224bc30d1df2ff",
+        "fit_sha256": "3bd717dbf2856c4844e408766ed861d343f10f8f5400415fdcc695f50e53a153",
+        "samples": 120,
+        "median_wall_s": 1.9969539999729022,
+        "python_peak_bytes": 4322237,
+        "history_counts": {
+          "compatible": 0,
+          "unconfirmed": 87,
+          "excluded_by_dependency": 303,
+          "excluded_by_timing": 692
+        },
+        "surviving_sets": {
+          "blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss": [
+            "blue_fluid_loss_mechanism",
+            "blue_pressure_supply_loss",
+            "engine_2_power_loss"
+          ],
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism",
+            "blue_pressure_supply_loss",
+            "engine_2_power_loss"
+          ],
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+yellow_engine_driven_pump_supply_loss": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism",
+            "blue_pressure_supply_loss",
+            "yellow_engine_driven_pump_supply_loss"
+          ],
+          "blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss": [
+            "blue_fluid_loss_mechanism",
+            "blue_pressure_supply_loss",
+            "engine_2_power_loss",
+            "yellow_engine_driven_pump_supply_loss"
+          ],
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism",
+            "blue_pressure_supply_loss",
+            "engine_2_power_loss",
+            "yellow_engine_driven_pump_supply_loss"
+          ]
+        },
+        "minimal_possible_sets": [
+          "blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss",
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+yellow_engine_driven_pump_supply_loss"
+        ],
+        "physical_cause_identifiable": false,
+        "observed": [
+          "generator_source_anomaly",
+          "blue_inventory_loss",
+          "blue_pressure_loss",
+          "yellow_edp_output_loss",
+          "yellow_line_pressure_loss"
+        ],
+        "evidence": {
+          "status": "no_actionable_discriminator",
+          "candidate_count": 5,
+          "recommended_measurements": [],
+          "unavailable_discriminators": [
+            {
+              "fact": "engine_2_core_speed_loss",
+              "label": "Engine 2 core speed low",
+              "channels": [
+                "engine_2_n2"
+              ],
+              "availability": "unavailable_or_unusable",
+              "passive": true,
+              "predicted_partitions": {
+                "observed": [
+                  "blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss",
+                  "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss",
+                  "blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss",
+                  "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss"
+                ],
+                "not_observed": [
+                  "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+yellow_engine_driven_pump_supply_loss"
+                ],
+                "unknown": [
+                  "blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss",
+                  "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss",
+                  "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+yellow_engine_driven_pump_supply_loss",
+                  "blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss",
+                  "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss"
+                ]
+              },
+              "worst_case_remaining": 4,
+              "best_case_remaining": 1,
+              "minimum_eliminated_if_conclusive": 1,
+              "why": "4 sets require this effect, 1 predict its absence, and 0 allow either conclusive result."
+            },
+            {
+              "fact": "engine_2_fuel_flow_loss",
+              "label": "Engine 2 fuel flow low",
+              "channels": [
+                "engine_2_fuel_flow"
+              ],
+              "availability": "unavailable_or_unusable",
+              "passive": true,
+              "predicted_partitions": {
+                "observed": [
+                  "blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss",
+                  "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss",
+                  "blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss",
+                  "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss"
+                ],
+                "not_observed": [
+                  "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+yellow_engine_driven_pump_supply_loss"
+                ],
+                "unknown": [
+                  "blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss",
+                  "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss",
+                  "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+yellow_engine_driven_pump_supply_loss",
+                  "blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss",
+                  "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss"
+                ]
+              },
+              "worst_case_remaining": 4,
+              "best_case_remaining": 1,
+              "minimum_eliminated_if_conclusive": 1,
+              "why": "4 sets require this effect, 1 predict its absence, and 0 allow either conclusive result."
+            }
+          ],
+          "equivalent_prediction_groups": [
+            [
+              "blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss",
+              "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss",
+              "blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss",
+              "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss"
+            ]
+          ],
+          "currently_indistinguishable_groups": [
+            [
+              "blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss",
+              "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss",
+              "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+yellow_engine_driven_pump_supply_loss",
+              "blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss",
+              "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss"
+            ]
+          ],
+          "ranking": "Fewest remaining root sets in the worst conclusive outcome, then the best outcome, then fact ID.",
+          "scope": "Hypothetical usable evidence for the same incident window. A fresh later reading cannot fill a historical gap. Predictions concern the presence of an effect, without a new timestamp. An unknown result eliminates nothing."
+        },
+        "possibly_masked": [
+          "generator_2_source_path_fault",
+          "yellow_engine_driven_pump_supply_loss",
+          "engine_2_power_loss"
+        ],
+        "cluster_statuses": [
+          "known_shared_path_fits"
+        ],
+        "unmodelled_common_cause_possibilities": 0,
+        "physical_initiators_claimed": 0,
+        "model_mismatch": "joint_fit_retained",
+        "unexplained_observations": [],
+        "counterfactual_checks": {
+          "agreed": 37,
+          "total": 37
+        },
+        "true_set_retained": true,
+        "true_set_minimal": false
+      },
+      "v1.2": {
+        "input_sha256": "03bcbe7c27edac961f16eafb05cb791bee9d5407ee93666092224bc30d1df2ff",
+        "fit_sha256": "3bd717dbf2856c4844e408766ed861d343f10f8f5400415fdcc695f50e53a153",
+        "samples": 120,
+        "median_wall_s": 2.031220599892549,
+        "python_peak_bytes": 4322237,
+        "history_counts": {
+          "compatible": 0,
+          "unconfirmed": 87,
+          "excluded_by_dependency": 303,
+          "excluded_by_timing": 692
+        },
+        "surviving_sets": {
+          "blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss": [
+            "blue_fluid_loss_mechanism",
+            "blue_pressure_supply_loss",
+            "engine_2_power_loss"
+          ],
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism",
+            "blue_pressure_supply_loss",
+            "engine_2_power_loss"
+          ],
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+yellow_engine_driven_pump_supply_loss": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism",
+            "blue_pressure_supply_loss",
+            "yellow_engine_driven_pump_supply_loss"
+          ],
+          "blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss": [
+            "blue_fluid_loss_mechanism",
+            "blue_pressure_supply_loss",
+            "engine_2_power_loss",
+            "yellow_engine_driven_pump_supply_loss"
+          ],
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss+yellow_engine_driven_pump_supply_loss": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism",
+            "blue_pressure_supply_loss",
+            "engine_2_power_loss",
+            "yellow_engine_driven_pump_supply_loss"
+          ]
+        },
+        "minimal_possible_sets": [
+          "blue_fluid_loss_mechanism+blue_pressure_supply_loss+engine_2_power_loss",
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+yellow_engine_driven_pump_supply_loss"
+        ],
+        "physical_cause_identifiable": false,
+        "true_set_retained": true,
+        "true_set_minimal": false
+      }
+    },
+    {
+      "case": "D05",
+      "group": "development",
+      "truth": [
+        "generator_2_source_path_fault",
+        "blue_pressure_supply_loss",
+        "blue_fluid_loss_mechanism",
+        "yellow_engine_driven_pump_supply_loss"
+      ],
+      "independent_control": false,
+      "identical_public_input": true,
+      "identical_original_fit": true,
+      "restore_experiments": [],
+      "v1.2": {
+        "input_sha256": "a930ca58706dd48f955351bbad29730abacf15ead3c86c134d7a801673f2c190",
+        "fit_sha256": "486aa51a573b4a9fa4d528a71a980413b48af89149e4fc2a2a3738e5db1cdfbe",
+        "samples": 120,
+        "median_wall_s": 2.1591011999407783,
+        "python_peak_bytes": 4776785,
+        "history_counts": {
+          "compatible": 88,
+          "unconfirmed": 0,
+          "excluded_by_dependency": 994,
+          "excluded_by_timing": 0
+        },
+        "surviving_sets": {
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+yellow_engine_driven_pump_supply_loss": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism",
+            "yellow_engine_driven_pump_supply_loss"
+          ],
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+yellow_engine_driven_pump_supply_loss": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism",
+            "blue_pressure_supply_loss",
+            "yellow_engine_driven_pump_supply_loss"
+          ]
+        },
+        "minimal_possible_sets": [
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+yellow_engine_driven_pump_supply_loss"
+        ],
+        "physical_cause_identifiable": false,
+        "true_set_retained": true,
+        "true_set_minimal": false
+      },
+      "v1.3": {
+        "input_sha256": "a930ca58706dd48f955351bbad29730abacf15ead3c86c134d7a801673f2c190",
+        "fit_sha256": "486aa51a573b4a9fa4d528a71a980413b48af89149e4fc2a2a3738e5db1cdfbe",
+        "samples": 120,
+        "median_wall_s": 2.1627292999764904,
+        "python_peak_bytes": 4776785,
+        "history_counts": {
+          "compatible": 88,
+          "unconfirmed": 0,
+          "excluded_by_dependency": 994,
+          "excluded_by_timing": 0
+        },
+        "surviving_sets": {
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+yellow_engine_driven_pump_supply_loss": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism",
+            "yellow_engine_driven_pump_supply_loss"
+          ],
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+yellow_engine_driven_pump_supply_loss": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism",
+            "blue_pressure_supply_loss",
+            "yellow_engine_driven_pump_supply_loss"
+          ]
+        },
+        "minimal_possible_sets": [
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+yellow_engine_driven_pump_supply_loss"
+        ],
+        "physical_cause_identifiable": false,
+        "observed": [
+          "generator_source_anomaly",
+          "blue_inventory_loss",
+          "blue_pressure_loss",
+          "yellow_edp_output_loss",
+          "yellow_line_pressure_loss"
+        ],
+        "evidence": {
+          "status": "no_modelled_passive_discriminator",
+          "candidate_count": 2,
+          "recommended_measurements": [],
+          "unavailable_discriminators": [],
+          "equivalent_prediction_groups": [
+            [
+              "generator_2_source_path_fault+blue_fluid_loss_mechanism+yellow_engine_driven_pump_supply_loss",
+              "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+yellow_engine_driven_pump_supply_loss"
+            ]
+          ],
+          "currently_indistinguishable_groups": [
+            [
+              "generator_2_source_path_fault+blue_fluid_loss_mechanism+yellow_engine_driven_pump_supply_loss",
+              "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss+yellow_engine_driven_pump_supply_loss"
+            ]
+          ],
+          "ranking": "Fewest remaining root sets in the worst conclusive outcome, then the best outcome, then fact ID.",
+          "scope": "Hypothetical usable evidence for the same incident window. A fresh later reading cannot fill a historical gap. Predictions concern the presence of an effect, without a new timestamp. An unknown result eliminates nothing."
+        },
+        "possibly_masked": [
+          "blue_pressure_supply_loss"
+        ],
+        "cluster_statuses": [
+          "shared_origin_unresolved"
+        ],
+        "unmodelled_common_cause_possibilities": 1,
+        "physical_initiators_claimed": 0,
+        "model_mismatch": "joint_fit_retained",
+        "unexplained_observations": [],
+        "counterfactual_checks": {
+          "agreed": 37,
+          "total": 37
+        },
+        "true_set_retained": true,
+        "true_set_minimal": false
+      }
+    },
+    {
+      "case": "H01-independent-near",
+      "group": "held_out_synthetic",
+      "truth": [
+        "generator_2_source_path_fault",
+        "blue_pressure_supply_loss"
+      ],
+      "independent_control": true,
+      "identical_public_input": true,
+      "identical_original_fit": true,
+      "restore_experiments": [],
+      "v1.3": {
+        "input_sha256": "885c1a2f3ada66b1f8092add4a006d180c6efae03e25478ed92c2ec0a6935fe4",
+        "fit_sha256": "c79e8d9e0f12cb22150e1a2cb225ef63a4a2041bab9beeec7c1bd68399966fe5",
+        "samples": 55,
+        "median_wall_s": 0.47887509991414845,
+        "python_peak_bytes": 2159889,
+        "history_counts": {
+          "compatible": 3,
+          "unconfirmed": 0,
+          "excluded_by_dependency": 1079,
+          "excluded_by_timing": 0
+        },
+        "surviving_sets": {
+          "generator_2_source_path_fault+blue_pressure_supply_loss": [
+            "generator_2_source_path_fault",
+            "blue_pressure_supply_loss"
+          ]
+        },
+        "minimal_possible_sets": [
+          "generator_2_source_path_fault+blue_pressure_supply_loss"
+        ],
+        "physical_cause_identifiable": false,
+        "observed": [
+          "generator_source_anomaly",
+          "blue_pressure_loss"
+        ],
+        "evidence": {
+          "status": "no_competing_root_sets",
+          "candidate_count": 1,
+          "recommended_measurements": [],
+          "unavailable_discriminators": [],
+          "equivalent_prediction_groups": [],
+          "currently_indistinguishable_groups": [],
+          "ranking": "Fewest remaining root sets in the worst conclusive outcome, then the best outcome, then fact ID.",
+          "scope": "Hypothetical usable evidence for the same incident window. A fresh later reading cannot fill a historical gap. Predictions concern the presence of an effect, without a new timestamp. An unknown result eliminates nothing."
+        },
+        "possibly_masked": [],
+        "cluster_statuses": [
+          "shared_origin_unresolved"
+        ],
+        "unmodelled_common_cause_possibilities": 1,
+        "physical_initiators_claimed": 0,
+        "model_mismatch": "joint_fit_retained",
+        "unexplained_observations": [],
+        "counterfactual_checks": {
+          "agreed": 37,
+          "total": 37
+        },
+        "true_set_retained": true,
+        "true_set_minimal": true
+      },
+      "v1.2": {
+        "input_sha256": "885c1a2f3ada66b1f8092add4a006d180c6efae03e25478ed92c2ec0a6935fe4",
+        "fit_sha256": "c79e8d9e0f12cb22150e1a2cb225ef63a4a2041bab9beeec7c1bd68399966fe5",
+        "samples": 55,
+        "median_wall_s": 0.46996409993153065,
+        "python_peak_bytes": 2159889,
+        "history_counts": {
+          "compatible": 3,
+          "unconfirmed": 0,
+          "excluded_by_dependency": 1079,
+          "excluded_by_timing": 0
+        },
+        "surviving_sets": {
+          "generator_2_source_path_fault+blue_pressure_supply_loss": [
+            "generator_2_source_path_fault",
+            "blue_pressure_supply_loss"
+          ]
+        },
+        "minimal_possible_sets": [
+          "generator_2_source_path_fault+blue_pressure_supply_loss"
+        ],
+        "physical_cause_identifiable": false,
+        "true_set_retained": true,
+        "true_set_minimal": true
+      }
+    },
+    {
+      "case": "H02-independent-coincident",
+      "group": "held_out_synthetic",
+      "truth": [
+        "generator_2_source_path_fault",
+        "yellow_engine_driven_pump_supply_loss"
+      ],
+      "independent_control": true,
+      "identical_public_input": true,
+      "identical_original_fit": true,
+      "restore_experiments": [],
+      "v1.2": {
+        "input_sha256": "3ca5d3539fc16bcd0393ee38115f9f0437dfb782f1a653f652906a6db06b8c69",
+        "fit_sha256": "ad8a411032bb02fffb891955c7a0e2313ff5ee597d98ba0c824de2baabfac327",
+        "samples": 55,
+        "median_wall_s": 0.4651025999337435,
+        "python_peak_bytes": 2161245,
+        "history_counts": {
+          "compatible": 0,
+          "unconfirmed": 0,
+          "excluded_by_dependency": 1082,
+          "excluded_by_timing": 0
+        },
+        "surviving_sets": {},
+        "minimal_possible_sets": [],
+        "physical_cause_identifiable": false,
+        "true_set_retained": false,
+        "true_set_minimal": false
+      },
+      "v1.3": {
+        "input_sha256": "3ca5d3539fc16bcd0393ee38115f9f0437dfb782f1a653f652906a6db06b8c69",
+        "fit_sha256": "ad8a411032bb02fffb891955c7a0e2313ff5ee597d98ba0c824de2baabfac327",
+        "samples": 55,
+        "median_wall_s": 0.4729841999942437,
+        "python_peak_bytes": 2161245,
+        "history_counts": {
+          "compatible": 0,
+          "unconfirmed": 0,
+          "excluded_by_dependency": 1082,
+          "excluded_by_timing": 0
+        },
+        "surviving_sets": {},
+        "minimal_possible_sets": [],
+        "physical_cause_identifiable": false,
+        "observed": [
+          "generator_source_anomaly",
+          "yellow_edp_output_loss"
+        ],
+        "evidence": {
+          "status": "no_surviving_root_sets",
+          "candidate_count": 0,
+          "recommended_measurements": [],
+          "unavailable_discriminators": [],
+          "equivalent_prediction_groups": [],
+          "currently_indistinguishable_groups": [],
+          "ranking": "Fewest remaining root sets in the worst conclusive outcome, then the best outcome, then fact ID.",
+          "scope": "Hypothetical usable evidence for the same incident window. A fresh later reading cannot fill a historical gap. Predictions concern the presence of an effect, without a new timestamp. An unknown result eliminates nothing."
+        },
+        "possibly_masked": [],
+        "cluster_statuses": [
+          "cluster_in_model_mismatch"
+        ],
+        "unmodelled_common_cause_possibilities": 0,
+        "physical_initiators_claimed": 0,
+        "model_mismatch": "no_joint_model_fit",
+        "unexplained_observations": [
+          {
+            "fact": "yellow_edp_output_loss",
+            "rejected_in_nearest_sets": [
+              "generator_2_source_path_fault"
+            ]
+          }
+        ],
+        "counterfactual_checks": {
+          "agreed": 37,
+          "total": 37
+        },
+        "true_set_retained": false,
+        "true_set_minimal": false
+      }
+    },
+    {
+      "case": "H03-independent-delayed-propagation",
+      "group": "held_out_synthetic",
+      "truth": [
+        "blue_fluid_loss_mechanism",
+        "generator_2_source_path_fault"
+      ],
+      "independent_control": true,
+      "identical_public_input": true,
+      "identical_original_fit": true,
+      "restore_experiments": [],
+      "v1.3": {
+        "input_sha256": "9458559d6374714ee5769739cb89ff88bfb76eaa951b1e8c1fcf9957b8aa5632",
+        "fit_sha256": "1d6227117f712ee7c915c49da969ea50dc4801752c4d8aabb0a5a23af2eee91f",
+        "samples": 55,
+        "median_wall_s": 0.47801720001734793,
+        "python_peak_bytes": 2188399,
+        "history_counts": {
+          "compatible": 16,
+          "unconfirmed": 0,
+          "excluded_by_dependency": 1066,
+          "excluded_by_timing": 0
+        },
+        "surviving_sets": {
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism"
+          ],
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism",
+            "blue_pressure_supply_loss"
+          ]
+        },
+        "minimal_possible_sets": [
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism"
+        ],
+        "physical_cause_identifiable": false,
+        "observed": [
+          "generator_source_anomaly",
+          "blue_inventory_loss",
+          "blue_pressure_loss"
+        ],
+        "evidence": {
+          "status": "no_modelled_passive_discriminator",
+          "candidate_count": 2,
+          "recommended_measurements": [],
+          "unavailable_discriminators": [],
+          "equivalent_prediction_groups": [
+            [
+              "generator_2_source_path_fault+blue_fluid_loss_mechanism",
+              "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss"
+            ]
+          ],
+          "currently_indistinguishable_groups": [
+            [
+              "generator_2_source_path_fault+blue_fluid_loss_mechanism",
+              "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss"
+            ]
+          ],
+          "ranking": "Fewest remaining root sets in the worst conclusive outcome, then the best outcome, then fact ID.",
+          "scope": "Hypothetical usable evidence for the same incident window. A fresh later reading cannot fill a historical gap. Predictions concern the presence of an effect, without a new timestamp. An unknown result eliminates nothing."
+        },
+        "possibly_masked": [
+          "blue_pressure_supply_loss"
+        ],
+        "cluster_statuses": [],
+        "unmodelled_common_cause_possibilities": 0,
+        "physical_initiators_claimed": 0,
+        "model_mismatch": "joint_fit_retained",
+        "unexplained_observations": [],
+        "counterfactual_checks": {
+          "agreed": 37,
+          "total": 37
+        },
+        "true_set_retained": true,
+        "true_set_minimal": true
+      },
+      "v1.2": {
+        "input_sha256": "9458559d6374714ee5769739cb89ff88bfb76eaa951b1e8c1fcf9957b8aa5632",
+        "fit_sha256": "1d6227117f712ee7c915c49da969ea50dc4801752c4d8aabb0a5a23af2eee91f",
+        "samples": 55,
+        "median_wall_s": 0.4694643000839278,
+        "python_peak_bytes": 2188399,
+        "history_counts": {
+          "compatible": 16,
+          "unconfirmed": 0,
+          "excluded_by_dependency": 1066,
+          "excluded_by_timing": 0
+        },
+        "surviving_sets": {
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism"
+          ],
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism+blue_pressure_supply_loss": [
+            "generator_2_source_path_fault",
+            "blue_fluid_loss_mechanism",
+            "blue_pressure_supply_loss"
+          ]
+        },
+        "minimal_possible_sets": [
+          "generator_2_source_path_fault+blue_fluid_loss_mechanism"
+        ],
+        "physical_cause_identifiable": false,
+        "true_set_retained": true,
+        "true_set_minimal": true
+      }
+    },
+    {
+      "case": "H04-independent-pressure-first",
+      "group": "held_out_synthetic",
+      "truth": [
+        "blue_pressure_supply_loss",
+        "blue_fluid_loss_mechanism"
+      ],
+      "independent_control": true,
+      "identical_public_input": true,
+      "identical_original_fit": true,
+      "restore_experiments": [],
+      "v1.2": {
+        "input_sha256": "d5bb778b8e8bb7ac35d9bd0787f667e0570e6229732a41bda7dedf921e0e8b8d",
+        "fit_sha256": "d9ac1870d99ac882b2c70bfdbfb1ab31b5026455dfb8e21c7e62695bdcc6d475",
+        "samples": 55,
+        "median_wall_s": 0.4710661000572145,
+        "python_peak_bytes": 2130285,
+        "history_counts": {
+          "compatible": 3,
+          "unconfirmed": 0,
+          "excluded_by_dependency": 1079,
+          "excluded_by_timing": 0
+        },
+        "surviving_sets": {
+          "blue_fluid_loss_mechanism+blue_pressure_supply_loss": [
+            "blue_fluid_loss_mechanism",
+            "blue_pressure_supply_loss"
+          ]
+        },
+        "minimal_possible_sets": [
+          "blue_fluid_loss_mechanism+blue_pressure_supply_loss"
+        ],
+        "physical_cause_identifiable": false,
+        "true_set_retained": true,
+        "true_set_minimal": true
+      },
+      "v1.3": {
+        "input_sha256": "d5bb778b8e8bb7ac35d9bd0787f667e0570e6229732a41bda7dedf921e0e8b8d",
+        "fit_sha256": "d9ac1870d99ac882b2c70bfdbfb1ab31b5026455dfb8e21c7e62695bdcc6d475",
+        "samples": 55,
+        "median_wall_s": 0.4686280000023544,
+        "python_peak_bytes": 2130285,
+        "history_counts": {
+          "compatible": 3,
+          "unconfirmed": 0,
+          "excluded_by_dependency": 1079,
+          "excluded_by_timing": 0
+        },
+        "surviving_sets": {
+          "blue_fluid_loss_mechanism+blue_pressure_supply_loss": [
+            "blue_fluid_loss_mechanism",
+            "blue_pressure_supply_loss"
+          ]
+        },
+        "minimal_possible_sets": [
+          "blue_fluid_loss_mechanism+blue_pressure_supply_loss"
+        ],
+        "physical_cause_identifiable": false,
+        "observed": [
+          "blue_inventory_loss",
+          "blue_pressure_loss"
+        ],
+        "evidence": {
+          "status": "no_competing_root_sets",
+          "candidate_count": 1,
+          "recommended_measurements": [],
+          "unavailable_discriminators": [],
+          "equivalent_prediction_groups": [],
+          "currently_indistinguishable_groups": [],
+          "ranking": "Fewest remaining root sets in the worst conclusive outcome, then the best outcome, then fact ID.",
+          "scope": "Hypothetical usable evidence for the same incident window. A fresh later reading cannot fill a historical gap. Predictions concern the presence of an effect, without a new timestamp. An unknown result eliminates nothing."
+        },
+        "possibly_masked": [],
+        "cluster_statuses": [],
+        "unmodelled_common_cause_possibilities": 0,
+        "physical_initiators_claimed": 0,
+        "model_mismatch": "joint_fit_retained",
+        "unexplained_observations": [],
+        "counterfactual_checks": {
+          "agreed": 37,
+          "total": 37
+        },
+        "true_set_retained": true,
+        "true_set_minimal": true
+      }
+    },
+    {
+      "case": "H05-drive-withheld",
+      "group": "held_out_synthetic",
+      "truth": [
+        "engine_2_power_loss"
+      ],
+      "independent_control": false,
+      "identical_public_input": true,
+      "identical_original_fit": true,
+      "restore_experiments": [
+        {
+          "channel": "engine_2_n2",
+          "restored_sha256": "e58847421451eed85b33195694d5dbca778925d1843ea3d1ec23771274bfa23b",
+          "surviving_sets": [
+            "engine_2_power_loss",
+            "engine_2_power_loss+yellow_engine_driven_pump_supply_loss",
+            "generator_2_source_path_fault+engine_2_power_loss",
+            "generator_2_source_path_fault+engine_2_power_loss+yellow_engine_driven_pump_supply_loss"
+          ],
+          "eliminated_by_restoration": 1,
+          "consistent_with_predicted_partitions": true
+        },
+        {
+          "channel": "engine_2_fuel_flow",
+          "restored_sha256": "548c05e3f8cf002fca4ed4b618e3571bb936f44e2a92925ec4acf37c9df0f742",
+          "surviving_sets": [
+            "engine_2_power_loss",
+            "engine_2_power_loss+yellow_engine_driven_pump_supply_loss",
+            "generator_2_source_path_fault+engine_2_power_loss",
+            "generator_2_source_path_fault+engine_2_power_loss+yellow_engine_driven_pump_supply_loss"
+          ],
+          "eliminated_by_restoration": 1,
+          "consistent_with_predicted_partitions": true
+        }
+      ],
+      "v1.3": {
+        "input_sha256": "d5e3c1bdd401dc90e73598b8332031c1cdbe5473ba64f1187475922387abb9f9",
+        "fit_sha256": "4283aed2da19fa6bce326a3ee63a51bd4b92ec285835660c0b171b5b18989d05",
+        "samples": 55,
+        "median_wall_s": 0.43658069998491555,
+        "python_peak_bytes": 2027415,
+        "history_counts": {
+          "compatible": 0,
+          "unconfirmed": 23,
+          "excluded_by_dependency": 1059,
+          "excluded_by_timing": 0
+        },
+        "surviving_sets": {
+          "engine_2_power_loss": [
+            "engine_2_power_loss"
+          ],
+          "generator_2_source_path_fault+engine_2_power_loss": [
+            "generator_2_source_path_fault",
+            "engine_2_power_loss"
+          ],
+          "generator_2_source_path_fault+yellow_engine_driven_pump_supply_loss": [
+            "generator_2_source_path_fault",
+            "yellow_engine_driven_pump_supply_loss"
+          ],
+          "engine_2_power_loss+yellow_engine_driven_pump_supply_loss": [
+            "engine_2_power_loss",
+            "yellow_engine_driven_pump_supply_loss"
+          ],
+          "generator_2_source_path_fault+engine_2_power_loss+yellow_engine_driven_pump_supply_loss": [
+            "generator_2_source_path_fault",
+            "engine_2_power_loss",
+            "yellow_engine_driven_pump_supply_loss"
+          ]
+        },
+        "minimal_possible_sets": [
+          "engine_2_power_loss",
+          "generator_2_source_path_fault+yellow_engine_driven_pump_supply_loss"
+        ],
+        "physical_cause_identifiable": false,
+        "observed": [
+          "generator_source_anomaly",
+          "yellow_edp_output_loss",
+          "yellow_line_pressure_loss"
+        ],
+        "evidence": {
+          "status": "no_actionable_discriminator",
+          "candidate_count": 5,
+          "recommended_measurements": [],
+          "unavailable_discriminators": [
+            {
+              "fact": "engine_2_core_speed_loss",
+              "label": "Engine 2 core speed low",
+              "channels": [
+                "engine_2_n2"
+              ],
+              "availability": "unavailable_or_unusable",
+              "passive": true,
+              "predicted_partitions": {
+                "observed": [
+                  "engine_2_power_loss",
+                  "generator_2_source_path_fault+engine_2_power_loss",
+                  "engine_2_power_loss+yellow_engine_driven_pump_supply_loss",
+                  "generator_2_source_path_fault+engine_2_power_loss+yellow_engine_driven_pump_supply_loss"
+                ],
+                "not_observed": [
+                  "generator_2_source_path_fault+yellow_engine_driven_pump_supply_loss"
+                ],
+                "unknown": [
+                  "engine_2_power_loss",
+                  "generator_2_source_path_fault+engine_2_power_loss",
+                  "generator_2_source_path_fault+yellow_engine_driven_pump_supply_loss",
+                  "engine_2_power_loss+yellow_engine_driven_pump_supply_loss",
+                  "generator_2_source_path_fault+engine_2_power_loss+yellow_engine_driven_pump_supply_loss"
+                ]
+              },
+              "worst_case_remaining": 4,
+              "best_case_remaining": 1,
+              "minimum_eliminated_if_conclusive": 1,
+              "why": "4 sets require this effect, 1 predict its absence, and 0 allow either conclusive result."
+            },
+            {
+              "fact": "engine_2_fuel_flow_loss",
+              "label": "Engine 2 fuel flow low",
+              "channels": [
+                "engine_2_fuel_flow"
+              ],
+              "availability": "unavailable_or_unusable",
+              "passive": true,
+              "predicted_partitions": {
+                "observed": [
+                  "engine_2_power_loss",
+                  "generator_2_source_path_fault+engine_2_power_loss",
+                  "engine_2_power_loss+yellow_engine_driven_pump_supply_loss",
+                  "generator_2_source_path_fault+engine_2_power_loss+yellow_engine_driven_pump_supply_loss"
+                ],
+                "not_observed": [
+                  "generator_2_source_path_fault+yellow_engine_driven_pump_supply_loss"
+                ],
+                "unknown": [
+                  "engine_2_power_loss",
+                  "generator_2_source_path_fault+engine_2_power_loss",
+                  "generator_2_source_path_fault+yellow_engine_driven_pump_supply_loss",
+                  "engine_2_power_loss+yellow_engine_driven_pump_supply_loss",
+                  "generator_2_source_path_fault+engine_2_power_loss+yellow_engine_driven_pump_supply_loss"
+                ]
+              },
+              "worst_case_remaining": 4,
+              "best_case_remaining": 1,
+              "minimum_eliminated_if_conclusive": 1,
+              "why": "4 sets require this effect, 1 predict its absence, and 0 allow either conclusive result."
+            }
+          ],
+          "equivalent_prediction_groups": [
+            [
+              "engine_2_power_loss",
+              "generator_2_source_path_fault+engine_2_power_loss",
+              "engine_2_power_loss+yellow_engine_driven_pump_supply_loss",
+              "generator_2_source_path_fault+engine_2_power_loss+yellow_engine_driven_pump_supply_loss"
+            ]
+          ],
+          "currently_indistinguishable_groups": [
+            [
+              "engine_2_power_loss",
+              "generator_2_source_path_fault+engine_2_power_loss",
+              "generator_2_source_path_fault+yellow_engine_driven_pump_supply_loss",
+              "engine_2_power_loss+yellow_engine_driven_pump_supply_loss",
+              "generator_2_source_path_fault+engine_2_power_loss+yellow_engine_driven_pump_supply_loss"
+            ]
+          ],
+          "ranking": "Fewest remaining root sets in the worst conclusive outcome, then the best outcome, then fact ID.",
+          "scope": "Hypothetical usable evidence for the same incident window. A fresh later reading cannot fill a historical gap. Predictions concern the presence of an effect, without a new timestamp. An unknown result eliminates nothing."
+        },
+        "possibly_masked": [
+          "generator_2_source_path_fault",
+          "yellow_engine_driven_pump_supply_loss",
+          "engine_2_power_loss"
+        ],
+        "cluster_statuses": [
+          "known_shared_path_fits",
+          "known_shared_path_fits"
+        ],
+        "unmodelled_common_cause_possibilities": 0,
+        "physical_initiators_claimed": 0,
+        "model_mismatch": "joint_fit_retained",
+        "unexplained_observations": [],
+        "counterfactual_checks": {
+          "agreed": 37,
+          "total": 37
+        },
+        "true_set_retained": true,
+        "true_set_minimal": true
+      },
+      "v1.2": {
+        "input_sha256": "d5e3c1bdd401dc90e73598b8332031c1cdbe5473ba64f1187475922387abb9f9",
+        "fit_sha256": "4283aed2da19fa6bce326a3ee63a51bd4b92ec285835660c0b171b5b18989d05",
+        "samples": 55,
+        "median_wall_s": 0.4408390000462532,
+        "python_peak_bytes": 2027415,
+        "history_counts": {
+          "compatible": 0,
+          "unconfirmed": 23,
+          "excluded_by_dependency": 1059,
+          "excluded_by_timing": 0
+        },
+        "surviving_sets": {
+          "engine_2_power_loss": [
+            "engine_2_power_loss"
+          ],
+          "generator_2_source_path_fault+engine_2_power_loss": [
+            "generator_2_source_path_fault",
+            "engine_2_power_loss"
+          ],
+          "generator_2_source_path_fault+yellow_engine_driven_pump_supply_loss": [
+            "generator_2_source_path_fault",
+            "yellow_engine_driven_pump_supply_loss"
+          ],
+          "engine_2_power_loss+yellow_engine_driven_pump_supply_loss": [
+            "engine_2_power_loss",
+            "yellow_engine_driven_pump_supply_loss"
+          ],
+          "generator_2_source_path_fault+engine_2_power_loss+yellow_engine_driven_pump_supply_loss": [
+            "generator_2_source_path_fault",
+            "engine_2_power_loss",
+            "yellow_engine_driven_pump_supply_loss"
+          ]
+        },
+        "minimal_possible_sets": [
+          "engine_2_power_loss",
+          "generator_2_source_path_fault+yellow_engine_driven_pump_supply_loss"
+        ],
+        "physical_cause_identifiable": false,
+        "true_set_retained": true,
+        "true_set_minimal": true
+      }
+    },
+    {
+      "case": "H06-independent-model-mismatch",
+      "group": "held_out_synthetic",
+      "truth": [
+        "blue_pressure_supply_loss",
+        "unmodelled_bus_loss_with_source_retained"
+      ],
+      "independent_control": true,
+      "identical_public_input": true,
+      "identical_original_fit": true,
+      "restore_experiments": [],
+      "v1.2": {
+        "input_sha256": "8af9cf52d58a0c95434d6cdd8f10691a782a9870fa5dd89168f23a6cfa6f1972",
+        "fit_sha256": "12c434be51812b593e4decc6b656c0674a4d1b2c779cd0c3e7f4b562946ce74c",
+        "samples": 55,
+        "median_wall_s": 0.4688820999581367,
+        "python_peak_bytes": 2105621,
+        "history_counts": {
+          "compatible": 0,
+          "unconfirmed": 0,
+          "excluded_by_dependency": 1082,
+          "excluded_by_timing": 0
+        },
+        "surviving_sets": {},
+        "minimal_possible_sets": [],
+        "physical_cause_identifiable": false,
+        "true_set_retained": false,
+        "true_set_minimal": false
+      },
+      "v1.3": {
+        "input_sha256": "8af9cf52d58a0c95434d6cdd8f10691a782a9870fa5dd89168f23a6cfa6f1972",
+        "fit_sha256": "12c434be51812b593e4decc6b656c0674a4d1b2c779cd0c3e7f4b562946ce74c",
+        "samples": 55,
+        "median_wall_s": 0.472040299908258,
+        "python_peak_bytes": 2105621,
+        "history_counts": {
+          "compatible": 0,
+          "unconfirmed": 0,
+          "excluded_by_dependency": 1082,
+          "excluded_by_timing": 0
+        },
+        "surviving_sets": {},
+        "minimal_possible_sets": [],
+        "physical_cause_identifiable": false,
+        "observed": [
+          "bus_supply_loss",
+          "blue_pressure_loss"
+        ],
+        "evidence": {
+          "status": "no_surviving_root_sets",
+          "candidate_count": 0,
+          "recommended_measurements": [],
+          "unavailable_discriminators": [],
+          "equivalent_prediction_groups": [],
+          "currently_indistinguishable_groups": [],
+          "ranking": "Fewest remaining root sets in the worst conclusive outcome, then the best outcome, then fact ID.",
+          "scope": "Hypothetical usable evidence for the same incident window. A fresh later reading cannot fill a historical gap. Predictions concern the presence of an effect, without a new timestamp. An unknown result eliminates nothing."
+        },
+        "possibly_masked": [],
+        "cluster_statuses": [
+          "cluster_in_model_mismatch"
+        ],
+        "unmodelled_common_cause_possibilities": 0,
+        "physical_initiators_claimed": 0,
+        "model_mismatch": "no_joint_model_fit",
+        "unexplained_observations": [
+          {
+            "fact": "bus_supply_loss",
+            "rejected_in_nearest_sets": [
+              "blue_pressure_supply_loss"
+            ]
+          }
+        ],
+        "counterfactual_checks": {
+          "agreed": 37,
+          "total": 37
+        },
+        "true_set_retained": false,
+        "true_set_minimal": false
+      }
+    },
+    {
+      "case": "N01-independent-native",
+      "group": "fresh_native",
+      "truth": [
+        "generator_2_source_path_fault",
+        "yellow_engine_driven_pump_supply_loss"
+      ],
+      "independent_control": true,
+      "identical_public_input": true,
+      "identical_original_fit": true,
+      "restore_experiments": [],
+      "v1.3": {
+        "input_sha256": "d795d302a761e422587fcb8a7b136f7aad0b26992c015fad7a43edae5340c92d",
+        "fit_sha256": "9596e8b67cc883d2161f406d24d97124ce61a881476fadb4e0d5fb8ad90b14c2",
+        "samples": 45,
+        "median_wall_s": 0.3486658000620082,
+        "python_peak_bytes": 2241975,
+        "history_counts": {
+          "compatible": 3,
+          "unconfirmed": 0,
+          "excluded_by_dependency": 1079,
+          "excluded_by_timing": 0
+        },
+        "surviving_sets": {
+          "generator_2_source_path_fault+yellow_engine_driven_pump_supply_loss": [
+            "generator_2_source_path_fault",
+            "yellow_engine_driven_pump_supply_loss"
+          ]
+        },
+        "minimal_possible_sets": [
+          "generator_2_source_path_fault+yellow_engine_driven_pump_supply_loss"
+        ],
+        "physical_cause_identifiable": false,
+        "observed": [
+          "generator_source_anomaly",
+          "yellow_edp_output_loss"
+        ],
+        "evidence": {
+          "status": "no_competing_root_sets",
+          "candidate_count": 1,
+          "recommended_measurements": [],
+          "unavailable_discriminators": [],
+          "equivalent_prediction_groups": [],
+          "currently_indistinguishable_groups": [],
+          "ranking": "Fewest remaining root sets in the worst conclusive outcome, then the best outcome, then fact ID.",
+          "scope": "Hypothetical usable evidence for the same incident window. A fresh later reading cannot fill a historical gap. Predictions concern the presence of an effect, without a new timestamp. An unknown result eliminates nothing."
+        },
+        "possibly_masked": [],
+        "cluster_statuses": [
+          "shared_origin_unresolved"
+        ],
+        "unmodelled_common_cause_possibilities": 1,
+        "physical_initiators_claimed": 0,
+        "model_mismatch": "joint_fit_retained",
+        "unexplained_observations": [],
+        "counterfactual_checks": {
+          "agreed": 37,
+          "total": 37
+        },
+        "true_set_retained": true,
+        "true_set_minimal": true
+      },
+      "v1.2": {
+        "input_sha256": "d795d302a761e422587fcb8a7b136f7aad0b26992c015fad7a43edae5340c92d",
+        "fit_sha256": "9596e8b67cc883d2161f406d24d97124ce61a881476fadb4e0d5fb8ad90b14c2",
+        "samples": 45,
+        "median_wall_s": 0.34045619994867593,
+        "python_peak_bytes": 2241975,
+        "history_counts": {
+          "compatible": 3,
+          "unconfirmed": 0,
+          "excluded_by_dependency": 1079,
+          "excluded_by_timing": 0
+        },
+        "surviving_sets": {
+          "generator_2_source_path_fault+yellow_engine_driven_pump_supply_loss": [
+            "generator_2_source_path_fault",
+            "yellow_engine_driven_pump_supply_loss"
+          ]
+        },
+        "minimal_possible_sets": [
+          "generator_2_source_path_fault+yellow_engine_driven_pump_supply_loss"
+        ],
+        "physical_cause_identifiable": false,
+        "true_set_retained": true,
+        "true_set_minimal": true
+      }
+    }
+  ]
+}

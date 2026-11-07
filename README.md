@@ -4,17 +4,27 @@
 
 AeroTrace reads FlightGear telemetry and explains which causal configurations fit the observed propulsion, electrical and hydraulic effects. It shows the evidence, contradictions and missing measurements for each candidate, and keeps competing explanations visible when the signals cannot distinguish them.
 
-[Engineering report (PDF)](output/pdf/AeroTrace-Engineering-Report.pdf) · [Architecture](docs/ARCHITECTURE.md) · [Reproduce the results](docs/REPRODUCING.md) · [Connect FlightGear](docs/LIVE-SIMULATOR.md)
+[v1.3 results and limitations](results/v1.3-investigation-20261107-01/REPORT.md) · [Architecture](docs/ARCHITECTURE.md) · [Reproduce the results](docs/REPRODUCING.md) · [Connect FlightGear](docs/LIVE-SIMULATOR.md)
 
-## Open the v1.2 pilot view
+## Investigate a recorded cascade
 
-From the repository root with Python 3.11 or later, run the Engine 2 example using the included recording.
+Run the Engine 2 example from the repository root with Python 3.11 or later.
 
 ```sh
-python -B -m aircraft_debugger.sim_panel --pilot --replay results/engine-drive-20261106-01/engine-auto/observations.jsonl --port 8769
+python -B -m aircraft_debugger.sim_panel --investigate --replay results/engine-drive-20261106-01/engine-auto/observations.jsonl --port 8769
 ```
 
-Open [the local pilot view](http://127.0.0.1:8769) and advance to the last sample. The display groups the recorded events under the shared Engine 2 power-loss explanation using A320 component abbreviations. It shows compatible and unconfirmed histories as C:U and gives an evidence support percentage for each displayed explanation. This archived flight begins airborne, so the ground-power timestamps show `--:--:--`. [Pilot view and sequence study](docs/FAULT-SEQUENCE-STUDY.md#pilot-output)
+Advance to the last sample. The inspector shows which observations support the
+shared Engine 2 power-loss path, which local failures could be masked, and the
+measured conflicts in a counterfactual that excludes Engine 2 power loss.
+Add `--pilot` for the concise view. Its support percentage describes matched
+model checks. This airborne-only capture has no observed ground-power clock
+origin, so the pilot timestamps show `--:--:--`. [Local evidence inspector](http://127.0.0.1:8769)
+
+The v1.3 flagship example contains four overlapping paths. It shows why a
+generator-only explanation fails, why the smallest compatible explanation
+can omit an additional Blue supply loss, and why a shared physical origin
+remains unresolved. [Flagship replay and comparison with v1.2](docs/CAUSAL-INVESTIGATION.md)
 
 ## What the experiments showed
 
@@ -29,8 +39,20 @@ The figure shows a recorded airborne A320 simulation. Generator 2 output reached
 | **Timed airborne study** | A staggered generator and pump intervention ruled out a shared trigger within the declared response limits. Near-synchronous effects left both explanations compatible. Recovery between interventions produced two separate incidents. |
 | **Engine 2 drive-loss study** | All **4** planned contrasts matched their expected candidates. Generator and Yellow pump outputs fell in both failure patterns. Fuel flow and core speed distinguished the engine loss from the separate source failures. |
 | **Five-fault sequence study** | The offline debugger tests **1,081** onset histories across **26** multi-fault sets and five isolated mechanisms using the same dependency graph. The software exercise retained the expected history in every synthetic case. Native replays show where timing narrows the order and where faults stay masked. |
+| **v1.3 investigation** | All **12** comparisons preserved the original v1.2 fits. All **444** counterfactual checks agreed with the executable model. Missing drive channels split five explanations into predicted branches of four and one. The full mechanism set remained represented beyond the minimal explanation in the masked-fault stress case. |
 | **Local update cost** | After airborne context reuse, the 95th-percentile update was **80 ms** over a synthetic 1,200-poll fixture, compared with **490 ms** before. Host background load differed between runs. These times cover local processing and snapshot copying. |
-| **Software verification** | **220** automated tests cover the observation contract, causal inference, pilot display, replay, evaluation and operator controls. |
+| **Software verification** | **230** automated tests cover the observation contract, causal inference, investigation, pilot display, replay, evaluation and operator controls. |
+
+The v1.3 comparison retained the actual mechanism set in 10 of 12 cases in both
+versions. An inconsistent synthetic fixture and an unmodelled bus-loss mechanism
+produced explicit model mismatch. Timing also raised unresolved common-origin
+possibilities on independent controls. The available telemetry leaves that
+physical distinction unresolved. The earlier native study is preserved as a
+dated report. [Full v1.3 comparison](results/v1.3-investigation-20261107-01/REPORT.md) · [Initial native validation report (PDF)](output/pdf/AeroTrace-Engineering-Report.pdf)
+
+The release copy passed the 230-test suite and 110 additional recording,
+missing-channel and observation-gap checks in a clean Python environment.
+[Release review](results/v1.3-release-review-20261107-01/REPORT.md)
 
 [Engine drive results](results/engine-drive-20261106-01/REPORT.md) · [Prospective evaluation](results/pressure-v2-prospective-20261106-01/REPORT.md) · [Timed fault study](docs/TEMPORAL-STUDY.md) · [Quantity stress test](results/quantity-indication-stress-20261106-01/README.md) · [Load measurements](results/pressure-v2-load-optimized-20261106-01/REPORT.md)
 
@@ -64,7 +86,12 @@ python -B -m unittest discover -s tests -v
 
 ## What the debugger can explain
 
-The model tracks generator output, bus voltage, indicated Blue reservoir quantity and Blue pressure. It evaluates supported causal configurations against those measurements and distinguishes absent, observed and unknown effects. Version 1 covers generator source loss and hydraulic inventory loss. Version 2 adds Blue pressure-supply loss. Version 3 adds propulsion and Yellow supply observations, with 13 candidate configurations across five mechanism classes.
+The current temporal v4 model evaluates all 32 sets of five mechanism classes
+against generator output, bus voltage, indicated Blue quantity, Blue pressure,
+engine drive and Yellow hydraulic supply. It distinguishes observed, absent
+and unknown effects. Release v1.3 adds counterfactual queries, passive evidence
+selection and explicit masking investigation to that model. The earlier v1,
+v2 and v3 model selections remain available for reproducing their studies.
 
 The simulator operator records fault commands and readiness checks separately. Diagnosis uses the public observations. The evaluator compares a completed prediction with the expected candidate set declared before the flight. The replay also preserves incident history after the current measurements recover.
 

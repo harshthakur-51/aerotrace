@@ -59,7 +59,8 @@ def validate_command(payload: object, *, fault_paths=FAULT_PATHS) -> tuple[str, 
 
 class PanelState:
     def __init__(self, client: FlightGearClient, interval_s: float = 0.5, *, diagnosis_limit: int = 1200, temporal: bool = True,
-                 recording: Path | None = None, model=None, fault_paths=None, pilot=False, response_bounds=None):
+                 recording: Path | None = None, model=None, fault_paths=None, pilot=False, investigation=False,
+                 response_bounds=None):
         self.client = client
         self.interval_s = interval_s
         self.token = secrets.token_urlsafe(32)
@@ -69,7 +70,7 @@ class PanelState:
         self._propulsion = model is not None and uses_propulsion_profile(model)
         self._pilot = pilot
         self._channels = PROPULSION_CHANNELS if self._propulsion else CHANNELS
-        if pilot:
+        if pilot or investigation:
             self._channels = PILOT_CHANNELS
         self._stop = threading.Event()
         self._thread: threading.Thread | None = None
@@ -81,7 +82,7 @@ class PanelState:
         # These are this panel's command acknowledgements, not simulator sensors.
         self._operator_commands: dict[str, dict] = {}
         self._diagnostic_session = DiagnosisSession(max_records=diagnosis_limit, temporal=temporal, model=model,
-                                                    pilot=pilot, response_bounds=response_bounds)
+                                                    pilot=pilot, investigation=investigation, response_bounds=response_bounds)
         self._diagnosis = {"implemented": True, "availability": "waiting", "message": "Waiting for the first public poll."}
         self._diagnosis_failed = False
         self._sample_index = 0
@@ -414,15 +415,17 @@ def main() -> None:
     parser.add_argument("--mode", choices=("temporal", "atemporal"), default="temporal", help="Causal replay constraint mode")
     parser.add_argument("--diagnosis-limit", type=int, default=1200, help="Live public poll limit (1-1200); inference stops explicitly at the limit")
     parser.add_argument("--recording", type=Path, help="New public JSONL file for live polls; existing files are refused")
-    parser.add_argument("--model", choices=MODEL_VERSIONS, help="Default v1, or v4 with --pilot")
+    parser.add_argument("--model", choices=MODEL_VERSIONS, help="Default v1, or v4 with --pilot or --investigate")
     parser.add_argument("--pilot", action="store_true", help="Show the pilot sequence display")
-    parser.add_argument("--response-bounds", type=Path, help="Optional delay bounds for --pilot")
+    parser.add_argument("--investigate", action="store_true", help="Enable temporal investigation in the evidence inspector")
+    parser.add_argument("--response-bounds", type=Path, help="Optional delay bounds for --pilot or --investigate")
     args = parser.parse_args()
-    active_model = model_for_version(args.model or ("v4" if args.pilot else "v1"))
-    if args.pilot and (args.model not in (None, "v4") or args.mode != "temporal"):
-        parser.error("--pilot requires the temporal v4 model")
-    if args.response_bounds and not args.pilot:
-        parser.error("--response-bounds requires --pilot")
+    sequence = args.pilot or args.investigate
+    active_model = model_for_version(args.model or ("v4" if sequence else "v1"))
+    if sequence and (args.model not in (None, "v4") or args.mode != "temporal"):
+        parser.error("--pilot and --investigate require the temporal v4 model")
+    if args.response_bounds and not sequence:
+        parser.error("--response-bounds requires --pilot or --investigate")
     bounds = None
     if args.response_bounds:
         from .sequence_reasoning import _response_bounds
@@ -440,11 +443,11 @@ def main() -> None:
         from .airborne_profile import iter_profile_observations
         from .replay_panel import ReplayPanelState
         panel = ReplayPanelState(iter_profile_observations(args.replay), temporal=args.mode == "temporal",
-                                 model=active_model, pilot=args.pilot, response_bounds=bounds)
+                                 model=active_model, pilot=args.pilot, investigation=args.investigate, response_bounds=bounds)
     else:
         panel = PanelState(FlightGearClient(port=args.flightgear_port, timeout_s=1.0), diagnosis_limit=args.diagnosis_limit,
                            temporal=args.mode == "temporal", recording=args.recording, model=active_model,
-                           pilot=args.pilot, response_bounds=bounds)
+                           pilot=args.pilot, investigation=args.investigate, response_bounds=bounds)
     try:
         server = make_server(panel, args.port)
     except BaseException:

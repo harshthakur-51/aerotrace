@@ -20,7 +20,8 @@ class SessionLimitReached(RuntimeError):
 
 
 class DiagnosisSession:
-    def __init__(self, *, temporal=True, max_records=1200, model=None, pilot=False, response_bounds=None):
+    def __init__(self, *, temporal=True, max_records=1200, model=None, pilot=False, investigation=False,
+                 response_bounds=None):
         if type(temporal) is not bool:
             raise ValueError("temporal must be Boolean")
         if type(max_records) is not int or not 1 <= max_records <= 1200:
@@ -29,18 +30,20 @@ class DiagnosisSession:
         self.max_records = max_records
         self._selected_records = []
         self._model = default_model() if model is None else copy.deepcopy(model)
-        self._pilot_orders = None
-        if pilot:
+        self._pilot = pilot
+        self._investigation = investigation
+        self._orders = None
+        if pilot or investigation:
             from .sequence_reasoning import _catalogue_orders, _response_bounds
 
             if self._model["model_id"] != V4_MODEL_ID or not temporal:
-                raise ValueError("The pilot view requires the temporal v4 model")
-            self._pilot_orders = _catalogue_orders(self._model)
-            self._pilot_bounds = _response_bounds(response_bounds, self._model)
+                raise ValueError("The sequence view requires the temporal v4 model")
+            self._orders = _catalogue_orders(self._model)
+            self._bounds = _response_bounds(response_bounds, self._model)
         self._propulsion = uses_propulsion_profile(self._model)
         self._airborne_context = _ContextHistory(propulsion=self._propulsion)
         self._history = FeatureHistory(propulsion=self._propulsion, generated=self._model["model_id"] == V4_MODEL_ID,
-                                       sequence=pilot)
+                                       sequence=pilot or investigation)
         self._timeline = []
         self._version = None
 
@@ -84,9 +87,11 @@ class DiagnosisSession:
             "timeline": self._timeline,
             "session": {"record_count": self.count, "max_records": self.max_records,
                 "history_policy": "Retain every accepted public poll; stop inference at limit without truncation."}}
-        if self._pilot_orders is not None:
-            from .sequence_reasoning import pilot_text_for_epoch
+        if self._orders is not None:
+            from .sequence_reasoning import sequence_view_for_epoch
 
-            payload["pilot_display"] = pilot_text_for_epoch(self._history.sequence_frame(), self._model,
-                                                            self._pilot_orders, self._pilot_bounds)
+            payload.update(sequence_view_for_epoch(
+                self._history.sequence_frame(investigation=self._investigation), self._model,
+                self._orders, self._bounds, pilot=self._pilot, investigation=self._investigation,
+            ))
         return copy.deepcopy(payload)

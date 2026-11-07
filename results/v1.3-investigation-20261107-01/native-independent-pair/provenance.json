@@ -1,0 +1,17 @@
+{
+  "kind": "Fresh controlled FlightGear A320 experiment",
+  "observation_sha256": "d795d302a761e422587fcb8a7b136f7aad0b26992c015fad7a43edae5340c92d",
+  "protocol_sha256": "536d20fe8e03639b83ae4fba702f470d20f2ecf91404d01cdd6e471a79ff8e4e",
+  "configured_aircraft": "A320-200-CFM",
+  "configured_flightgear": "2024.1.7",
+  "configured_aircraft_revision": 20376,
+  "samples": 45,
+  "baseline_samples": 19,
+  "collection_completed": true,
+  "fault_cleanup_verified": true,
+  "private_journal_sha256": {
+    "qualification": "e1faa61ec4b146eb47f016832e46f8807a488d239c62e90a75ca0a2ecb45f020",
+    "operator_actions": "0b5658a30799d48d7fbb8d0d1f1dea1199f00dd5aeebcd3c4383af1b23bfde06",
+    "settings": "994ba2bb9ed517c102eeb37a49b4122821742a267ae734d0e47349e284701f74"
+  }
+}

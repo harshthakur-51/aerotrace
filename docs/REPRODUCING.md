@@ -2,13 +2,30 @@
 
 Run these commands from the repository root with Python 3.11 or later. The recorded workflows use the standard library and the included data.
 
+## Reproduce the v1.3 investigation
+
+Use fresh output folders for each run.
+
+```powershell
+Expand-Archive -LiteralPath results/v1.3-investigation-20261107-01/development-fixtures.zip -DestinationPath work/v13-review-inputs
+python -B -m aircraft_debugger.sequence_reasoning --observations work/v13-review-inputs/05/observations.jsonl --response-bounds work/v13-review-inputs/response-bounds.json --only generator_2_source_path_fault --output work/v13-review-output
+python -B -m aircraft_debugger.sim_panel --investigate --replay work/v13-review-inputs/05/observations.jsonl --response-bounds work/v13-review-inputs/response-bounds.json --port 8769
+```
+
+The generator-only counterfactual is excluded by the measured hydraulic effects.
+The surviving explanations include a larger set with potentially masked Blue
+pressure-supply loss. The common initiating origin remains unknown.
+The [investigation guide](CAUSAL-INVESTIGATION.md) gives the measurement-ranking
+criterion and the complete comparison command against the public v1.2 commit.
+[Measured v1.3 results](../results/v1.3-investigation-20261107-01/REPORT.md)
+
 ## Compare onset orders in the pilot view
 
 ```sh
 python -B -m aircraft_debugger.sequence_reasoning --observations results/timed-pair-20261106-01/observations.jsonl --response-bounds configs/sequence-pair-response-bounds.json --output work/v1.2-staggered-replay
 ```
 
-The terminal and `report.md` show the v1.2 pilot display. The JSON report records the effect brackets and compatibility decision for all 1,081 histories plus the reference. For the local Generator 2 and Blue pump pair, generator-first is the sole order that fits the declared response limits. This capture leaves propulsion alternatives unconfirmed. [Sequence study](FAULT-SEQUENCE-STUDY.md)
+The terminal and `report.md` show the pilot investigation display. The JSON report records the effect brackets and compatibility decision for all 1,081 histories plus the reference. For the local Generator 2 and Blue pump pair, generator-first is the sole order that fits the declared response limits. This capture leaves propulsion alternatives unconfirmed. [Sequence study](FAULT-SEQUENCE-STUDY.md)
 
 ## Inspect the native paired recording
 
