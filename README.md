@@ -106,3 +106,12 @@ The evaluations measure agreement with predeclared candidate sets at selected co
 | [results/](results/) | Observation streams, expected profiles, saved diagnoses and experiment provenance |
 | [tests/](tests/) | Automated checks and regressions using recorded observations |
 | [docs/](docs/) | Engineering report, architecture, reproduction and simulator setup |
+
+## License
+
+Original AeroTrace work is licensed under the [Apache License 2.0](LICENSE).
+Copyright 2026 Harsh Thakur.
+
+Archived FlightGear/A320 model source retains its GNU General Public License
+version 2 terms. See [third-party notices](THIRD_PARTY_NOTICES.md) for the
+covered files, original copyright statements and license text.
