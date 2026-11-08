@@ -147,10 +147,10 @@ if(d.minimal_candidate_ids?.length){
 }
 $('impacts').replaceChildren(block('Current confirmed impact',payload.current_impact),block('Confirmed impact in incident history',payload.observed_impact),block('Useful missing evidence and unresolved distinctions',d.missing_evidence));
 const openCandidates=new Set([...$('candidatePanels').querySelectorAll('details[open]')].map(e=>e.dataset.candidate));const panels=d.candidates.map(c=>{const detail=document.createElement('details');detail.dataset.candidate=c.id;detail.open=openCandidates.has(c.id);const support = payload.evidence_support?.[c.id];
-const percent = support?.percent == null ? '' : ` | model-check support ${support.percent}%`;
+const percent = support?.percent == null ? '' : ` | ${support.supported_checks}/${support.total_checks} model checks matched`;
 detail.append(element('summary', `${c.label} | ${c.status}${percent}`), element('p', c.scope_note));
 if (support?.percent != null) {
-    detail.append(element('p', `${support.supported_checks} of ${support.total_checks} model checks supported. This percentage measures evidence coverage. Physical cause confidence remains unresolved.`));
+    detail.append(element('p', `${support.supported_checks} of ${support.total_checks} model checks matched the observations. This count measures evidence coverage, not the probability that this is the cause.`));
 }
 for(const [key,title] of [['supporting_evidence','Supporting evidence'],['contradicting_evidence','Contradicting evidence'],['predicted_consequences','Predicted consequences'],['dependency_paths','Propagation paths'],['temporal_evidence','Temporal consistency'],['missing_evidence','Missing evidence'],['alternative_explanations','Alternatives']])detail.append(block(title,c[key]));return detail;});$('candidatePanels').replaceChildren(...panels);
 if(!replay){$('pageTitle').textContent='Live systems | causal evidence';$('diagnosisScope').textContent+=` Live session ${payload.session.record_count}/${payload.session.max_records} polls; inference ${(payload.update_duration_s*1000).toFixed(1)} ms.`;if(payload.wall_clock_stale)$('diagnosisSummary').textContent='STALE snapshot: '+$('diagnosisSummary').textContent;else if(payload.current_quality?.usable===false||payload.current_quality?.time_progressing===false||payload.current_quality?.unavailable_channels?.length)$('diagnosisSummary').textContent='Current evidence unavailable; retained history: '+$('diagnosisSummary').textContent;}

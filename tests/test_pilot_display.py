@@ -81,7 +81,7 @@ class PilotDisplayTests(unittest.TestCase):
         self.assertIn("1. ENG 2 POWER LOSS", display)
         self.assertIn("2. ELEC GEN 2 SOURCE PATH LOSS", display)
         self.assertIn("0:23", display)
-        self.assertIn("1: 71%  2: 71%", display)
+        self.assertIn("Checks matched      1: 5/7  2: 5/7", display)
 
     def test_origin_needs_consecutive_cold_ground_readings_and_resets_by_epoch(self):
         off, on = _with_startup(self.rows)[:2]

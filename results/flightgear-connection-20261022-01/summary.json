@@ -1,0 +1,63 @@
+{
+  "kind": "descriptive native A320 coupling check; no diagnosis or aircraft validation",
+  "flightgear_version": "2024.1.7",
+  "aircraft": "A320-200-CFM",
+  "catalog_revision": 20376,
+  "aircraft_internal_revision": "2508",
+  "stages": [
+    {
+      "stage": "healthy_ready",
+      "sim_time_s": 176.041667,
+      "generator_2_voltage_v": 115.0,
+      "ac_bus_2_voltage_v": 115.0,
+      "blue_quantity_raw": 8.0,
+      "blue_pressure_psi": 3000.0
+    },
+    {
+      "stage": "generator_2_failed",
+      "sim_time_s": 179.45,
+      "generator_2_voltage_v": 0.0,
+      "ac_bus_2_voltage_v": 115.0,
+      "blue_quantity_raw": 8.0,
+      "blue_pressure_psi": 3000.0
+    },
+    {
+      "stage": "generator_flag_cleared",
+      "sim_time_s": 182.758333,
+      "generator_2_voltage_v": 115.0,
+      "ac_bus_2_voltage_v": 115.0,
+      "blue_quantity_raw": 8.0,
+      "blue_pressure_psi": 3000.0
+    },
+    {
+      "stage": "blue_leak_active",
+      "sim_time_s": 188.05,
+      "generator_2_voltage_v": 115.0,
+      "ac_bus_2_voltage_v": 115.0,
+      "blue_quantity_raw": 6.8,
+      "blue_pressure_psi": 3000.0
+    },
+    {
+      "stage": "blue_leak_flag_cleared",
+      "sim_time_s": 191.341667,
+      "generator_2_voltage_v": 115.0,
+      "ac_bus_2_voltage_v": 115.0,
+      "blue_quantity_raw": 8.0,
+      "blue_pressure_psi": 3000.0
+    }
+  ],
+  "rendered_cockpit_verified": true,
+  "source": "configs/flightgear-assets.json",
+  "reproduce": "python -B scripts/check-flightgear-connection.py --output NEW_FOLDER (ready local A320 required; stop panel polling for controlled check)",
+  "code_sha256": {
+    "aircraft_debugger/flightgear.py": "4e60e793ad30fdc5fa8d2b8d9d9157b16c1ab20fa99014df0252216325bdd443",
+    "aircraft_debugger/sim_panel.py": "c97b4d32ca4c798357478f6ea887937f401b6998091e9b51147dfabf3e22577d",
+    "aircraft_debugger/assets/sim-panel.html": "8ff569ba61a1d17374737a8f4abe6a1df7f4c7dd0dcd45a3bc73ab19c9413cb8",
+    "scripts/check-flightgear-connection.py": "84eb8945b57f3791eec6c7ebbad4ccd51a5c0a6b0899db1f628ae7ec4c19c73d",
+    "configs/flightgear-a320.fgfsrc": "f7ec4819856240b8e55e94e9a87f3b60e6ae53aa96e24b394f3b6f010eb3e851",
+    "configs/flightgear-assets.json": "4b06fddfa7844dd5d9a1d33bbcf4aac5ab00aabe17c4789528dee5bf5ac9df5a"
+  },
+  "test_status": "25 tests passed; tests are correctness/transport/boundary checks, not diagnostic metrics",
+  "current_runtime_status": "Rendered A320 cockpit and local systems panel left running for user; native failure checks passed in earlier verification run.",
+  "rendered_verification": "Direct FlightGear launch; builtin /screenshot?type=png exported and visually inspected as cockpit-check.png."
+}

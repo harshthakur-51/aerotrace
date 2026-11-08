@@ -14,7 +14,7 @@ For each effect, the last nominal and first anomalous reading bracket its observ
 
 ## Evidence support percentage
 
-The panel and timing report display the percentage of a candidate's applicable checks supported by the observations. The denominator includes required effect, required absence and applicable timing checks. An unknown check remains in the denominator. Optional effects such as retained or lost bus voltage contribute no credit when both are allowed. A contradiction excludes the candidate and suppresses its percentage. The display rounds to a whole percentage and shows the counts. This is a project evidence coverage measure, implemented in [candidate_support.py](../aircraft_debugger/candidate_support.py).
+The panel shows how many of a candidate's applicable checks the observations support, for example 7/7. The timing report also gives the rounded percentage. The denominator includes required effect, required absence and applicable timing checks. An unknown check remains in the denominator. Optional effects such as retained or lost bus voltage contribute no credit when both are allowed. A contradiction excludes the candidate and suppresses its percentage. This is a project evidence coverage measure, implemented in [candidate_support.py](../aircraft_debugger/candidate_support.py).
 
 Two candidates can each show 100% when every check is supported for both. Candidate probabilities would require distinguishable initiating histories and a calibration set with independent truth for those histories. The current observations establish compatibility and timing constraints.
 

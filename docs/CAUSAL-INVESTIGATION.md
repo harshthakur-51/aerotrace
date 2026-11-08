@@ -93,9 +93,8 @@ initiator remains unknown in either case.
 
 The pilot view uses A320 component labels and separates observed events,
 possible explanations and what to investigate next. C:U counts compatible
-and unconfirmed histories across the catalogue. Model-check support describes
-matched checks for a displayed explanation and carries no estimate of cause
-likelihood. Time since ground power is shown when its transition was recorded.
+and unconfirmed histories across the catalogue. Checks matched gives the agreeing model checks for a displayed explanation,
+such as 7/7, and carries no estimate of cause likelihood. Time since ground power is shown when its transition was recorded.
 The tool remains an experimental simulator debugger.
 
 ## Reproduce the comparison

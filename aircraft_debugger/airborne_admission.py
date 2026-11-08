@@ -1,6 +1,6 @@
 """Read-only qualification of one observed airborne experiment baseline.
 
-The defaults are project experiment choices from docs/AIRBORNE-TEST-PROTOCOL.md,
+The defaults are project experiment choices (configs/airborne-qualification-settings.json),
 not aircraft limits or a flightworthiness decision. Private initialization checks
 are accepted separately from the public observation record and are never copied
 into returned results. No simulator reads, writes or fault controls occur here.

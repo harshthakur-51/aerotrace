@@ -61,7 +61,7 @@
     "cross_system_check": {"local_path": "results/cross-system-20261026-01/manifest.json", "review": "Five recorded ground cases and 65 polls: reference, isolated generator loss, isolated blue depletion, grouped interventions and matching independent-pair interventions. Only the grouped controller is demonstrated; native physical co-exposure remains an assumption."},
     "observations": {"local_path": "aircraft_debugger/observations.py", "review": "Canonical twelve-channel allowlist shared by the panel and strict recording/replay boundary inspected."},
     "panel": {"local_path": "aircraft_debugger/sim_panel.py", "review": "Imports the canonical observations allowlist; two private command paths inspected."},
-    "synthetic_exposure": {"local_path": "docs/A320-MECHANISM-MAP.md", "review": "Project assumption: one synthetic regional event may select generator 2 failure and blue-line damage together. No native geometry/debris claim."}
+    "synthetic_exposure": {"local_path": "docs/CAUSAL-INVESTIGATION.md", "review": "Project assumption: one synthetic regional event may select generator 2 failure and blue-line damage together. No native geometry/debris claim."}
   },
   "nodes": [
     {"id": "engine_1", "kind": "component", "system": "propulsion", "label": "Engine 1", "read_only": true, "source_refs": ["electrical", "hydraulic"], "observations": ["engine_1_n1"]},

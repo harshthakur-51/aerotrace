@@ -172,7 +172,7 @@ class InvestigationTests(unittest.TestCase):
         offline, = analyze_sequences(rows)["epochs"]
         self.assertEqual(payload["investigation"], offline["investigation"])
         self.assertIn("WHAT TO INVESTIGATE NEXT", payload["pilot_display"])
-        self.assertIn("Model-check support", payload["pilot_display"])
+        self.assertIn("Checks matched", payload["pilot_display"])
 
     def test_available_pending_measurement_ranks_a_real_prefix_and_new_poll_fits_its_partition(self):
         path = _ARCHIVE.parent.parent / "pair-auto/observations.jsonl"

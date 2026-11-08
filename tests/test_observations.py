@@ -29,8 +29,8 @@ def record(index=0, at=101.0):
 
 class ObservationTests(unittest.TestCase):
     def temporary_directory(self):
-        # The project's tests must keep scratch files on the active Z: drive.
-        base = Path(os.environ.get("AIRCRAFT_DEBUGGER_TEST_TMP", "Z:/aircraft-debugger/work/tests"))
+        # Scratch files stay under the repository's ignored work/ folder unless overridden.
+        base = Path(os.environ.get("AIRCRAFT_DEBUGGER_TEST_TMP") or Path(__file__).resolve().parents[1] / "work" / "tests")
         base.mkdir(parents=True, exist_ok=True)
         directory = tempfile.TemporaryDirectory(dir=base)
         self.addCleanup(directory.cleanup)

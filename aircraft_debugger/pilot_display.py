@@ -116,15 +116,14 @@ def render_pilot_display(epoch, *, include_investigation=False):
         lines.extend(("   " if prefix else "") + "+ " + cause for cause in causes[1:])
         support = choice["dependency_evidence_support"]
         percent = support["percent"]
-        score = "--" if percent is None else f"{percent}%"
-        if include_investigation and percent is not None:
-            score = f"{support['supported_checks']}/{support['total_checks']} checks ({score})"
+        # Show the raw count: a bare "100%" reads as certainty about the cause.
+        score = "--" if percent is None else f"{support['supported_checks']}/{support['total_checks']}"
         scores.append(f"{index}: {score}" if prefix else score)
     if not choices:
         lines.append("Unresolved")
     counts = epoch["history_counts"]
     lines.extend(("", f"{'C:U':<20}{counts['compatible']}:{counts['unconfirmed']}",
-                  f"{'Model-check support' if include_investigation else 'Evidence support':<20}{'  '.join(scores) or '--'}"))
+                  f"{'Checks matched':<20}{'  '.join(scores) or '--'}"))
     if include_investigation and "investigation" in epoch:
         lines.extend(_investigation_lines(epoch["investigation"]))
     return "\n".join(lines)
@@ -155,5 +154,5 @@ def _investigation_lines(investigation):
         lines.append("Common disturbance vs separate failures unresolved.")
     if len(lines) == 2:
         lines.append("No additional passive measurement ranked.")
-    lines.extend(("", "Model-check support counts matched checks for each displayed set."))
+    lines.extend(("", "Checks matched counts agreeing model checks per set; it is not a cause probability."))
     return lines

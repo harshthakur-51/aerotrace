@@ -82,7 +82,7 @@ def main():
     aircraft = WORK / "aircraft"
     if not (aircraft / "A320-family" / "A320-200-CFM-set.xml").exists():
         unzip(files["A320-family.zip"], aircraft)
-    print("Local FlightGear and A320 assets are ready. See docs/CONNECTED-SIMULATOR.md for manual startup.", flush=True)
+    print("Local FlightGear and A320 assets are ready. See docs/LIVE-SIMULATOR.md for startup.", flush=True)
 
 
 if __name__ == "__main__":
