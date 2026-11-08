@@ -97,7 +97,8 @@ class _ContextHistory:
                 reasons.append(f"stale_{label}")
             if reading and reading["valid"] and reading["sim_time_s"] is None:
                 reasons.append(f"{label}_timestamp_unavailable")
-        reset = (self.previous_local is not None and receipt <= self.previous_local) or (
+        # Equal receipts are not a reset: before Python 3.13, Windows monotonic time ticks every ~16 ms.
+        reset = (self.previous_local is not None and receipt < self.previous_local) or (
             sim_time is not None and self.previous_sim is not None and sim_time < self.previous_sim
         )
         if reset:
