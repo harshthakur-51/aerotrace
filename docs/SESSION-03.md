@@ -6,8 +6,9 @@ The new context-aware analysis detects the source-output loss/restoration from p
 observations only. This is one physical-response check, not broad fault coverage,
 a diagnosis-accuracy benchmark or completion of all airborne/Week 1 requirements.
 
-Checkpoint tag: `checkpoint/week01-airborne-gen2-20261028`.
-Software used: commit `9794d81`; actual source bytes are archived in the recording.
+The tag `checkpoint/week01-airborne-gen2-20261028` and commit `9794d81` belong to the private
+development history and are not part of this public repository. The executed source
+bytes are archived with the recording.
 
 ## Intent and declared condition
 

@@ -64,8 +64,8 @@ hours, minutes and seconds elapsed since the observed ground-power origin.
 The cause lines describe possible modeled mechanisms. A plus sign joins
 mechanisms in one explanation. Numbered groups are competing explanations.
 C:U counts compatible and unconfirmed onset histories across the catalogue.
-Evidence support is the percentage of applicable dependency checks backed by
-observations for each displayed explanation.
+Checks matched gives the number of applicable dependency checks backed by
+observations, out of the total, for each displayed explanation.
 
 The labels use A320 component abbreviations from the pinned FlightGear
 Electronic Centralized Aircraft Monitor (ECAM) model. ENG means engine,

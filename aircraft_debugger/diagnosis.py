@@ -174,7 +174,8 @@ def _markdown(report: dict) -> str:
                       f"Status: `{candidate['status']}`."])
         score = report.get("candidate_evidence_support", {}).get(candidate["id"])
         if score and score["percent"] is not None:
-            lines.append(f"Evidence support **{score['percent']}%** ({score['supported_checks']} of {score['total_checks']} checks).")
+            lines.append(f"Model checks matched: **{score['supported_checks']} of {score['total_checks']}** "
+                         f"({score['percent']}% evidence coverage, not a cause probability).")
         for title, key in (("Supporting evidence", "supporting_evidence"),
                            ("Contradicting evidence", "contradicting_evidence"),
                            ("Predicted consequences", "predicted_consequences"),

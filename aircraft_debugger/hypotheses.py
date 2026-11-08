@@ -31,8 +31,8 @@ def default_model() -> dict:
         "method": "dependency_predictions_and_optional_temporal_consistency",
         "provenance": {
             "implementation": "aircraft_debugger/hypotheses.py",
-            "mechanism_mapping": "docs/A320-MECHANISM-MAP.md",
-            "observability": "docs/OBSERVABILITY.md",
+            "mechanism_mapping": "docs/ENGINEERING-REPORT.md",
+            "observability": "docs/ARCHITECTURE.md",
             "classification": "Project-authored finite compatibility model; no external physical validation or probability calibration",
         },
         "roots": [_GEN_ROOT, _BLUE_ROOT],
@@ -154,7 +154,7 @@ def pressure_supply_model() -> dict:
     """
     model = default_model()
     model["model_id"] = V2_MODEL_ID
-    model["provenance"]["mechanism_mapping"] = "docs/PRESSURE-SUPPLY-MECHANISM.md"
+    model["provenance"]["mechanism_mapping"] = "docs/ENGINEERING-REPORT.md"
     model["roots"].append(_PRESSURE_ROOT)
     model["nodes"].insert(2, {"id": _PRESSURE_ROOT, "kind": "hypothesized_mechanism"})
     model["edges"].append({"from": _PRESSURE_ROOT, "to": "blue_pressure_loss", "necessity": "required",

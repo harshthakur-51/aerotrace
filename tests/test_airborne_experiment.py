@@ -162,7 +162,7 @@ class Operator:
 
 class AirborneExperimentTests(unittest.TestCase):
     def setUp(self):
-        root = Path(os.environ.get("AIRCRAFT_DEBUGGER_TEST_TMP", "Z:/aircraft-debugger/work/tests"))
+        root = Path(os.environ.get("AIRCRAFT_DEBUGGER_TEST_TMP") or Path(__file__).resolve().parents[1] / "work" / "tests")
         root.mkdir(parents=True, exist_ok=True)
         temporary = tempfile.TemporaryDirectory(dir=root)
         self.addCleanup(temporary.cleanup)

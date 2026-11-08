@@ -39,7 +39,7 @@ def legacy_record(index=0, at=101.0):
 
 class AirborneProfileTests(unittest.TestCase):
     def setUp(self):
-        base = Path(os.environ.get("AIRCRAFT_DEBUGGER_TEST_TMP", "Z:/aircraft-debugger/work/tests"))
+        base = Path(os.environ.get("AIRCRAFT_DEBUGGER_TEST_TMP") or Path(__file__).resolve().parents[1] / "work" / "tests")
         base.mkdir(parents=True, exist_ok=True)
         temporary = tempfile.TemporaryDirectory(dir=base)
         self.addCleanup(temporary.cleanup)
