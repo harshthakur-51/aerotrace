@@ -115,7 +115,8 @@ def analyze_observations(records: Iterable[dict]) -> dict:
         for reading, label in ((time_reading, "simulator_time"), (pause_reading, "pause_state"), (aircraft_reading, "aircraft_identity")):
             if reading and receipt - reading["received_monotonic_s"] > THRESHOLDS["maximum_reading_age_local_s"]:
                 reasons.append(f"stale_{label}")
-        local_reset = previous_receipt is not None and receipt <= previous_receipt
+        # Equal receipts are not a reset: before Python 3.13, Windows monotonic time ticks every ~16 ms.
+        local_reset = previous_receipt is not None and receipt < previous_receipt
         sim_reset = sim_time is not None and previous_sim_time is not None and sim_time < previous_sim_time
         if local_reset or sim_reset:
             epoch += 1
