@@ -95,7 +95,7 @@ python -B -m aircraft_debugger.c_port --write-model
 python -B -m aircraft_debugger.c_port --check results/timed-pair-20261106-01/observations.jsonl --response-bounds configs/sequence-pair-response-bounds.json
 ```
 
-The second command compiles a PC harness with gcc, clang or MSVC. After every telemetry poll it compares the evidence frame and the fit computed in C with those computed in Python. All 1,609 polls of the 27 airborne recordings in this repository are identical. The test suite repeats this on ten recordings, on 2,400 generated polls with clock resets, dropped polls and stale or invalid readings, and on more than 7,700 synthetic evidence frames.
+The second command compiles a PC harness with gcc, clang or MSVC. After every telemetry poll it compares the evidence frame and the fit computed in C with those computed in Python. All 1,609 polls of the 27 airborne recordings in this repository are identical. The test suite repeats this on ten recordings, on 2,400 generated polls with clock resets, dropped polls and stale or invalid readings, on scripted telemetry for detector edge cases, and on more than 7,700 synthetic evidence frames. Of 131 deliberate bugs planted in the C code, the tests detect 125. The other six cannot change the output. [Bug-planting script](scripts/mutate_embedded_core.py)
 
 | Compiled for RV32IMAFC with `-Os` (GCC 14.2) | Size |
 | --- | --- |
@@ -126,7 +126,7 @@ reports both. [Recording, diagnosis and operator evidence](results/pressure-pair
 | **Five-fault sequence study** | 1,081 onset histories across all mechanism sets. The expected history was retained in every synthetic case. |
 | **v1.3 investigation** | All 444 counterfactual answers agreed with the executable model. The true mechanism set was retained in 10 of 12 cases; the 2 misses are an inconsistent test fixture and a deliberately unmodelled fault. |
 | **Update cost** | 95th-percentile live update of **80 ms** over a 1,200-poll session (was 490 ms before context reuse). |
-| **Software** | **241** automated tests, run by CI on Linux and Windows with Python 3.11 and 3.13. |
+| **Software** | **242** automated tests, run by CI on Linux and Windows with Python 3.11 and 3.13. |
 
 [Engine drive results](results/engine-drive-20261106-01/REPORT.md) · [Prospective evaluation](results/pressure-v2-prospective-20261106-01/REPORT.md) · [Timed fault study](docs/TEMPORAL-STUDY.md) · [Five-fault sequences](docs/FAULT-SEQUENCE-STUDY.md) · [Quantity stress test](results/quantity-indication-stress-20261106-01/README.md) · [Load measurements](results/pressure-v2-load-optimized-20261106-01/REPORT.md) · [Release review](results/v1.3-release-review-20261107-01/REPORT.md) · [Initial validation report (PDF)](output/pdf/AeroTrace-Engineering-Report.pdf)
 

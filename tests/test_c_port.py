@@ -45,6 +45,47 @@ STEADY = {"altitude": 8000.0, "airspeed": 250.0, "engine_1_n1": 80.0, "engine_2_
           "ptu_selected": True, "external_power_output": 0.0}
 
 
+NORMAL = {**{name: values[0] for name, values in LEVELS.items()}, **STEADY}
+
+
+def make_poll(specs, index, sim_time, local, values, *, clock=None, defects=None, offsets=None, offline=False,
+              last_time=None):
+    """One schema 3 poll. `defects` maps a channel to a transport defect, `offsets` to a timestamp offset."""
+    defects, offsets = defects or {}, offsets or {}
+    started, received = local, local + 0.5
+    readings = {}
+    for name, spec in specs.items():
+        value = (sim_time if clock is None else clock) if name == "sim_time" else values[name]
+        reading = {"path": spec.path, "value": value, "valid": True, "error": None,
+                   "sim_time_s": sim_time + offsets.get(name, 0.0),
+                   "received_monotonic_s": local + 0.01, "reachable": True, "unit": spec.unit}
+        defect = defects.get(name)
+        if offline:
+            reading.update(value=None, valid=False, error="connection_error", sim_time_s=None, reachable=False)
+        elif defect == "missing":
+            continue
+        elif defect == "invalid":
+            reading.update(value=None, valid=False, error="timeout", sim_time_s=None)
+        elif defect == "untimed":
+            reading["sim_time_s"] = None
+        elif defect == "stale":
+            started = received - 3.0
+            reading["received_monotonic_s"] = started
+        elif defect == "frozen" and last_time and name in last_time:
+            reading["sim_time_s"] = last_time[name]
+        if last_time is not None and reading["sim_time_s"] is not None:
+            last_time[name] = reading["sim_time_s"]
+        readings[name] = reading
+    # The validator selects the start-up profile by the presence of the external-power reading.
+    profile = PILOT_CHANNELS if "external_power_output" in readings else PROPULSION_CHANNELS
+    return {
+        "schema_version": 3, "observation_profile": PROPULSION_PROFILE_ID, "sample_index": index,
+        "poll_started_monotonic_s": started, "received_monotonic_s": received, "readings": readings,
+        "connected": any(reading["reachable"] for reading in readings.values()),
+        "complete": readings.keys() == profile.keys() and all(reading["valid"] for reading in readings.values()),
+    }
+
+
 def telemetry_stream(seed, length=60):
     """Seeded schema 3 polls with threshold crossings and every transport defect the extractor handles."""
     rng = random.Random(seed)
@@ -52,7 +93,7 @@ def telemetry_stream(seed, length=60):
     ground_polls = rng.randint(1, 5) if seed % 4 == 0 else 0
     jitter = (0.0, 0.0, 0.0, 0.1, 0.2) if seed % 3 == 0 else (0.0,)
     change = 0.03 + 0.03 * (seed % 5)
-    level = {name: values[0] for name, values in LEVELS.items()}
+    level = dict(NORMAL)
     last_time, rows = {}, []
     index, sim_time, local = rng.randint(0, 3), 100.0, 1000.0
     for poll in range(length):
@@ -68,43 +109,127 @@ def telemetry_stream(seed, length=60):
         for name, values in LEVELS.items():
             if rng.random() < change:
                 level[name] = rng.choice(values)
-        started, received = local, local + 0.5
-        defect = rng.choice(("invalid", "missing", "untimed", "stale", "frozen", "skewed")) if rng.random() < 0.2 else None
-        target = rng.choice(list(specs))
-        offline = rng.random() < 0.03
-        readings = {}
-        for name, spec in specs.items():
-            value = sim_time if name == "sim_time" else level.get(name, STEADY.get(name))
-            if poll < ground_polls and name in ("main_gear_1_wow", "main_gear_2_wow", "height_agl"):
-                value = 0.0 if name == "height_agl" else True
-            time = sim_time + rng.choice(jitter)
-            reading = {"path": spec.path, "value": value, "valid": True, "error": None, "sim_time_s": time,
-                       "received_monotonic_s": local + 0.01, "reachable": True, "unit": spec.unit}
-            if offline:
-                reading.update(value=None, valid=False, error="connection_error", sim_time_s=None, reachable=False)
-            elif name == target and defect == "missing":
-                continue
-            elif name == target and defect == "invalid":
-                reading.update(value=None, valid=False, error="timeout", sim_time_s=None)
-            elif name == target and defect == "untimed":
-                reading["sim_time_s"] = None
-            elif name == target and defect == "stale":
-                started = received - 3.0
-                reading["received_monotonic_s"] = started
-            elif name == target and defect == "frozen" and name in last_time:
-                reading["sim_time_s"] = last_time[name]
-            elif name == target and defect == "skewed":
-                reading["sim_time_s"] = time + 0.3
-            if reading["sim_time_s"] is not None:
-                last_time[name] = reading["sim_time_s"]
-            readings[name] = reading
-        rows.append({
-            "schema_version": 3, "observation_profile": PROPULSION_PROFILE_ID, "sample_index": index,
-            "poll_started_monotonic_s": started, "received_monotonic_s": received, "readings": readings,
-            "connected": any(reading["reachable"] for reading in readings.values()),
-            "complete": readings.keys() == specs.keys() and all(reading["valid"] for reading in readings.values()),
-        })
+        values = dict(level)
+        if poll < ground_polls:
+            values.update(main_gear_1_wow=True, main_gear_2_wow=True, height_agl=0.0)
+        offsets = {name: rng.choice(jitter) for name in specs}
+        defects = {}
+        if rng.random() < 0.2:
+            target = rng.choice(list(specs))
+            defect = rng.choice(("invalid", "missing", "untimed", "stale", "frozen", "skewed"))
+            if defect == "skewed":
+                offsets[target] += 0.3
+            else:
+                defects[target] = defect
+        rows.append(make_poll(specs, index, sim_time, local, values, defects=defects, offsets=offsets,
+                              offline=rng.random() < 0.03, last_time=last_time))
     return rows
+
+
+def scripted_stream(polls, *, startup=False, offsets=None):
+    """Polls one simulator second apart. Each poll overrides normal values and may carry these keys:
+
+    ground (on the ground), defects, step (simulator seconds since the previous poll), skip (one
+    sample index is left out before this poll) and clock_lag (how far the reported simulator
+    clock trails the reading timestamps).
+    """
+    specs = PILOT_CHANNELS if startup else PROPULSION_CHANNELS
+    rows, last_time, sim_time, index = [], {}, 100.0, -1
+    for poll in polls:
+        poll = dict(poll)
+        index += 2 if poll.pop("skip", False) else 1
+        sim_time += poll.pop("step", 1.0)
+        defects, lag = poll.pop("defects", None), poll.pop("clock_lag", 0.0)
+        values = {**NORMAL, **({"main_gear_1_wow": True, "main_gear_2_wow": True, "height_agl": 0.0}
+                               if poll.pop("ground", False) else {}), **poll}
+        rows.append(make_poll(specs, index, sim_time, 1000.0 + index, values, clock=sim_time - lag,
+                              defects=defects, offsets=offsets, last_time=last_time))
+    return rows
+
+
+def scripted_streams():
+    """Telemetry aimed at detector paths that recordings and random streams rarely reach."""
+    def run(channel, *levels, **extra):
+        return [{channel: level, **extra} for level in levels]
+
+    normal = {}
+    lost_pump = {"yellow_edp_pressure": 0.0, "yellow_transfer_pressure": 0.0}
+    streams = {
+        # A reading whose own timestamp repeats is unusable, so its abnormal value must not count.
+        "repeated-time-generator": run("generator_2_voltage", 115.0, 115.0, 0.0)
+        + [{"generator_2_voltage": 0.0, "defects": {"generator_2_voltage": "frozen"}}, normal, normal],
+        **{f"repeated-time-{channel}": [normal] * 3 + [{channel: value, "defects": {channel: "frozen"}}] + [normal] * 2
+           for channel, value in (("ac_bus_2", 0.0), ("blue_quantity", 7.4), ("blue_pressure", 0.0))},
+        # A reading received more than two seconds before the poll completed is unusable.
+        **{f"stale-{channel}": [normal] * 3 + [{"defects": {channel: "stale"}}] + [normal] * 2
+           for channel in ("sim_time", "paused", "aircraft", "generator_2_voltage", "engine_2_n2")},
+        # A backup source with an unusable reading leaves the supply state undetermined.
+        "supply-transfer-unmeasured": [{"yellow_edp_pressure": 0.0, "yellow_transfer_pressure": -1.0,
+                                        "yellow_pressure": 0.0}] * 9,
+        # A skipped poll restarts the settling period.
+        "supply-skipped-poll": [{**lost_pump, "yellow_electric_pressure": 3000.0, "yellow_pressure": 3000.0, **extra}
+                                for extra in [{}] * 4 + [{"skip": True, "step": 2.0}] + [{}] * 3],
+        "untimed-aircraft-first": [{"defects": {"aircraft": "untimed"}}] + [normal] * 3,
+        # Generator confirmation needs consecutive low readings.
+        "generator-low-then-normal": run("generator_2_voltage", 115.0, 115.0, 0.0, 115.0, 0.0, 115.0, 115.0),
+        "generator-low-then-invalid": run("generator_2_voltage", 115.0, 115.0, 0.0)
+        + [{"defects": {"generator_2_voltage": "invalid"}}] + run("generator_2_voltage", 0.0, 115.0),
+        # Inventory thresholds met exactly: 0.1 - 0.0 is exactly the onset drop.
+        "quantity-onset-exact": run("blue_quantity", 0.1, 0.1, 0.0, -0.5, -0.5),
+        # Settled Yellow supply on each boundary value.
+        "supply-backed-exact": [{**lost_pump, "yellow_electric_pressure": 2500.0, "yellow_pressure": 3000.0}] * 9,
+        "supply-neither-exact": [{**lost_pump, "yellow_electric_pressure": 500.0, "yellow_pressure": 0.0}] * 9,
+        "supply-line-exact": [{**lost_pump, "yellow_electric_pressure": 3000.0, "yellow_pressure": 2500.0}] * 9,
+        "supply-contradicted": [{**lost_pump, "yellow_electric_pressure": 3000.0, "yellow_pressure": 0.0}] * 9,
+        "supply-transfer-backed": [{"yellow_edp_pressure": 0.0, "yellow_electric_pressure": 0.0,
+                                    "yellow_transfer_pressure": 3000.0, "yellow_pressure": 3000.0}] * 9,
+        # Clock defects.
+        "negative-clock": [{"clock_lag": 300.0}] * 5,
+        "frozen-clock": [normal] * 3 + [{"clock_lag": 1.0}] + [normal] * 2,
+        "reset-with-invalid-speed": [normal] * 4 + [{"step": -50.0, "defects": {"engine_2_n2": "invalid"}}]
+        + run("engine_2_n2", 10.0, 10.0, 10.0),
+        # Inventory and pressure order.
+        "order-pressure-from-start": run("blue_quantity", 8.0, 8.0, 8.0, 8.0, 7.4, 7.4, blue_pressure=0.0),
+    }
+    result = [(name, scripted_stream(polls), None) for name, polls in streams.items()]
+
+    def both(quantity, pressure):
+        return [{"blue_quantity": q, "blue_pressure": p} for q, p in zip(quantity, pressure)]
+
+    # Readings of one poll carry slightly different times. That must not create an order.
+    result += [
+        ("order-same-poll-quantity-first", scripted_stream(
+            both((8.0, 8.0, 8.0, 7.4, 7.4, 7.4), (3000.0, 3000.0, 3000.0, 3000.0, 0.0, 0.0)),
+            offsets={"blue_pressure": 0.1}), None),
+        ("order-same-poll-pressure-first", scripted_stream(
+            both((8.0, 8.0, 8.0, 8.0, 7.4, 7.4), (3000.0, 3000.0, 3000.0, 0.0, 0.0, 0.0)),
+            offsets={"blue_quantity": 0.1}), None),
+        ("supply-skewed", scripted_stream(
+            [{**lost_pump, "yellow_electric_pressure": 3000.0, "yellow_pressure": 3000.0}] * 9,
+            offsets={"yellow_quantity": 0.3}), None),
+        ("drive-skewed", scripted_stream(run("generator_2_voltage", 115.0, 115.0, 0.0, 0.0, 0.0),
+                                         offsets={"generator_2_voltage": 0.3}), None),
+    ]
+
+    # Detector state built on the ground, before the airborne window opens.
+    ground = {
+        "ground-generator-restored": (run("generator_2_voltage", 115.0, 115.0, 0.0, 0.0, 115.0),
+                                      run("generator_2_voltage", 0.0, 115.0, 115.0)),
+        "ground-generator-reduced": (run("generator_2_voltage", 115.0, 0.0, 50.0),
+                                     run("generator_2_voltage", 0.0, 115.0, 115.0)),
+        "ground-generator-confirmed": (run("generator_2_voltage", 115.0, 115.0, 0.0, 0.0),
+                                       run("generator_2_voltage", 0.0, 0.0)),
+        "ground-quantity-recovered-exact": (run("blue_quantity", 0.1, -0.5, -0.5, 0.0), run("blue_quantity", 0.0, 0.0)),
+        "ground-quantity-recovered": (run("blue_quantity", 8.0, 8.0, 7.4, 8.0), run("blue_quantity", 7.8, 7.8)),
+        "ground-quantity-second-loss": (run("blue_quantity", 8.0, 8.0, 7.4, 7.95), run("blue_quantity", 7.4, 7.4)),
+        "ground-quantity-confirmed": (run("blue_quantity", 8.0, 8.0, 7.4), run("blue_quantity", 7.4, 7.4)),
+    }
+    result += [(name, scripted_stream([{**poll, "ground": True} for poll in before] + after, startup=True), None)
+               for name, (before, after) in ground.items()]
+    # Each ground indication alone keeps a start-up capture out of the airborne window.
+    result += [(f"ground-only-{channel}", scripted_stream([{channel: value}] * 2 + [normal] * 3, startup=True), None)
+               for channel, value in (("main_gear_1_wow", True), ("main_gear_2_wow", True), ("height_agl", 0.0))]
+    return result
 
 
 def onset_histories():
@@ -266,6 +391,11 @@ class EmbeddedCoreTests(unittest.TestCase):
         self.assertEqual(count, 60 * FUZZ_STREAMS)
         self.assertGreater(framed, count // 2)
         self.assertLess(framed, count)
+
+    def test_scripted_telemetry_extracts_identically_after_every_poll(self):
+        count, framed, wrong = c_port.compare_streams(scripted_streams(), self.executable, self.directory, fit=False)
+        self.assertEqual(wrong, [])
+        self.assertGreater(framed, 150)
 
     def test_sample_index_must_increase(self):
         tables = c_port.model_tables()
