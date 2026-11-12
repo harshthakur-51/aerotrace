@@ -1,4 +1,4 @@
-﻿# AeroTrace
+# AeroTrace
 
 [![tests](https://github.com/harshthakur-51/aerotrace/actions/workflows/tests.yml/badge.svg)](https://github.com/harshthakur-51/aerotrace/actions/workflows/tests.yml)
 
@@ -26,7 +26,7 @@ does not work yet; see [Limitations](#limitations).
 pinned revision 20376), steady airborne flight at about 6,100 to 10,200 ft and 230 to
 250 kt. Simulator data only; nothing here is validated against a real aircraft.
 
-[v1.3 results](results/v1.3-investigation-20261107-01/REPORT.md) Â· [Architecture](docs/ARCHITECTURE.md) Â· [Reproduce the results](docs/REPRODUCING.md) Â· [Connect FlightGear](docs/LIVE-SIMULATOR.md)
+[v1.3 results](results/v1.3-investigation-20261107-01/REPORT.md) · [Architecture](docs/ARCHITECTURE.md) · [Reproduce the results](docs/REPRODUCING.md) · [Connect FlightGear](docs/LIVE-SIMULATOR.md)
 
 ## How it works
 
@@ -128,7 +128,7 @@ reports both. [Recording, diagnosis and operator evidence](results/pressure-pair
 | **Update cost** | 95th-percentile live update of **80 ms** over a 1,200-poll session (was 490 ms before context reuse). |
 | **Software** | **241** automated tests, run by CI on Linux and Windows with Python 3.11 and 3.13. |
 
-[Engine drive results](results/engine-drive-20261106-01/REPORT.md) Â· [Prospective evaluation](results/pressure-v2-prospective-20261106-01/REPORT.md) Â· [Timed fault study](docs/TEMPORAL-STUDY.md) Â· [Five-fault sequences](docs/FAULT-SEQUENCE-STUDY.md) Â· [Quantity stress test](results/quantity-indication-stress-20261106-01/README.md) Â· [Load measurements](results/pressure-v2-load-optimized-20261106-01/REPORT.md) Â· [Release review](results/v1.3-release-review-20261107-01/REPORT.md) Â· [Initial validation report (PDF)](output/pdf/AeroTrace-Engineering-Report.pdf)
+[Engine drive results](results/engine-drive-20261106-01/REPORT.md) · [Prospective evaluation](results/pressure-v2-prospective-20261106-01/REPORT.md) · [Timed fault study](docs/TEMPORAL-STUDY.md) · [Five-fault sequences](docs/FAULT-SEQUENCE-STUDY.md) · [Quantity stress test](results/quantity-indication-stress-20261106-01/README.md) · [Load measurements](results/pressure-v2-load-optimized-20261106-01/REPORT.md) · [Release review](results/v1.3-release-review-20261107-01/REPORT.md) · [Initial validation report (PDF)](output/pdf/AeroTrace-Engineering-Report.pdf)
 
 ## Limitations
 
@@ -154,8 +154,8 @@ AeroTrace is a small instance of **consistency-based (model-based) diagnosis**: 
 system model predicts behaviour, and a diagnosis is a set of faulty components that
 makes the predictions consistent with the observations.
 
-- R. Reiter, "A theory of diagnosis from first principles," *Artificial Intelligence*, 32(1), 57â€“95, 1987.
-- J. de Kleer and B. C. Williams, "Diagnosing multiple faults," *Artificial Intelligence*, 32(1), 97â€“130, 1987.
+- R. Reiter, "A theory of diagnosis from first principles," *Artificial Intelligence*, 32(1), 57–95, 1987.
+- J. de Kleer and B. C. Williams, "Diagnosing multiple faults," *Artificial Intelligence*, 32(1), 97–130, 1987.
 - R. Isermann, *Fault-Diagnosis Systems: An Introduction from Fault Detection to Fault Tolerance*, Springer, 2006.
 
 Unlike probabilistic approaches such as Bayesian networks, AeroTrace does not assign
