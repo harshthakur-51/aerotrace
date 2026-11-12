@@ -86,6 +86,25 @@ Run the test suite:
 python -B -m unittest discover -s tests -v
 ```
 
+## Embedded core (in progress)
+
+Steps 3 and 4 above also exist as portable C99 in [embedded/core](embedded/core), for a microcontroller build. The core uses no heap, no I/O and no global state. Its model tables are generated from the Python model, so the two cannot drift apart unnoticed.
+
+```sh
+python -B -m aircraft_debugger.c_port --write-model
+python -B -m aircraft_debugger.c_port --prefixes --check results/timed-pair-20261106-01/observations.jsonl --response-bounds configs/sequence-pair-response-bounds.json
+```
+
+The second command compiles a PC harness with gcc, clang or MSVC and compares the C fit with the Python fit after every observation. The test suite makes the same comparison on more than 7,700 evidence frames from synthetic fixtures and recorded flights. Every mechanism-set status, all 1,082 history statuses and the support counts are identical.
+
+| Compiled for RV32IMAFC with `-Os` (GCC 14.2) | Size |
+| --- | --- |
+| Fitting code | 2.4 kB |
+| Model tables | 7.2 kB |
+| Result of one fit | 1.5 kB of RAM |
+
+These sizes exclude the compiler's software routines for 64-bit floating point. Fact extraction (step 2), the investigation step and the display still run only in Python, and nothing has been measured on a board yet.
+
 ## What the experiments showed
 
 ![Generator 2 output and Blue hydraulic pressure fall while bus voltage and indicated quantity are retained](docs/figures/pressure-pair-observed.png)
@@ -106,7 +125,7 @@ reports both. [Recording, diagnosis and operator evidence](results/pressure-pair
 | **Five-fault sequence study** | 1,081 onset histories across all mechanism sets. The expected history was retained in every synthetic case. |
 | **v1.3 investigation** | All 444 counterfactual answers agreed with the executable model. The true mechanism set was retained in 10 of 12 cases; the 2 misses are an inconsistent test fixture and a deliberately unmodelled fault. |
 | **Update cost** | 95th-percentile live update of **80 ms** over a 1,200-poll session (was 490 ms before context reuse). |
-| **Software** | **230** automated tests, run by CI on Linux and Windows with Python 3.11 and 3.13. |
+| **Software** | **239** automated tests, run by CI on Linux and Windows with Python 3.11 and 3.13. |
 
 [Engine drive results](results/engine-drive-20261106-01/REPORT.md) · [Prospective evaluation](results/pressure-v2-prospective-20261106-01/REPORT.md) · [Timed fault study](docs/TEMPORAL-STUDY.md) · [Five-fault sequences](docs/FAULT-SEQUENCE-STUDY.md) · [Quantity stress test](results/quantity-indication-stress-20261106-01/README.md) · [Load measurements](results/pressure-v2-load-optimized-20261106-01/REPORT.md) · [Release review](results/v1.3-release-review-20261107-01/REPORT.md) · [Initial validation report (PDF)](output/pdf/AeroTrace-Engineering-Report.pdf)
 
@@ -147,6 +166,7 @@ probabilistic baseline is a natural next step.
 | Path | Contents |
 | --- | --- |
 | [aircraft_debugger/](aircraft_debugger/) | Telemetry validation, evidence extraction, causal models, live and replay panels |
+| [embedded/](embedded/) | Portable C99 fitting core, generated model tables and a PC comparison harness |
 | [configs/](configs/) | Aircraft setup, fault mappings, qualification rules and pinned simulator assets |
 | [results/](results/) | Observation streams, expected profiles, saved diagnoses and experiment provenance |
 | [tests/](tests/) | Automated checks and regressions using recorded observations |
