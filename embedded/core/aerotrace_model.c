@@ -1142,3 +1142,39 @@ const at_history_t AT_HISTORY[AT_HISTORY_COUNT] = {
     {31, {0x1e, 0x01, 0x00, 0x00, 0x00}},
     {31, {0x1f, 0x00, 0x00, 0x00, 0x00}},
 };
+
+const char *const AT_CHANNEL_ID[AT_CHANNEL_COUNT] = {
+    "sim_time",
+    "paused",
+    "aircraft",
+    "generator_2_voltage",
+    "ac_bus_2",
+    "blue_quantity",
+    "blue_pressure",
+    "main_gear_1_wow",
+    "main_gear_2_wow",
+    "height_agl",
+    "engine_2_n2",
+    "engine_2_fuel_flow",
+    "yellow_edp_pressure",
+    "yellow_electric_pressure",
+    "yellow_transfer_pressure",
+    "yellow_quantity",
+    "yellow_pressure",
+};
+
+const uint8_t AT_SUPPLY_CHANNEL[AT_SUPPLY_CHANNEL_COUNT] = {
+    12, 13, 14, 15, 16,
+};
+
+const at_propulsion_fact_t AT_PROPULSION_FACT[AT_PROPULSION_FACT_COUNT] = {
+    {4, 11, 50.0},
+    {5, 10, 55.0},
+    {6, 12, 2500.0},
+    {7, 16, 2000.0},
+};
+
+const at_drive_loss_t AT_DRIVE_LOSS[AT_DRIVE_LOSS_COUNT] = {
+    {2, 3, 5.0},
+    {3, 12, 500.0},
+};

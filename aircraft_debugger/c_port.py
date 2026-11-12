@@ -8,12 +8,16 @@ from math import inf, nextafter
 import os
 from pathlib import Path
 import shutil
+import struct
 import subprocess
 import tempfile
 
+from . import propulsion_features as propulsion
 from .airborne_profile import iter_profile_observations
-from .diagnostic_features import build_feature_frames
+from .diagnostic_features import MAXIMUM_OBSERVATION_GAP_SIM_S, build_feature_frames
+from .evidence import THRESHOLDS
 from .hypotheses import _predictions, generated_model
+from .observations import CHANNELS
 from .sequence_reasoning import (
     _LOCAL_WITNESSES, _STATUSES, _catalogue_orders, _fit_epoch, _response_bounds, _sequence_rows,
 )
@@ -29,6 +33,18 @@ _RELATION_STATES = {"not_applicable": 0, "unknown": 1, "consistent": 2, "contrad
 _CODES = {"compatible": "C", "unconfirmed": "U", "contradicted": "D",
           "excluded_by_dependency": "D", "excluded_by_timing": "T"}
 _MAX_GROUPS = 5
+# The channels the extractor reads, in wire order. The other profile channels only
+# contribute to the two connection flags of a poll.
+EXTRACT_CHANNELS = (
+    "sim_time", "paused", "aircraft", "generator_2_voltage", "ac_bus_2", "blue_quantity", "blue_pressure",
+    "main_gear_1_wow", "main_gear_2_wow", "height_agl", "engine_2_n2", "engine_2_fuel_flow",
+    *propulsion.SUPPLY_CHANNELS,
+)
+_SUPPORTED_AIRCRAFT = {"A320-200-CFM", "A320-200-IAE", "A320neo-CFM", "A320neo-PW"}  # evidence.analyze_observations
+_PROPULSION_CONSTANTS = (
+    "USEFUL_SOURCE_PSI", "LOW_YELLOW_PRESSURE_PSI", "INSUFFICIENT_SOURCE_PSI", "MINIMUM_YELLOW_QUANTITY_RAW",
+    "SUPPLY_SETTLING_SIM_S", "MAXIMUM_READING_SKEW_SIM_S", "MAXIMUM_SUPPLY_GAP_SIM_S",
+)
 
 
 class CompilerUnavailable(RuntimeError):
@@ -65,8 +81,19 @@ def model_tables(model=None):
         for groups in orders[frozenset(candidate["roots"])]:
             histories.append((len(sets) - 1, [mask(group, roots) for group in groups]))
         first.append(len(histories))
+    channels = list(EXTRACT_CHANNELS)
+    thresholds = {name.upper(): value for name, value in THRESHOLDS.items()}
+    thresholds.update({name: getattr(propulsion, name) for name in _PROPULSION_CONSTANTS})
+    thresholds["MAXIMUM_OBSERVATION_GAP_SIM_S"] = MAXIMUM_OBSERVATION_GAP_SIM_S
+    thresholds.update({f"RETAINED_{name.upper()}": level for name, level in propulsion._RETAINED_DRIVE_LEVELS.items()})
     return {"model": model, "roots": roots, "facts": facts, "relations": relations, "required": required,
-            "reached": reached, "constraints": constraints, "sets": sets, "histories": histories, "first": first}
+            "reached": reached, "constraints": constraints, "sets": sets, "histories": histories, "first": first,
+            "channels": channels, "thresholds": thresholds,
+            "supply": [channels.index(name) for name in propulsion.SUPPLY_CHANNELS],
+            "propulsion_facts": [(facts.index(fact), channels.index(channel), propulsion._EFFECT_THRESHOLDS[fact])
+                                 for fact, (channel, _) in propulsion.PROPULSION_FACTS.items()],
+            "drive_losses": [(relations.index(relation), channels.index(channel), below)
+                             for relation, (channel, below) in propulsion._DRIVE_LOSSES.items()]}
 
 
 def render_model(tables=None):
@@ -100,7 +127,14 @@ def render_model(tables=None):
 #define AT_SET_COUNT {len(tables["sets"])}
 #define AT_HISTORY_COUNT {len(tables["histories"])}
 #define AT_MAX_GROUPS {_MAX_GROUPS}
+#define AT_CHANNEL_COUNT {len(tables["channels"])}
+#define AT_SUPPLY_CHANNEL_COUNT {len(tables["supply"])}
+#define AT_PROPULSION_FACT_COUNT {len(tables["propulsion_facts"])}
+#define AT_DRIVE_LOSS_COUNT {len(tables["drive_losses"])}
 
+/* Detector thresholds. Suffixes give the unit: V volts, PSI pounds per square inch, RAW model
+ * quantity units, S seconds (SIM simulator clock, LOCAL receiving clock), READINGS a count. */
+{"".join(f"#define AT_T_{name} {value!r}{chr(10)}" for name, value in tables["thresholds"].items())}
 #define AT_RULE_NONE 0
 #define AT_RULE_LOCAL_WITNESS 1
 #define AT_RULE_EXCLUDED_PATH 2
@@ -108,6 +142,7 @@ def render_model(tables=None):
 {enum("AT_ROOT", roots)}
 {enum("AT_FACT", facts)}
 {enum("AT_RELATION", relations)}
+{enum("AT_CHANNEL", tables["channels"])}
 /* A temporal rule on `root`. It is waived when `unless_root` (-1 for none) is also present. */
 typedef struct {{
     uint8_t relation;
@@ -123,6 +158,24 @@ typedef struct {{
     uint8_t group[AT_MAX_GROUPS];
 }} at_history_t;
 
+/* An effect that is observed when its channel reads below a threshold. */
+typedef struct {{
+    uint8_t fact;
+    uint8_t channel;
+    double below;
+}} at_propulsion_fact_t;
+
+/* A source output that counts as lost below a threshold while engine drive is retained. */
+typedef struct {{
+    uint8_t relation;
+    uint8_t channel;
+    double below;
+}} at_drive_loss_t;
+
+extern const char *const AT_CHANNEL_ID[AT_CHANNEL_COUNT];
+extern const uint8_t AT_SUPPLY_CHANNEL[AT_SUPPLY_CHANNEL_COUNT];
+extern const at_propulsion_fact_t AT_PROPULSION_FACT[AT_PROPULSION_FACT_COUNT];
+extern const at_drive_loss_t AT_DRIVE_LOSS[AT_DRIVE_LOSS_COUNT];
 extern const char *const AT_ROOT_ID[AT_ROOT_COUNT];
 extern const char *const AT_FACT_ID[AT_FACT_COUNT];
 extern const char *const AT_RELATION_ID[AT_RELATION_COUNT];
@@ -157,6 +210,14 @@ const at_constraint_t AT_CONSTRAINT[AT_CONSTRAINT_COUNT] = {{
 {numbers("uint16_t", "AT_SET_FIRST_HISTORY", "AT_SET_COUNT + 1", tables["first"], fmt="{}")}
 const at_history_t AT_HISTORY[AT_HISTORY_COUNT] = {{
 {history_rows}}};
+
+{strings("AT_CHANNEL_ID", tables["channels"], "AT_CHANNEL_COUNT")}
+{numbers("uint8_t", "AT_SUPPLY_CHANNEL", "AT_SUPPLY_CHANNEL_COUNT", tables["supply"], fmt="{}")}
+const at_propulsion_fact_t AT_PROPULSION_FACT[AT_PROPULSION_FACT_COUNT] = {{
+{"".join(f"    {{{fact}, {channel}, {below!r}}},{chr(10)}" for fact, channel, below in tables["propulsion_facts"])}}};
+
+const at_drive_loss_t AT_DRIVE_LOSS[AT_DRIVE_LOSS_COUNT] = {{
+{"".join(f"    {{{relation}, {channel}, {below!r}}},{chr(10)}" for relation, channel, below in tables["drive_losses"])}}};
 """
     return header, source
 
@@ -233,8 +294,8 @@ def _msvc_environment_script():
 def build_host(directory):
     """Compile the PC harness with the first available C compiler and return the executable path."""
     directory = Path(directory)
-    sources = [EMBEDDED / "core" / "aerotrace_core.c", EMBEDDED / "core" / "aerotrace_model.c",
-               EMBEDDED / "host" / "at_replay.c"]
+    sources = [EMBEDDED / "core" / name for name in ("aerotrace_core.c", "aerotrace_extract.c", "aerotrace_model.c")]
+    sources.append(EMBEDDED / "host" / "at_replay.c")
     include = EMBEDDED / "core"
     compiler = os.environ.get("CC") or next((name for name in ("cc", "gcc", "clang") if shutil.which(name)), None)
     if compiler:
@@ -261,11 +322,12 @@ def build_host(directory):
     return output
 
 
-def run_harness(executable, case_text, directory):
-    """Run the PC harness on serialized cases and return its result lines."""
+def run_harness(executable, text, directory, *, stream=False):
+    """Run the PC harness on serialized cases, or on telemetry polls, and return its result lines."""
     case_file = Path(directory) / "cases.txt"
-    case_file.write_text(case_text, encoding="ascii", newline="\n")
-    run = subprocess.run([str(executable), str(case_file)], capture_output=True, text=True, check=False)
+    case_file.write_text(text, encoding="ascii", newline="\n")
+    command = [str(executable), *(["--stream"] if stream else []), str(case_file)]
+    run = subprocess.run(command, capture_output=True, text=True, check=False)
     if run.returncode != 0:
         raise RuntimeError(f"The PC harness failed: {run.stderr}")
     return run.stdout.splitlines()
@@ -289,27 +351,105 @@ def compare(cases, executable, directory, tables=None):
     return len(expected), [label for label, want, got in zip(labels, expected, actual) if want != got]
 
 
-def recording_cases(path, raw_bounds=None, *, prefixes=False, label=None):
-    """Yield evidence frames from one recording: one per clock epoch, or one per observation prefix."""
-    label = label or str(path)
-    _, rows = _sequence_rows(iter_profile_observations(Path(path)))
-    if prefixes:
-        frames = [frame["sequence_epoch"] for frame in
-                  build_feature_frames(rows, generated=True, sequence_prefixes=True)["frames"]]
-    else:
-        frames = build_feature_frames(rows, generated=True, whole_epoch=True)["frames"]
-    for index, frame in enumerate(frames):
-        if frame is not None:
-            yield f"{label}#{index}", frame, raw_bounds
+def _bits(value):
+    return struct.pack(">d", float(value)).hex()
+
+
+def frame_signature(frame, tables):
+    """Format an evidence frame exactly as embedded/host/at_replay.c prints an extracted frame."""
+    facts, relations = [], []
+    for fact_id in tables["facts"]:
+        fact = frame["facts"][fact_id]
+        interval = fact["onset_interval"] if fact["state"] == "observed" else None
+        lower = interval["lower_sim_time_s"] if interval else None
+        covered = bool(interval and interval["covered_through_confirmation"])
+        facts.append(f"{_STATES[fact['state']]}:{int(lower is not None)}:{int(covered)}:{_bits(lower or 0.0)}:"
+                     f"{_bits(interval['upper_sim_time_s'] if interval else 0.0)}")
+    for relation_id in tables["relations"]:
+        relation = frame["temporal_relations"][relation_id]
+        times = []
+        if relation_id in _LOCAL_WITNESSES:
+            channel = _LOCAL_WITNESSES[relation_id][1]
+            times = [point["sim_time_s"] for point in relation["evidence"] if point["channel"] == channel]
+        relations.append(f"{_RELATION_STATES[relation['status']]}:{int(bool(times))}:{_bits(min(times, default=0.0))}")
+    return ",".join(facts) + " " + ",".join(relations)
+
+
+def poll_lines(row, tables):
+    """Serialize the channels the extractor reads from one validated poll."""
+    readings = row["readings"]
+    base_connected = any(reading["reachable"] for name, reading in readings.items() if name in CHANNELS)
+    lines = [f"s {row['sample_index']} {float(row['received_monotonic_s']).hex()} {int(row['connected'])} "
+             f"{int(base_connected)} {int('external_power_output' in readings)}"]
+    for index, channel in enumerate(tables["channels"]):
+        reading = readings.get(channel)
+        if reading is None:
+            continue
+        value, time = reading["value"], reading["sim_time_s"]
+        if channel == "aircraft":
+            value = 2 if value == "A320-200-CFM" else int(value in _SUPPORTED_AIRCRAFT)
+        lines.append(f"c {index} {int(reading['valid'])} {int(reading['reachable'])} {int(time is not None)} "
+                     f"{float(value if reading['valid'] else 0.0).hex()} {float(time or 0.0).hex()} "
+                     f"{float(reading['received_monotonic_s']).hex()}")
+    lines.append("go")
+    return lines
+
+
+def compare_streams(streams, executable, directory, tables=None, *, fit=True):
+    """Extract and fit each (name, schema 3 rows, raw bounds) stream after every poll, in Python and in C.
+
+    Returns the number of polls, the number that produced a frame, and the mismatching polls.
+    With fit=False only the extracted evidence frames are compared.
+    """
+    tables = tables or model_tables()
+    text, expected, labels, framed = stream_expectations(streams, tables, fit=fit)
+    actual = run_harness(executable, text, directory, stream=True)
+    if len(actual) != len(expected):
+        raise RuntimeError(f"The PC harness returned {len(actual)} results for {len(expected)} polls")
+    return len(expected), framed, [label for label, want, got in zip(labels, expected, actual)
+                                   if not same_poll(want, got, fit=fit)]
+
+
+def same_poll(want, got, *, fit=True):
+    return want == (got if fit or want.endswith("none") else got[:len(want)])
+
+
+def stream_expectations(streams, tables, *, fit=True):
+    """Serialize the streams for the PC harness and compute the lines Python expects back."""
+    model = tables["model"]
+    catalogue = _catalogue_orders(model)
+    roots, facts = tables["roots"], tables["facts"]
+    text, expected, labels, framed = [], [], [], 0
+    for label, rows, raw_bounds in streams:
+        bounds = _response_bounds(raw_bounds, model)
+        text.append(f"stream {len(labels)}")
+        text += [f"b {roots.index(root)} {facts.index(effect)} {float(low).hex()} {float(high).hex()}"
+                 for root, effects in bounds.items() for effect, (low, high) in effects.items()]
+        frames = build_feature_frames(rows, generated=True, sequence_prefixes=True)["frames"]
+        for row, prefix in zip(rows, frames):
+            frame = prefix["sequence_epoch"]
+            text += poll_lines(row, tables)
+            labels.append(f"{label}@{row['sample_index']}")
+            if frame is None:
+                expected.append(f"{row['sample_index']} 0 none")
+                continue
+            framed += 1
+            fitted = expected_line("", _fit_epoch(frame, model, bounds, catalogue), tables) if fit else " "
+            expected.append(f"{row['sample_index']} 0 {frame_signature(frame, tables)}{fitted}")
+    return "\n".join(text) + "\n", expected, labels, framed
+
+
+def recording_rows(path):
+    """Read one schema 2 or 3 airborne recording as the schema 3 rows the sequence fit uses."""
+    return _sequence_rows(iter_profile_observations(Path(path)))[1]
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--write-model", action="store_true", help="Regenerate embedded/core/aerotrace_model.[ch]")
     parser.add_argument("--check", nargs="+", type=Path, metavar="OBSERVATIONS",
-                        help="Compare the C and Python fits on these recordings")
+                        help="Compare C with Python on these recordings after every poll")
     parser.add_argument("--response-bounds", type=Path, help="Optional mechanism-to-effect delay bounds JSON")
-    parser.add_argument("--prefixes", action="store_true", help="Check the frame after every observation")
     args = parser.parse_args()
     if args.write_model:
         write_model()
@@ -323,17 +463,17 @@ def main():
             total, failures = 0, []
             for path in args.check:
                 try:
-                    cases = list(recording_cases(path, bounds, prefixes=args.prefixes))
+                    rows = recording_rows(path)
+                    count, framed, wrong = compare_streams([(str(path), rows, bounds)], executable, directory)
                 except (OSError, ValueError) as error:
                     print(f"{path}: not usable as a schema 2 or 3 airborne recording ({error})")
                     continue
-                count, wrong = compare(cases, executable, directory)
-                print(f"{path}: {count - len(wrong)} of {count} frames identical")
+                print(f"{path}: {count - len(wrong)} of {count} polls identical ({framed} with an evidence frame)")
                 total += count
                 failures += wrong
-        print(f"{total - len(failures)} of {total} frames identical")
+        print(f"{total - len(failures)} of {total} polls identical")
         if failures:
-            parser.exit(1, "Mismatching frames: " + ", ".join(failures[:10]) + "\n")
+            parser.exit(1, "Mismatching polls: " + ", ".join(failures[:10]) + "\n")
 
 
 if __name__ == "__main__":

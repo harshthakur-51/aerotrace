@@ -1,13 +1,110 @@
 """Check the embedded C core against the Python fit on fixtures and recorded flights."""
 
 from itertools import product
+import random
 import tempfile
 import unittest
 
 from aircraft_debugger import c_port
+from aircraft_debugger.airborne_profile import PILOT_CHANNELS, PROPULSION_CHANNELS, PROPULSION_PROFILE_ID
 from test_sequence_reasoning import (
     BLUE_PUMP, ENGINE, GEN, LEAK, MECHANISMS, PAIR_BOUNDS, RESULTS, YELLOW, synthetic_frame,
 )
+
+
+RECORDED_FLIGHTS = (
+    ("engine-drive-20261106-01/engine-auto", None), ("engine-drive-20261106-01/pair-auto", None),
+    ("yellow-edp-isolated-20261106-01/run", None), ("timed-pair-20261106-01", None),
+    ("timed-pair-20261106-01", PAIR_BOUNDS),
+    ("timed-pair-20261106-01", {**PAIR_BOUNDS, BLUE_PUMP: {"blue_pressure_loss": [0, 30]}}),
+    ("pressure-pair-20261106-01/pair", PAIR_BOUNDS), ("timed-separated-20261106-01", PAIR_BOUNDS),
+    ("airborne-contrast-20261029-01", None), ("airborne-reference-20261027-01", None),
+)
+# Values on and beside every detector threshold. Repeats make the normal level the usual one.
+LEVELS = {
+    "generator_2_voltage": (115.0, 115.0, 115.0, 0.0, 0.0, 4.9, 5.0, 19.9, 20.0, 50.0, 99.9, 100.0, -1.0),
+    "ac_bus_2": (115.0, 115.0, 100.0, 99.0, 20.0, 19.0, 0.0),
+    "blue_quantity": (8.0, 8.0, 8.05, 7.95, 7.9, 7.85, 7.6, 7.5, 7.4, 3.0),
+    "blue_pressure": (3000.0, 3000.0, 2500.0, 2499.0, 0.0),
+    "engine_2_n2": (85.0, 85.0, 85.0, 60.0, 59.9, 55.0, 54.9, 10.0, -1.0),
+    "engine_2_fuel_flow": (2500.0, 2500.0, 2500.0, 100.0, 99.0, 50.0, 49.0, 0.0),
+    "yellow_edp_pressure": (3000.0, 3000.0, 2500.0, 2499.0, 500.0, 499.0, 0.0, 0.0, -1.0),
+    "yellow_electric_pressure": (0.0, 0.0, 499.0, 500.0, 2499.0, 2500.0, 3000.0),
+    "yellow_transfer_pressure": (0.0, 0.0, 499.0, 2500.0, 3000.0),
+    "yellow_quantity": (12.0, 12.0, 12.0, 1.0, 0.9),
+    "yellow_pressure": (3000.0, 3000.0, 2500.0, 2499.0, 2000.0, 1999.0, 0.0),
+    "main_gear_1_wow": (False,) * 14 + (True,),
+    "main_gear_2_wow": (False,) * 14 + (True,),
+    "height_agl": (5000.0,) * 14 + (0.0, -1.0),
+    "aircraft": ("A320-200-CFM",) * 25 + ("A320-200-IAE", "c172p"),
+    "paused": (False,) * 30 + (True,),
+}
+FUZZ_STREAMS = 40
+STEADY = {"altitude": 8000.0, "airspeed": 250.0, "engine_1_n1": 80.0, "engine_2_n1": 80.0, "ac_bus_1": 115.0,
+          "vertical_speed": 0.0, "bank": 0.0, "autopilot_1": True, "autopilot_2": True, "autothrust": True,
+          "ptu_selected": True, "external_power_output": 0.0}
+
+
+def telemetry_stream(seed, length=60):
+    """Seeded schema 3 polls with threshold crossings and every transport defect the extractor handles."""
+    rng = random.Random(seed)
+    specs = PILOT_CHANNELS if seed % 4 == 0 else PROPULSION_CHANNELS
+    ground_polls = rng.randint(1, 5) if seed % 4 == 0 else 0
+    jitter = (0.0, 0.0, 0.0, 0.1, 0.2) if seed % 3 == 0 else (0.0,)
+    change = 0.03 + 0.03 * (seed % 5)
+    level = {name: values[0] for name, values in LEVELS.items()}
+    last_time, rows = {}, []
+    index, sim_time, local = rng.randint(0, 3), 100.0, 1000.0
+    for poll in range(length):
+        index += 2 if rng.random() < 0.04 else 1
+        local += 1.0
+        event = rng.random()
+        if event < 0.012:
+            sim_time = max(1.0, sim_time - 50.0)
+        elif event < 0.02:
+            local -= 100.0
+        elif event >= 0.05:
+            sim_time += rng.choice((1.0, 1.0, 1.0, 1.0, 1.0, 2.0, 3.0, 3.1, 4.0))
+        for name, values in LEVELS.items():
+            if rng.random() < change:
+                level[name] = rng.choice(values)
+        started, received = local, local + 0.5
+        defect = rng.choice(("invalid", "missing", "untimed", "stale", "frozen", "skewed")) if rng.random() < 0.2 else None
+        target = rng.choice(list(specs))
+        offline = rng.random() < 0.03
+        readings = {}
+        for name, spec in specs.items():
+            value = sim_time if name == "sim_time" else level.get(name, STEADY.get(name))
+            if poll < ground_polls and name in ("main_gear_1_wow", "main_gear_2_wow", "height_agl"):
+                value = 0.0 if name == "height_agl" else True
+            time = sim_time + rng.choice(jitter)
+            reading = {"path": spec.path, "value": value, "valid": True, "error": None, "sim_time_s": time,
+                       "received_monotonic_s": local + 0.01, "reachable": True, "unit": spec.unit}
+            if offline:
+                reading.update(value=None, valid=False, error="connection_error", sim_time_s=None, reachable=False)
+            elif name == target and defect == "missing":
+                continue
+            elif name == target and defect == "invalid":
+                reading.update(value=None, valid=False, error="timeout", sim_time_s=None)
+            elif name == target and defect == "untimed":
+                reading["sim_time_s"] = None
+            elif name == target and defect == "stale":
+                started = received - 3.0
+                reading["received_monotonic_s"] = started
+            elif name == target and defect == "frozen" and name in last_time:
+                reading["sim_time_s"] = last_time[name]
+            elif name == target and defect == "skewed":
+                reading["sim_time_s"] = time + 0.3
+            if reading["sim_time_s"] is not None:
+                last_time[name] = reading["sim_time_s"]
+            readings[name] = reading
+        rows.append({
+            "schema_version": 3, "observation_profile": PROPULSION_PROFILE_ID, "sample_index": index,
+            "poll_started_monotonic_s": started, "received_monotonic_s": received, "readings": readings,
+            "connected": any(reading["reachable"] for reading in readings.values()),
+            "complete": readings.keys() == specs.keys() and all(reading["valid"] for reading in readings.values()),
+        })
+    return rows
 
 
 def onset_histories():
@@ -154,19 +251,28 @@ class EmbeddedCoreTests(unittest.TestCase):
         generator, pump = (1 << tables["roots"].index(root) for root in (GEN, BLUE_PUMP))
         self.assertEqual(orders, {(generator | pump,): "C", (generator, pump): "C", (pump, generator): "T"})
 
-    def test_recorded_flights_fit_identically_after_every_observation(self):
-        wide = {**PAIR_BOUNDS, BLUE_PUMP: {"blue_pressure_loss": [0, 30]}}
-        cases = []
-        for folder, bounds in (
-            ("engine-drive-20261106-01/engine-auto", None), ("engine-drive-20261106-01/pair-auto", None),
-            ("yellow-edp-isolated-20261106-01/run", None), ("timed-pair-20261106-01", None),
-            ("timed-pair-20261106-01", PAIR_BOUNDS), ("timed-pair-20261106-01", wide),
-            ("pressure-pair-20261106-01/pair", PAIR_BOUNDS), ("timed-separated-20261106-01", PAIR_BOUNDS),
-        ):
-            path = RESULTS / folder / "observations.jsonl"
-            cases += c_port.recording_cases(path, bounds, prefixes=True, label=folder)
-            cases += c_port.recording_cases(path, bounds, label=folder)
-        self.assert_identical(cases, 100)
+    def test_recorded_flights_extract_and_fit_identically_after_every_poll(self):
+        streams = [(folder, c_port.recording_rows(RESULTS / folder / "observations.jsonl"), bounds)
+                   for folder, bounds in RECORDED_FLIGHTS]
+        count, framed, wrong = c_port.compare_streams(streams, self.executable, self.directory)
+        self.assertEqual(wrong, [])
+        self.assertEqual(count, framed)
+        self.assertGreaterEqual(count, 600)
+
+    def test_defective_telemetry_extracts_identically_after_every_poll(self):
+        streams = [(f"seed-{seed}", telemetry_stream(seed), None) for seed in range(FUZZ_STREAMS)]
+        count, framed, wrong = c_port.compare_streams(streams, self.executable, self.directory, fit=False)
+        self.assertEqual(wrong, [])
+        self.assertEqual(count, 60 * FUZZ_STREAMS)
+        self.assertGreater(framed, count // 2)
+        self.assertLess(framed, count)
+
+    def test_sample_index_must_increase(self):
+        tables = c_port.model_tables()
+        poll = c_port.poll_lines(telemetry_stream(1, length=1)[0], tables)
+        lines = c_port.run_harness(self.executable, "\n".join(["stream repeat", *poll, *poll]) + "\n",
+                                   self.directory, stream=True)
+        self.assertEqual([line.split()[1] for line in lines], ["0", "-3"])
 
     def test_invalid_inputs_are_rejected(self):
         tables = c_port.model_tables()

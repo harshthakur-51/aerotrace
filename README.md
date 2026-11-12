@@ -1,4 +1,4 @@
-# AeroTrace
+﻿# AeroTrace
 
 [![tests](https://github.com/harshthakur-51/aerotrace/actions/workflows/tests.yml/badge.svg)](https://github.com/harshthakur-51/aerotrace/actions/workflows/tests.yml)
 
@@ -26,7 +26,7 @@ does not work yet; see [Limitations](#limitations).
 pinned revision 20376), steady airborne flight at about 6,100 to 10,200 ft and 230 to
 250 kt. Simulator data only; nothing here is validated against a real aircraft.
 
-[v1.3 results](results/v1.3-investigation-20261107-01/REPORT.md) · [Architecture](docs/ARCHITECTURE.md) · [Reproduce the results](docs/REPRODUCING.md) · [Connect FlightGear](docs/LIVE-SIMULATOR.md)
+[v1.3 results](results/v1.3-investigation-20261107-01/REPORT.md) Â· [Architecture](docs/ARCHITECTURE.md) Â· [Reproduce the results](docs/REPRODUCING.md) Â· [Connect FlightGear](docs/LIVE-SIMULATOR.md)
 
 ## How it works
 
@@ -88,22 +88,23 @@ python -B -m unittest discover -s tests -v
 
 ## Embedded core (in progress)
 
-Steps 3 and 4 above also exist as portable C99 in [embedded/core](embedded/core), for a microcontroller build. The core uses no heap, no I/O and no global state. Its model tables are generated from the Python model, so the two cannot drift apart unnoticed.
+Steps 2 to 4 above also exist as portable C99 in [embedded/core](embedded/core), for a microcontroller build. The core uses no heap and no I/O, and its memory use does not grow with the length of the flight. Its model tables and detector thresholds are generated from the Python code, so the two cannot drift apart unnoticed.
 
 ```sh
 python -B -m aircraft_debugger.c_port --write-model
-python -B -m aircraft_debugger.c_port --prefixes --check results/timed-pair-20261106-01/observations.jsonl --response-bounds configs/sequence-pair-response-bounds.json
+python -B -m aircraft_debugger.c_port --check results/timed-pair-20261106-01/observations.jsonl --response-bounds configs/sequence-pair-response-bounds.json
 ```
 
-The second command compiles a PC harness with gcc, clang or MSVC and compares the C fit with the Python fit after every observation. The test suite makes the same comparison on more than 7,700 evidence frames from synthetic fixtures and recorded flights. Every mechanism-set status, all 1,082 history statuses and the support counts are identical.
+The second command compiles a PC harness with gcc, clang or MSVC. After every telemetry poll it compares the evidence frame and the fit computed in C with those computed in Python. All 1,609 polls of the 27 airborne recordings in this repository are identical. The test suite repeats this on ten recordings, on 2,400 generated polls with clock resets, dropped polls and stale or invalid readings, and on more than 7,700 synthetic evidence frames.
 
 | Compiled for RV32IMAFC with `-Os` (GCC 14.2) | Size |
 | --- | --- |
+| Fact extraction code | 5.0 kB |
 | Fitting code | 2.4 kB |
-| Model tables | 7.2 kB |
-| Result of one fit | 1.5 kB of RAM |
+| Model tables | 7.6 kB |
+| Working memory (extractor, one poll, frame, bounds, result) | 4.5 kB of RAM |
 
-These sizes exclude the compiler's software routines for 64-bit floating point. Fact extraction (step 2), the investigation step and the display still run only in Python, and nothing has been measured on a board yet.
+These sizes exclude the compiler's software routines for 64-bit floating point. The investigation step and the display still run only in Python, and nothing has been measured on a board yet.
 
 ## What the experiments showed
 
@@ -125,9 +126,9 @@ reports both. [Recording, diagnosis and operator evidence](results/pressure-pair
 | **Five-fault sequence study** | 1,081 onset histories across all mechanism sets. The expected history was retained in every synthetic case. |
 | **v1.3 investigation** | All 444 counterfactual answers agreed with the executable model. The true mechanism set was retained in 10 of 12 cases; the 2 misses are an inconsistent test fixture and a deliberately unmodelled fault. |
 | **Update cost** | 95th-percentile live update of **80 ms** over a 1,200-poll session (was 490 ms before context reuse). |
-| **Software** | **239** automated tests, run by CI on Linux and Windows with Python 3.11 and 3.13. |
+| **Software** | **241** automated tests, run by CI on Linux and Windows with Python 3.11 and 3.13. |
 
-[Engine drive results](results/engine-drive-20261106-01/REPORT.md) · [Prospective evaluation](results/pressure-v2-prospective-20261106-01/REPORT.md) · [Timed fault study](docs/TEMPORAL-STUDY.md) · [Five-fault sequences](docs/FAULT-SEQUENCE-STUDY.md) · [Quantity stress test](results/quantity-indication-stress-20261106-01/README.md) · [Load measurements](results/pressure-v2-load-optimized-20261106-01/REPORT.md) · [Release review](results/v1.3-release-review-20261107-01/REPORT.md) · [Initial validation report (PDF)](output/pdf/AeroTrace-Engineering-Report.pdf)
+[Engine drive results](results/engine-drive-20261106-01/REPORT.md) Â· [Prospective evaluation](results/pressure-v2-prospective-20261106-01/REPORT.md) Â· [Timed fault study](docs/TEMPORAL-STUDY.md) Â· [Five-fault sequences](docs/FAULT-SEQUENCE-STUDY.md) Â· [Quantity stress test](results/quantity-indication-stress-20261106-01/README.md) Â· [Load measurements](results/pressure-v2-load-optimized-20261106-01/REPORT.md) Â· [Release review](results/v1.3-release-review-20261107-01/REPORT.md) Â· [Initial validation report (PDF)](output/pdf/AeroTrace-Engineering-Report.pdf)
 
 ## Limitations
 
@@ -153,8 +154,8 @@ AeroTrace is a small instance of **consistency-based (model-based) diagnosis**: 
 system model predicts behaviour, and a diagnosis is a set of faulty components that
 makes the predictions consistent with the observations.
 
-- R. Reiter, "A theory of diagnosis from first principles," *Artificial Intelligence*, 32(1), 57–95, 1987.
-- J. de Kleer and B. C. Williams, "Diagnosing multiple faults," *Artificial Intelligence*, 32(1), 97–130, 1987.
+- R. Reiter, "A theory of diagnosis from first principles," *Artificial Intelligence*, 32(1), 57â€“95, 1987.
+- J. de Kleer and B. C. Williams, "Diagnosing multiple faults," *Artificial Intelligence*, 32(1), 97â€“130, 1987.
 - R. Isermann, *Fault-Diagnosis Systems: An Introduction from Fault Detection to Fault Tolerance*, Springer, 2006.
 
 Unlike probabilistic approaches such as Bayesian networks, AeroTrace does not assign
