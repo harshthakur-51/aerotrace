@@ -401,8 +401,17 @@ class EmbeddedCoreTests(unittest.TestCase):
         tables = c_port.model_tables()
         poll = c_port.poll_lines(telemetry_stream(1, length=1)[0], tables)
         lines = c_port.run_harness(self.executable, "\n".join(["stream repeat", *poll, *poll]) + "\n",
-                                   self.directory, stream=True)
+                                   self.directory)
         self.assertEqual([line.split()[1] for line in lines], ["0", "-3"])
+
+    def test_text_link_greets_and_rejects_malformed_lines(self):
+        model_id = c_port.model_tables()["model"]["model_id"]
+        self.assertEqual(c_port.run_harness(self.executable, "hello\n\n", self.directory),
+                         [f"aerotrace {model_id} ready"])
+        for line in ("launch", "f 0 1 1 1 0x1p+0", "b 0 0 1.5 0x1p+0", "b 0 0 0x1p+0 0x1p+0 extra",
+                     "c 99 1 1 1 0x0p+0 0x0p+0 0x0p+0", "s -1 0x0p+0 1 1 0", "b 0 0 0x1.p 0x1p+0"):
+            with self.subTest(line=line), self.assertRaises(RuntimeError):
+                c_port.run_harness(self.executable, line + "\n", self.directory)
 
     def test_invalid_inputs_are_rejected(self):
         tables = c_port.model_tables()

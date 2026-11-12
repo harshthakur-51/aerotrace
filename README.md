@@ -106,6 +106,17 @@ The second command compiles a PC harness with gcc, clang or MSVC. After every te
 
 These sizes exclude the compiler's software routines for 64-bit floating point. The investigation step and the display still run only in Python, and nothing has been measured on a board yet.
 
+### Firmware for the ESP32-P4
+
+[embedded/firmware](embedded/firmware) is an ESP-IDF project, built here with v5.5.3. It serves a line-based [text link](embedded/link/at_text_link.h) on the board's console UART. The PC harness uses the same link code, so a board receives exactly the input the PC tests use and its replies can be compared line for line. After each reply the firmware reports the microseconds spent in extraction and in the fit.
+
+```sh
+idf.py -C embedded/firmware build
+idf.py -C embedded/firmware -B embedded/firmware/build-rev1 -D SDKCONFIG=build-rev1/sdkconfig -D "SDKCONFIG_DEFAULTS=sdkconfig.defaults;sdkconfig.defaults.rev1" build
+```
+
+The first command targets chip revision 3.0 or later and the second targets revisions below 3.0. ESP-IDF supports only one of these groups per build. The application image is 242 kB. The AeroTrace code and tables take 19 kB of it and 4.6 kB of static RAM. Both variants compile. Neither has run on a board, and the PC program that sends polls over the serial port is not written yet.
+
 ## What the experiments showed
 
 ![Generator 2 output and Blue hydraulic pressure fall while bus voltage and indicated quantity are retained](docs/figures/pressure-pair-observed.png)
@@ -126,7 +137,7 @@ reports both. [Recording, diagnosis and operator evidence](results/pressure-pair
 | **Five-fault sequence study** | 1,081 onset histories across all mechanism sets. The expected history was retained in every synthetic case. |
 | **v1.3 investigation** | All 444 counterfactual answers agreed with the executable model. The true mechanism set was retained in 10 of 12 cases; the 2 misses are an inconsistent test fixture and a deliberately unmodelled fault. |
 | **Update cost** | 95th-percentile live update of **80 ms** over a 1,200-poll session (was 490 ms before context reuse). |
-| **Software** | **242** automated tests, run by CI on Linux and Windows with Python 3.11 and 3.13. |
+| **Software** | **243** automated tests, run by CI on Linux and Windows with Python 3.11 and 3.13. |
 
 [Engine drive results](results/engine-drive-20261106-01/REPORT.md) · [Prospective evaluation](results/pressure-v2-prospective-20261106-01/REPORT.md) · [Timed fault study](docs/TEMPORAL-STUDY.md) · [Five-fault sequences](docs/FAULT-SEQUENCE-STUDY.md) · [Quantity stress test](results/quantity-indication-stress-20261106-01/README.md) · [Load measurements](results/pressure-v2-load-optimized-20261106-01/REPORT.md) · [Release review](results/v1.3-release-review-20261107-01/REPORT.md) · [Initial validation report (PDF)](output/pdf/AeroTrace-Engineering-Report.pdf)
 
@@ -167,7 +178,7 @@ probabilistic baseline is a natural next step.
 | Path | Contents |
 | --- | --- |
 | [aircraft_debugger/](aircraft_debugger/) | Telemetry validation, evidence extraction, causal models, live and replay panels |
-| [embedded/](embedded/) | Portable C99 fitting core, generated model tables and a PC comparison harness |
+| [embedded/](embedded/) | Portable C99 core, generated model tables, text link, PC comparison harness and ESP32-P4 firmware |
 | [configs/](configs/) | Aircraft setup, fault mappings, qualification rules and pinned simulator assets |
 | [results/](results/) | Observation streams, expected profiles, saved diagnoses and experiment provenance |
 | [tests/](tests/) | Automated checks and regressions using recorded observations |

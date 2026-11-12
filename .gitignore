@@ -7,5 +7,10 @@ build/
 dist/
 work/
 
+# ESP-IDF build output and generated configuration; sdkconfig.defaults is the source.
+/embedded/firmware/build-*/
+/embedded/firmware/sdkconfig
+/embedded/firmware/sdkconfig.old
+
 # Repeatable local launcher runs; curated experiments are tracked separately.
 /results/local-*/

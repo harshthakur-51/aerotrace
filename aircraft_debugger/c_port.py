@@ -295,12 +295,12 @@ def build_host(directory):
     """Compile the PC harness with the first available C compiler and return the executable path."""
     directory = Path(directory)
     sources = [EMBEDDED / "core" / name for name in ("aerotrace_core.c", "aerotrace_extract.c", "aerotrace_model.c")]
-    sources.append(EMBEDDED / "host" / "at_replay.c")
-    include = EMBEDDED / "core"
+    sources += [EMBEDDED / "link" / "at_text_link.c", EMBEDDED / "host" / "at_replay.c"]
+    include, link = EMBEDDED / "core", EMBEDDED / "link"
     compiler = os.environ.get("CC") or next((name for name in ("cc", "gcc", "clang") if shutil.which(name)), None)
     if compiler:
         output = directory / "at_replay"
-        command = [compiler, "-std=c99", "-O2", "-Wall", "-Wextra", "-Werror", "-pedantic", f"-I{include}",
+        command = [compiler, "-std=c99", "-O2", "-Wall", "-Wextra", "-Werror", "-pedantic", f"-I{include}", f"-I{link}",
                    *map(str, sources), "-o", str(output), "-lm"]
     else:
         environment = _msvc_environment_script() if os.name == "nt" else None
@@ -311,7 +311,7 @@ def build_host(directory):
         files = " ".join(f'"{path}"' for path in sources)
         script.write_text(
             f'@echo off\r\ncall "{environment}" >nul || exit /b 1\r\n'
-            f'cl /nologo /std:c11 /O2 /W4 /WX /I"{include}" {files} /Fo"{directory}\\\\" /Fe"{output}"\r\n',
+            f'cl /nologo /std:c11 /O2 /W4 /WX /I"{include}" /I"{link}" {files} /Fo"{directory}\\\\" /Fe"{output}"\r\n',
             encoding="utf-8", newline="")
         command = ["cmd", "/d", "/c", str(script)]
     # A stray quote in PATH makes the MSVC environment script fail to parse.
@@ -322,11 +322,11 @@ def build_host(directory):
     return output
 
 
-def run_harness(executable, text, directory, *, stream=False):
-    """Run the PC harness on serialized cases, or on telemetry polls, and return its result lines."""
+def run_harness(executable, text, directory):
+    """Run the PC harness on text-link lines and return its reply lines."""
     case_file = Path(directory) / "cases.txt"
     case_file.write_text(text, encoding="ascii", newline="\n")
-    command = [str(executable), *(["--stream"] if stream else []), str(case_file)]
+    command = [str(executable), str(case_file)]
     run = subprocess.run(command, capture_output=True, text=True, check=False)
     if run.returncode != 0:
         raise RuntimeError(f"The PC harness failed: {run.stderr}")
@@ -403,7 +403,7 @@ def compare_streams(streams, executable, directory, tables=None, *, fit=True):
     """
     tables = tables or model_tables()
     text, expected, labels, framed = stream_expectations(streams, tables, fit=fit)
-    actual = run_harness(executable, text, directory, stream=True)
+    actual = run_harness(executable, text, directory)
     if len(actual) != len(expected):
         raise RuntimeError(f"The PC harness returned {len(actual)} results for {len(expected)} polls")
     return len(expected), framed, [label for label, want, got in zip(labels, expected, actual)

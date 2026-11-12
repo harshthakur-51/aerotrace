@@ -195,7 +195,7 @@ def mismatches(executable, directory, prepared):
     frames, expected, streams = prepared
     wrong = sum(want != got for want, got in zip(expected, c_port.run_harness(executable, frames, directory)))
     for (text, lines, _, _), fit in streams:
-        actual = c_port.run_harness(executable, text, directory, stream=True)
+        actual = c_port.run_harness(executable, text, directory)
         wrong += sum(not c_port.same_poll(want, got, fit=fit) for want, got in zip(lines, actual))
     return wrong
 
@@ -213,7 +213,7 @@ def main():
                 continue
             with tempfile.TemporaryDirectory() as directory:
                 copy = Path(directory) / "embedded"
-                shutil.copytree(original, copy)
+                shutil.copytree(original, copy, ignore=shutil.ignore_patterns("firmware"))
                 (copy / "core" / filename).write_text(source.replace(old, new) if old else source,
                                                       encoding="utf-8", newline="\n")
                 c_port.EMBEDDED = copy
