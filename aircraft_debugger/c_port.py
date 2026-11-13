@@ -13,6 +13,7 @@ import subprocess
 import tempfile
 
 from . import propulsion_features as propulsion
+from . import screen as screen_layout
 from .airborne_profile import iter_profile_observations
 from .diagnostic_features import MAXIMUM_OBSERVATION_GAP_SIM_S, build_feature_frames
 from .evidence import THRESHOLDS
@@ -131,6 +132,8 @@ def render_model(tables=None):
 #define AT_SUPPLY_CHANNEL_COUNT {len(tables["supply"])}
 #define AT_PROPULSION_FACT_COUNT {len(tables["propulsion_facts"])}
 #define AT_DRIVE_LOSS_COUNT {len(tables["drive_losses"])}
+#define AT_FONT_FIRST {screen_layout.FONT_FIRST}
+#define AT_FONT_COUNT {screen_layout.FONT_COUNT}
 
 /* Detector thresholds. Suffixes give the unit: V volts, PSI pounds per square inch, RAW model
  * quantity units, S seconds (SIM simulator clock, LOCAL receiving clock), READINGS a count. */
@@ -176,6 +179,11 @@ extern const char *const AT_CHANNEL_ID[AT_CHANNEL_COUNT];
 extern const uint8_t AT_SUPPLY_CHANNEL[AT_SUPPLY_CHANNEL_COUNT];
 extern const at_propulsion_fact_t AT_PROPULSION_FACT[AT_PROPULSION_FACT_COUNT];
 extern const at_drive_loss_t AT_DRIVE_LOSS[AT_DRIVE_LOSS_COUNT];
+/* Screen font: five column bytes per character from AT_FONT_FIRST, bit 0 at the top. */
+extern const uint8_t AT_FONT[AT_FONT_COUNT][5];
+/* Short screen labels. */
+extern const char *const AT_ROOT_TAG[AT_ROOT_COUNT];
+extern const char *const AT_FACT_TAG[AT_FACT_COUNT];
 extern const char *const AT_ROOT_ID[AT_ROOT_COUNT];
 extern const char *const AT_FACT_ID[AT_FACT_COUNT];
 extern const char *const AT_RELATION_ID[AT_RELATION_COUNT];
@@ -218,7 +226,12 @@ const at_propulsion_fact_t AT_PROPULSION_FACT[AT_PROPULSION_FACT_COUNT] = {{
 
 const at_drive_loss_t AT_DRIVE_LOSS[AT_DRIVE_LOSS_COUNT] = {{
 {"".join(f"    {{{relation}, {channel}, {below!r}}},{chr(10)}" for relation, channel, below in tables["drive_losses"])}}};
-"""
+
+const uint8_t AT_FONT[AT_FONT_COUNT][5] = {{
+{"".join("    {" + ", ".join(f"0x{byte:02x}" for byte in glyph) + "}," + chr(10) for glyph in screen_layout.font_table())}}};
+
+{strings("AT_ROOT_TAG", [screen_layout.ROOT_TAGS[root] for root in roots], "AT_ROOT_COUNT")}
+{strings("AT_FACT_TAG", [screen_layout.FACT_TAGS[fact] for fact in facts], "AT_FACT_COUNT")}"""
     return header, source
 
 
@@ -295,12 +308,13 @@ def build_host(directory):
     """Compile the PC harness with the first available C compiler and return the executable path."""
     directory = Path(directory)
     sources = [EMBEDDED / "core" / name for name in ("aerotrace_core.c", "aerotrace_extract.c", "aerotrace_model.c")]
-    sources += [EMBEDDED / "link" / "at_text_link.c", EMBEDDED / "host" / "at_replay.c"]
-    include, link = EMBEDDED / "core", EMBEDDED / "link"
+    sources += [EMBEDDED / "display" / "at_screen.c", EMBEDDED / "link" / "at_text_link.c",
+                EMBEDDED / "host" / "at_replay.c"]
+    include, link, display = EMBEDDED / "core", EMBEDDED / "link", EMBEDDED / "display"
     compiler = os.environ.get("CC") or next((name for name in ("cc", "gcc", "clang") if shutil.which(name)), None)
     if compiler:
         output = directory / "at_replay"
-        command = [compiler, "-std=c99", "-O2", "-Wall", "-Wextra", "-Werror", "-pedantic", f"-I{include}", f"-I{link}",
+        command = [compiler, "-std=c99", "-O2", "-Wall", "-Wextra", "-Werror", "-pedantic", f"-I{include}", f"-I{link}", f"-I{display}",
                    *map(str, sources), "-o", str(output), "-lm"]
     else:
         environment = _msvc_environment_script() if os.name == "nt" else None
@@ -311,7 +325,7 @@ def build_host(directory):
         files = " ".join(f'"{path}"' for path in sources)
         script.write_text(
             f'@echo off\r\ncall "{environment}" >nul || exit /b 1\r\n'
-            f'cl /nologo /std:c11 /O2 /W4 /WX /I"{include}" /I"{link}" {files} /Fo"{directory}\\\\" /Fe"{output}"\r\n',
+            f'cl /nologo /std:c11 /O2 /W4 /WX /I"{include}" /I"{link}" /I"{display}" {files} /Fo"{directory}\\\\" /Fe"{output}"\r\n',
             encoding="utf-8", newline="")
         command = ["cmd", "/d", "/c", str(script)]
     # A stray quote in PATH makes the MSVC environment script fail to parse.
@@ -448,6 +462,16 @@ def stream_expectations(streams, tables, *, fit=True):
         labels.append(label)
     framed = sum(not reply.endswith("none") for reply in expected)
     return "\n".join(text) + "\n", expected, labels, framed
+
+
+def screens(streams, executable, directory, tables=None):
+    """Return the C frame buffer after every poll of the streams, each as 8 pages of column bytes."""
+    tables = tables or model_tables()
+    text = []
+    for _, lines, _ in stream_exchanges(streams, tables, fit=False):
+        text += [*lines, "screen"]
+    replies = run_harness(executable, "\n".join(text) + "\n", directory)
+    return [screen_layout.pages_from_hex(line.split()[1]) for line in replies if line.startswith("screen ")]
 
 
 def recording_rows(path):

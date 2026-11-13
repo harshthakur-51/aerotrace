@@ -19,6 +19,9 @@
  *   c <channel> <valid> <reachable> <has_time> <value> <sim_time_s> <received_s>
  *   go
  *
+ * `screen` replies "screen <hex>": the 1024 bytes of the screen for the latest fit, page by page
+ * (see embedded/display/at_screen.h).
+ *
  * `hello` replies "aerotrace <model id> ready". With a clock the reply ends in " timed", and
  * each `go` and `end` reply is followed by "t <extract_us> <fit_us>", the microseconds spent
  * in the core. The caller reports a malformed line as "error malformed line".
@@ -30,6 +33,7 @@
 #include <stdio.h>
 
 #include "aerotrace_extract.h"
+#include "at_screen.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -41,12 +45,14 @@ typedef uint64_t (*at_text_link_clock_t)(void);
 
 typedef struct {
     at_text_link_clock_t now_us;
+    uint8_t fitted; /* the frame and result hold a successful fit */
     char name[64];
     at_frame_t frame;
     at_bounds_t bounds;
     at_result_t result;
     at_extractor_t extractor;
     at_sample_t sample;
+    at_screen_t screen;
 } at_text_link_t;
 
 /* now_us may be NULL when no timing is wanted. */

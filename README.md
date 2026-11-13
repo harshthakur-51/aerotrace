@@ -95,7 +95,7 @@ python -B -m aircraft_debugger.c_port --write-model
 python -B -m aircraft_debugger.c_port --check results/timed-pair-20261106-01/observations.jsonl --response-bounds configs/sequence-pair-response-bounds.json
 ```
 
-The second command compiles a PC harness with gcc, clang or MSVC. After every telemetry poll it compares the evidence frame and the fit computed in C with those computed in Python. All 1,609 polls of the 27 airborne recordings in this repository are identical. The test suite repeats this on ten recordings, on 2,400 generated polls with clock resets, dropped polls and stale or invalid readings, on scripted telemetry for detector edge cases, and on more than 7,700 synthetic evidence frames. Of 131 deliberate bugs planted in the C code, the tests detect 125. The other six cannot change the output. [Bug-planting script](scripts/mutate_embedded_core.py)
+The second command compiles a PC harness with gcc, clang or MSVC. After every telemetry poll it compares the evidence frame and the fit computed in C with those computed in Python. All 1,609 polls of the 27 airborne recordings in this repository are identical. The test suite repeats this on ten recordings, on 2,400 generated polls with clock resets, dropped polls and stale or invalid readings, on scripted telemetry for detector edge cases, and on more than 7,700 synthetic evidence frames. Of 153 deliberate bugs planted in the C code, including the screen code below, the tests detect 145. The other eight cannot change the output. [Bug-planting script](scripts/mutate_embedded_core.py)
 
 | Compiled for RV32IMAFC with `-Os` (GCC 14.2) | Size |
 | --- | --- |
@@ -115,7 +115,7 @@ idf.py -C embedded/firmware build
 idf.py -C embedded/firmware -B embedded/firmware/build-rev1 -D SDKCONFIG=build-rev1/sdkconfig -D "SDKCONFIG_DEFAULTS=sdkconfig.defaults;sdkconfig.defaults.rev1" build
 ```
 
-The first command targets chip revision 3.0 or later and the second targets revisions below 3.0. ESP-IDF supports only one of these groups per build. The application image is 242 kB. The AeroTrace code and tables take 19 kB of it and 4.6 kB of static RAM.
+The first command targets chip revision 3.0 or later and the second targets revisions below 3.0. ESP-IDF supports only one of these groups per build. The application image is 246 kB. The AeroTrace code and tables take 22 kB of it and 5.6 kB of static RAM.
 
 ```sh
 python -B -m aircraft_debugger.device_check --harness --check results/timed-pair-20261106-01/observations.jsonl
@@ -123,6 +123,18 @@ python -B -m aircraft_debugger.device_check --port COM5 --check results/timed-pa
 ```
 
 The device check sends a recording poll by poll, compares every reply with the Python result and summarises the reported timing. `--harness` runs it against the PC harness as a child process, which is how the test suite covers it. `--port` talks to a board and needs `pyserial`. Both firmware variants compile, but neither has run on a board, so the serial path and all on-board timing are still untested.
+
+### Screen
+
+![Screen for the Engine 2 drive-loss recording: one cause, ENG2](docs/figures/embedded-screen-engine.png) ![Screen for the staggered generator and Blue pump recording: two unconfirmed causes](docs/figures/embedded-screen-pair.png)
+
+[at_screen.c](embedded/display/at_screen.c) draws the diagnosis for a 128 x 64 monochrome display. The images above are its output for two recorded flights. The top bar gives the overall state. Below it are the smallest mechanism sets that fit, then the number of compatible (C) and unconfirmed (U) onset histories. The bottom two rows show the eight effects in fixed positions: a boxed label is an observed effect, and "?" marks an effect that was not read or an explanation that is still unconfirmed. In the right image the engine and Yellow channels were not recorded, so both explanations stay unconfirmed.
+
+```sh
+python -B -m aircraft_debugger.screen --observations results/engine-drive-20261106-01/engine-auto/observations.jsonl --output work/screen.png
+```
+
+The command renders a recording's last poll through the C code and the PC harness. The tests compare every pixel with a Python reference of the layout on about 3,900 screens. The frame buffer uses the SSD1306 page layout and the firmware reports it over the text link, but the code that sends it to a display over I2C is not written, so nothing has been shown on a real panel.
 
 ## What the experiments showed
 
@@ -144,7 +156,7 @@ reports both. [Recording, diagnosis and operator evidence](results/pressure-pair
 | **Five-fault sequence study** | 1,081 onset histories across all mechanism sets. The expected history was retained in every synthetic case. |
 | **v1.3 investigation** | All 444 counterfactual answers agreed with the executable model. The true mechanism set was retained in 10 of 12 cases; the 2 misses are an inconsistent test fixture and a deliberately unmodelled fault. |
 | **Update cost** | 95th-percentile live update of **80 ms** over a 1,200-poll session (was 490 ms before context reuse). |
-| **Software** | **249** automated tests, run by CI on Linux and Windows with Python 3.11 and 3.13. |
+| **Software** | **256** automated tests, run by CI on Linux and Windows with Python 3.11 and 3.13. |
 
 [Engine drive results](results/engine-drive-20261106-01/REPORT.md) · [Prospective evaluation](results/pressure-v2-prospective-20261106-01/REPORT.md) · [Timed fault study](docs/TEMPORAL-STUDY.md) · [Five-fault sequences](docs/FAULT-SEQUENCE-STUDY.md) · [Quantity stress test](results/quantity-indication-stress-20261106-01/README.md) · [Load measurements](results/pressure-v2-load-optimized-20261106-01/REPORT.md) · [Release review](results/v1.3-release-review-20261107-01/REPORT.md) · [Initial validation report (PDF)](output/pdf/AeroTrace-Engineering-Report.pdf)
 

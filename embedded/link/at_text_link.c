@@ -209,6 +209,7 @@ static void fit_and_print(at_text_link_t *link, uint64_t extract_us, FILE *out)
     uint64_t started = now(link);
     int status = at_fit(&link->frame, &link->bounds, &link->result);
     uint64_t fit_us = now(link) - started;
+    link->fitted = status == AT_OK;
     print_fit(&link->result, status, out);
     print_timing(link, extract_us, fit_us, out);
 }
@@ -226,6 +227,7 @@ static int handle(at_text_link_t *link, char **field, unsigned count, FILE *out)
     }
     if (strcmp(kind, "case") == 0 && count == 2 && strlen(field[1]) < sizeof link->name) {
         reset_case(link);
+        link->fitted = 0;
         strcpy(link->name, field[1]);
         return 0;
     }
@@ -233,6 +235,17 @@ static int handle(at_text_link_t *link, char **field, unsigned count, FILE *out)
         at_extract_init(&link->extractor);
         memset(&link->bounds, 0, sizeof link->bounds);
         memset(&link->sample, 0, sizeof link->sample);
+        link->fitted = 0;
+        return 0;
+    }
+    if (strcmp(kind, "screen") == 0 && count == 1) {
+        const uint8_t *byte = &link->screen.page[0][0];
+        at_screen_draw(&link->screen, link->fitted ? &link->frame : NULL, link->fitted ? &link->result : NULL);
+        fprintf(out, "screen ");
+        for (index = 0; index < sizeof link->screen.page; index++) {
+            fprintf(out, "%02x", (unsigned)byte[index]);
+        }
+        fputc('\n', out);
         return 0;
     }
     if (strcmp(kind, "end") == 0 && count == 1) {
@@ -247,6 +260,7 @@ static int handle(at_text_link_t *link, char **field, unsigned count, FILE *out)
         extract_us = now(link) - started;
         fprintf(out, "%lu %d ", (unsigned long)link->sample.sample_index, status);
         if (!framed) {
+            link->fitted = 0;
             fprintf(out, "none\n");
             print_timing(link, extract_us, 0, out);
             return 0;

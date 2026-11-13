@@ -1,8 +1,10 @@
 """Plant deliberate bugs in a copy of the embedded C core and report which ones the tests detect.
 
-Run from the repository root. It needs a C compiler and takes several minutes:
+Run from the repository root. It needs a C compiler and takes about a quarter of an hour.
+Name one or more source files to plant bugs only in those:
 
     python -B scripts/mutate_embedded_core.py
+    python -B scripts/mutate_embedded_core.py at_screen.c
 
 Each entry is (description, text to replace, replacement). A bug is detected when any
 test frame or telemetry poll gives a result that differs from the Python implementation.
@@ -17,9 +19,10 @@ import tempfile
 REPOSITORY = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(REPOSITORY), str(REPOSITORY / "tests")]
 
-from aircraft_debugger import c_port  # noqa: E402
+from aircraft_debugger import c_port, screen  # noqa: E402
 from aircraft_debugger.sequence_reasoning import _catalogue_orders, _fit_epoch, _response_bounds  # noqa: E402
 import test_c_port  # noqa: E402
+import test_screen  # noqa: E402
 from test_sequence_reasoning import RESULTS  # noqa: E402
 
 EQUIVALENT = {
@@ -29,6 +32,8 @@ EQUIVALENT = {
     "epoch not advanced": "An event of an earlier clock epoch is confirmed before the current window starts.",
     "core ignores base connection": "An unreachable poll has no valid simulator clock, which already makes it unusable.",
     "context ignores connection": "An unreachable poll has no valid simulator clock, which already makes it unusable.",
+    "wrap one character early": "No combination of the current labels fills a screen line exactly.",
+    "unknown character left blank": "Every label and message uses characters inside the font range.",
 }
 
 FIT_MUTATIONS = [
@@ -169,6 +174,31 @@ EXTRACT_MUTATIONS = [
     ("covered flag dropped", "            fact->covered = track->covered;", "            fact->covered = 1;"),
 ]
 
+SCREEN_MUTATIONS = [
+    ("wrap one character early", "        if (column + length > COLUMNS) {", "        if (column + length >= COLUMNS) {"),
+    ("continuation not indented", "            column = 2;", "            column = 0;"),
+    ("wrong joining sign", 'put_text(screen, BODY_Y + LINE_HEIGHT * line, end, "+", 0);', 'put_text(screen, BODY_Y + LINE_HEIGHT * line, end, "-", 0);'),
+    ("no line kept for MORE", "if (line + lines + (count - shown - 1 ? 1u : 0u) > BODY_ROWS) {", "if (line + lines > BODY_ROWS) {"),
+    ("MORE count off by one", 'count - shown), " MORE", 0);', 'count - shown - 1), " MORE", 0);'),
+    ("unconfirmed mark dropped", "history_count[AT_COMPATIBLE] ? ' ' : '?';", "history_count[AT_COMPATIBLE] ? ' ' : ' ';"),
+    ("set numbers start at two", "explanation(screen, line, shown + 1, mark, AT_SET_ROOTS[set], 1);", "explanation(screen, line, shown + 2, mark, AT_SET_ROOTS[set], 1);"),
+    ("no-fault test on wrong set", "} else if (result->minimal_sets == 1u) {", "} else if (result->minimal_sets == 2u) {"),
+    ("unread counts observed effects", "unread += frame->fact[index].state == AT_STATE_UNKNOWN;", "unread += frame->fact[index].state == AT_STATE_OBSERVED;"),
+    ("history counts swapped", "column, result->history_count[AT_COMPATIBLE])", "column, result->history_count[AT_UNCONFIRMED])"),
+    ("UNIQUE always shown", "if (result->unique_history >= 0) {", "if (result->unique_history >= -1) {"),
+    ("plural for one cause", 'count > 1u ? " CAUSES" : " CAUSE"', 'count > 0u ? " CAUSES" : " CAUSE"'),
+    ("unread effect boxed", "int observed = fact_state == AT_STATE_OBSERVED;", "int observed = fact_state != AT_STATE_NOT_OBSERVED;"),
+    ("unread mark wrong", "put_character(screen, x, top + 1, '?', 0);", "put_character(screen, x, top + 1, '!', 0);"),
+    ("second effect row misplaced", "EFFECT_PITCH_Y * (index / EFFECTS_PER_ROW)", "EFFECT_PITCH_Y * (index % 2u)"),
+    ("state not right-aligned", "put_text(screen, HEADER_TEXT_Y, COLUMNS - (unsigned)strlen(state), state, 1);", "put_text(screen, HEADER_TEXT_Y, 10, state, 1);"),
+    ("glyph mirrored", "(AT_FONT[glyph][column] >> row) & 1u", "(AT_FONT[glyph][4u - column] >> row) & 1u"),
+    ("inverted text not cut out", "set_pixel(screen, x + column, y + row, !inverted);", "set_pixel(screen, x + column, y + row, inverted + 1);"),
+    ("effect box one row short", "fill(screen, left, top, EFFECT_BOX_WIDTH, EFFECT_BOX_HEIGHT);", "fill(screen, left, top, EFFECT_BOX_WIDTH, EFFECT_BOX_HEIGHT - 1u);"),
+    ("header bar one row short", "fill(screen, 0, 0, AT_SCREEN_WIDTH, HEADER_HEIGHT);", "fill(screen, 0, 0, AT_SCREEN_WIDTH, HEADER_HEIGHT - 1u);"),
+    ("pixel written to wrong page", "screen->page[y / 8u][x] |= mask;", "screen->page[(y + 1u) / 8u % AT_SCREEN_PAGES][x] |= mask;"),
+    ("unknown character left blank", "        glyph = (unsigned)'?' - AT_FONT_FIRST;", "        glyph = 0;"),
+]
+
 
 def prepare():
     """Serialize every test frame and telemetry stream once, with the results Python expects."""
@@ -188,15 +218,35 @@ def prepare():
                  for seed in range(test_c_port.FUZZ_STREAMS)] + test_c_port.scripted_streams()
     streams = [(c_port.stream_expectations(recorded, tables, fit=True), True),
                (c_port.stream_expectations(generated, tables, fit=False), False)]
-    return "".join(frames), expected, streams
+
+    # Screens: the frame buffer after each fixture frame and after each poll of some streams.
+    screen_text, screen_pages = [], []
+    for index, (_, frame, raw) in enumerate([*test_c_port.fixture_cases(), *test_c_port.unknown_cases(),
+                                             *test_screen.unread_mix_cases()]):
+        bounds = _response_bounds(raw, model)
+        screen_text.append(c_port.frame_case(str(index), frame, bounds, tables) + "screen\n")
+        screen_pages.append(screen.render(screen.screen_content(_fit_epoch(frame, model, bounds, catalogue), model)))
+    shown = recorded[:5] + test_c_port.scripted_streams()
+    for _, lines, _ in c_port.stream_exchanges(shown, tables, fit=False):
+        screen_text.append("\n".join([*lines, "screen"]) + "\n")
+    for _, rows, raw in shown:
+        bounds = _response_bounds(raw, model)
+        for prefix in c_port.build_feature_frames(rows, generated=True, sequence_prefixes=True)["frames"]:
+            frame = prefix["sequence_epoch"]
+            epoch = None if frame is None else _fit_epoch(frame, model, bounds, catalogue)
+            screen_pages.append(screen.render(screen.screen_content(epoch, model)))
+    return "".join(frames), expected, streams, "".join(screen_text), screen_pages
 
 
 def mismatches(executable, directory, prepared):
-    frames, expected, streams = prepared
+    frames, expected, streams, screen_text, screen_pages = prepared
     wrong = sum(want != got for want, got in zip(expected, c_port.run_harness(executable, frames, directory)))
     for (text, lines, _, _), fit in streams:
         actual = c_port.run_harness(executable, text, directory)
         wrong += sum(not c_port.same_poll(want, got, fit=fit) for want, got in zip(lines, actual))
+    drawn = [screen.pages_from_hex(line.split()[1])
+             for line in c_port.run_harness(executable, screen_text, directory) if line.startswith("screen ")]
+    wrong += abs(len(drawn) - len(screen_pages)) + sum(want != got for want, got in zip(screen_pages, drawn))
     return wrong
 
 
@@ -204,9 +254,16 @@ def main():
     prepared = prepare()
     original = c_port.EMBEDDED
     problems, detected, total = [], 0, 0
-    targets = [("aerotrace_core.c", [("unmodified", "", "")] + FIT_MUTATIONS), ("aerotrace_extract.c", EXTRACT_MUTATIONS)]
-    for filename, mutations in targets:
-        source = (original / "core" / filename).read_text(encoding="utf-8")
+    targets = [("core", "aerotrace_core.c", [("unmodified", "", "")] + FIT_MUTATIONS),
+               ("core", "aerotrace_extract.c", EXTRACT_MUTATIONS), ("display", "at_screen.c", SCREEN_MUTATIONS)]
+    chosen = set(sys.argv[1:])
+    unknown = chosen - {filename for _, filename, _ in targets}
+    if unknown:
+        sys.exit(f"Unknown source file: {sorted(unknown)}")
+    for folder, filename, mutations in targets:
+        if chosen and filename not in chosen:
+            continue
+        source = (original / folder / filename).read_text(encoding="utf-8")
         for name, old, new in mutations:
             if old and source.count(old) != 1:
                 problems.append(f"{name}: the text to replace occurs {source.count(old)} times")
@@ -214,7 +271,7 @@ def main():
             with tempfile.TemporaryDirectory() as directory:
                 copy = Path(directory) / "embedded"
                 shutil.copytree(original, copy, ignore=shutil.ignore_patterns("firmware"))
-                (copy / "core" / filename).write_text(source.replace(old, new) if old else source,
+                (copy / folder / filename).write_text(source.replace(old, new) if old else source,
                                                       encoding="utf-8", newline="\n")
                 c_port.EMBEDDED = copy
                 try:

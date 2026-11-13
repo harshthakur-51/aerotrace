@@ -16,6 +16,8 @@
 #define AT_SUPPLY_CHANNEL_COUNT 5
 #define AT_PROPULSION_FACT_COUNT 4
 #define AT_DRIVE_LOSS_COUNT 2
+#define AT_FONT_FIRST 32
+#define AT_FONT_COUNT 64
 
 /* Detector thresholds. Suffixes give the unit: V volts, PSI pounds per square inch, RAW model
  * quantity units, S seconds (SIM simulator clock, LOCAL receiving clock), READINGS a count. */
@@ -123,6 +125,11 @@ extern const char *const AT_CHANNEL_ID[AT_CHANNEL_COUNT];
 extern const uint8_t AT_SUPPLY_CHANNEL[AT_SUPPLY_CHANNEL_COUNT];
 extern const at_propulsion_fact_t AT_PROPULSION_FACT[AT_PROPULSION_FACT_COUNT];
 extern const at_drive_loss_t AT_DRIVE_LOSS[AT_DRIVE_LOSS_COUNT];
+/* Screen font: five column bytes per character from AT_FONT_FIRST, bit 0 at the top. */
+extern const uint8_t AT_FONT[AT_FONT_COUNT][5];
+/* Short screen labels. */
+extern const char *const AT_ROOT_TAG[AT_ROOT_COUNT];
+extern const char *const AT_FACT_TAG[AT_FACT_COUNT];
 extern const char *const AT_ROOT_ID[AT_ROOT_COUNT];
 extern const char *const AT_FACT_ID[AT_FACT_COUNT];
 extern const char *const AT_RELATION_ID[AT_RELATION_COUNT];
