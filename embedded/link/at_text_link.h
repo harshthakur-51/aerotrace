@@ -19,8 +19,9 @@
  *   c <channel> <valid> <reachable> <has_time> <value> <sim_time_s> <received_s>
  *   go
  *
- * `hello` replies "aerotrace <model id> ready". With a clock, each `go` and `end` reply is
- * followed by "t <extract_us> <fit_us>", the microseconds spent in the core.
+ * `hello` replies "aerotrace <model id> ready". With a clock the reply ends in " timed", and
+ * each `go` and `end` reply is followed by "t <extract_us> <fit_us>", the microseconds spent
+ * in the core. The caller reports a malformed line as "error malformed line".
  */
 #ifndef AT_TEXT_LINK_H
 #define AT_TEXT_LINK_H

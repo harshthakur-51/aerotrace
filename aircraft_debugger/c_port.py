@@ -414,28 +414,39 @@ def same_poll(want, got, *, fit=True):
     return want == (got if fit or want.endswith("none") else got[:len(want)])
 
 
-def stream_expectations(streams, tables, *, fit=True):
-    """Serialize the streams for the PC harness and compute the lines Python expects back."""
+def stream_exchanges(streams, tables, *, fit=True):
+    """Yield (label, lines to send, reply Python expects) for every poll of every stream.
+
+    The first poll of a stream also carries the stream header and its response bounds.
+    """
     model = tables["model"]
     catalogue = _catalogue_orders(model)
     roots, facts = tables["roots"], tables["facts"]
-    text, expected, labels, framed = [], [], [], 0
-    for label, rows, raw_bounds in streams:
+    for number, (label, rows, raw_bounds) in enumerate(streams):
         bounds = _response_bounds(raw_bounds, model)
-        text.append(f"stream {len(labels)}")
-        text += [f"b {roots.index(root)} {facts.index(effect)} {float(low).hex()} {float(high).hex()}"
-                 for root, effects in bounds.items() for effect, (low, high) in effects.items()]
+        lines = [f"stream {number}"]
+        lines += [f"b {roots.index(root)} {facts.index(effect)} {float(low).hex()} {float(high).hex()}"
+                  for root, effects in bounds.items() for effect, (low, high) in effects.items()]
         frames = build_feature_frames(rows, generated=True, sequence_prefixes=True)["frames"]
         for row, prefix in zip(rows, frames):
             frame = prefix["sequence_epoch"]
-            text += poll_lines(row, tables)
-            labels.append(f"{label}@{row['sample_index']}")
-            if frame is None:
-                expected.append(f"{row['sample_index']} 0 none")
-                continue
-            framed += 1
-            fitted = expected_line("", _fit_epoch(frame, model, bounds, catalogue), tables) if fit else " "
-            expected.append(f"{row['sample_index']} 0 {frame_signature(frame, tables)}{fitted}")
+            lines += poll_lines(row, tables)
+            expected = f"{row['sample_index']} 0 none"
+            if frame is not None:
+                fitted = expected_line("", _fit_epoch(frame, model, bounds, catalogue), tables) if fit else " "
+                expected = f"{row['sample_index']} 0 {frame_signature(frame, tables)}{fitted}"
+            yield f"{label}@{row['sample_index']}", lines, expected
+            lines = []
+
+
+def stream_expectations(streams, tables, *, fit=True):
+    """Serialize the streams for the PC harness and compute the lines Python expects back."""
+    text, expected, labels = [], [], []
+    for label, lines, reply in stream_exchanges(streams, tables, fit=fit):
+        text += lines
+        expected.append(reply)
+        labels.append(label)
+    framed = sum(not reply.endswith("none") for reply in expected)
     return "\n".join(text) + "\n", expected, labels, framed
 
 

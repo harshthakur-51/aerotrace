@@ -221,7 +221,7 @@ static int handle(at_text_link_t *link, char **field, unsigned count, FILE *out)
     unsigned index;
 
     if (strcmp(kind, "hello") == 0 && count == 1) {
-        fprintf(out, "aerotrace %s ready\n", AT_MODEL_ID);
+        fprintf(out, "aerotrace %s ready%s\n", AT_MODEL_ID, link->now_us ? " timed" : "");
         return 0;
     }
     if (strcmp(kind, "case") == 0 && count == 2 && strlen(field[1]) < sizeof link->name) {
