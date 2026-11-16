@@ -104,7 +104,7 @@ The second command compiles a PC harness with gcc, clang or MSVC. After every te
 | Model tables | 7.6 kB |
 | Working memory (extractor, one poll, frame, bounds, result) | 4.5 kB of RAM |
 
-These sizes exclude the compiler's software routines for 64-bit floating point. The investigation step and the display still run only in Python, and nothing has been measured on a board yet.
+These sizes exclude the compiler's software routines for 64-bit floating point. The investigation step still runs only in Python. On-board timing is given in the firmware section below.
 
 ### Firmware for the ESP32-P4
 
@@ -122,7 +122,17 @@ python -B -m aircraft_debugger.device_check --harness --check results/timed-pair
 python -B -m aircraft_debugger.device_check --port COM5 --check results/timed-pair-20261106-01/observations.jsonl
 ```
 
-The device check sends a recording poll by poll, compares every reply with the Python result and summarises the reported timing. `--harness` runs it against the PC harness as a child process, which is how the test suite covers it. `--port` talks to a board and needs `pyserial`. Both firmware variants compile, but neither has run on a board, so the serial path and all on-board timing are still untested.
+The device check sends a recording poll by poll, compares every reply with the Python result and summarises the reported timing. `--harness` runs it against the PC harness as a child process, which is how the test suite covers it. `--port` talks to a board and needs `pyserial`.
+
+**Measured on a board (16 November 2026).** A Waveshare ESP32-P4-WIFI6-DEV-KIT with chip revision 3.1 was connected through the chip's USB Serial/JTAG port, so the build added `sdkconfig.defaults.usbjtag` to put the link on that port. All 1,609 polls of the 27 airborne recordings gave replies identical to Python, with and without response bounds.
+
+| Per poll, on the ESP32-P4 at 64-bit floating point | Median | 95th percentile | Maximum |
+| --- | --- | --- | --- |
+| Fact extraction | 32 us | 48 us | 335 us |
+| Fit of 32 sets and 1,082 histories | 151 us | 3.1 ms | 3.2 ms |
+| Round trip from the PC, including the text reply | 45 ms | 51 ms | 61 ms |
+
+The fit is slowest when many mechanism sets survive the dependency check, because each survivor has its onset histories tested for timing. The round trip is dominated by the text link's long reply, not by the computation. The variant for chip revisions below 3.0 and the UART console compile but have not run on a board.
 
 ### Screen
 

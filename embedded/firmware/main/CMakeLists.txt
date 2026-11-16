@@ -7,5 +7,5 @@ idf_component_register(
         "../../core/aerotrace_extract.c"
         "../../core/aerotrace_model.c"
     INCLUDE_DIRS "../../core" "../../link" "../../display"
-    PRIV_REQUIRES esp_driver_uart esp_timer
+    PRIV_REQUIRES esp_driver_uart esp_driver_usb_serial_jtag esp_timer
 )
