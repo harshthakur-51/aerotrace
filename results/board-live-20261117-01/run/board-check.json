@@ -1,0 +1,24 @@
+{
+  "polls_recorded": 101,
+  "polls_answered": 101,
+  "polls_with_evidence_frame": 101,
+  "polls_identical_to_python": 101,
+  "mismatching_polls": [],
+  "unanswered_polls": [],
+  "extract_us": {
+    "median": 45,
+    "percentile_95": 50,
+    "maximum": 353
+  },
+  "fit_us": {
+    "median": 190,
+    "percentile_95": 2822,
+    "maximum": 3183
+  },
+  "round_trip_s": {
+    "median": 0.08993580000242218,
+    "percentile_95": 0.09134420001646504,
+    "maximum": 0.09259209997253492
+  },
+  "link_failure": null
+}

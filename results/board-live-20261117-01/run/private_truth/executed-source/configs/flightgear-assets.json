@@ -1,0 +1,35 @@
+{
+  "flightgear_version": "2024.1.7",
+  "aircraft": "A320-200-CFM",
+  "aircraft_catalog_revision": 20376,
+  "aircraft_internal_revision": "2508",
+  "assets": [
+    {
+      "name": "flightgear-2024.1.7-windows-amd64.exe",
+      "url": "https://mirrors.ibiblio.org/flightgear/ftp/release-2024.1/flightgear-2024.1.7-windows-amd64.exe",
+      "bytes": 83215503,
+      "sha256": "592b0a66d33911dea5052c673a1a8ba9fad949124f0edc9a2d051a5ea6f1e4c4"
+    },
+    {
+      "name": "FlightGear-2024.1.7-data.txz",
+      "url": "https://mirrors.ibiblio.org/flightgear/ftp/release-2024.1/FlightGear-2024.1.7-data.txz",
+      "bytes": 1884794044,
+      "sha256": "46e831109911a067f34b7b14d01f8a2fce8a783c84738e8e203760ceb3406ac4"
+    },
+    {
+      "name": "A320-family.zip",
+      "url": "https://mirrors.ibiblio.org/flightgear/ftp/Aircraft-2024/A320-family.zip",
+      "bytes": 203925226,
+      "sha256": "173135d658b5c8c612a486aefc40d4932a4bd6cd7000315227c659b7da7befe6",
+      "catalog_md5": "eb14e161e15e699a4a80513ce61c6abf"
+    },
+    {
+      "name": "innounp-2.zip",
+      "url": "https://www.rathlev-home.de/tools/download/innounp-2.zip",
+      "bytes": 618221,
+      "sha256": "10fce27b6344b7674d5625cc34afca1c88c12183d957c6d93e401097fa2556cd",
+      "version": "2.71.2"
+    }
+  ],
+  "hash_provenance": "SHA-256 hashes calculated from these HTTPS downloads on 22 October 2026; A320 MD5 also checked against official catalog. They pin our selected artifacts, not aircraft-model validity."
+}

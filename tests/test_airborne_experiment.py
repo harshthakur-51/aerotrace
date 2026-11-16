@@ -253,6 +253,33 @@ class AirborneExperimentTests(unittest.TestCase):
         self.assertTrue(any(action["stage"] == "timed_transition_clearance" for action in self.actions()))
         self.assertTrue(all(not value for value in self.client.flags.values()))
 
+    def test_propulsion_schedule_stages_any_studied_faults_and_checks_their_flags(self):
+        self.client.active_bank = 0
+        result = self.run_controller(ptu_selected=True, schedule=[
+            {"faults": ["generator_2"], "duration_sim_s": 2},
+            {"faults": ["generator_2", "yellow_edp", "blue_leak"], "duration_sim_s": 2},
+            {"faults": ["generator_2", "yellow_edp", "blue_leak", "engine_2_cutoff"], "duration_sim_s": 2},
+        ])
+        self.assertTrue(result["completed"])
+        self.assertEqual(self.operator.calls[:4], [("generator_2", True), ("yellow_edp", True), ("blue_leak", True),
+                                                   ("engine_2_cutoff", True)])
+        self.assertTrue(all(not value for value in self.client.flags.values()))
+        self.assertTrue(all(row["schema_version"] == 3 for row in self.records()))
+        clearances = [action for action in self.actions() if action["stage"] == "timed_transition_clearance"]
+        self.assertEqual(len(clearances), 2)
+        self.assertIn("yellow_edp_fault", clearances[1]["readiness"]["readings"])
+
+    def test_schedule_rules_depend_on_the_profile(self):
+        mixed = [{"faults": ["generator_2", "yellow_edp"], "duration_sim_s": 2}]
+        self.assertEqual(len(experiment.validate_schedule(mixed, propulsion=True)), 1)
+        with self.assertRaisesRegex(ValueError, "supported set"):
+            experiment.validate_schedule(mixed)
+        with self.assertRaisesRegex(ValueError, "supported set"):
+            experiment.validate_schedule([{"faults": ["rudder"], "duration_sim_s": 2}], propulsion=True)
+        with self.assertRaisesRegex(ValueError, "stay selected"):
+            experiment.validate_schedule([{"faults": ["engine_2_cutoff"], "duration_sim_s": 2},
+                                          {"faults": ["generator_2"], "duration_sim_s": 2}], propulsion=True)
+
     def test_unstable_transition_aborts_before_second_enable_and_cleans_up(self):
         with self.assertRaisesRegex(RuntimeError, "stable airborne"):
             self.run_controller(schedule=[

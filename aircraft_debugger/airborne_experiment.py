@@ -43,7 +43,6 @@ CASES = {
     "isolated_blue_pressure_supply": ("blue_pump",),
     "source_and_pressure_supply_pair": ("generator_2", "blue_pump"),
 }
-_READINESS_FAULTS = {"generator_2": "generator_2_fault", "blue_leak": "blue_leak_fault", "blue_pump": "blue_pump_fault"}
 PROPULSION_CASES = {
     "engine_2_cutoff": ("engine_2_cutoff",),
     "isolated_yellow_edp": ("yellow_edp",),
@@ -104,28 +103,36 @@ def _clear_initial_flags(snapshot, fault_paths) -> None:
             raise RuntimeError(f"Native {fault} flag is not confirmed clear; no flags were changed")
 
 
-def validate_schedule(schedule: object) -> list[dict]:
-    """Validate ordered private phases of supported native flag configurations."""
+def validate_schedule(schedule: object, *, propulsion: bool = False) -> list[dict]:
+    """Validate ordered private phases of supported native flag configurations.
+
+    With the propulsion profile a phase may hold any distinct studied faults. The Engine 2
+    cutoff must then stay selected to the end, because releasing it does not restore power.
+    """
     if not isinstance(schedule, list) or not 1 <= len(schedule) <= 8:
         raise ValueError("A timed schedule requires one to eight phases")
     supported = {frozenset(faults) for faults in CASES.values()}
+    known = set(FAULT_PATHS) | set(PROPULSION_FAULTS)
     phases = []
     for phase in schedule:
         if not isinstance(phase, dict) or set(phase) != {"faults", "duration_sim_s"}:
             raise ValueError("A phase requires faults and duration_sim_s")
         faults, duration = phase["faults"], phase["duration_sim_s"]
         if (not isinstance(faults, list) or any(not isinstance(fault, str) for fault in faults)
-                or len(faults) != len(set(faults)) or frozenset(faults) not in supported):
+                or len(faults) != len(set(faults))
+                or not (set(faults) <= known if propulsion else frozenset(faults) in supported)):
             raise ValueError("A phase must use one supported set of distinct native faults")
         if type(duration) not in (int, float) or not 0.1 <= duration <= 60:
             raise ValueError("Phase duration must be between 0.1 and 60 simulator seconds")
+        if phases and "engine_2_cutoff" in phases[-1]["faults"] and "engine_2_cutoff" not in faults:
+            raise ValueError("The Engine 2 cutoff must stay selected until the schedule ends")
         phases.append({"faults": list(faults), "duration_sim_s": float(duration)})
     if not phases[0]["faults"] or sum(phase["duration_sim_s"] for phase in phases) > 120:
         raise ValueError("A schedule must start with an intervention and span at most 120 simulator seconds")
     return phases
 
 
-def _transition_expiry(reader, record, pending, settings, monotonic):
+def _transition_expiry(reader, record, pending, settings, monotonic, readiness_channels=READINESS_CHANNELS):
     """Fresh continuation clearance after a fully observed phase."""
     readings = record["readings"]
     values = {name: reading["value"] for name, reading in readings.items()}
@@ -137,15 +144,16 @@ def _transition_expiry(reader, record, pending, settings, monotonic):
             or abs(values["bank"]) > settings.maximum_abs_bank_deg
             or abs(values["vertical_speed"]) > settings.maximum_abs_vertical_speed_fps):
         raise RuntimeError("Timed transition requires a fresh, stable airborne observation")
-    readiness = reader.poll(READINESS_CHANNELS)
-    expected = {**_EXPECTED_READINESS, **{name: fault in pending for fault, name in _READINESS_FAULTS.items()}}
+    readiness = reader.poll(readiness_channels)
+    expected = {**_EXPECTED_READINESS, **{name: name[:-len("_fault")] in pending
+                                          for name in readiness_channels if name.endswith("_fault")}}
     if not readiness.complete or readiness.readings.keys() != expected.keys():
         raise RuntimeError("Timed transition readiness incomplete")
     receipts = [reading["received_monotonic_s"] for reading in readings.values()]
     times = [reading["sim_time_s"] for reading in readings.values()]
     for name, reading in readiness.readings.items():
         if (not reading.valid or not reading.reachable or reading.error is not None
-                or reading.path != READINESS_CHANNELS[name].path
+                or reading.path != readiness_channels[name].path
                 or type(reading.value) is not type(expected[name]) or reading.value != expected[name]
                 or reading.sim_time_s is None):
             raise RuntimeError("Timed transition readiness or owned flags differ from the schedule")
@@ -180,12 +188,13 @@ def run_experiment(
     """
     if not isinstance(case, str) or case not in (CASES | PROPULSION_CASES):
         raise ValueError("Unknown airborne experiment case")
-    propulsion = case in PROPULSION_CASES
-    if propulsion and (type(ptu_selected) is not bool or schedule is not None):
-        raise ValueError("Propulsion trials require an explicit PTU setting and one fixed intervention")
+    # A timed schedule with a declared PTU setting is recorded with the propulsion profile.
+    propulsion = case in PROPULSION_CASES or (schedule is not None and ptu_selected is not None)
+    if propulsion and type(ptu_selected) is not bool:
+        raise ValueError("Propulsion trials require an explicit PTU setting")
     if not propulsion and ptu_selected is not None:
         raise ValueError("The PTU study setting applies only to propulsion trials")
-    timed_phases = validate_schedule(schedule) if schedule is not None else None
+    timed_phases = validate_schedule(schedule, propulsion=propulsion) if schedule is not None else None
     if on_observation is not None and not callable(on_observation):
         raise ValueError("on_observation must be callable or None")
     settings = settings if settings is not None else QualificationSettings()
@@ -492,7 +501,8 @@ def run_experiment(
                             command(fault, False)
                     enabling = [fault for fault in phase["faults"] if fault not in pending]
                     if index and enabling:
-                        expires_at, readiness = _transition_expiry(reader, last_record, pending, settings, monotonic)
+                        expires_at, readiness = _transition_expiry(reader, last_record, pending, settings, monotonic,
+                                                                   gate.readiness_channels)
                         journal({"stage": "timed_transition_clearance", "phase": index + 1,
                                  "sample_index": last_record["sample_index"], "expires_monotonic_s": expires_at,
                                  "readiness": readiness.to_dict()})
@@ -578,10 +588,12 @@ def main() -> None:
     parser.add_argument("--diagnostic-model", choices=MODEL_VERSIONS, default="v1",
                         help="Public catalogue selection. Versions 3 and 4 require the extended propulsion profile")
     args = parser.parse_args()
-    schedule = validate_schedule(json.loads(args.schedule.read_text(encoding="utf-8"))) if args.schedule else None
+    scheduled_propulsion = bool(args.schedule) and args.ptu is not None
+    schedule = (validate_schedule(json.loads(args.schedule.read_text(encoding="utf-8")), propulsion=scheduled_propulsion)
+                if args.schedule else None)
     panel = server = thread = None
     if args.live_panel_port is not None:
-        propulsion = args.case in PROPULSION_CASES
+        propulsion = args.case in PROPULSION_CASES or scheduled_propulsion
         model = model_for_version(args.diagnostic_model)
         if propulsion != uses_propulsion_profile(model):
             parser.error("Use diagnostic model v3 or v4 with the propulsion observation profile")

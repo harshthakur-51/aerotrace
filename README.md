@@ -146,6 +146,10 @@ python -B -m aircraft_debugger.board_live --output work/board-live --board-port 
 
 On 16 November 2026 the board followed a live flight at about one poll per second while Generator 2 and the Yellow engine-driven pump were failed together. It showed the two-mechanism explanation one poll after both effects appeared, and all 58 replies equalled Python. [Live result](results/board-live-20261116-01/RESULT.md)
 
+![The board's screen after five staged faults: one cause, all five mechanisms](docs/figures/embedded-screen-live-five.png)
+
+On 17 November 2026 all five modelled faults were added one at a time in a single flight, using `--schedule configs/board-live-five-mechanisms.json` in place of `--case`. The board's explanation grew with each fault and ended with all five mechanisms as the only fit. All 101 replies equalled Python. For two polls during the engine run-down it reported no fit, because fuel flow had fallen and core speed had not yet. [Five-fault result](results/board-live-20261117-01/RESULT.md)
+
 ### Screen
 
 ![Screen for the Engine 2 drive-loss recording: one cause, ENG2](docs/figures/embedded-screen-engine.png) ![Screen for the staggered generator and Blue pump recording: two unconfirmed causes](docs/figures/embedded-screen-pair.png)

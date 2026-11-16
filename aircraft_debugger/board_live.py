@@ -16,7 +16,7 @@ import time
 
 from . import c_port, device_check
 from . import screen as screen_layout
-from .airborne_experiment import CASES, PROPULSION_CASES, run_experiment
+from .airborne_experiment import CASES, PROPULSION_CASES, run_experiment, validate_schedule
 from .airborne_profile import iter_profile_observations
 from .airborne_record import load_settings
 from .sequence_reasoning import _sequence_rows
@@ -124,7 +124,9 @@ def main():
     target.add_argument("--harness", action="store_true", help="Use the PC harness in place of a board")
     target.add_argument("--check-only", action="store_true", help="Only recheck the replies saved in --output")
     parser.add_argument("--baud", type=int, default=115200)
-    parser.add_argument("--case", choices=tuple(CASES | PROPULSION_CASES), default="isolated_yellow_edp")
+    recipe = parser.add_mutually_exclusive_group()
+    recipe.add_argument("--case", choices=tuple(CASES | PROPULSION_CASES), default="isolated_yellow_edp")
+    recipe.add_argument("--schedule", type=Path, help="JSON array of timed native phases; needs --ptu")
     parser.add_argument("--config", type=Path, help="Qualification settings JSON")
     parser.add_argument("--ptu", choices=("auto", "off"), help="Required PTU switch setting for propulsion trials")
     parser.add_argument("--active-seconds", type=float, default=8.0)
@@ -137,8 +139,10 @@ def main():
     bounds = json.loads(args.response_bounds.read_text(encoding="utf-8")) if args.response_bounds else None
     failure = None
     if not args.check_only:
-        if args.case not in PROPULSION_CASES:
-            parser.error("The board reads the propulsion observation profile; choose a propulsion case")
+        if args.ptu is None or (args.schedule is None and args.case not in PROPULSION_CASES):
+            parser.error("The board reads the propulsion observation profile; give --ptu with a propulsion case or a schedule")
+        schedule = (validate_schedule(json.loads(args.schedule.read_text(encoding="utf-8")), propulsion=True)
+                    if args.schedule else None)
         with tempfile.TemporaryDirectory() as directory:
             if args.harness:
                 transport = device_check.HarnessTransport(c_port.build_host(directory), timed=True)
@@ -151,8 +155,8 @@ def main():
                                active_s=args.active_seconds, recovery_s=args.recovery_seconds,
                                max_wait_s=args.max_wait_seconds,
                                maximum_postfault_local_s=args.maximum_postfault_local_seconds, port=args.port,
-                               on_observation=observer.accept,
-                               ptu_selected=None if args.ptu is None else args.ptu == "auto")
+                               on_observation=observer.accept, schedule=schedule,
+                               ptu_selected=args.ptu == "auto")
             finally:
                 observer.close()
             failure = observer.failure
