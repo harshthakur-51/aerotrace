@@ -126,11 +126,39 @@ def _explanation_lines(number, mark, tags):
     return lines + [line]
 
 
-def screen_content(epoch, model):
+class Hold:
+    """Reference for at_screen_hold_update: keep the last explanation through a short gap with no fit.
+
+    The duration is a display choice of this project with no external validation. It equals
+    diagnostic_features.MAXIMUM_OBSERVATION_GAP_SIM_S, the longest gap the extractor bridges.
+    """
+
+    def __init__(self, duration_s):
+        self.duration_s = duration_s
+        self.sets, self.since = [], None
+
+    def update(self, epoch, sim_time_s):
+        """Return the mechanism sets to show as held after this fit, or an empty list."""
+        minimal = epoch["minimal_possible_mechanism_sets"]
+        if minimal:
+            self.sets = [] if minimal == ["selected_reference"] else list(minimal)
+            self.since = None
+            return []
+        if self.sets and sim_time_s is not None:
+            if self.since is None:
+                self.since = sim_time_s
+            if 0 <= sim_time_s - self.since <= self.duration_s:
+                return self.sets
+        self.sets, self.since = [], None
+        return []
+
+
+def screen_content(epoch, model, held=()):
     """Reference layout: what the screen shows for a fitted epoch, or for None before any airborne poll.
 
     Returns the header, the body lines, the history line and, for each effect in model order,
     its cell text and whether the cell is boxed. `epoch` comes from sequence_reasoning._fit_epoch.
+    `held` lists mechanism sets to keep on screen, each marked "?", while nothing fits.
     """
     facts, roots = list(model["facts"]), list(model["roots"])
     body, history, state = [], "", "NO DATA"
@@ -140,16 +168,18 @@ def screen_content(epoch, model):
         fits = {fit["id"]: fit for fit in epoch["mechanism_sets"]}
         minimal = epoch["minimal_possible_mechanism_sets"]
         unread = sum(epoch["facts"][name]["state"] == "unknown" for name in facts)
-        if not minimal:
+        holding = not minimal and bool(held)
+        if not minimal and not held:
             state, body = "NO FIT", ["NO MODELLED CAUSE", "FITS THE READINGS"]
         elif minimal == ["selected_reference"]:
             state = "NO FAULT"
             body = ["NO SELECTED FAULT", f"{unread} OF {len(facts)} UNREAD" if unread else "ALL CHANNELS READ"]
         else:
-            state = f"{len(minimal)} CAUSE" + ("S" if len(minimal) > 1 else "")
+            minimal = list(held) if holding else minimal
+            state = "CHECKING" if holding else f"{len(minimal)} CAUSE" + ("S" if len(minimal) > 1 else "")
             for index, identifier in enumerate(minimal):
                 fit = fits[identifier]
-                mark = " " if fit["history_counts"]["compatible"] else "?"
+                mark = " " if fit["history_counts"]["compatible"] and not holding else "?"
                 lines = _explanation_lines(index + 1, mark, [ROOT_TAGS[root] for root in roots if root in fit["roots"]])
                 # Keep one line free for "+N MORE" unless this is the last set.
                 if len(body) + len(lines) + (1 if index + 1 < len(minimal) else 0) > BODY_ROWS:

@@ -480,6 +480,29 @@ def screens(streams, executable, directory, tables=None):
     return [screen_layout.pages_from_hex(line.split()[1]) for line in replies if line.startswith("screen ")]
 
 
+def expected_screens(streams, tables=None):
+    """What the Python reference puts on the screen after every poll, including held explanations."""
+    tables = tables or model_tables()
+    model = tables["model"]
+    catalogue = _catalogue_orders(model)
+    expected = []
+    for _, rows, raw_bounds in streams:
+        bounds = _response_bounds(raw_bounds, model)
+        hold = screen_layout.Hold(MAXIMUM_OBSERVATION_GAP_SIM_S)
+        frames = build_feature_frames(rows, generated=True, sequence_prefixes=True)["frames"]
+        for row, prefix in zip(rows, frames):
+            frame = prefix["sequence_epoch"]
+            if frame is None:
+                hold = screen_layout.Hold(MAXIMUM_OBSERVATION_GAP_SIM_S)
+                expected.append(screen_layout.screen_content(None, model))
+                continue
+            epoch = _fit_epoch(frame, model, bounds, catalogue)
+            clock = row["readings"].get("sim_time")
+            held = hold.update(epoch, clock["value"] if clock and clock["valid"] else None)
+            expected.append(screen_layout.screen_content(epoch, model, held))
+    return expected
+
+
 def recording_rows(path):
     """Read one schema 2 or 3 airborne recording as the schema 3 rows the sequence fit uses."""
     return _sequence_rows(iter_profile_observations(Path(path)))[1]

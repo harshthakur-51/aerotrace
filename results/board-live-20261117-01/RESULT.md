@@ -21,7 +21,9 @@ The pinned FlightGear A320-200-CFM qualified near 6,096 feet and 231 knots with 
 
 The tags are the screen's labels: GEN2 for the Generator 2 source path, BPUMP for Blue pressure supply, YEDP for the Yellow engine-driven pump, BLEAK for Blue fluid loss and ENG2 for Engine 2 power loss.
 
-**The two-poll "no fit".** After the cutoff, Engine 2 fuel flow fell below its threshold two polls before core speed did. In the model, Engine 2 power loss requires both effects, and no other mechanism explains a fuel-flow loss. So for two seconds the readings fitted no modelled cause, and the board said so. Python gave the same answer on the same polls. The final explanation appeared when core speed crossed its threshold. This is the model's behaviour during an engine run-down; whether a display should hold the previous explanation through such a gap is an open design question.
+**The two-poll "no fit".** After the cutoff, Engine 2 fuel flow fell below its threshold two polls before core speed did. In the model, Engine 2 power loss requires both effects, and no other mechanism explains a fuel-flow loss. So for two seconds the readings fitted no modelled cause, and the board said so. Python gave the same answer on the same polls. The final explanation appeared when core speed crossed its threshold. This is the model's behaviour during an engine run-down.
+
+After this run the screen was changed to hold the previous explanation through such a gap. The fit and the saved replies are unchanged. Replaying this recording on the reflashed board shows CHECKING with the four earlier mechanisms marked "?" at polls 71 and 72, in place of the no-fit screen saved here. [Screen section of the README](../../README.md#screen)
 
 **Blue pressure decayed slowly.** With the Blue electric pump failed, pressure fell from 3,000 psi by about 150 psi per second, so the pressure effect was confirmed four polls after the input. The leak then emptied the reservoir indication from 8.0 to 0 raw model units in about 30 seconds.
 

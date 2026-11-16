@@ -20,7 +20,8 @@
  *   go
  *
  * `screen` replies "screen <hex>": the 1024 bytes of the screen for the latest fit, page by page
- * (see embedded/display/at_screen.h).
+ * (see embedded/display/at_screen.h). In a telemetry stream the screen holds the previous explanation
+ * through a short gap in which nothing fits; the `go` reply always carries the fit itself.
  *
  * `hello` replies "aerotrace <model id> ready". With a clock the reply ends in " timed", and
  * each `go` and `end` reply is followed by "t <extract_us> <fit_us>", the microseconds spent
@@ -53,6 +54,8 @@ typedef struct {
     at_extractor_t extractor;
     at_sample_t sample;
     at_screen_t screen;
+    at_screen_hold_t hold;
+    uint32_t held_sets; /* sets the screen holds through a gap in a telemetry stream, or 0 */
 } at_text_link_t;
 
 /* now_us may be NULL when no timing is wanted. */

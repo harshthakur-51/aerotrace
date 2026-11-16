@@ -95,7 +95,7 @@ python -B -m aircraft_debugger.c_port --write-model
 python -B -m aircraft_debugger.c_port --check results/timed-pair-20261106-01/observations.jsonl --response-bounds configs/sequence-pair-response-bounds.json
 ```
 
-The second command compiles a PC harness with gcc, clang or MSVC. After every telemetry poll it compares the evidence frame and the fit computed in C with those computed in Python. All 1,609 polls of the 27 airborne recordings in this repository are identical. The test suite repeats this on ten recordings, on 2,400 generated polls with clock resets, dropped polls and stale or invalid readings, on scripted telemetry for detector edge cases, and on more than 7,700 synthetic evidence frames. Of 153 deliberate bugs planted in the C code, including the screen code below, the tests detect 145. The other eight cannot change the output. [Bug-planting script](scripts/mutate_embedded_core.py)
+The second command compiles a PC harness with gcc, clang or MSVC. After every telemetry poll it compares the evidence frame and the fit computed in C with those computed in Python. All 1,609 polls of the 27 airborne recordings in this repository are identical. The test suite repeats this on ten recordings, on 2,400 generated polls with clock resets, dropped polls and stale or invalid readings, on scripted telemetry for detector edge cases, and on more than 7,700 synthetic evidence frames. Of 159 deliberate bugs planted in the C code, including the screen code below, the tests detect 151. The other eight cannot change the output. [Bug-planting script](scripts/mutate_embedded_core.py)
 
 | Compiled for RV32IMAFC with `-Os` (GCC 14.2) | Size |
 | --- | --- |
@@ -148,7 +148,7 @@ On 16 November 2026 the board followed a live flight at about one poll per secon
 
 ![The board's screen after five staged faults: one cause, all five mechanisms](docs/figures/embedded-screen-live-five.png)
 
-On 17 November 2026 all five modelled faults were added one at a time in a single flight, using `--schedule configs/board-live-five-mechanisms.json` in place of `--case`. The board's explanation grew with each fault and ended with all five mechanisms as the only fit. All 101 replies equalled Python. For two polls during the engine run-down it reported no fit, because fuel flow had fallen and core speed had not yet. [Five-fault result](results/board-live-20261117-01/RESULT.md)
+On 17 November 2026 all five modelled faults were added one at a time in a single flight, using `--schedule configs/board-live-five-mechanisms.json` in place of `--case`. The board's explanation grew with each fault and ended with all five mechanisms as the only fit. All 101 replies equalled Python. For two polls during the engine run-down nothing fitted, because fuel flow had fallen and core speed had not yet. The screen now holds the previous explanation through such a gap, as described below. [Five-fault result](results/board-live-20261117-01/RESULT.md)
 
 ### Screen
 
@@ -159,6 +159,10 @@ On 17 November 2026 all five modelled faults were added one at a time in a singl
 ```sh
 python -B -m aircraft_debugger.screen --observations results/engine-drive-20261106-01/engine-auto/observations.jsonl --output work/screen.png
 ```
+
+![Screen during a two-poll gap: CHECKING, with the previous four mechanisms marked "?"](docs/figures/embedded-screen-checking.png)
+
+Effects of one mechanism can cross their thresholds a poll or two apart, and until the last one arrives no modelled cause fits. In a telemetry stream the screen then keeps the previous mechanism sets for up to 3 simulator seconds, each marked "?", under the state CHECKING. After that it shows NO FIT. The fit and the link's reply are not changed by this. The 3 seconds are a display choice of this project with no external validation; they equal the longest observation gap the fact extraction bridges.
 
 The command renders a recording's last poll through the C code and the PC harness. The tests compare every pixel with a Python reference of the layout on about 3,900 screens. The frame buffer uses the SSD1306 page layout and the firmware reports it over the text link, but the code that sends it to a display over I2C is not written, so nothing has been shown on a real panel.
 

@@ -120,6 +120,8 @@ static void reset_case(at_text_link_t *link)
     unsigned index;
     memset(&link->frame, 0, sizeof link->frame);
     memset(&link->bounds, 0, sizeof link->bounds);
+    at_screen_hold_reset(&link->hold);
+    link->held_sets = 0;
     for (index = 0; index < AT_FACT_COUNT; index++) {
         link->frame.fact[index].state = AT_STATE_UNKNOWN;
     }
@@ -235,12 +237,15 @@ static int handle(at_text_link_t *link, char **field, unsigned count, FILE *out)
         at_extract_init(&link->extractor);
         memset(&link->bounds, 0, sizeof link->bounds);
         memset(&link->sample, 0, sizeof link->sample);
+        at_screen_hold_reset(&link->hold);
+        link->held_sets = 0;
         link->fitted = 0;
         return 0;
     }
     if (strcmp(kind, "screen") == 0 && count == 1) {
         const uint8_t *byte = &link->screen.page[0][0];
-        at_screen_draw(&link->screen, link->fitted ? &link->frame : NULL, link->fitted ? &link->result : NULL);
+        at_screen_draw_held(&link->screen, link->fitted ? &link->frame : NULL, link->fitted ? &link->result : NULL,
+                            link->held_sets);
         fprintf(out, "screen ");
         for (index = 0; index < sizeof link->screen.page; index++) {
             fprintf(out, "%02x", (unsigned)byte[index]);
@@ -261,6 +266,8 @@ static int handle(at_text_link_t *link, char **field, unsigned count, FILE *out)
         fprintf(out, "%lu %d ", (unsigned long)link->sample.sample_index, status);
         if (!framed) {
             link->fitted = 0;
+            link->held_sets = 0;
+            at_screen_hold_reset(&link->hold);
             fprintf(out, "none\n");
             print_timing(link, extract_us, 0, out);
             return 0;
@@ -268,6 +275,14 @@ static int handle(at_text_link_t *link, char **field, unsigned count, FILE *out)
         print_frame(&link->frame, out);
         fputc(' ', out);
         fit_and_print(link, extract_us, out);
+        if (link->fitted) {
+            const at_reading_t *clock = &link->sample.reading[AT_CHANNEL_SIM_TIME];
+            link->held_sets = at_screen_hold_update(&link->hold, &link->result, clock->present && clock->valid,
+                                                    clock->value);
+        } else {
+            link->held_sets = 0;
+            at_screen_hold_reset(&link->hold);
+        }
         return 0;
     }
     if (strcmp(kind, "b") == 0 && count == 5) {

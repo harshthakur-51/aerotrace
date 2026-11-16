@@ -139,17 +139,28 @@ static unsigned explanation(at_screen_t *screen, unsigned line, unsigned number,
     return lines;
 }
 
-static void draw_causes(at_screen_t *screen, const at_result_t *result, unsigned count)
+static unsigned count_sets(uint32_t sets)
 {
-    unsigned set, shown = 0, line = 0;
+    unsigned index, count = 0;
+    for (index = 0; index < AT_SET_COUNT; index++) {
+        count += (sets >> index) & 1u;
+    }
+    return count;
+}
+
+/* List the mechanism sets in `sets`. With `held` every set is marked "?", otherwise only the
+ * sets without a compatible onset history. */
+static void draw_causes(at_screen_t *screen, const at_result_t *result, uint32_t sets, int held)
+{
+    unsigned set, shown = 0, line = 0, count = count_sets(sets);
 
     for (set = 0; set < AT_SET_COUNT; set++) {
         char mark;
         unsigned lines;
-        if (!((result->minimal_sets >> set) & 1u)) {
+        if (!((sets >> set) & 1u)) {
             continue;
         }
-        mark = result->set[set].history_count[AT_COMPATIBLE] ? ' ' : '?';
+        mark = !held && result->set[set].history_count[AT_COMPATIBLE] ? ' ' : '?';
         lines = explanation(screen, line, shown + 1, mark, AT_SET_ROOTS[set], 0);
         /* Keep one line free for "+N MORE" unless this is the last set. */
         if (line + lines + (count - shown - 1 ? 1u : 0u) > BODY_ROWS) {
@@ -163,7 +174,39 @@ static void draw_causes(at_screen_t *screen, const at_result_t *result, unsigned
     }
 }
 
+void at_screen_hold_reset(at_screen_hold_t *hold)
+{
+    memset(hold, 0, sizeof *hold);
+}
+
+uint32_t at_screen_hold_update(at_screen_hold_t *hold, const at_result_t *result, int has_time, double sim_time_s)
+{
+    if (result->minimal_sets != 0u) {
+        /* Set 0 alone means no fault; there is then nothing to hold. */
+        hold->sets = result->minimal_sets > 1u ? result->minimal_sets : 0u;
+        hold->waiting = 0;
+        return 0u;
+    }
+    if (hold->sets != 0u && has_time) {
+        if (!hold->waiting) {
+            hold->waiting = 1;
+            hold->since_s = sim_time_s;
+        }
+        if (sim_time_s >= hold->since_s && sim_time_s - hold->since_s <= AT_SCREEN_HOLD_SIM_S) {
+            return hold->sets;
+        }
+    }
+    at_screen_hold_reset(hold);
+    return 0u;
+}
+
 void at_screen_draw(at_screen_t *screen, const at_frame_t *frame, const at_result_t *result)
+{
+    at_screen_draw_held(screen, frame, result, 0u);
+}
+
+void at_screen_draw_held(at_screen_t *screen, const at_frame_t *frame, const at_result_t *result,
+                         uint32_t held_sets)
 {
     const char *state = "NO DATA";
     char causes[24];
@@ -174,13 +217,14 @@ void at_screen_draw(at_screen_t *screen, const at_frame_t *frame, const at_resul
         put_text(screen, BODY_Y, 0, "WAITING FOR AIRBORNE", 0);
         put_text(screen, BODY_Y + LINE_HEIGHT, 0, "TELEMETRY", 0);
     } else {
-        for (index = 0; index < AT_SET_COUNT; index++) {
-            count += (result->minimal_sets >> index) & 1u;
-        }
+        count = count_sets(result->minimal_sets);
         for (index = 0; index < AT_FACT_COUNT; index++) {
             unread += frame->fact[index].state == AT_STATE_UNKNOWN;
         }
-        if (count == 0) {
+        if (count == 0 && held_sets != 0u) {
+            state = "CHECKING";
+            draw_causes(screen, result, held_sets, 1);
+        } else if (count == 0) {
             state = "NO FIT";
             put_text(screen, BODY_Y, 0, "NO MODELLED CAUSE", 0);
             put_text(screen, BODY_Y + LINE_HEIGHT, 0, "FITS THE READINGS", 0);
@@ -199,7 +243,7 @@ void at_screen_draw(at_screen_t *screen, const at_frame_t *frame, const at_resul
         } else {
             format_number(causes, count, count > 1u ? " CAUSES" : " CAUSE");
             state = causes;
-            draw_causes(screen, result, count);
+            draw_causes(screen, result, result->minimal_sets, 0);
         }
         column = put_text(screen, HISTORY_Y, 0, "HIST C:", 0);
         column = put_text(screen, HISTORY_Y, put_number(screen, HISTORY_Y, column, result->history_count[AT_COMPATIBLE]),

@@ -1,6 +1,7 @@
 """Check the C screen renderer against the Python reference layout, by reading its pixels back as text."""
 
 from itertools import product
+import json
 import tempfile
 import unittest
 
@@ -20,6 +21,27 @@ def unread_mix_cases():
                         "covered_through_confirmation": True}
             facts[name] = {"state": state, "onset_interval": interval if state == "observed" else None}
         yield f"mix-{index}", {"facts": facts, "temporal_relations": {}}, None
+
+
+def hold_streams():
+    """The five-fault flight, and a copy whose gap with no fit lasts seven polls.
+
+    The copy repeats the gap's first poll at whole simulator seconds after it, so one repeat
+    falls exactly on the end of the hold.
+    """
+    rows = c_port.recording_rows(RESULTS / "board-live-20261117-01/run/observations.jsonl")
+    lost = next(index for index, row in enumerate(rows) if row["readings"]["engine_2_fuel_flow"]["value"] < 100)
+    copies = []
+    for step in range(1, 7):
+        copy = json.loads(json.dumps(rows[lost]))
+        copy["sample_index"] += step
+        copy["received_monotonic_s"] += step
+        for reading in copy["readings"].values():
+            reading["received_monotonic_s"] += step
+            reading["sim_time_s"] += step
+        copy["readings"]["sim_time"]["value"] += step
+        copies.append(copy)
+    return [("five", rows, None), ("stuck", rows[:lost + 1] + copies, None)]
 
 
 class ScreenLayoutTests(unittest.TestCase):
@@ -105,15 +127,29 @@ class ScreenRenderingTests(unittest.TestCase):
         streams = [(folder, c_port.recording_rows(RESULTS / folder / "observations.jsonl"), bounds)
                    for folder, bounds in RECORDED_FLIGHTS[:5]] + scripted_streams()
         drawn = c_port.screens(streams, self.executable, self.directory, self.tables)
-        expected = []
-        for _, rows, raw in streams:
-            bounds = _response_bounds(raw, self.model)
-            for prefix in c_port.build_feature_frames(rows, generated=True, sequence_prefixes=True)["frames"]:
-                frame = prefix["sequence_epoch"]
-                epoch = None if frame is None else _fit_epoch(frame, self.model, bounds, self.catalogue)
-                expected.append(screen.screen_content(epoch, self.model))
+        expected = self.stream_screens(streams)
         self.assert_same_pixels(drawn, expected)
         self.assertTrue(any(content["header"].endswith("NO DATA") for content in expected))
+
+    def stream_screens(self, streams):
+        return c_port.expected_screens(streams, self.tables)
+
+    def test_a_short_gap_with_no_fit_holds_the_previous_explanation(self):
+        """Five staged faults: fuel flow fell two polls before core speed, so nothing fitted for two polls."""
+        streams = hold_streams()
+        rows = streams[0][1]
+        drawn = c_port.screens(streams, self.executable, self.directory, self.tables)
+        expected = self.stream_screens(streams)
+        self.assert_same_pixels(drawn, expected)
+        states = [content["header"].split(None, 1)[1].strip() for content in expected]
+        five, stuck = states[:len(rows)], states[len(rows):]
+        self.assertEqual(five.count("CHECKING"), 2)
+        self.assertNotIn("NO FIT", five)
+        self.assertEqual(five[-1], "1 CAUSE")
+        held = expected[five.index("CHECKING")]["body"]
+        self.assertEqual([line.strip() for line in held[:2]], ["1?GEN2+BLEAK+BPUMP+", "YEDP"])
+        # A gap longer than the hold ends in NO FIT. The last six polls are exactly 1 to 6 seconds into the gap.
+        self.assertEqual(stuck[-6:], ["CHECKING"] * 3 + ["NO FIT"] * 3)
 
     def test_screen_before_any_fit_and_after_a_rejected_frame_shows_no_data(self):
         frame, _ = synthetic_frame({GEN: 10}, delayed=0, backup=1, depletes=0)

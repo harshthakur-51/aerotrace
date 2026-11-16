@@ -197,6 +197,12 @@ SCREEN_MUTATIONS = [
     ("header bar one row short", "fill(screen, 0, 0, AT_SCREEN_WIDTH, HEADER_HEIGHT);", "fill(screen, 0, 0, AT_SCREEN_WIDTH, HEADER_HEIGHT - 1u);"),
     ("pixel written to wrong page", "screen->page[y / 8u][x] |= mask;", "screen->page[(y + 1u) / 8u % AT_SCREEN_PAGES][x] |= mask;"),
     ("unknown character left blank", "        glyph = (unsigned)'?' - AT_FONT_FIRST;", "        glyph = 0;"),
+    ("hold never ends", "sim_time_s - hold->since_s <= AT_SCREEN_HOLD_SIM_S", "sim_time_s - hold->since_s <= 1e9"),
+    ("hold ends one second early", "sim_time_s - hold->since_s <= AT_SCREEN_HOLD_SIM_S", "sim_time_s - hold->since_s < AT_SCREEN_HOLD_SIM_S"),
+    ("hold restarts every poll", "        if (!hold->waiting) {", "        if (1) {"),
+    ("no fault is held", "hold->sets = result->minimal_sets > 1u ? result->minimal_sets : 0u;", "hold->sets = result->minimal_sets;"),
+    ("held sets not marked", "mark = !held && result->set[set]", "mark = held || result->set[set]"),
+    ("held shown as no fit", "        if (count == 0 && held_sets != 0u) {", "        if (count == 0 && held_sets != 0u && 0) {"),
 ]
 
 
@@ -226,15 +232,10 @@ def prepare():
         bounds = _response_bounds(raw, model)
         screen_text.append(c_port.frame_case(str(index), frame, bounds, tables) + "screen\n")
         screen_pages.append(screen.render(screen.screen_content(_fit_epoch(frame, model, bounds, catalogue), model)))
-    shown = recorded[:5] + test_c_port.scripted_streams()
+    shown = recorded[:5] + test_c_port.scripted_streams() + test_screen.hold_streams()
     for _, lines, _ in c_port.stream_exchanges(shown, tables, fit=False):
         screen_text.append("\n".join([*lines, "screen"]) + "\n")
-    for _, rows, raw in shown:
-        bounds = _response_bounds(raw, model)
-        for prefix in c_port.build_feature_frames(rows, generated=True, sequence_prefixes=True)["frames"]:
-            frame = prefix["sequence_epoch"]
-            epoch = None if frame is None else _fit_epoch(frame, model, bounds, catalogue)
-            screen_pages.append(screen.render(screen.screen_content(epoch, model)))
+    screen_pages += [screen.render(content) for content in c_port.expected_screens(shown, tables)]
     return "".join(frames), expected, streams, "".join(screen_text), screen_pages
 
 
