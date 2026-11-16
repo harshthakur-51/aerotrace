@@ -1,0 +1,7 @@
+[
+  {"faults": ["generator_2"], "duration_sim_s": 8},
+  {"faults": ["generator_2", "blue_pump"], "duration_sim_s": 10},
+  {"faults": ["generator_2", "blue_pump", "yellow_edp"], "duration_sim_s": 10},
+  {"faults": ["generator_2", "blue_pump", "yellow_edp", "blue_leak"], "duration_sim_s": 15},
+  {"faults": ["generator_2", "blue_pump", "yellow_edp", "blue_leak", "engine_2_cutoff"], "duration_sim_s": 20}
+]

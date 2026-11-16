@@ -86,6 +86,86 @@ Run the test suite:
 python -B -m unittest discover -s tests -v
 ```
 
+## Embedded core (in progress)
+
+Steps 2 to 4 above also exist as portable C99 in [embedded/core](embedded/core), for a microcontroller build. The core uses no heap and no I/O, and its memory use does not grow with the length of the flight. Its model tables and detector thresholds are generated from the Python code, so the two cannot drift apart unnoticed.
+
+```sh
+python -B -m aircraft_debugger.c_port --write-model
+python -B -m aircraft_debugger.c_port --check results/timed-pair-20261106-01/observations.jsonl --response-bounds configs/sequence-pair-response-bounds.json
+```
+
+The second command compiles a PC harness with gcc, clang or MSVC. After every telemetry poll it compares the evidence frame and the fit computed in C with those computed in Python. All 1,609 polls of the 27 airborne recordings in this repository are identical. The test suite repeats this on ten recordings, on 2,400 generated polls with clock resets, dropped polls and stale or invalid readings, on scripted telemetry for detector edge cases, and on more than 7,700 synthetic evidence frames. Of 159 deliberate bugs planted in the C code, including the screen code below, the tests detect 151. The other eight cannot change the output. [Bug-planting script](scripts/mutate_embedded_core.py)
+
+| Compiled for RV32IMAFC with `-Os` (GCC 14.2) | Size |
+| --- | --- |
+| Fact extraction code | 5.0 kB |
+| Fitting code | 2.4 kB |
+| Model tables | 7.6 kB |
+| Working memory (extractor, one poll, frame, bounds, result) | 4.5 kB of RAM |
+
+These sizes exclude the compiler's software routines for 64-bit floating point. The investigation step still runs only in Python. On-board timing is given in the firmware section below.
+
+### Firmware for the ESP32-P4
+
+[embedded/firmware](embedded/firmware) is an ESP-IDF project, built here with v5.5.3. It serves a line-based [text link](embedded/link/at_text_link.h) on the board's console UART. The PC harness uses the same link code, so a board receives exactly the input the PC tests use and its replies can be compared line for line. After each reply the firmware reports the microseconds spent in extraction and in the fit.
+
+```sh
+idf.py -C embedded/firmware build
+idf.py -C embedded/firmware -B embedded/firmware/build-rev1 -D SDKCONFIG=build-rev1/sdkconfig -D "SDKCONFIG_DEFAULTS=sdkconfig.defaults;sdkconfig.defaults.rev1" build
+```
+
+The first command targets chip revision 3.0 or later and the second targets revisions below 3.0. ESP-IDF supports only one of these groups per build. The application image is 246 kB. The AeroTrace code and tables take 22 kB of it and 5.6 kB of static RAM.
+
+```sh
+python -B -m aircraft_debugger.device_check --harness --check results/timed-pair-20261106-01/observations.jsonl
+python -B -m aircraft_debugger.device_check --port COM5 --check results/timed-pair-20261106-01/observations.jsonl
+```
+
+The device check sends a recording poll by poll, compares every reply with the Python result and summarises the reported timing. `--harness` runs it against the PC harness as a child process, which is how the test suite covers it. `--port` talks to a board and needs `pyserial`.
+
+**Measured on a board (16 November 2026).** A Waveshare ESP32-P4-WIFI6-DEV-KIT with chip revision 3.1 was connected through the chip's USB Serial/JTAG port, so the build added `sdkconfig.defaults.usbjtag` to put the link on that port. All 1,609 polls of the 27 airborne recordings gave replies identical to Python, with and without response bounds.
+
+| Per poll, on the ESP32-P4 at 64-bit floating point | Median | 95th percentile | Maximum |
+| --- | --- | --- | --- |
+| Fact extraction | 32 us | 48 us | 335 us |
+| Fit of 32 sets and 1,082 histories | 151 us | 3.1 ms | 3.2 ms |
+| Round trip from the PC, including the text reply | 45 ms | 51 ms | 61 ms |
+
+The fit is slowest when many mechanism sets survive the dependency check, because each survivor has its onset histories tested for timing. The round trip is dominated by the text link's long reply, not by the computation. The variant for chip revisions below 3.0 and the UART console compile but have not run on a board.
+
+### Live flight on the board
+
+```sh
+python -B -m aircraft_debugger.board_live --output work/board-live --board-port COM3 --case independent_generator_2_and_yellow_edp --ptu auto --config results/pressure-v2-protocol-20261106-01/qualification-B.json --active-seconds 28 --recovery-seconds 10 --maximum-postfault-local-seconds 90
+```
+
+[board_live.py](aircraft_debugger/board_live.py) runs an airborne experiment against the connected simulator and sends each public observation to the board as it is recorded. The board gets no fault command or failure flag. Its replies and screens are saved beside the recording and then compared with the Python fit.
+
+![The board's screen during the live flight: one cause, GEN2+YEDP](docs/figures/embedded-screen-live-pair.png)
+
+On 16 November 2026 the board followed a live flight at about one poll per second while Generator 2 and the Yellow engine-driven pump were failed together. It showed the two-mechanism explanation one poll after both effects appeared, and all 58 replies equalled Python. [Live result](results/board-live-20261116-01/RESULT.md)
+
+![The board's screen after five staged faults: one cause, all five mechanisms](docs/figures/embedded-screen-live-five.png)
+
+On 17 November 2026 all five modelled faults were added one at a time in a single flight, using `--schedule configs/board-live-five-mechanisms.json` in place of `--case`. The board's explanation grew with each fault and ended with all five mechanisms as the only fit. All 101 replies equalled Python. For two polls during the engine run-down nothing fitted, because fuel flow had fallen and core speed had not yet. The screen now holds the previous explanation through such a gap, as described below. [Five-fault result](results/board-live-20261117-01/RESULT.md)
+
+### Screen
+
+![Screen for the Engine 2 drive-loss recording: one cause, ENG2](docs/figures/embedded-screen-engine.png) ![Screen for the staggered generator and Blue pump recording: two unconfirmed causes](docs/figures/embedded-screen-pair.png)
+
+[at_screen.c](embedded/display/at_screen.c) draws the diagnosis for a 128 x 64 monochrome display. The images above are its output for two recorded flights. The top bar gives the overall state. Below it are the smallest mechanism sets that fit, then the number of compatible (C) and unconfirmed (U) onset histories. The bottom two rows show the eight effects in fixed positions: a boxed label is an observed effect, and "?" marks an effect that was not read or an explanation that is still unconfirmed. In the right image the engine and Yellow channels were not recorded, so both explanations stay unconfirmed.
+
+```sh
+python -B -m aircraft_debugger.screen --observations results/engine-drive-20261106-01/engine-auto/observations.jsonl --output work/screen.png
+```
+
+![Screen during a two-poll gap: CHECKING, with the previous four mechanisms marked "?"](docs/figures/embedded-screen-checking.png)
+
+Effects of one mechanism can cross their thresholds a poll or two apart, and until the last one arrives no modelled cause fits. In a telemetry stream the screen then keeps the previous mechanism sets for up to 3 simulator seconds, each marked "?", under the state CHECKING. After that it shows NO FIT. The fit and the link's reply are not changed by this. The 3 seconds are a display choice of this project with no external validation; they equal the longest observation gap the fact extraction bridges.
+
+The command renders a recording's last poll through the C code and the PC harness. The tests compare every pixel with a Python reference of the layout on about 3,900 screens. The frame buffer uses the SSD1306 page layout and the firmware reports it over the text link, but the code that sends it to a display over I2C is not written, so nothing has been shown on a real panel.
+
 ## What the experiments showed
 
 ![Generator 2 output and Blue hydraulic pressure fall while bus voltage and indicated quantity are retained](docs/figures/pressure-pair-observed.png)
@@ -106,7 +186,7 @@ reports both. [Recording, diagnosis and operator evidence](results/pressure-pair
 | **Five-fault sequence study** | 1,081 onset histories across all mechanism sets. The expected history was retained in every synthetic case. |
 | **v1.3 investigation** | All 444 counterfactual answers agreed with the executable model. The true mechanism set was retained in 10 of 12 cases; the 2 misses are an inconsistent test fixture and a deliberately unmodelled fault. |
 | **Update cost** | 95th-percentile live update of **80 ms** over a 1,200-poll session (was 490 ms before context reuse). |
-| **Software** | **230** automated tests, run by CI on Linux and Windows with Python 3.11 and 3.13. |
+| **Software** | **256** automated tests, run by CI on Linux and Windows with Python 3.11 and 3.13. |
 
 [Engine drive results](results/engine-drive-20261106-01/REPORT.md) · [Prospective evaluation](results/pressure-v2-prospective-20261106-01/REPORT.md) · [Timed fault study](docs/TEMPORAL-STUDY.md) · [Five-fault sequences](docs/FAULT-SEQUENCE-STUDY.md) · [Quantity stress test](results/quantity-indication-stress-20261106-01/README.md) · [Load measurements](results/pressure-v2-load-optimized-20261106-01/REPORT.md) · [Release review](results/v1.3-release-review-20261107-01/REPORT.md) · [Initial validation report (PDF)](output/pdf/AeroTrace-Engineering-Report.pdf)
 
@@ -147,6 +227,7 @@ probabilistic baseline is a natural next step.
 | Path | Contents |
 | --- | --- |
 | [aircraft_debugger/](aircraft_debugger/) | Telemetry validation, evidence extraction, causal models, live and replay panels |
+| [embedded/](embedded/) | Portable C99 core, generated model tables, text link, PC comparison harness and ESP32-P4 firmware |
 | [configs/](configs/) | Aircraft setup, fault mappings, qualification rules and pinned simulator assets |
 | [results/](results/) | Observation streams, expected profiles, saved diagnoses and experiment provenance |
 | [tests/](tests/) | Automated checks and regressions using recorded observations |

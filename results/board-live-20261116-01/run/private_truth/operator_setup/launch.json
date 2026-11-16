@@ -1,0 +1,8 @@
+{
+    "qualification":  "results/pressure-v2-protocol-20261106-01/qualification-B.json",
+    "config":  "--config=Z:/aircraft-debugger/configs/flightgear-a320.fgfsrc",
+    "process_id":  12496,
+    "flight_group":  "board-live-20261116-01",
+    "launched_utc":  "2026-11-16T18:10:53.1247653Z",
+    "git_head":  "79237bd5558b4c11db770b42e4b42e2118df7f09"
+}
