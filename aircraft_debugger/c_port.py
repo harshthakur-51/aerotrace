@@ -428,6 +428,15 @@ def same_poll(want, got, *, fit=True):
     return want == (got if fit or want.endswith("none") else got[:len(want)])
 
 
+def stream_header(number, raw_bounds, tables):
+    """The lines that start a stream: its number and its validated response bounds."""
+    roots, facts = tables["roots"], tables["facts"]
+    bounds = _response_bounds(raw_bounds, tables["model"])
+    return [f"stream {number}"] + [
+        f"b {roots.index(root)} {facts.index(effect)} {float(low).hex()} {float(high).hex()}"
+        for root, effects in bounds.items() for effect, (low, high) in effects.items()]
+
+
 def stream_exchanges(streams, tables, *, fit=True):
     """Yield (label, lines to send, reply Python expects) for every poll of every stream.
 
@@ -435,12 +444,9 @@ def stream_exchanges(streams, tables, *, fit=True):
     """
     model = tables["model"]
     catalogue = _catalogue_orders(model)
-    roots, facts = tables["roots"], tables["facts"]
     for number, (label, rows, raw_bounds) in enumerate(streams):
         bounds = _response_bounds(raw_bounds, model)
-        lines = [f"stream {number}"]
-        lines += [f"b {roots.index(root)} {facts.index(effect)} {float(low).hex()} {float(high).hex()}"
-                  for root, effects in bounds.items() for effect, (low, high) in effects.items()]
+        lines = stream_header(number, raw_bounds, tables)
         frames = build_feature_frames(rows, generated=True, sequence_prefixes=True)["frames"]
         for row, prefix in zip(rows, frames):
             frame = prefix["sequence_epoch"]

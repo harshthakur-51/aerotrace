@@ -134,6 +134,18 @@ The device check sends a recording poll by poll, compares every reply with the P
 
 The fit is slowest when many mechanism sets survive the dependency check, because each survivor has its onset histories tested for timing. The round trip is dominated by the text link's long reply, not by the computation. The variant for chip revisions below 3.0 and the UART console compile but have not run on a board.
 
+### Live flight on the board
+
+```sh
+python -B -m aircraft_debugger.board_live --output work/board-live --board-port COM3 --case independent_generator_2_and_yellow_edp --ptu auto --config results/pressure-v2-protocol-20261106-01/qualification-B.json --active-seconds 28 --recovery-seconds 10 --maximum-postfault-local-seconds 90
+```
+
+[board_live.py](aircraft_debugger/board_live.py) runs an airborne experiment against the connected simulator and sends each public observation to the board as it is recorded. The board gets no fault command or failure flag. Its replies and screens are saved beside the recording and then compared with the Python fit.
+
+![The board's screen during the live flight: one cause, GEN2+YEDP](docs/figures/embedded-screen-live-pair.png)
+
+On 16 November 2026 the board followed a live flight at about one poll per second while Generator 2 and the Yellow engine-driven pump were failed together. It showed the two-mechanism explanation one poll after both effects appeared, and all 58 replies equalled Python. [Live result](results/board-live-20261116-01/RESULT.md)
+
 ### Screen
 
 ![Screen for the Engine 2 drive-loss recording: one cause, ENG2](docs/figures/embedded-screen-engine.png) ![Screen for the staggered generator and Blue pump recording: two unconfirmed causes](docs/figures/embedded-screen-pair.png)
